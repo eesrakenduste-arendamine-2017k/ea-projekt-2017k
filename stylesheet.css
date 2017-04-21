@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600');
+
+body{
+	margin: 0;
+}
+
+footer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	background: #202020;
+    position: fixed;
+	bottom: 0;
+	color: white;
+}
+
+p{
+	text-align: center;
+}
+
+h1{
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 400;
+	text-align: center;
+	font-size: 40pt;
+	color: white;
+}
+
+#querybox{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	border: none;
+	border-bottom: 1px solid #e2e2e2;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 40pt;
+	transition: border-bottom 0.2s ease-out;
+	text-align: center;
+	background: transparent;
+	color: white;
+}
+
+#querybox:focus{
+	outline: none;
+	border-bottom: 3px solid #777;
+	transition: border-bottom 0.2s ease-in;
+}
+
+#submitbutton{
+	visibility: hidden;
+}
+
+#toppage{
+	padding-top: 100px;
+	padding-bottom: 50px;
+	margin: 0;
+	background: #202020;
+	width: auto;
+	min-width: 100%;
+}
+
+.item {
+	width: 250px;
+	margin: 5px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 5px;
+	float:left;
+}
+.profile-image {
+	width: 250px;
+	height: 250px;
+	background-size:cover;
+}
