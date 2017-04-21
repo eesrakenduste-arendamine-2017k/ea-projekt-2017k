@@ -1,21 +1,12 @@
-# Eesrakenduste arendamine 2017k – projekt
+# Tweetfeel
 
-## Tähtaeg 
+**Janno Pärtna, Tõnis Nerep**
 
-Valitud eksamipäev
+Rakendus võimaldab kasutajal otsida tweet'e märksõnade kaudu ning analüüsib märksõnaga seotud tweet'ide positiivsuse taset. 
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
+v0.1 Esmane otsingufunktsioon Twitteri API kaudu ja esilehe kujundus
 
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
-
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
-
-### Nõuded
+*(to be continued...)*
 
 1. **README.md sisaldab:**
     * suurelt projekti nime;
