@@ -1,5 +1,13 @@
 # Eesrakenduste arendamine 2017k – projekt
 
+---GYMTIME---
+Oscar August Heinla, Tanel Otsa, Kent Loog
+
+Eesmärk:
+Rakendus, mida kasutada treeningutel(nt. jõusaalis)
+Logides sisse on võimalik teha omale erinevaid treening kavasid.
+Treeningul olles saab võtta varem valmistatud kava ning jooksvalt sinna sisestada tehtud korduste arvu ning raskused mida kasutasid.
+
 ## Tähtaeg 
 
 Valitud eksamipäev
