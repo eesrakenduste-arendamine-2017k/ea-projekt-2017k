@@ -1,4 +1,7 @@
 window.onload = function (){
+
+    //window.location.reload(true);
+
     var menuBtn= document.getElementById("menuBtn");
     var menu= document.getElementById("menu");
     var icon= document.getElementById("icon");
@@ -16,6 +19,10 @@ window.onload = function (){
     var spentOnClothes= document.getElementById("spentOnClothes");
     var spentOnOther= document.getElementById("spentOnOther");
     var freeMoneyLeft= document.getElementById("freeMoneyLeft");
+    var spentOnFood2= document.getElementById("spentOnFood2");
+    var spentOnClothes2= document.getElementById("spentOnClothes2");
+    var spentOnOther2= document.getElementById("spentOnOther2");
+    var freeMoneyLeft2= document.getElementById("freeMoneyLeft2");
 
     var eur= document.getElementById("eur");
     var fiveEur= document.getElementById("fiveEur");
@@ -40,6 +47,10 @@ window.onload = function (){
     menuBtn.style.maxWidth="50px";
     menuBtn.style.minWidth="45px";
 
+    freeMoneyLeft2.innerHTML="1234567890";
+    spentOnFood2.innerHTML="234567";
+    spentOnClothes2.innerHTML="5";
+    spentOnOther2.innerHTML="1";
 
     var WH;
     var addMoneySound = new Audio("addmoneysoundshort.mp3");
@@ -152,6 +163,7 @@ window.onload = function (){
             freeMoney=freeMoney+parseInt(enterAddMoney.value);
 
             freeMoneyLeft.innerHTML=freeMoney;
+            freeMoneyLeft2.innerHTML=freeMoney;
 
 
             menu.style.left="-300px";
@@ -216,7 +228,9 @@ window.onload = function (){
             freeMoney-=parseInt(totalMoneySpent.innerHTML);
 
             freeMoneyLeft.innerHTML=freeMoney;
+            freeMoneyLeft2.innerHTML=freeMoney;
             spentOnFood.innerHTML=foodMoney;
+            spentOnFood2.innerHTML=foodMoney;
 
             foodBtn.className="categoryBtn";
             foodBtn.style.width="33%";
@@ -240,7 +254,9 @@ window.onload = function (){
             freeMoney-=parseInt(totalMoneySpent.innerHTML);
 
             freeMoneyLeft.innerHTML=freeMoney;
+            freeMoneyLeft2.innerHTML=freeMoney;
             spentOnClothes.innerHTML=clothesMoney;
+            spentOnClothes2.innerHTML=clothesMoney;
 
             clothesBtn.className="categoryBtn";
 
@@ -264,7 +280,9 @@ window.onload = function (){
             freeMoney-=parseInt(totalMoneySpent.innerHTML);
 
             freeMoneyLeft.innerHTML=freeMoney;
+            freeMoneyLeft2.innerHTML=freeMoney;
             spentOnOther.innerHTML=otherMoney;
+            spentOnOther2.innerHTML=otherMoney;
 
             otherBtn.className="categoryBtn";
             otherBtn.style.width="32%";
