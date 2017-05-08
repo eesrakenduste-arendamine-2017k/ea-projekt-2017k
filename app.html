@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--bs4-->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <meta charset="utf-8">
+    <title>Wallet</title>
+    <script type="text/javascript" src="app.js" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#12133f">
+    <link rel="shortcut icon" href="shortcutPic.jpg">
+    <meta name="msapplication-TileColor" content="#12133f">
+    <meta name="msapplication-TileImage" content="images/mstile-144x144.png">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#12133f">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div id="getStartedBg" class="getStartedBg"></div>
+<img id="getStarted" class="getStarted" src="get_started2.png">
+<div id="menuBg" class="menuBg"></div>
+    <div id="menuBtn" class="menuBtn"><i id="icon" class="fa fa-bars fa-3x" style="color: rgb(211,205,255)" aria-hidden="true"></i></div>
+    <div id="menu" class="menu">
+        <div class="menuActivity">
+            <div>
+                <button id="addMoney" style="width: 100%">ADD MONEY</button>
+                <input id="enterAddMoney" class="addMoneyForms" type="number" placeholder="AMOUNT" style="width: 100%">
+                <button id="saveAddedMoney" class="addMoneyForms" style="width: 100%">SAVE</button>
+                <button id="putMoneyAside" class="addMoney" style="width: 100%">PUT MONEY ASIDE</button>
+            </div>
+            <div class="menuStactics">
+                <div>FREE MONEY: <span id="freeMoneyLeft" style="float: right">0</span></div>
+                <div>SPENT ON FOOD: <span id="spentOnFood" style="float: right">0</span></div>
+                <div>SPENT ON CLOTHES: <span id="spentOnClothes" style="float: right">0</span></div>
+                <div>SPENT ON OHTER: <span id="spentOnOther" style="float: right">0</span></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="activity">
+        <canvas id="pie" class="pie"></canvas>
+        <div id="colorNames" class="colorNames">
+            <span class="color dodgerblue" style="padding-left: 20px;margin-right: 5px"></span><span>FREE MONEY</span><br>
+            <span class="color darkgreen" style="padding-left: 20px;margin-right: 5px"></span><span>FOOD</span><br>
+            <span class="color maroon" style="padding-left: 20px;margin-right: 5px"></span><span>CLOTHES</span><br>
+            <span class="color yellow" style="padding-left: 20px;margin-right: 5px"></span><span>OTHER</span>
+        </div>
+
+
+
+
+        <div id="selection" class="selection">
+            <button id="food" class="categoryBtn">FOOD</button>
+            <button id="clothes" class="categoryBtn">CLOTHES</button>
+            <button id="other" class="categoryBtn">OTHER</button>
+        </div>
+        <div id="totalMoneySpentCombined" class="totalMoneySpent"><span id="totalMoneySpent">0</span><span style="font-weight: normal">€</span></div>
+        <center>
+            <div id="nextSelection" class="nextSelection">
+                <button id="eur" class="nextSelectionBtn">+1</button>
+                <button id="fiveEur" class="nextSelectionBtn">+5</button>
+                <button id="tenEur" class="nextSelectionBtn">+10</button>
+                <button id="fiftyEur" class="nextSelectionBtn">+50</button>
+                <button id="hundredEur" class="nextSelectionBtn">+100</button>
+                <button id="save" class="saveBtn">SAVE</button>
+            </div>
+        </center>
+
+    </div>
+
+</body>
