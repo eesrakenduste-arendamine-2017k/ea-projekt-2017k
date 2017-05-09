@@ -307,7 +307,7 @@ function printTweets(newTweets){
         html += '<div class="item animated fadeIn">'+
 
         '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+');"></div>'+
-        '<p>'+tweet.user.name+'</p>'+
+        '<p><a class="twitter-screen-name" href="https://twitter.com/'+tweet.user.screen_name+' target="_blank">'+tweet.user.screen_name+'</a></p>'+
         '<p>'+replaced_text+'</p>'+
 
         '</div>';
