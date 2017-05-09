@@ -233,7 +233,7 @@ $(function() {
 
 	    var url = "getfeed.php"; // the script where you handle the form input.
 		var serializedData = $("#form").serialize();
-		console.log(serializedData);
+		//console.log(serializedData);
 		$(".message").css("opacity", "1").delay(2000).animate({
 		    opacity: 0
 		  }, 500, function() {
@@ -281,7 +281,7 @@ function getTweets(){
             //stringi teen massiiviks
             var array = JSON.parse(data).statuses;
 
-            console.log(array);
+            //console.log(array);
             printTweets(array);
 
         },
@@ -297,12 +297,18 @@ function printTweets(newTweets){
     var html = '';
 
     $(newTweets).each(function(i, tweet){
-
+    	var str = tweet.text;
+        // Set the regex string
+        var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+        // Replace plain text links by hyperlinks
+        var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+        // Echo link
+       
         html += '<div class="item animated fadeIn">'+
 
         '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+');"></div>'+
         '<p>'+tweet.user.name+'</p>'+
-        '<p>'+tweet.text+'</p>'+
+        '<p>'+replaced_text+'</p>'+
 
         '</div>';
 
