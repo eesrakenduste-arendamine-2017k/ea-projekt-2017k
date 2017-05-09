@@ -4,24 +4,32 @@ require_once("TwitterAPIExchange.php");
 require_once("config.php");
 
 $file_name = "cache.json";
-
-if(isset($_POST["submit"])){
+$file2 = "feed.json";
+if(isset($_POST["query"])){
 	$url = 'https://api.twitter.com/1.1/search/tweets.json';
 	$getfield = '?q='.$_POST["query"].'%20%3A%28';
 	$requestMethod = 'GET';
 	$twitter = new TwitterAPIExchange($settings);
-	echo $twitter->setGetfield($getfield)
+	/*echo $twitter->setGetfield($getfield)
 				 ->buildOauth($url, $requestMethod)
-				 ->performRequest();
-
+				 ->performRequest();*/
+	$string = json_decode($twitter->setGetfield($getfield)
+	             ->buildOauth($url, $requestMethod)
+	             ->performRequest(),$assoc = TRUE);
+	if($string["errors"][0]["message"] != "") {echo "<h3>Sorry, there was a problem.</h3><p>Twitter returned the following error message:</p><p><em>".$string[errors][0]["message"]."</em></p>";exit();}
+	echo "<pre>";
+	print_r($string);
+	echo "</pre>";
+	file_put_contents($file2, json_encode($string));
 }
+
 $file_data = json_decode(file_get_contents($file_name));
 $delay = 5;
 
 //kas on möödunud vähem kui delayga määrasime
 if(strtotime(date("c")) - (strtotime($file_data->date)) < $delay ){
 	//on liiga vähe möödas
-	echo json_encode($file_data);
+	//echo json_encode($file_data);
 	return;
 }
 
@@ -52,5 +60,6 @@ foreach($file_data->statuses as $old_status){
 }
 //echo count($object->statuses);
 file_put_contents($file_name, json_encode($object));
-echo json_encode($object);
+//echo json_encode($object);
+
 ?>

@@ -229,11 +229,43 @@ $(function() {
     //laetud
 
     getTweets();
+	$("#form").submit(function(e) {
 
-    $grid = $('#content').isotope({
+	    var url = "getfeed.php"; // the script where you handle the form input.
+		var serializedData = $("#form").serialize();
+		console.log(serializedData);
+		$(".message").css("opacity", "1").delay(2000).animate({
+		    opacity: 0
+		  }, 500, function() {
+		    // Animation complete.
+		  });;
+		$("#form #querybox").val('');
+	    $.ajax({
+	           type: "POST",
+	           url: url,
+	           data: serializedData , // serializes the form's elements.
+	           success: function(data)
+	           {
+	           		$("#form #querybox").val('');
+	           		$(".message").css("opacity", "1");
+	           		getTweets();
+
+	               
+	           },
+	           error: function(data){
+	           		console.log(data);
+
+	           }
+	         });
+
+	    e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+
+
+    /*$grid = $('#content').isotope({
         //üks kast
         itemSelector: ".item"
-    });
+    });*/
 
 });
 
@@ -242,7 +274,8 @@ function getTweets(){
 
     //vajadusel saab urliga kaasa saata parameetreid
     $.ajax({
-        url: "getfeed.php",
+        url: "feed.json",
+        dataType : "html",
         success: function(data){
 
             //stringi teen massiiviks
@@ -265,9 +298,9 @@ function printTweets(newTweets){
 
     $(newTweets).each(function(i, tweet){
 
-        html += '<div class="item">'+
+        html += '<div class="item animated fadeIn">'+
 
-        '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+')"></div>'+
+        '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+');"></div>'+
         '<p>'+tweet.user.name+'</p>'+
         '<p>'+tweet.text+'</p>'+
 
@@ -282,13 +315,14 @@ function printTweets(newTweets){
     var tweetsHTML = $(html);
 
     // laeb ettepoole otsa ja aktiveerib isotope'i
-    $grid.prepend(tweetsHTML)
-    .isotope('prepended', tweetsHTML)
-    .isotope('layout');
+    $("#content").prepend(tweetsHTML)
+    //$grid.prepend(tweetsHTML)
+    //.isotope('prepended', tweetsHTML)
+    //.isotope('layout');
 
     //oota ja siis küsi uuesti
-    window.setTimeout(function(){
+    /*window.setTimeout(function(){
         getTweets();
-    },5000);
+    },5000);*/
 
 }

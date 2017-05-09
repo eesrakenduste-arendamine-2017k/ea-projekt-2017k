@@ -3,23 +3,30 @@
 	<title>How do people on Twitter feel about... </title>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+	<link type="text/css" rel="stylesheet" href="animate.css" />
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-	  <script src="feed.js"></script>
+	<script src="feed.js"></script>
+
 
 </head>
 <body>
 	<div id="toppage">
 	<h1>HOW DO PEOPLE ON TWITTER FEEL ABOUT</h1> 
-	<form autocomplete="off" method="post" action="getfeed.php">
-		<input type="text" id="querybox" name="query" placeholder=""/>
+	<form id="form"autocomplete="off" method="post" action="getfeed.php">
+		<div class="form-group">
+			<label for="query"></label>
+			<input type="text" id="querybox" name="query" placeholder=""/>
+		</div>
 		<input type="submit" id="submitbutton" name="submit" />
 	</form>
+		<div class="message">Feed updated</div>
 	</div>
-	<div id="content">Body content</div>
+	<div id="content"></div>
 	<footer><p>Footer content</p></footer>
 </body>
+
 </html>
 
 
