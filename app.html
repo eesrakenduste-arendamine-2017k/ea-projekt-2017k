@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vali kava</title>
+	<script src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="stiil.css">
+
+</head>
+<body>
+	<button id="exitBtn" class="btn">Avalehele</button>
+	<h1 id="algus" style="color: black">Vali kava</h1>
+	<p id="list-of-schedules"></p>
+
+	<script>
+	var schedules, text, sLen, i;
+
+	schedules = ["Chest&Triceps", "Back&Biceps", "Legs"];
+	sLen = schedules.length;
+	text = "<ul>";
+	for(i = 0; i < sLen; i++){
+	  text += "<li><a href=schedule"+ i +".html>" + schedules[i] + "</a></li>";
+	}
+	text += "</ul>";
+	document.getElementById("list-of-schedules").innerHTML = text;
+	</script>
+
+</body>
+</html>
