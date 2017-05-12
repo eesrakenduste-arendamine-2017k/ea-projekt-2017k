@@ -1,0 +1,65 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>4.kodune</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		textarea {
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	
+	
+		<div class="container">
+			<ul class="progressbar"> 
+				<li class="active" id="step1">Step 1</li>
+				<li id="step2">Step 2</li>
+				<li id="step3">Step 3</li>
+			</ul>
+		</div>
+		
+	
+		<div class="ajax" id="form1">
+			Nimeta Tallinna kõige ilusam linnaosa<br>
+				<input type="text" name="name"><br><br>
+			Kui mugav on Tallinnas Liigelda?<br>
+				<input type="range" name="transport" id="transportInputId" value="5" min="0" max="10" oninput="transportId.value = transportInputId.value">
+				<output name="transportOutput" id="transportId">5</output><br><br>
+			Nimeta üks Tallinna linnaosa:<br>
+				<input type="text" name="city"><br><br>
+			<button type="button" id="submit1">Click Me!</button>
+		</div>
+		
+	
+		<div  class="ajax" id="form2">
+			Kirjelda Tallinna kesklinna:<br>
+				<textarea name="describeTallinn" rows="3" cols="40"></textarea><br><br>
+			Kirjelda Tallinna Ülikooli hooneid:<br>
+				<textarea name="describeTLU" rows="3" cols="40"></textarea><br><br>
+			Kõige ilusam linnaosa, sinu arvates:<br>
+				<input type="mostBeautifulPart" name="email"><br><br>
+			<button type="button" id="submit2">Click Me!</button>
+		</div>
+	
+	
+		<div class="ajax" id="form3">
+			Eesnimi:<br>
+				<input type="text" name="name"><br><br>
+			Email:<br>
+				<input type="text" name="email"><br><br>
+			Vanus:<br>
+				<input type="text" name="email"><br><br>
+			Sugu:<br>
+			<input type="radio" name="gender" value="male" checked> Mees<br>
+			<input type="radio" name="gender" value="female"> Naine<br>
+			<input type="radio" name="gender" value="other"> Muu<br><br>
+			<button type="button" id="submit3">Click Me!</button> 
+		</div>
+		
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="form.js"></script>
+</body>
+</html>

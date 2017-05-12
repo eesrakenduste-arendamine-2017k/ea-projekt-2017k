@@ -1,39 +1,20 @@
-# Eesrakenduste arendamine 2017k – projekt
+Liikmed: Mark, Rauno
 
-## Tähtaeg 
+Eesmärk on teha midagi, mida saab kasutada tarkvaraarenduse projektis ning ühes isiklikus projektis
 
-Valitud eksamipäev
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
 
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
 
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
+1)Rakenduse 1 pool tegeleb Formidega. AJAX requestiga form submit, et ei refreshiks lehte, peale form submiti.
 
-### Nõuded
+2)Teha nii, et kui kasutajal on formi vastamine pooleldi, siis samal ajal salvestatakse kõik localStorage´i ja kui 
+kasutajal peaks internet ära kaduma, siis on kõik endiselt alles või kui sulgeb browseris akna, 
+siis on kõik alles mingi teatud ajaperioodi vältel, näiteks paar tundi. 
 
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
+3)Kui form koosneb mitmest osast, näiteks alguses sisuliste küsimuste küsimine ning teine osa isikuandmed,
+siis teha form kaheks osaks, alguses näidata ühte osa ning kasutaja vajutab "next" ning siis kuvatakse talle teine form´i pool 
+ning formi üleval on progress bar, mis näitab, et kui palju on formist täidetud. 
 
-2. **Veebirakenduse nõuded:**
-    * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;
-    * andmeid talletatakse lisaks kohalikule (nt localStorage) ka serveripool (soovitatavalt andmebaasi või faili) – AJAX + serveripoolel nt PHP, Java, Node;
-    * Mugavalt kasutatav ka mobiilselt seadmelt;
-    * muutujad/tabelid on inglise keeles;
-    * rakendus on piisava funktsionaalsusega ja turvaline – eelnev kokkulepe õppejõuga, mis saab valmis;
-    * kood on jaotatud vajadusel eri failidesse ja kood on kokkupakitud kujul (ingl _minified_);
+4)Ehk lisada veel võrguta olekus form submitimine, et talletatakse mujale ning kui internet on tagasi, siis saadetakse automaatselt ära.
+Isiklikus projektis tuleks kasuks, kui kasutajad saaksid notificationeid, kui lehel "teatud" asjad muutuvad, siis lisaks midagi sellega seonduvat. 
 
-3. **Funktsionaalsus**
-    * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
