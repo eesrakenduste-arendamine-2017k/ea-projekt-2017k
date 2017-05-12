@@ -229,17 +229,20 @@ $(function() {
     //laetud
 
     getTweets();
-	$("#form").submit(function(e) {
+    getTrends();
 
+	$("#form").submit(function(e) {
+		$(".loading-container").show();
 	    var url = "getfeed.php"; // the script where you handle the form input.
 		var serializedData = $("#form").serialize();
 		//console.log(serializedData);
-		$(".message").css("opacity", "1").delay(2000).animate({
+		/*$(".message").css("opacity", "1").delay(1500).animate({
 		    opacity: 0
 		  }, 500, function() {
 		    // Animation complete.
-		  });;
+		  });*/
 		$("#form #querybox").val('');
+
 	    $.ajax({
 	           type: "POST",
 	           url: url,
@@ -247,7 +250,7 @@ $(function() {
 	           success: function(data)
 	           {
 	           		$("#form #querybox").val('');
-	           		$(".message").css("opacity", "1");
+	           		
 	           		getTweets();
 
 	               
@@ -257,10 +260,14 @@ $(function() {
 
 	           }
 	         });
-
+		/*$(".message").css("opacity", "1").delay(2000).animate({
+		    opacity: 0
+		  }, 500, function() {
+		    // Animation complete.
+		  });*/
 	    e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
-
+	
 
     /*$grid = $('#content').isotope({
         //üks kast
@@ -273,8 +280,9 @@ $(function() {
 function getTweets(){
 
     //vajadusel saab urliga kaasa saata parameetreid
+
     $.ajax({
-        url: "feed.json",
+        url: "http://test3.tonisnerep.ee/tweetmood/feed.json",
         dataType : "html",
         success: function(data){
 
@@ -283,6 +291,27 @@ function getTweets(){
 
             //console.log(array);
             printTweets(array);
+
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+
+}
+function getTrends(){
+
+    //vajadusel saab urliga kaasa saata parameetreid
+    $.ajax({
+        url: "http://test3.tonisnerep.ee/tweetmood/trending.json",
+        dataType : "html",
+        success: function(data){
+
+            //stringi teen massiiviks
+            newData = data.slice(1, -1);
+            var array = JSON.parse(newData).trends;
+            //console.log(array);
+            printTrends(array);
 
         },
         error: function(error){
@@ -307,9 +336,10 @@ function printTweets(newTweets){
         html += '<div class="item animated fadeIn">'+
 
         '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+');"></div>'+
-        '<p><a class="twitter-screen-name" href="https://twitter.com/'+tweet.user.screen_name+' target="_blank">'+tweet.user.screen_name+'</a></p>'+
+        '<p><a class="twitter-screen-name" href="https://twitter.com/'+tweet.user.screen_name+'" target="_blank">'+tweet.user.screen_name+'</a></p>'+
         '<p>'+replaced_text+'</p>'+
-
+        '<p class="count">Retweet count: '+tweet.retweet_count+'</p>'+
+        '<p class="count">Favorite count: '+tweet.favorite_count+'</p>'+
         '</div>';
 
     });
@@ -321,7 +351,8 @@ function printTweets(newTweets){
     var tweetsHTML = $(html);
 
     // laeb ettepoole otsa ja aktiveerib isotope'i
-    $("#content").prepend(tweetsHTML)
+    $("#content").html(tweetsHTML)
+    $(".loading-container").hide();
     //$grid.prepend(tweetsHTML)
     //.isotope('prepended', tweetsHTML)
     //.isotope('layout');
@@ -331,4 +362,81 @@ function printTweets(newTweets){
         getTweets();
     },5000);*/
 
+}
+function printTrends(newTrends){
+    var html = '';
+
+    $(newTrends).each(function(i, trend){
+    	var str = trend.text;
+		
+        html += '<span class="trend-link" name="query" data-volume="'+trend.tweet_volume+'" data-trend ="'+trend.name+'" >'+trend.name+'(<span class="tweet-volume">'+trend.tweet_volume+'</span>)</span> ';
+
+    });
+    // laeb sisu allapoole otsa
+    //$("#content").append( $(html) );
+
+    // $(html) teeb tavalise stringi html elementideks, see on vajalik isotope'i jaoks
+    var trendsHTML = $(html);
+
+    // laeb ettepoole otsa ja aktiveerib isotope'i
+    $("#trendsContent").html(trendsHTML);
+    $(".trend-link").each(function() {
+    	var data = $(this).data("volume");
+    	if(data < 500){
+    		fontSize = 10;
+    	}
+    	else if(data > 5000 && data < 10000){
+    		fontSize = 12;
+    	}
+    	else if(data > 10000 && data < 15000){
+    		fontSize = 14;
+    	}
+    	else if(data > 15000 && data < 25000){
+    		fontSize = 16;
+    	}
+    	else if(data > 25000 && data < 40000){
+    		fontSize = 18;
+    	}
+    	else if(data > 40000 ){
+    		fontSize = 20;
+    	}
+		$(this).css("fontSize", fontSize);
+		
+	});
+	getTrendTweets();
+
+}
+
+function getTrendTweets(){
+	$(".trend-link").click(function(e) {
+		$(".loading-container").show();
+	    var url = "getfeed.php"; // the script where you handle the form input.
+		var serializedData = $(this).data("trend").slice(1);
+		//console.log(serializedData);
+		/*$(".message").css("opacity", "1").delay(1500).animate({
+		    opacity: 0
+		  }, 500, function() {
+		    // Animation complete.
+		  });*/
+
+	    $.ajax({
+	           type: "POST",
+	           url: url,
+	           data: {query: serializedData} , // serializes the form's elements.
+	           success: function(data)
+	           {
+	           		getTweets();
+	           },
+	           error: function(data){
+	           		console.log(data);
+
+	           }
+	         });
+		/*$(".message").css("opacity", "1").delay(2000).animate({
+		    opacity: 0
+		  }, 500, function() {
+		    // Animation complete.
+		  });*/
+	   
+	});
 }
