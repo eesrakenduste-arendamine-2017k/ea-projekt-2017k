@@ -8,7 +8,7 @@ $file2 = "feed.json";
 if(isset($_POST["query"])){
 	$url = 'https://api.twitter.com/1.1/search/tweets.json';
 	//$getfield = '?q=%23'.$_POST["query"].'&geocode=59.438862,24.754472,100mi&count=100';
-	$getfield = '?q=%23'.$_POST["query"].'&count=100';
+	$getfield = '?q=%23'.$_POST["query"].'&count=100&lang=et&result_type=recent';
 	$requestMethod = 'GET';
 	$twitter = new TwitterAPIExchange($settings);
 	/*echo $twitter->setGetfield($getfield)

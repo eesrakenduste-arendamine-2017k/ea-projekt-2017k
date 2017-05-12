@@ -6,8 +6,10 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css">
 	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
 	<link type="text/css" rel="stylesheet" href="css/animate.css" />
+	<script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
 	<script src="js/feed.js"></script>
 
 
@@ -20,20 +22,43 @@
 				<h1>HOW DO PEOPLE ON TWITTER FEEL ABOUT</h1> 
 				<div class="container">
 					<form id="form" autocomplete="off" method="post" action="getfeed.php">
-						<div class="form-group">
+						<div class="form-group has-feedback">
 							<label for="query"></label>
 							<input type="text" id="querybox" name="query" class="form-control" aria-describedby="searchHelp" placeholder=""/>
+							<span class="glyphicon glyphicon-search form-control-feedback"></span>
 							<small id="emailHelp" class="form-text text-muted">Search returns 100 recent tweets</small>
 						</div>
 						<input type="submit" id="submitbutton" name="submit" />
 					</form>
 					<div class="toggle-search"><span class="glyphicon glyphicon-search"></span></div>
-
+					
+					<button class="c-hamburger c-hamburger--htx toggle-menu" id="simple-menu">
+					  <span>toggle menu</span>
+					</button>
 				</div>
 
 		
 			</div>
 		</header>
+
+		<div id="sidr">
+		  <!-- Your content -->
+		  <ul>
+		    <li><a class="active" href="#">Newest</a></li>
+		    <li><a href="#">Popular</a></li>
+		    <li><a href="#">Retweet count</a></li>
+		    <li><a href="#">Favorite count</a></li>
+		  </ul>
+		  
+		  <div class="bottom-credits">
+		  	<hr>
+		  	<p>Authors: <a href="https://www.facebook.com/jpartna">Janno</a> & <a href="https://www.facebook.com/T6nisNerep">Tõnis</a></p>
+		  	<p><a href="https://github.com/squingu/ea-projekt-2017k">Github repository</a></p>
+		 	<hr>
+		  </div>
+		  
+		</div>
+
 		<div class="container-fluid">	
 		<div class="loading-container">
 			<div class="loader"></div>
@@ -68,9 +93,46 @@
 	    </div>
 	  </div>
 	</div>
+	<!-- alert modal -->
+	<div id="alert-modal" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 id="alert-modal-title" class="modal-title"></h4>
+	      </div>
+	      <div id="alert-modal-body" class="modal-body"></div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 <script>
+	
+	$(document).ready(function() {
+	  $('#simple-menu').sidr();
 
+	    var toggles = document.querySelectorAll(".c-hamburger");
+
+		  for (var i = toggles.length - 1; i >= 0; i--) {
+		    var toggle = toggles[i];
+		    toggleHandler(toggle);
+		  };
+
+		  function toggleHandler(toggle) {
+		    toggle.addEventListener( "click", function(e) {
+		      e.preventDefault();
+		      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+		    });
+		  }
+
+	});
+
+	$(".toggle-menu").click(function(){
+		$(this).siblings().removeClass("glyphicon-menu-hamburger");
+	})
 
 
 	var  topage = $(".top-page");
@@ -81,12 +143,12 @@
 
 	  if( $(this).scrollTop() > hdr ) {
 	    topage.addClass(topageScrolled);
-	    $(".toggle-search").addClass("visible");
+	    $(".toggle-search, .toggle-menu").addClass("visible");
 	    $("#form").addClass("scroll");
 	    $(".trends").addClass("scroll");
 	  } else {
 	    topage.removeClass(topageScrolled);
-	    $(".toggle-search").removeClass("visible");
+	    $(".toggle-search, .toggle-menu").removeClass("visible");
 	    $("#form").removeClass("scroll");
 	    $(".trends").removeClass("scroll");
 	  }

@@ -72,33 +72,19 @@ h2{
 #submitbutton{
 	visibility: hidden;
 }
-.toggle-search{
-	color:white;
-	position:fixed;
-	top:0px;
-	right:0px;
-	display:none;
-	z-index: 50;
-	padding:15px;
-	cursor:pointer!important;
-	padding:15px;
 
-}
 .toggle-search .glyphicon{
 	cursor:pointer;
-	font-size:20px;
-	top:0px;
+    font-size: 52px;
+    top: 5px;
 
 }
-.toggle-search:hover .glyphicon{
-	color:#8be067;
 
-}
 .toggle-search{
 	color:white;
 	position:fixed;
 	top:0px;
-	right:0px;
+	right:5px;
 	display:none;
 	z-index: 50;
 	padding:15px;
@@ -112,9 +98,158 @@ h2{
 ´.mobile-form{
 	display:none;
 }
+.c-hamburger {
+  display: block;
+  position: absolute;
+  top:0px;
+  left:0px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
+.c-hamburger:focus {
+  outline: none;
+}
+
+.c-hamburger span {
+  display: block;
+  position: absolute;
+  top: 44px;
+  left: 18px;
+  right: 18px;
+  height: 8px;
+  background: white;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #fff;
+  content: "";
+}
+
+.c-hamburger span::before {
+  top: -20px;
+}
+
+.c-hamburger span::after {
+  bottom: -20px;
+}
+.c-hamburger--htx {
+  background-color: transparent;
+}
+
+.c-hamburger--htx span {
+  transition: background 0s ;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+  transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+  background-color: #cb0032;
+}
+
+.c-hamburger--htx.is-active span {
+  background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, 0.3s;
+}
+.toggle-menu.visible{
+	display:block;
+}
+
+.sidr{
+	font-family: 'Josefin Sans', sans-serif;
+}
+.sidr .sidr-title{
+    box-shadow: none;
+    font-size: 2em;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid white;
+    margin-bottom: 0px;
+}
+.sidr ul{
+	text-align: right;
+	border-bottom:0px;
+}
+.sidr ul li{
+	font-size:1.5em;
+	padding:15px;
+	border-top:0px;
+	border-bottom:2px solid transparent;
+	transition: border-color 0.5s;
+	opacity:0.5;
+}
+
+.sidr ul li:hover a{
+	box-shadow: none;
+
+}
+
+.sidr ul li:hover{
+	line-height: 48px;
+	border-bottom:2px solid white;
+	opacity:1;
+}
+.sidr ul li.active{
+	border-bottom:2px solid white;
+	border-width: 50%;
+	opacity:1;
+}
+.sidr ul li.active a{
+	box-shadow: none;
+	line-height:48px;
+}
+.sidr .bottom-credits{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
 #form.scroll{
 	display:none;
+	height:50px;
 }
 #toppage{
 	padding-top: 100px;
@@ -136,7 +271,7 @@ h2{
   width: inherit;
   top: 0px;
   z-index: 40;
-  height:50px;
+  height:96px;
 	padding-top: 0px!important;
 	padding-bottom: 0px!important;
 
@@ -166,6 +301,11 @@ h2{
 }
 .form-control:focus{
 	box-shadow: none;
+}
+.form-control-feedback{
+    right: 10px;
+    font-size: 32px;
+    color:#777;
 }
 
 .trends{
@@ -271,7 +411,9 @@ h2{
 	position:fixed;
 	height:100%;
 	width:100%;
-	background:rgba(0,0,0,0.4);
+	background:rgba(255,255,255,0.9);
+
+	
 	top:0;
 	right:0;
 	z-index: 99;
