@@ -11,53 +11,53 @@
 </head>
 <body>
 	
-	
+	<div class="wrapper" id="wrapper">
 		<div class="container">
 			<ul class="progressbar"> 
-				<li class="active" id="step1">Step 1</li>
-				<li id="step2">Step 2</li>
-				<li id="step3">Step 3</li>
+				<li class="active" id="step1">Samm 1</li>
+				<li id="step2">Samm 2</li>
+				<li id="step3">Samm 3</li>
 			</ul>
 		</div>
 		
-	
-		<div class="ajax" id="form1">
-			Nimeta Tallinna kõige ilusam linnaosa<br>
-				<input type="text" name="name"><br><br>
-			Kui mugav on Tallinnas Liigelda?<br>
-				<input type="range" name="transport" id="transportInputId" value="5" min="0" max="10" oninput="transportId.value = transportInputId.value">
-				<output name="transportOutput" id="transportId">5</output><br><br>
-			Nimeta üks Tallinna linnaosa:<br>
-				<input type="text" name="city"><br><br>
-			<button type="button" id="submit1">Click Me!</button>
-		</div>
 		
-	
-		<div  class="ajax" id="form2">
-			Kirjelda Tallinna kesklinna:<br>
-				<textarea name="describeTallinn" rows="3" cols="40"></textarea><br><br>
-			Kirjelda Tallinna Ülikooli hooneid:<br>
-				<textarea name="describeTLU" rows="3" cols="40"></textarea><br><br>
-			Kõige ilusam linnaosa, sinu arvates:<br>
-				<input type="mostBeautifulPart" name="email"><br><br>
-			<button type="button" id="submit2">Click Me!</button>
-		</div>
-	
-	
-		<div class="ajax" id="form3">
-			Eesnimi:<br>
-				<input type="text" name="name"><br><br>
-			Email:<br>
-				<input type="text" name="email"><br><br>
-			Vanus:<br>
-				<input type="text" name="email"><br><br>
-			Sugu:<br>
-			<input type="radio" name="gender" value="male" checked> Mees<br>
-			<input type="radio" name="gender" value="female"> Naine<br>
-			<input type="radio" name="gender" value="other"> Muu<br><br>
-			<button type="button" id="submit3">Click Me!</button> 
-		</div>
+			<form class="ajax" id="form1">
+				Nimeta Tallinna kõige ilusam linnaosa<br>
+					<input class="answer" id="answer1" type="text" name="name"><br><br>
+				Kui mugav on Tallinnas Liigelda 0-10?<br>
+					<input class="answer" id="answer2" type="range" name="transport" value="5" min="0" max="10" oninput="transportId.value = answer2.value">
+					<output name="transportOutput" id="transportId">5</output><br><br>
+				Nimeta üks Tallinna linnaosa:<br>
+					<input class="answer" id="answer3" type="text" name="city"><br><br>
+				<button type="button" id="forward1" class="forwardBtn myButton">Edasi</button>
+			</form>
 		
+			<form  class="ajax" id="form2">
+				Kirjelda Tallinna kesklinna:<br>
+					<input class="answer" id="answer4" name="describeTallinn"><br><br>
+				Kirjelda Tallinna Ülikooli hooneid:<br>
+					<input class="answer" id="answer5" name="describeTLU"><br><br>
+				Kõige ilusam linnaosa, sinu arvates:<br>
+					<input class="answer" id="answer6" type="mostBeautifulPart" name="email"><br><br>
+				<button type="button" id="forward2" class="forwardBtn myButton">Edasi</button>
+				<button type="button" id="back2" class="backBtn myButton">Tagasi</button>
+			</form>
+		
+			<form class="ajax" id="form3">
+				Eesnimi:<br>
+					<input class="answer" id="answer7" type="text" name="name"><br><br>
+				Email:<br>
+					<input class="answer" id="answer8" type="text" name="email"><br><br>
+				Vanus:<br>
+					<input class="answer" id="answer9" type="text" name="email"><br><br>
+				Sugu:<br>
+				<!-- <input id="radio1" type="radio" name="gender" value="male" checked> Mees<br>
+				<input id="radio2" type="radio" name="gender" value="female"> Naine<br>
+				<input id="radio3" type="radio" name="gender" value="other"> Muu<br><br>-->
+				<button type="button" id="forward3" class="forwardBtn myButton">Kinnita</button> 
+				<button type="button" id="back3" class="backBtn myButton">Tagasi</button> 
+			</form>
+		</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="form.js"></script>
