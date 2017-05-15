@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearest supermarket</title>
+    <meta name="viewport" content="initial-scale=0.60">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="error">You need JavaScript enabled for this application to work!</div>
+
+<div id="supermarket">
+
+    <h1>Nearest supermarket</h1>
+    <ul>
+        <li class="rimi_address"><span id="rimi">? km</span> Rimi</li>
+        <li class="maxima_address"><span id="maxima">? km</span> Maxima</li>
+        <li class="selver_address"><span id="selver">? km</span> Selver</li>
+        <li class="prisma_address"><span id="prisma">? km</span> Prisma</li>
+    </ul>
+
+</div>
+
+<h3>My Google Maps</h3>
+
+<div id="map"></div>
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="./distanceCalculator.js"></script>
+<script src="maxima.js" charset="utf-8"></script>
+<script src="selver.js" charset="utf-8"></script>
+<script src="prisma.js" charset="utf-8"></script>
+<script src="rimi.js" charset="utf-8"></script>
+<script src="geolocation.js" charset="utf-8"></script>
+<script src="map.js" charset="utf-8"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLo7nHJVsS_ZpMdk78sMrShYNMPP6rN8&callback=initMap">
+</script>
+</body>
+</html>
