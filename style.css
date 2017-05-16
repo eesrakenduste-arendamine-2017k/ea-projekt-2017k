@@ -1,5 +1,4 @@
 input{
-  display: block;
   width: 100%; height: 40px;
   line-height: 40px; font-size: 17px;
   border: 1px solid #bbb;
@@ -11,7 +10,6 @@ input{
 
 body {
   background-color: white;
-  text-align: center;
 }
 
 p, h1, body{
@@ -29,15 +27,29 @@ button {
   background-color: green;
   font-size: 30px;
   border: none;
+  border: 1px solid white;
 }
 
 hr {
     border: none;
     height: 4px;
-    /* Set the hr color */
-    color: #333; /* old IE */
+    color: #333;
     background-color: #333; /* Modern Browsers */
 }
+
 .button2 {
   background-color: orange;
+}
+
+.button3 {
+
+}
+
+.readonly {
+  width: 30%;
+  text-align: center;
+  line-height: 20px; font-size: 13px;
+  height: 30px;
+  background-color: #b2b2b2;
+  border: 2px solid white;
 }
