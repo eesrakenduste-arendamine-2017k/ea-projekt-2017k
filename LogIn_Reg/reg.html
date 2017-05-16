@@ -6,10 +6,11 @@
 <script type="text/javascript" src = "reg.js" ></script>
 <script type="text/javascript" src = "firebase.js" ></script>
 <script type="text/javascript" src = "config.js" ></script>
-<link rel="stylesheet" type="text/css" href="reg.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
     <div id="signup">
+        <img src="../logo.png" alt="logo">
         <div>
             <label>Kasutajanimi</label><br>
             <input id="username"></input><br>
@@ -24,9 +25,12 @@
             <label>Sünnikuupäev</label><br>
             <input id="birthdate" type="date"></input><br>
             <label>Kaal</label><br>
-            <input id="weight"></input><br>   
+            <input id="weight"></input><br>
             <button onclick="saveuser()">Registreeri</button>
-        </div>                           
+
+            <br>
+            <button class="button2" type="button" name="button" onclick="location.href='login.html';">Tagasi avalehele</button>
+        </div>
     </div>
 </body>
 </html>
