@@ -1,0 +1,72 @@
+body{
+  background-color: white;
+}
+.container {
+  width: 120px; height: 120px;
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  margin: auto;
+  text-align: center;
+  animation: rotate-move 10s cubic-bezier(.7,0,.7,1) infinite;
+}
+.box {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  margin: 1px;
+  display: inline-block;
+}
+
+.box1 {
+  background-color: #f0e270;
+  animation:box1 5s linear infinite;
+}
+.box2 {
+  background-color: #7073f0;
+  animation:box2 5s linear infinite;
+}
+.box3 {
+  background-color: #bd70ea;
+  animation:box3 5s linear infinite;
+}
+.box4 {
+  background-color: #f94beb;
+  animation:box4 5s linear infinite;
+}
+
+@keyframes box1 {
+ 5%, 95% {transform: translate(0, 0)}
+  11.6%, 21.6%, 78.2%, 88.2% {transform: translate(-27px, 0px)}
+ 28.3%, 38.3%, 61.6%, 71.6% {transform: translate(-27px, 51px)}
+  44.9%, 59.9% {transform: translate(-27px, 51px)}
+}
+@keyframes box2 {
+5%, 95% {transform: translate(0, 0)}
+  11.6%, 21.6%, 78.2%, 88.2% {transform: translate(-27px, 0px)}
+  28.3%, 38.3%, 61.6%, 71.6% {transform: translate(-27px, 0px)}
+  44.9%, 59.9% {transform: translate(25px, 0px)}
+}
+@keyframes box3 {
+5%, 95% {transform: translate(0, 0)}
+  11.6%, 21.6%, 78.2%, 88.2% {transform: translate(25px, 0px)}
+  28.3%, 38.3%, 61.6%, 71.6% {transform: translate(25px, 0px)}
+  44.9%, 59.9% {transform: translate(25px, 0px)}
+}
+@keyframes box4 {
+ 5%, 95% {transform: translate(0, 0)}
+  11.6%, 21.6%, 78.2%, 88.2% {transform: translate(25px, 0px)}
+  28.3%, 38.3%, 61.6%, 71.6% {transform: translate(25px, 0px)}
+  44.9%, 59.9% {transform: translate(25px, 0px)}
+}
+
+@keyframes rotate-move {
+  15.6%, 17.6%, 48.9%, 50.9%, 82.2%, 84.2% {transform: rotate(360deg)}
+  0%, 32.3%, 34.3%, 65.6%, 67.6%, 99% {transform: rotate(0)}
+}
+
+
+.Tetris{
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 15px;
+
+}
