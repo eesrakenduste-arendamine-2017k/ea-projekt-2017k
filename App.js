@@ -34,14 +34,6 @@ function saveToDB(){
 
 }
 
-//Realtime listener
-firebase.auth().onAuthStateChanged(firebaseUser => {
-  if(firebaseUser){
-    console.log("You are logged in");
-  } else {
-    console.log("You are not logged in");
-  }
-});
 
 function LogOut(){
   firebase.auth().signOut();
@@ -57,9 +49,7 @@ function LogIn(){
   } else {
 	  firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
 		// IF LOG IN WORKS
-		document.querySelector('.form-group').style.visibility = 'hidden';
-		document.getElementById('logout').style.visibility = 'visible';
-		
+	
 	}).catch(function(error) {
 		// IF LOG IN DOESNT WORK
 		var errorCode = error.code;
