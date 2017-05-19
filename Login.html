@@ -38,15 +38,20 @@
     </nav>
 
     <!-- Login form -->
-    <h2>Log in</h2>
+    
     <div id="login-view" class="container">
       <div class="form-group">
+		<h2>Log in</h2>
         <input type="email" id="emailField" placeholder="Email" class="form-control"></input>
         <input type="password" id="passwordField" placeholder="Password" class="form-control"></input>
         <button type="button" class="btn btn-primary" id="loginBtn" onclick="LogIn()">Log In</button>
         <button type="button" class="btn btn-default" id="signupBtn" onclick="SignUp()">Sign Up</button>
-        <button type="button" class="btn btn-primary" id="logoutBtn" onclick="LogOut()">Log Out</button>
+        
       </div>
+	  <div id="logout" style="visibility:hidden;">
+		<h2>TERE TULEMAST</h2>
+		<button type="button" class="btn btn-primary" id="logoutBtn" onclick="LogOut()">Log Out</button>
+	  </div>
     </div>
   </body>
 </html>
