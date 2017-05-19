@@ -58,6 +58,7 @@ function LogIn(){
   var authenticate = firebase.auth();
 
   var promise = authenticate.signInWithEmailAndPassword(email, password);
+  }
   
 	document.querySelector('.form-group').style.visibility = 'hidden';
 	document.getElementById('logout').style.visibility = 'visible';
@@ -77,6 +78,7 @@ function SignUp(){
   var auth = firebase.auth();
 
   var promise = auth.createUserWithEmailAndPassword(email, password);
+  }
 
 
 }
@@ -87,5 +89,4 @@ function clearFields(){
   document.getElementById('due_date').value = "";
   document.getElementById('task').value = "";
 
-}
 }
