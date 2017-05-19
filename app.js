@@ -169,8 +169,9 @@ window.onload = function (){
         },200)
     })
     foodBtn.addEventListener("click",function () {
-        foodBtn.className+=" selectedBtn";
-        foodBtn.style.width="100%";
+        //foodBtn.className+=" selectedBtn";
+        //foodBtn.style.width="100%";
+        foodBtn.style.visibility="hidden";
         clothesBtn.style.visibility="hidden";
         otherBtn.style.visibility="hidden";
 
@@ -180,8 +181,9 @@ window.onload = function (){
 
     })
     clothesBtn.addEventListener("click",function () {
-        clothesBtn.className+=" selectedBtn";
-        clothesBtn.style.width="100%";
+        //clothesBtn.className+=" selectedBtn";
+        //clothesBtn.style.width="100%";
+        clothesBtn.style.visibility="hidden";
         foodBtn.style.visibility="hidden";
         otherBtn.style.visibility="hidden";
 
@@ -191,9 +193,9 @@ window.onload = function (){
 
     })
     otherBtn.addEventListener("click",function () {
-        otherBtn.className+=" selectedBtn";
-        otherBtn.style.width="100%";
-        otherBtn.style.bottom="100%";
+        //otherBtn.className+=" selectedBtn";
+        //otherBtn.style.width="100%";
+        otherBtn.style.visibility="hidden";
         clothesBtn.style.visibility="hidden";
         clothesBtn.style.zIndex="-1";
         foodBtn.style.visibility="hidden";
@@ -344,7 +346,8 @@ window.onload = function (){
             spentOnFood2.innerHTML=foodMoney;
 
             foodBtn.className="categoryBtn";
-            foodBtn.style.width="33%";
+            //foodBtn.style.width="33%";
+            foodBtn.style.visibility="visible";
             clothesBtn.style.visibility="visible";
             otherBtn.style.visibility="visible";
 
@@ -375,7 +378,8 @@ window.onload = function (){
 
             foodBtn.style.visibility="visible";
             otherBtn.style.visibility="visible";
-            clothesBtn.style.width="32%";
+            clothesBtn.style.visibility="visible";
+            //clothesBtn.style.width="32%";
 
             nextSelection.style.visibility="hidden";
             nextSelection.style.opacity="0";
@@ -403,6 +407,7 @@ window.onload = function (){
             otherBtn.style.width="32%";
             clothesBtn.style.visibility="visible";
             foodBtn.style.visibility="visible";
+            otherBtn.style.visibility="visible";
 
 
             nextSelection.style.visibility="hidden";
