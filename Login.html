@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,17 +37,21 @@
     </nav>
 
     <!-- Login form -->
-    
     <div id="login-view" class="container">
       <div class="form-group">
 		<h2>Log in</h2>
-        <input type="email" id="emailField" placeholder="Email" class="form-control"></input>
-        <input type="password" id="passwordField" placeholder="Password" class="form-control"></input>
+		<div class="inputs">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			<input type="email" id="emailField" placeholder="Email" class="form-control"></input>
+			<br>
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			<input type="password" id="passwordField" placeholder="Password" class="form-control"></input><br>
+		</div>
         <button type="button" class="btn btn-primary" id="loginBtn" onclick="LogIn()">Log In</button>
         <button type="button" class="btn btn-default" id="signupBtn" onclick="SignUp()">Sign Up</button>
         
       </div>
-	  <div id="logout" style="visibility:hidden;">
+	  <div id="logout" class="welcome" style="visibility:hidden;">
 		<h2>TERE TULEMAST</h2>
 		<button type="button" class="btn btn-primary" id="logoutBtn" onclick="LogOut()">Log Out</button>
 	  </div>
