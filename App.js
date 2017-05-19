@@ -52,9 +52,13 @@ function LogIn(){
 
   var email = document.getElementById('emailField').value;
   var password = document.getElementById('passwordField').value;
+  if (email === null || password === null || email === '' || password === '') {
+	  alert("Fill all fields to log in!");
+  } else {
   var authenticate = firebase.auth();
 
   var promise = authenticate.signInWithEmailAndPassword(email, password);
+  }
 
 }
 
@@ -63,9 +67,13 @@ function SignUp(){
 
   var email = document.getElementById('emailField').value;
   var password = document.getElementById('passwordField').value;
+  if (email === null || password === null || email === '' || password === '') {
+	  alert("Fill all fields to sign up!");
+  } else {
   var auth = firebase.auth();
 
   var promise = auth.createUserWithEmailAndPassword(email, password);
+  }
 
 }
 
