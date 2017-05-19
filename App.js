@@ -88,3 +88,4 @@ function clearFields(){
   document.getElementById('task').value = "";
 
 }
+}
