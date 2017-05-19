@@ -33,7 +33,7 @@ function saveToDB(){
   }
 
 }
-
+//KATSETUS
 //Realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser){
