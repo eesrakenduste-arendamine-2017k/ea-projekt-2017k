@@ -18,15 +18,19 @@ function saveuser(){
     weight = document.getElementById('weight').value;
     checkUsername();
     setTimeout(saveUser, 2000);
-    
+
 }
 
 function saveUser(){
   //console.log("a="+a);
-  if(password==password1){  
-      if(a == 'OK'){        
+  if(password==password1){
+      if(a == 'OK'){
         writeUserData(username, password, firstname, surename, birthdate, weight);
-        console.log("Kasutaja salvestamine õnnestus")
+        console.log("Kasutaja salvestamine õnnestus");
+        document.body.style.background = "blue";
+          window.setTimeout(function () {
+              document.body.style.background = "white";
+                    }, 100);
       }else{
         console.log("Selline kasutaja juba olemas");
       }
@@ -57,7 +61,7 @@ function checkUsername(){
             a = "OK";
             console.log("ei ole olemas");
         }
-    });   
+    });
 }
 
 function getInfo(){
@@ -69,5 +73,5 @@ function getInfo(){
             s = "puudub";
         }
     document.getElementById('value').innerHTML = s;
-    });   
+    });
 }
