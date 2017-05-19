@@ -13,6 +13,30 @@
 
 <body>
   <button type="button" onclick="location.href = 'home.html'; "name="button">Tagasi avalehele</button>
+  <h1>Kavade loend</h1>
+  <p class="loading">Laeb...</p><br>
+  <ul class="list-of-schedules">Siin on kavade loend</ul>
+  <script>
+  window.onload = function(){
+      // käivitame siis kui lehte laeme
+      console.log('>>>>loend');
+
+      // peidan loendi ja näitan loading...
+      document.querySelector('.list-of-schedules').style.display = 'none';
+      document.querySelector('.loading').style.display = 'block';
+
+
+      //simulatsioon laeb kaua
+      window.setTimeout(function(){
+
+          // peidan loading... ja näitan loendit
+          document.querySelector('.loading').style.display = 'none';
+          document.querySelector('.list-of-schedules').style.display = 'block';
+
+      }, 2000);
+
+  }
+  </script>
 
 </body>
 </html>
