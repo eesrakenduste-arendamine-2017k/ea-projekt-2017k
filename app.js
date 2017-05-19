@@ -28,6 +28,7 @@ window.onload = function (){
     var saveMoneyAside= document.getElementById("saveMoneyAside");
     var saved= document.getElementById("saved");
 
+
     var eur= document.getElementById("eur");
     var fiveEur= document.getElementById("fiveEur");
     var tenEur= document.getElementById("tenEur");
@@ -102,6 +103,17 @@ window.onload = function (){
     }else{
         var otherMoney = 0;
         spentOnOther2.innerHTML = 0;
+    }
+    if(localStorage.getItem("savedMoney")!=null) {
+        var otherMoney = parseInt(localStorage.getItem("savedMoney"));
+        saved.innerHTML = parseInt(localStorage.getItem("savedMoney"));
+        getStarted.style.opacity="0";
+        getStarted.style.zIndex="-100";
+        getStartedBg.style.opacity="0";
+        getStartedBg.style.zIndex="-100";
+    }else{
+        var saved = 0;
+        saved.innerHTML = 0;
     }
 
     var WH;
@@ -253,14 +265,14 @@ window.onload = function (){
                 enterMoneyAside.style.opacity="0";
                 saveMoneyAside.style.opacity="0";
                 freeMoney=freeMoney-parseInt(enterMoneyAside.value);
-                saved=saved+parseInt(enterMoneyAside.value);
+                saved.innerHTML=parseInt(saved.innerHTML)+parseInt(enterMoneyAside.value);
 
                 freeMoneyLeft.innerHTML=freeMoney;
                 freeMoneyLeft2.innerHTML=freeMoney;
-                saved.innerHTML=saved;
-                console.log("savedmoney: "+saved);
+                //saved.innerHTML=saved;
+                console.log("savedmoney: "+parseInt(saved.innerHTML));
                 localStorage.setItem("freeMoney", freeMoney);
-                localStorage.setItem("savedMoney", saved);
+                localStorage.setItem("savedMoney", parseInt(saved.innerHTML));
 
 
                 menu.style.left="-300px";
