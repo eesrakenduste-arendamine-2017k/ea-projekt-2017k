@@ -55,16 +55,37 @@ function LogIn(){
   if (email === null || password === null || email === '' || password === '') {
 	  alert("Fill all fields to log in!");
   } else {
-  var authenticate = firebase.auth();
+	  firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+		// IF LOG IN WORKS
+		document.querySelector('.form-group').style.visibility = 'hidden';
+		document.getElementById('logout').style.visibility = 'visible';
+		
+	}).catch(function(error) {
+		// IF LOG IN DOESNT WORK
+		var errorCode = error.code;
+		var errorMessage = error.message;
+
+		if (errorCode === 'auth/wrong-password') {
+			alert('Wrong password.');
+		} else {
+			alert(errorMessage);         
+		}
+    console.log(error);
+});
+	  
+	  
+  /*var authenticate = firebase.auth();
 
   var promise = authenticate.signInWithEmailAndPassword(email, password);
+	
+	
   
 	document.querySelector('.form-group').style.visibility = 'hidden';
 	document.getElementById('logout').style.visibility = 'visible';
+ 
 
-
-
-}
+ */
+}}
 
 //Function for creating accounts
 function SignUp(){
