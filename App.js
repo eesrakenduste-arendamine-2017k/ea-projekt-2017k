@@ -55,7 +55,6 @@ function LogIn(){
   var authenticate = firebase.auth();
 
   var promise = authenticate.signInWithEmailAndPassword(email, password);
-  window.location.href="Index.html";
 
 }
 
@@ -67,7 +66,6 @@ function SignUp(){
   var auth = firebase.auth();
 
   var promise = auth.createUserWithEmailAndPassword(email, password);
-  window.location.href="Index.html";
 
 }
 
