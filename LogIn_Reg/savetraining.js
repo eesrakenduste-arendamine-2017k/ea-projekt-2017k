@@ -10,7 +10,7 @@ function saveTraining(){
     trainingID = document.getElementById('trainingID').value;
     name = document.getElementById('exercise').value;
     description = document.getElementById('description').value;
-    picture = document.getElementById('image').value;
+    //picture = document.getElementById('image').value;
     saveToDatabase();
     clean();
     console.log("salvestatud");
@@ -28,7 +28,7 @@ function saveTraining(){
 function saveTrainingLast(){
     name = document.getElementById('exercise').value;
     description = document.getElementById('description').value;
-    picture = document.getElementById('image').value;
+    //picture = document.getElementById('image').value;
     saveToDatabase();
     clean();
     console.log("salvestatud");
@@ -39,7 +39,7 @@ function saveToDatabase(){
     firebase.database().ref("Trainings/"+username+"/"+trainingID+"/"+exercise).set({
     Name: name,
     Description: description,
-    Picture: picture
+    //Picture: picture
   });
 }
 
@@ -48,5 +48,5 @@ function clean(){
     document.getElementById('exerciseNR').value = exerciseNR;
     document.getElementById('exercise').value = "";
     document.getElementById('description').value = "";
-    document.getElementById('image').value = "";
+    //document.getElementById('image').value = "";
 }
