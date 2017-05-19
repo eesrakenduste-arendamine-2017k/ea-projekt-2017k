@@ -2,7 +2,3 @@ body {
   padding-top: 150px;
 }
 
-
-input[type=text]:focus {
-    background-color: #f49cb8;
-}
