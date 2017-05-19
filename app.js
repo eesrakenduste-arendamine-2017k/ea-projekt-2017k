@@ -23,6 +23,10 @@ window.onload = function (){
     var spentOnClothes2= document.getElementById("spentOnClothes2");
     var spentOnOther2= document.getElementById("spentOnOther2");
     var freeMoneyLeft2= document.getElementById("freeMoneyLeft2");
+    var putMoneyAside= document.getElementById("putMoneyAside");
+    var enterMoneyAside= document.getElementById("enterMoneyAside");
+    var saveMoneyAside= document.getElementById("saveMoneyAside");
+    var saved= document.getElementById("saved");
 
     var eur= document.getElementById("eur");
     var fiveEur= document.getElementById("fiveEur");
@@ -36,10 +40,7 @@ window.onload = function (){
     var menuOpen=false;
     var totalMoneySpentVisible=false;
     var categorySelected;
-    var freeMoney=0;
-    var clothesMoney=0;
-    var foodMoney=0;
-    var otherMoney=0;
+
     menuBtn.style.width=window.innerHeight*0.08+"px";
     menuBtn.style.height=window.innerHeight*0.08+"px";
     menuBtn.style.maxHeight="50px";
@@ -47,10 +48,61 @@ window.onload = function (){
     menuBtn.style.maxWidth="50px";
     menuBtn.style.minWidth="45px";
 
-    freeMoneyLeft2.innerHTML="1234567890";
-    spentOnFood2.innerHTML="234567";
-    spentOnClothes2.innerHTML="5";
-    spentOnOther2.innerHTML="1";
+    if(localStorage.getItem("freeMoney")!=null) {
+        var freeMoney = parseInt(localStorage.getItem("freeMoney")) ;
+        freeMoneyLeft2.innerHTML = parseInt(localStorage.getItem("freeMoney"));
+        freeMoneyLeft.innerHTML = parseInt(localStorage.getItem("freeMoney"));
+        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
+        getStarted.style.opacity="0";
+        getStarted.style.zIndex="-100";
+        getStartedBg.style.opacity="0";
+        getStartedBg.style.zIndex="-100";
+    }else{
+        var freeMoney = 0;
+        freeMoneyLeft2.innerHTML = 0;
+    }
+
+    if(localStorage.getItem("clothesMoney")!=null) {
+        var clothesMoney = parseInt(localStorage.getItem("clothesMoney"));
+        spentOnClothes2.innerHTML = parseInt(localStorage.getItem("clothesMoney"));
+        spentOnClothes.innerHTML = parseInt(localStorage.getItem("clothesMoney"));
+        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
+        getStarted.style.opacity="0";
+        getStarted.style.zIndex="-100";
+        getStartedBg.style.opacity="0";
+        getStartedBg.style.zIndex="-100";
+    }else{
+        var clothesMoney = 0;
+        spentOnClothes2.innerHTML = 0;
+    }
+
+    if(localStorage.getItem("foodMoney")!=null) {
+        var foodMoney = parseInt(localStorage.getItem("foodMoney"));
+        spentOnFood2.innerHTML = parseInt(localStorage.getItem("foodMoney"));
+        spentOnFood.innerHTML = parseInt(localStorage.getItem("foodMoney"));
+        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
+        getStarted.style.opacity="0";
+        getStarted.style.zIndex="-100";
+        getStartedBg.style.opacity="0";
+        getStartedBg.style.zIndex="-100";
+    }else{
+        var foodMoney = 0;
+        spentOnFood2.innerHTML = 0;
+    }
+
+    if(localStorage.getItem("otherMoney")!=null) {
+        var otherMoney = parseInt(localStorage.getItem("otherMoney"));
+        spentOnOther2.innerHTML = parseInt(localStorage.getItem("otherMoney"));
+        spentOnOther.innerHTML = parseInt(localStorage.getItem("otherMoney"));
+        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
+        getStarted.style.opacity="0";
+        getStarted.style.zIndex="-100";
+        getStartedBg.style.opacity="0";
+        getStartedBg.style.zIndex="-100";
+    }else{
+        var otherMoney = 0;
+        spentOnOther2.innerHTML = 0;
+    }
 
     var WH;
     var addMoneySound = new Audio("addmoneysoundshort.mp3");
@@ -61,6 +113,7 @@ window.onload = function (){
     }else{
         VH=window.innerHeight;
     }
+    pie();
 
     menuBtn.addEventListener("click",function () {
         if(!menuOpen){
@@ -148,42 +201,85 @@ window.onload = function (){
 
     })
     saveAddedMoney.addEventListener("click",function () {
-        if(enterAddMoney.value>0) {
+        if (enterAddMoney.value > 0) {
             addMoneySound.play();
-            getStarted.style.opacity="0";
-            getStarted.style.zIndex="-100";
-            getStartedBg.style.opacity="0";
-            getStartedBg.style.zIndex="-100";
+            getStarted.style.opacity = "0";
+            getStarted.style.zIndex = "-100";
+            getStartedBg.style.opacity = "0";
+            getStartedBg.style.zIndex = "-100";
 
 
-            enterAddMoney.style.visibility="hidden";
-            saveAddedMoney.style.visibility="hidden";
-            enterAddMoney.style.opacity="0";
-            saveAddedMoney.style.opacity="0";
-            freeMoney=freeMoney+parseInt(enterAddMoney.value);
+            enterAddMoney.style.visibility = "hidden";
+            saveAddedMoney.style.visibility = "hidden";
+            enterAddMoney.style.opacity = "0";
+            saveAddedMoney.style.opacity = "0";
+            freeMoney = freeMoney + parseInt(enterAddMoney.value);
 
-            freeMoneyLeft.innerHTML=freeMoney;
-            freeMoneyLeft2.innerHTML=freeMoney;
+            freeMoneyLeft.innerHTML = freeMoney;
+            freeMoneyLeft2.innerHTML = freeMoney;
+            localStorage.setItem("freeMoney", freeMoney);
 
 
-            menu.style.left="-300px";
-            icon.style.opacity="0";
-            menuBg.style.opacity="0";
-            menuBg.style.zIndex="-1";
-            menuOpen=false;
+            menu.style.left = "-300px";
+            icon.style.opacity = "0";
+            menuBg.style.opacity = "0";
+            menuBg.style.zIndex = "-1";
+            menuOpen = false;
             setTimeout(function () {
-                icon.className="fa fa-bars fa-3x";
-                icon.style.opacity="1";
-            },200)
-            enterAddMoney.value="";
+                icon.className = "fa fa-bars fa-3x";
+                icon.style.opacity = "1";
+            }, 200)
+            enterAddMoney.value = "";
 
-            canvas.width=canvas.width;
+            canvas.width = canvas.width;
             pie();
 
         }
-
-
     })
+        putMoneyAside.addEventListener("click", function () {
+            // addMoneySound.play();
+            enterMoneyAside.style.visibility="visible";
+            saveMoneyAside.style.visibility="visible";
+            enterMoneyAside.style.opacity="1";
+            saveMoneyAside.style.opacity="1";
+
+        })
+        saveMoneyAside.addEventListener("click", function(){
+            if(enterMoneyAside.value>0) {
+                addMoneySound.play();
+
+                enterMoneyAside.style.visibility="hidden";
+                saveMoneyAside.style.visibility="hidden";
+                enterMoneyAside.style.opacity="0";
+                saveMoneyAside.style.opacity="0";
+                freeMoney=freeMoney-parseInt(enterMoneyAside.value);
+                saved=saved+parseInt(enterMoneyAside.value);
+
+                freeMoneyLeft.innerHTML=freeMoney;
+                freeMoneyLeft2.innerHTML=freeMoney;
+                saved.innerHTML=saved;
+                console.log("savedmoney: "+saved);
+                localStorage.setItem("freeMoney", freeMoney);
+                localStorage.setItem("savedMoney", saved);
+
+
+                menu.style.left="-300px";
+                icon.style.opacity="0";
+                menuBg.style.opacity="0";
+                menuBg.style.zIndex="-1";
+                menuOpen=false;
+                setTimeout(function () {
+                    icon.className="fa fa-bars fa-3x";
+                    icon.style.opacity="1";
+                },200)
+                enterMoneyAside.value="";
+
+                canvas.width=canvas.width;
+                pie();
+
+            }
+        })
+
     eur.addEventListener("click",function () {
         totalMoneySpentCombined.style.visibility="visible";
         totalMoneySpentCombined.style.opacity="1";
@@ -224,9 +320,12 @@ window.onload = function (){
         totalMoneySpentCombined.style.opacity="0";
         if(categorySelected=="food"){
             moneySpentSound.play();
-            foodMoney=foodMoney+parseInt(totalMoneySpent.innerHTML);
+
+            foodMoney=parseInt(foodMoney)+parseInt(totalMoneySpent.innerHTML);
             freeMoney-=parseInt(totalMoneySpent.innerHTML);
 
+            localStorage.setItem("foodMoney", foodMoney);
+            localStorage.setItem("freeMoney", freeMoney);
             freeMoneyLeft.innerHTML=freeMoney;
             freeMoneyLeft2.innerHTML=freeMoney;
             spentOnFood.innerHTML=foodMoney;
@@ -250,9 +349,11 @@ window.onload = function (){
         }
         if(categorySelected=="clothes"){
             moneySpentSound.play();
-            clothesMoney=clothesMoney+parseInt(totalMoneySpent.innerHTML);
+            clothesMoney=parseInt(clothesMoney)+parseInt(totalMoneySpent.innerHTML);
             freeMoney-=parseInt(totalMoneySpent.innerHTML);
 
+            localStorage.setItem("clothesMoney", clothesMoney);
+            localStorage.setItem("freeMoney", freeMoney);
             freeMoneyLeft.innerHTML=freeMoney;
             freeMoneyLeft2.innerHTML=freeMoney;
             spentOnClothes.innerHTML=clothesMoney;
@@ -276,9 +377,11 @@ window.onload = function (){
         }
         if(categorySelected=="other"){
             moneySpentSound.play();
-            otherMoney=otherMoney+parseInt(totalMoneySpent.innerHTML);
+            otherMoney=parseInt(otherMoney)+parseInt(totalMoneySpent.innerHTML);
             freeMoney-=parseInt(totalMoneySpent.innerHTML);
 
+            localStorage.setItem("otherMoney", otherMoney);
+            localStorage.setItem("freeMoney", freeMoney);
             freeMoneyLeft.innerHTML=freeMoney;
             freeMoneyLeft2.innerHTML=freeMoney;
             spentOnOther.innerHTML=otherMoney;
@@ -333,24 +436,20 @@ window.onload = function (){
 
         for (var i = 0; i < data.length; i++) {
             ctx.fillStyle = myColor[i];
-            ctx.strokeStyle="black";
             ctx.beginPath();
                 ctx.moveTo(canvas.width / 2, canvas.height / 2);
                 // Arc Parameters: x, y, radius, startingAngle (radians), endingAngle (radians), antiClockwise (boolean)
                 ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, lastend, lastend + (Math.PI * 2 * (data[i] / myTotal)), false);
                 ctx.lineTo(canvas.width / 2, canvas.height / 2);
                 ctx.fill();
-                ctx.stroke();
                 lastend += Math.PI * 2 * (data[i] / myTotal);
             ctx.closePath();
             if(freeMoney>0 || foodMoney>0 || clothesMoney>0 || otherMoney>0) {
                 ctx.beginPath();
-                ctx.strokeStyle = "black";
                 ctx.fillStyle = "rgb(236, 236, 243)";
                 ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 6, 0, Math.PI * 2);
                 // ctx.lineTo(canvas.width / 2, canvas.height / 2);
                 ctx.fill();
-                ctx.stroke();
                 ctx.closePath();
                 ctx.lineTo(canvas.width / 2, canvas.height / 2);
             }
@@ -359,7 +458,6 @@ window.onload = function (){
         console.log(typeof freeMoney);
         console.log(freeMoney);
     }
-
 
 
 }

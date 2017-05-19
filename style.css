@@ -156,6 +156,11 @@ button{
     opacity:0;
     transition: all 0.5s;
 }
+.putMoneyAsideForms{
+    visibility: hidden;
+    opacity:0;
+    transition: all 0.5s;
+}
 .getStarted{
     position: fixed;
     left: 5%;
