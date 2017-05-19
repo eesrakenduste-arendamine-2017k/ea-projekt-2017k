@@ -33,3 +33,48 @@ function saveToDB(){
   }
 
 }
+
+//Realtime listener
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if(firebaseUser){
+    console.log("You are logged in");
+  } else {
+    console.log("You are not logged in");
+  }
+});
+
+function LogOut(){
+  firebase.auth().signOut();
+}
+
+//Function for logging in
+function LogIn(){
+
+  var email = document.getElementById('emailField').value;
+  var password = document.getElementById('passwordField').value;
+  var authenticate = firebase.auth();
+
+  var promise = authenticate.signInWithEmailAndPassword(email, password);
+  window.location.href="Index.html";
+
+}
+
+//Function for creating accounts
+function SignUp(){
+
+  var email = document.getElementById('emailField').value;
+  var password = document.getElementById('passwordField').value;
+  var auth = firebase.auth();
+
+  var promise = auth.createUserWithEmailAndPassword(email, password);
+  window.location.href="Index.html";
+
+}
+
+//Function to clear fields after every successful entry
+function clearFields(){
+
+  document.getElementById('due_date').value = "";
+  document.getElementById('task').value = "";
+
+}
