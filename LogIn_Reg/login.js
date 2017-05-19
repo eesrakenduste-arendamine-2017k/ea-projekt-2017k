@@ -5,7 +5,7 @@ var databasepassword;
 
 function login(){
     username = document.getElementById('username').value;
-    password = document.getElementById('password').value; 
+    password = document.getElementById('password').value;
     checkUsername();
 }
 
@@ -17,6 +17,7 @@ function checkUsername(){
             databasepassword = snapshot.val().Password;
             if(databasepassword == password){
                 console.log("Parool õige");
+                location.href = '../home.html';
             }else{
                 console.log("Parool vale");
             }
@@ -24,5 +25,5 @@ function checkUsername(){
             a = "ERROR";
             console.log(" Kasutajat ei ole olemas");
         }
-    }); 
+    });
 }
