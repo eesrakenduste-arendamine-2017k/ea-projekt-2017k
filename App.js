@@ -55,9 +55,13 @@ function LogIn(){
   var authenticate = firebase.auth();
 
   var promise = authenticate.signInWithEmailAndPassword(email, password);
+<<<<<<< HEAD
   
 	document.querySelector('.form-group').style.visibility = 'hidden';
 	document.getElementById('logout').style.visibility = 'visible';
+=======
+
+
 }
 
 //Function for creating accounts
@@ -68,7 +72,7 @@ function SignUp(){
   var auth = firebase.auth();
 
   var promise = auth.createUserWithEmailAndPassword(email, password);
-  
+ 
 
 }
 
