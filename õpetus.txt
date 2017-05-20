@@ -1,0 +1,19 @@
+1.Lae alla Node.js
+2.Lae alla MongoDb
+3.Ava Command Prompt
+	-Liigu kausta , kus asub mäng.
+	-võib kasutada pushd asukoht
+	-Kirjuta Node server
+4.Ava teine Command Prompt 
+	-Liigu kausta kuhu installisid MongoDb , ava see kaust liigu edasi - server-versioon
+	(peaks olema 3.4)-Bin
+	ehk siis directori peaks olema (C:\Program Files\MongoDB\Server\3.4\bin)
+	-Kirjuta mongod
+5.Ava browser liigu http://localhost:3000 , porti saab ka muuta server.js 94 real, kui tekib probleeme
+6.Registreeri kasutaja 
+7.Mängi mängu ja vaata statistikat
+
+Edu!
+
+NB! Kui mongodb ei tööta siis ilmselt ei ole ta saanud tekitada kausta, kuhu ta salvestab andmeid.
+Selleks mine C: - tekita folder data - sinna sisse tekita folder db

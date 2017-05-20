@@ -37,3 +37,7 @@ Võib teha üksi või kahekesi (maksimaalselt 3)
 
 3. **Funktsionaalsus**
     * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+
+	
+Töö tegijad Kert Aavik ja Lauri Lainelo
+Õpetus on .txt failis
