@@ -1,8 +1,6 @@
-Liikmed: Mark, Rauno
+Liikmed: Mark
 
 Eesmärk on teha midagi, mida saab kasutada tarkvaraarenduse projektis ning ühes isiklikus projektis
-
-
 
 
 1)Rakenduse 1 pool tegeleb Formidega. AJAX requestiga form submit, et ei refreshiks lehte, peale form submiti.
@@ -11,10 +9,6 @@ Eesmärk on teha midagi, mida saab kasutada tarkvaraarenduse projektis ning ühe
 kasutajal peaks internet ära kaduma, siis on kõik endiselt alles või kui sulgeb browseris akna, 
 siis on kõik alles mingi teatud ajaperioodi vältel, näiteks paar tundi. 
 
-3)Kui form koosneb mitmest osast, näiteks alguses sisuliste küsimuste küsimine ning teine osa isikuandmed,
-siis teha form kaheks osaks, alguses näidata ühte osa ning kasutaja vajutab "next" ning siis kuvatakse talle teine form´i pool 
-ning formi üleval on progress bar, mis näitab, et kui palju on formist täidetud. 
+3)Rakendus töötab offlines service workeri abil, kui interneti pole, siis salvestatakse kõik localStoragesse 
 
-4)Ehk lisada veel võrguta olekus form submitimine, et talletatakse mujale ning kui internet on tagasi, siis saadetakse automaatselt ära.
-Isiklikus projektis tuleks kasuks, kui kasutajad saaksid notificationeid, kui lehel "teatud" asjad muutuvad, siis lisaks midagi sellega seonduvat. 
-
+4)Progress bar, mis näitab, et kui palju on küsitlusest täidetud juba
