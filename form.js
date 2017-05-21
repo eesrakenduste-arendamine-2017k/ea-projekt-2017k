@@ -10,10 +10,12 @@ formId3.style.visibility = "hidden";
 if (localStorage.getItem("answer2") !== null){
 	document.getElementById("transportId").value = localStorage.getItem("answer2");
 }
+
+//kuulab igat clicki
 document.addEventListener("click", function(e) {
 	var click = e.target.id;
 	//console.log(click);
-	// siis kui kasutaja vajutab edasi või tagasi nuppe formis
+	// tegevused, mis juhtuvad siis kui kasutaja vajutab edasi või tagasi nuppe formis
 	switch(click) {
     case "forward1":
         formId1.style.visibility = "hidden";
@@ -26,7 +28,21 @@ document.addEventListener("click", function(e) {
 		step3.className += " active";
         break;
 	case "forward3":
-		localStorage.clear();
+		//kontrollib kas internet on browseris, kui on, siis kustutab localStoragest kõik ära
+		if(navigator.onLine == true){
+			localStorage.clear();
+			Push.create("Hey " + document.getElementById("answer7").value, {
+				body: "Küsimused on edukalt täidetud",
+				icon: "icon.ico",
+				timeout: 5000,
+			});
+		} else {
+			Push.create("Hey " + document.getElementById("answer7").value, {
+				body: "Interneti ühendus puudub. Tule tagasi ja lõpeta küsitlus hiljem, kõik andmed on salvestatud ",
+				icon: "icon.ico",
+				timeout: 5000,
+			});
+		}
         break;
 	case "back2":
         formId2.style.visibility = "hidden";
@@ -46,40 +62,84 @@ document.addEventListener("click", function(e) {
 	}
 	
 });
-var i = 1;
 
+
+var date = new Date();
+var day = date.getDay();
+
+//localStoragesse salvestamine
 window.addEventListener('keypress', function(e) {
-	//panen setTimeouti, sest muidu jääb alati üks täht lõpust ära, mida ei panda localStoragesse
-	setTimeout(function(){
-		   var active = document.activeElement;
-		//console.log("vajutasid");
-		//console.log(active.value.length);
-		
-		
-		if(active.className == "answer") {
-			localStorage.setItem(active.id, active.value);
+	var active = document.activeElement;
+	//console.log(e);
+	//console.log(active.value.length);
+	console.log(active.value + String.fromCharCode(e.which));
+	if(active.className == "answer") {
+		localStorage.setItem(active.id, active.value + String.fromCharCode(e.which));
+		localStorage.setItem("time", new Date() * 1);
+		//console.log(localStorage.getItem("time"));
 		//console.log(localStorage.getItem(active.id));
-		} 
-    }, 1000);
-	
-
+	} 
 });
 
-//võtab localStoragest väärtused igale fieldile, kui eksisteerib 
+ 
+
+//console.log(parseInt(localStorage.getItem("time")) + (5*1000));
+//console.log(new Date()*1);
+//console.log(parseInt(localStorage.getItem("time")) + (5*1000) > new Date()*1);
+
+
 var named = document.getElementById("wrapper"); 
 var tags = named.getElementsByTagName("input");
-for (var i = 0, n = tags.length; i < n; i = i + 1) {
-   tags[i].value = localStorage.getItem(tags[i].id);
+
+//kontrollib, et viimasest formi täitmisest poleks liiga palju aega möödas
+// kui pole, siis võtab localStoragest andmed ja lükkab väljadele
+if(parseInt(localStorage.getItem("time")) + (12*60*60*1000) > new Date()*1){
+	for (var i = 0, n = tags.length; i < n; i = i + 1) {
+	   tags[i].value = localStorage.getItem(tags[i].id);
+	}
 }
 
 
 
+//ServiceWorker
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
+		// Registration was successful
+		console.log('ServiceWorker registration successful: ', registration);
+		registerNotifications(registration)
+		
+	}, function(err) {
+		// registration failed :(
+		console.log('ServiceWorker registration failed: ', err);
+	});
+}
+function registerNotifications(registration){
+	registration.pushManager.subscribe({
+		userVisibleOnly: true,
+		applicationServerKey: urlB64ToUint8Array("BO9Br-LnntR7cvm5-YQNGhFgkX4LS0vb_7mP6w3xsyb0Nrle4HBIJIzP-fhbo_9BbIaF_HGLDh3KvZUTjjEyyMc")
+	})
+	.then(function(subscription) {
+		console.log('User is subscribed.');
+		console.dir(JSON.stringify(subscription));
+	})
+	.catch(function(err) {
+		console.log('Failed to subscribe the user: ', err);
+	});
+}
+function urlB64ToUint8Array(base64String) {
+        var padding = '='.repeat((4 - base64String.length % 4) % 4);
+        var base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
 
+        var rawData = window.atob(base64);
+        var outputArray = new Uint8Array(rawData.length);
 
-
-
-
-
+        for (var i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+}
 
 
 
