@@ -1,0 +1,64 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>4.kodune</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="push.min.js"></script>
+	<style>
+		textarea {
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="wrapper" id="wrapper">
+		<div class="container">
+			<ul class="progressbar"> 
+				<li class="active" id="step1">Samm 1</li>
+				<li id="step2">Samm 2</li>
+				<li id="step3">Samm 3</li>
+			</ul>
+		</div>
+		
+			<form action="data.php" method="post" id="form" class="ajaxSubmit">
+				<div class="ajax" id="form1">
+					Nimeta üks Tallinnas asuv kirik<br>
+						<input class="answer" id="answer1" type="text" name="answer1"><br><br>
+					Kui mugav on Tallinnas Liigelda 0-10?<br>
+						<input class="answer" id="answer2" type="range" name="transport" value="5" min="0" max="10" oninput="transportId.value = answer2.value">
+						<output name="transportOutput" id="transportId">5</output><br><br>
+					Nimeta üks Tallinna linnaosa:<br>
+						<input class="answer" id="answer3" type="text" name="answer3"><br><br>
+						<a id="forward1" class="forwardBtn myButton">Edasi</a>
+				</div>
+			
+				<div  class="ajax" id="form2">
+					Kirjelda Tallinna kesklinna:<br>
+						<input class="answer" id="answer4" name="answer4"><br><br>
+					Kirjelda Tallinna Ülikooli hooneid:<br>
+						<input class="answer" id="answer5" name="answer5"><br><br>
+					Kõige ilusam linnaosa, sinu arvates:<br>
+						<input class="answer" id="answer6" type="mostBeautifulPart" name="answer6"><br><br>
+					<a id="forward2" class="forwardBtn myButton">Edasi</a>
+					<a id="back2" class="backBtn myButton">Tagasi</a>
+				</div>
+			
+				<div class="ajax" id="form3">
+					Eesnimi:<br>
+						<input class="answer" id="answer7" type="text" name="answer7"><br><br>
+					Email:<br>
+						<input class="answer" id="answer8" type="text" name="answer8"><br><br>
+					Vanus:<br>
+						<input class="answer" id="answer9" type="text" name="answer9"><br><br>				
+					<button id="forward3" class="forwardBtn myButton">Kinnita</button> 
+					<a id="back3" class="backBtn myButton">Tagasi</a> 
+				</div>
+			</form>
+		</div>
+	<script src="serviceWorker.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="form.js"></script>
+	<script src="ajax.js"></script>
+</body>
+</html>
