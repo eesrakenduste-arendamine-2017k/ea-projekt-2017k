@@ -42,6 +42,8 @@ window.onload = function (){
     var totalMoneySpentVisible=false;
     var categorySelected;
 
+    registerServiceWorker();
+
     menuBtn.style.width=window.innerHeight*0.08+"px";
     menuBtn.style.height=window.innerHeight*0.08+"px";
     menuBtn.style.maxHeight="50px";
@@ -474,6 +476,18 @@ window.onload = function (){
         console.log(freeMoney);
         console.log(typeof freeMoney);
         console.log(freeMoney);
+    }
+
+    function registerServiceWorker(){
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful: ', registration);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
     }
 
 
