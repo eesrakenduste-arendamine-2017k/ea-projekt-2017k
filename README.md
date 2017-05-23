@@ -1,43 +1,44 @@
-# Eesrakenduste arendamine 2017k – projekt
+#Tegemist on Tic-Tac-Toe mänguga.
+1. Registreeri kasutaja
+2. Kasutaja talletatakse MongoDb kausta
+3.Logi sisse 
+4.Alusta mängimist arvuti vastu
 
-## Tähtaeg 
 
-Valitud eksamipäev
+Viited:
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
+passport.js ning user.js
 
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
+https://stackoverflow.com/questions/34237897/nodejs-passport-login
 
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
+mängu kood:
 
-### Nõuded
+http://www.codeseek.co/MutantSpore/tic-tac-toe-jWWYLo
 
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
+Asub play.ejs
 
-2. **Veebirakenduse nõuded:**
-    * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;
-    * andmeid talletatakse lisaks kohalikule (nt localStorage) ka serveripool (soovitatavalt andmebaasi või faili) – AJAX + serveripoolel nt PHP, Java, Node;
-    * Mugavalt kasutatav ka mobiilselt seadmelt;
-    * muutujad/tabelid on inglise keeles;
-    * rakendus on piisava funktsionaalsusega ja turvaline – eelnev kokkulepe õppejõuga, mis saab valmis;
-    * kood on jaotatud vajadusel eri failidesse ja kood on kokkupakitud kujul (ingl _minified_);
-
-3. **Funktsionaalsus**
-    * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
 
 	
+
 Töö tegijad Kert Aavik ja Lauri Lainelo
-Õpetus on .txt failis
+Õpetus:
+
+1.Lae alla Node.js
+2.Lae alla MongoDb
+3.Ava Command Prompt
+	-Liigu kausta , kus asub mäng.
+	-võib kasutada pushd asukoht
+	-Kirjuta Node server
+4.Ava teine Command Prompt 
+	-Liigu kausta kuhu installisid MongoDb , ava see kaust liigu edasi - server-versioon
+	(peaks olema 3.4)-Bin
+	ehk siis directori peaks olema (C:\Program Files\MongoDB\Server\3.4\bin)
+	-Kirjuta mongod
+5.Ava browser liigu http://localhost:3000 , porti saab ka muuta server.js 94 real, kui tekib probleeme
+6.Registreeri kasutaja 
+7.Mängi mängu ja vaata statistikat
+
+Edu!
+
+NB! Kui mongodb ei tööta siis ilmselt ei ole ta saanud tekitada kausta, kuhu ta salvestab andmeid.
+Selleks mine C: - tekita folder data - sinna sisse tekita folder db
