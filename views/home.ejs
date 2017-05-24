@@ -1,0 +1,14 @@
+<!-- Kodulehe template-->
+
+<% include partials/header.ejs %>
+
+<div><h1 class="text-center"><%=title%> to the TIC TAC TOE</h1></div>
+
+<% if(!user){%>
+	<div><h1 class="text-center">Please login or register yourself to play it</h1></div>
+<%}%>
+<% if(user){%>
+	<div><h2 class="text-center"><a href="/play">Play</a></h2></div>
+<%}%>
+
+<% include partials/footer.ejs %>
