@@ -4,10 +4,10 @@
 
 Rakendus võimaldab kasutajal otsida tweete märksõnade kaudu ning tagastab teemaga seotud positiivsed tweedid. 
 
-v0.1 Esmane otsingufunktsioon Twitteri API kaudu ja esilehe kujundus
-v0.2 Otsingu meetod ja kujundus muudetud
-v0.3 Trending hashtags funktsionaalsuse
-v0.4 Side menu lisatud
+v0.1 Esmane otsingufunktsioon Twitteri API kaudu ja esilehe kujundus  
+v0.2 Otsingu meetod ja kujundus muudetud  
+v0.3 Trending hashtags funktsionaalsuse  
+v0.4 Side menu lisatud  
 
 ---
 
