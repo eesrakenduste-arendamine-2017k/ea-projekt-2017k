@@ -11,7 +11,7 @@ var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/LOGIN');
+mongoose.connect('mongodb://aavik:Wireless1122@ds151141.mlab.com:51141/ea-projekt');
 var db = mongoose.connection;
 var secure = require('./config/passport.js')
 var axios = require('axios')
