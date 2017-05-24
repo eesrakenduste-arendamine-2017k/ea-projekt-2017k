@@ -1,3 +1,8 @@
+Mäng url:
+
+https://ea-projekt2017.herokuapp.com/
+
+
 #Tegemist on Tic-Tac-Toe mänguga.
 1. Registreeri kasutaja
 2. Kasutaja talletatakse MongoDb kausta
@@ -18,7 +23,7 @@ http://www.codeseek.co/MutantSpore/tic-tac-toe-jWWYLo
 Asub play.ejs
 
 
-	
+
 
 Töö tegijad Kert Aavik ja Lauri Lainelo
 Õpetus:
