@@ -3,20 +3,8 @@
 !function($){
 
 	"use strict";
-		var toggles = document.querySelectorAll(".c-hamburger");
 
-	  for (var i = toggles.length - 1; i >= 0; i--) {
-	    var toggle = toggles[i];
-	    toggleHandler(toggle);
-	  };
 
-	  function toggleHandler(toggle) {
-	    toggle.addEventListener( "click", function(e) {
-	      e.preventDefault();
-	      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
-	    });
-	  }
-	  
 	var Typed = function(el, options){
 
 		// chosen element to manipulate text
@@ -342,7 +330,8 @@ function getTrends(){
 function printTweets(newTweets){
 
     var html = '';
-
+    var counter = 0;
+	var matchCount = 0;
     $(newTweets).each(function(i, tweet){
     	var str = tweet.text;
         // Set the regex string
@@ -359,9 +348,34 @@ function printTweets(newTweets){
         '<p class="count">Retweet count: '+tweet.retweet_count+'</p>'+
         '<p class="count">Favorite count: '+tweet.favorite_count+'</p>'+
         '</div>';
+        counter ++;
+		
+		
+		$.get('positive_words.txt', function(data){
+        var positiveWords = data.split("\n");
+		var tweetText = tweet.text;
+		var matchCount = 0;
+		//console.log(tweetText);
+		//positiveWords.forEach(function(element){
+			//console.log(element);
+			//var oneWord = element;
+			//console.log(oneWord);
+			var regex = new RegExp(/test/);
+			var matchResult = tweetText.match(regex);
+			//console.log(matchResult[0]);
+			if(matchResult != null && matchResult[0] == "test"){
+				console.log(matchResult[0]);
+			}
+		//});
+		
+        //console.log(positiveWords);
+		
+		});
+	});
+	
+	console.log(counter);
 
-    });
-
+    
     // laeb sisu allapoole otsa
     //$("#content").append( $(html) );
 
@@ -370,6 +384,7 @@ function printTweets(newTweets){
 
     // laeb ettepoole otsa ja aktiveerib isotope'i
     $("#content").html(tweetsHTML)
+    $("#tweetCounter").html(counter)
     $(".loading-container").hide();
     //$grid.prepend(tweetsHTML)
     //.isotope('prepended', tweetsHTML)
