@@ -9,13 +9,14 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
+//var mongo = require('mongodb');
 var mongoose = require('mongoose');
-mongo.connect('mongodb://kert:Eesrakendused1122@ds151951.mlab.com:51951/ea-projekt');
-var db = mongo.connect;
+mongoose.connect('mongodb://kert1122:Password1122@ds151941.mlab.com:51941/ea-projekt');
+//var db = mongoose.connect;
 var secure = require('./config/passport.js')
 var axios = require('axios')
 
+var port = process.env.PORT || 3000;
 // Server
 var app = express();
 var routes = require('./routes/routes.js');
@@ -37,7 +38,7 @@ app.use(session({
 // Valideerimine serverist
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
+    var namespace = param.split('.')
       , root    = namespace.shift()
       , formParam = root;
 
@@ -91,6 +92,6 @@ app.post('/updatePost',secure.isAuthorized,routes.updatePost);
 app.get('*',routes.notFound);
 
 // Serveri port
-app.listen(3000,function(){
-	console.log('App running on port 3000');
+app.listen(port,function(){
+  console.log('App running on port ' + port);
 })
