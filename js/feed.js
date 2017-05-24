@@ -356,17 +356,18 @@ function printTweets(newTweets){
 		var tweetText = tweet.text;
 		var matchCount = 0;
 		//console.log(tweetText);
-		//positiveWords.forEach(function(element){
+		positiveWords.forEach(function(element){
 			//console.log(element);
-			//var oneWord = element;
-			//console.log(oneWord);
-			var regex = new RegExp(/test/);
+			var regex = new RegExp(element);
 			var matchResult = tweetText.match(regex);
-			//console.log(matchResult[0]);
-			if(matchResult != null && matchResult[0] == "test"){
-				console.log(matchResult[0]);
+			if(matchResult != null && matchResult[0] == regex){
+				//match found!
+				matchCount++;
+				console.log(element);
+				console.log(matchCount);
 			}
-		//});
+				
+		});
 		
         //console.log(positiveWords);
 		
