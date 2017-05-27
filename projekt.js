@@ -1,4 +1,3 @@
-//TEST
 /*function dropdownFunction() {
     document.getElementById("Ydropdown").classList.toggle("show");
 }
@@ -31,13 +30,30 @@ window.onclick = function(event) {
 // var IDCounter = 0;
 
 
+
+
+
+
+
 // **** GLOBAALSED MUUTUJAD ****
 
+// kalkulaatori maatriksi mõõdu muutujad
 var m1x, m1y, m2x, m2y;
+
+// harjutusmaatriksi mõõdu muutujad
 var Em1x, Em1y, Em2x, Em2y;
+
+// massiivid harjutusmaatriksite väärtuste jaoks
+var a = [[null, null, null]];
+var b = [[null, null, null]];
+
+
+
+
 
 
 // ||||| ----- ----- ----- ----- MAATRIKSITE KALKULAATORI OSA ----- ----- ----- ----- |||||
+
 
 // **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 
@@ -315,7 +331,7 @@ function calculateMatrixFinalAnswer() {
 // ||||| ----- ----- ----- ----- MAATRIKSITE HARJUTAMISE OSA ----- ----- ----- ----- |||||
 
 
-
+// **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 
 function generateExerciseMatrix() {
 	
@@ -344,12 +360,14 @@ function generateExerciseMatrix() {
 			createExerciseMatrix1();
 			createExerciseMatrix2();
 			createExerciseMatrixAnswer();
+			generateValuesForMatrices();
 			
 		} else {
 			
 			createExerciseMatrix1();
 			createExerciseMatrix2();
 			createExerciseMatrixAnswer();
+			generateValuesForMatrices();
 		}
 		
 	} else {
@@ -362,6 +380,7 @@ function generateExerciseMatrix() {
 
 
 
+// **** FUNKTSIOON, MIS GENEREERIB ESIMESE HARJUTUSMAATRIKSI ****
 
 function createExerciseMatrix1() {
 	
@@ -390,7 +409,7 @@ function createExerciseMatrix1() {
 
 
 
-
+// **** FUNKTSIOON, MIS GENEREERIB TEISE HARJUTUSMAATRIKSI ****
 
 function createExerciseMatrix2() {
 	
@@ -425,7 +444,7 @@ function createExerciseMatrix2() {
 
 
 
-
+// **** FUNKTSIOON, MIS GENEREERIB VASTUSEMAATRIKSI ****
 
 function createExerciseMatrixAnswer() {
 	
@@ -461,8 +480,99 @@ function createExerciseMatrixAnswer() {
 
 
 
+// **** KÄIVITAB ARVUDE GENEREERIMISE MAATRIKSISSE ****
+
+function generateValuesForMatrices() {
+	
+	generateValuesForMatrix1();
+	generateValuesForMatrix2();
+	
+}
 
 
+
+// **** GENEREERIB VÄÄRTUSED ESIMESSE MAATRIKSISSE JA MASSIIVI ****
+
+function generateValuesForMatrix1() {
+	
+	for(var rowId = 1; rowId <= Em1x; rowId++) {
+		
+		var matrixRow = [null];
+		
+		for(var colId = 1; colId <= Em1y; colId++) {
+			
+			var randomValue = Math.floor((Math.random() * 10) + 1);
+			matrixRow.push(randomValue);
+			var matrixCell = document.getElementById("Ea"+rowId+colId);
+			matrixCell.value = randomValue;
+		}
+		a.push(matrixRow);
+		matrixRow = [null];
+	}
+}
+
+
+
+// **** GENEREERIB VÄÄRTUSED TEISE MAATRIKSISSE JA MASSIIVI ****
+
+function generateValuesForMatrix2() {
+	
+	for(var rowId = 1; rowId <= Em2x; rowId++) {
+		
+		var matrixRow = [null];
+		
+		for(var colId = 1; colId <= Em2y; colId++) {
+			
+			var randomValue = Math.floor((Math.random() * 10) + 1);
+			matrixRow.push(randomValue);
+			var matrixCell = document.getElementById("Eb"+rowId+colId);
+			matrixCell.value = randomValue;
+		}
+		b.push(matrixRow);
+		matrixRow = [null];
+	}
+}
+
+
+
+
+
+function checkMatrixAnswers() {
+	
+	c = 1;
+	
+	for(var rowId = 1; rowId <= Em1x; rowId++) {
+		
+		for(var colId = 1; colId <= Em2y; colId++) {
+			
+			var matrixAnswer = document.getElementById("Ec"+rowId+colId);
+			var matrixAnswerString = "";
+			
+			for(var i = 0; i < Em1y; i++) {
+				
+				var Ea = document.getElementById("Ea"+rowId+c).value;
+				var Eb = document.getElementById("Eb"+c+colId).value;
+				matrixAnswerString += Ea + "*" + Eb + " + ";
+				c++;
+			}
+			var strLength = matrixAnswerString.length;
+			var matrixCellValue = math.eval(matrixAnswerString.slice(0, strLength - 3));
+			var matrixInputCell = parseInt(matrixAnswer.value);
+			c = 1;
+			
+			console.log(matrixInputCell);
+			console.log(matrixCellValue);
+			
+			if(matrixInputCell == matrixCellValue) {
+				matrixAnswer.style.color = "green";
+			} else {
+				matrixAnswer.style.color = "red";
+			}
+			
+		}
+	}
+	
+}
 
 
 
