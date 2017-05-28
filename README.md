@@ -37,3 +37,8 @@ Võib teha üksi või kahekesi (maksimaalselt 3)
 
 3. **Funktsionaalsus**
     * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+
+	
+	Teevad: Rihard Rüüs, Uku Põder.
+	Projekt: QR Koodiga, poe ostukorvi sisu, hind.
+	eesmärgiks on teha korralik QRkoodiga töötav rakendus, mis loeb sisse QR koodi, võtab poe lehelt hinna, lisab selle arvele. Lihtustab poes käiku, kui ette on antud eelarve.
