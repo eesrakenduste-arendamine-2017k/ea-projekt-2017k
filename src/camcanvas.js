@@ -117,3 +117,4 @@ function passEmboss(w,h) {
    pixels.data = pixelData;
    gCtx.putImageData(pixels, 0, 0);
 } 
+
