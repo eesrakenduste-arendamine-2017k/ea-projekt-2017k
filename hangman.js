@@ -4,12 +4,13 @@ window.onload = function () {
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'õ', 'ä', 'ö', 'ü', 'x', 'y', 'z'];
 
-  var categories;         // Array of topics
+  var categories;
+  var categoryName=["filmid", "vms"]         // Array of topics
   var chosenCategory;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
-  var guess ;             // Geuss
-  var geusses = [ ];      // Stored geusses
+  var geuss ;             // Geuss
+  var guesses = [ ];      // Stored geusses
   var lives ;             // Lives
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
@@ -40,14 +41,21 @@ window.onload = function () {
 
 
   // Select Catagory
-  var selectCat = function () {
+  /*var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
+      catagoryName.innerHTML = "";
     } else if (chosenCategory === categories[1]) {
       catagoryName.innerHTML = "The Chosen Category Is Films";
     } else if (chosenCategory === categories[2]) {
       catagoryName.innerHTML = "The Chosen Category Is Cities";
     }
+  }*/
+
+  var selectCat=function(){
+    var rand = categoryName[Math.floor(Math.random()*categoryName.length)];
+    for (var i = 0; i < categoryName.length; i++) {
+      if (rand === categoryName[i]) {
+        catName.innerHTML="valitud kategooria on: " + categoryName[i];
   }
 
   // Create geusses ul
@@ -180,6 +188,7 @@ window.onload = function () {
   }
 
 
+
   // Play
   play = function () {
     categories = [
@@ -188,7 +197,7 @@ window.onload = function () {
         ["manchester", "milan", "madrid", "amsterdam", "prague"]
     ];
 
-    chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+    chosenCategory = categories[i]; //categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
