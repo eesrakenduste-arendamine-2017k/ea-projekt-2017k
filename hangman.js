@@ -50,14 +50,14 @@ window.onload = function () {
       catagoryName.innerHTML = "The Chosen Category Is Cities";
     }
   }*/
-
+  chosenCategory = categoryName[Math.floor(Math.random()*categoryName.length)];
   var selectCat=function(){
-    var rand = categoryName[Math.floor(Math.random()*categoryName.length)];
-    for (var i = 0; i < categoryName.length; i++) {
-      if (rand === categoryName[i]) {
-        catName.innerHTML="valitud kategooria on: " + categoryName[i];
-  }
-
+      for (var i = 0; i < categoryName.length; i++) {
+        if (chosenCategory === categoryName[i]) {
+          catName.innerHTML="valitud kategooria on: " + categoryName[i];
+        }
+      }
+  };
   // Create geusses ul
    result = function () {
     wordHolder = document.getElementById('hold');
@@ -197,7 +197,7 @@ window.onload = function () {
         ["manchester", "milan", "madrid", "amsterdam", "prague"]
     ];
 
-    chosenCategory = categories[i]; //categories[Math.floor(Math.random() * categories.length)];
+    //chosenCategory = categories[i]; //categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
