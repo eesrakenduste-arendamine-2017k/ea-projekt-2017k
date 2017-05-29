@@ -1,15 +1,21 @@
 {
-  "name": "matrix",
+  "name": "maatriksid",
   "version": "1.0.0",
-  "description": "",
-  "main": "projekt.js",
+  "description": "maatriksite kalkulaatorid",
+  "main": "index.js",
   "dependencies": {
-    "express": "^4.15.2"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "ea-projekt-2017k"
+  }
 }
