@@ -1,15 +1,15 @@
 // service worker
 var CACHE_NAME = 'wallet-v1';
 var urlsToCache = [
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/addmoneysoundshort.mp3",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/app.html",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/app.js",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/get_started2.png",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/moneyspentsound.mp3",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/shortcutPic.jpg",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/style.css",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/sources/links.js",
-    "/~siimhuts/eesrakendused%202017/ea-projekt-2017k/sources/links.css"
+    "/~alariv/ea-projekt-2017k//addmoneysoundshort.mp3",
+    "/~alariv/ea-projekt-2017k//app.html",
+    "/~alariv/ea-projekt-2017k//app.js",
+    "/~alariv/ea-projekt-2017k//get_started2.png",
+    "/~alariv/ea-projekt-2017k//moneyspentsound.mp3",
+    "/~alariv/ea-projekt-2017k//shortcutPic.jpg",
+    "/~alariv/ea-projekt-2017k//style.css",
+    "/~alariv/ea-projekt-2017k//sources/links.js",
+    "/~alariv/ea-projekt-2017k//sources/links.css"
 
 
 ];

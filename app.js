@@ -137,7 +137,7 @@ window.onload = function (){
             menuBg.style.zIndex="98";
             menuOpen=true;
             setTimeout(function () {
-                icon.className="fa fa-times fa-3x";
+                //icon.className="fa fa-times fa-3x";
                 icon.style.opacity="1";
             },200)
 
@@ -151,7 +151,7 @@ window.onload = function (){
 
             menuOpen=false;
             setTimeout(function () {
-                icon.className="fa fa-bars fa-3x";
+                //icon.className="fa fa-bars fa-3x";
                 icon.style.opacity="1";
             },200)
 
@@ -166,7 +166,7 @@ window.onload = function (){
         },500)
         menuOpen=false;
         setTimeout(function () {
-            icon.className="fa fa-bars fa-3x";
+            //icon.className="fa fa-bars fa-3x";
             icon.style.opacity="1";
         },200)
     })
