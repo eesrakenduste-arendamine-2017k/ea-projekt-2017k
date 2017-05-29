@@ -1,0 +1,37 @@
+body
+{
+	background-color:#BBDDFF;
+	color: black;
+	font-family: verdana;
+	/*width: 80%;*/
+	background-image: url("pildid/folk_lill.png");
+	background-repeat: repeat-y;
+	background-position:  1100px top;
+	/*background-attachment: fixed;*/
+}
+
+.schedules
+{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+
+.scheduleElement
+{
+	border: 4px solid white;
+	width: 300px;
+}
+
+.scheduleElement, .scheduleImg
+{
+	border-radius: 10px;
+}
+
+.scheduleImg
+{
+	width: 100%;
+	transition: filter 4s;
+  cursor: pointer;
+}

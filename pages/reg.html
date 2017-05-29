@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gym Time</title>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script type="text/javascript" src = "../js/reg.js" ></script>
+<script type="text/javascript" src = "../js/firebase.js" ></script>
+<script type="text/javascript" src = "../js/config.js" ></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="signup">
+        <img src="../pictures/logo.png" alt="logo">
+        <div>
+            <label>Kasutajanimi</label><br>
+            <input id="username"></input><br>
+            <label >Parool</label><br>
+            <input id="password" type="password"></input><br>
+            <label>Parool uuesti</label><br>
+            <input id="password1" type="password"></input><br>
+            <label>Eesnimi</label><br>
+            <input id="firstname"></input><br>
+            <label>Perekonnanimi</label><br>
+            <input id="surename"></input><br>
+            <label>Sünnikuupäev</label><br>
+            <input id="birthdate" type="date"></input><br>
+            <label>Kaal</label><br>
+            <input id="weight"></input><br>
+            <button onclick="saveuser()">Registreeri</button>
+
+            <br>
+            <button class="button2" type="button" name="button" onclick="location.href='login.html';">Tagasi avalehele</button>
+        </div>
+    </div>
+</body>
+</html>
