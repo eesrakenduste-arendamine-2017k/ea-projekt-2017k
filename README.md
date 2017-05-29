@@ -1,13 +1,10 @@
-# Eesrakenduste arendamine 2017k – projekt
+# Eesrakenduste arendamine 2017k – Kõige soojema veeallika rakendus
 
-## Tähtaeg 
 
-Valitud eksamipäev
+## Liikmed
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
-
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
+Kirke Gross
+Kristel Roosimaa
 
 ## Tööjuhend
 1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
@@ -15,12 +12,12 @@ Võib teha üksi või kahekesi (maksimaalselt 3)
 1. Muuda repositooriumi `README.md faili` vastavalt nõutele
 1. Tee valmis korralik veebirakendus
 
-### Nõuded
+### Eesmärgid:
 
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
+  *Veebirakendus on mõeldud leidma kõige soojemat veeallikat kuskil 50km raadiuses.
+  *Ideaalne suve perioodiks, kui soov ujuma minna aga ei tea kus on kõige soojem ja puhtaim vesi.
+  *Rakendus teeb mugavaks leidmaks sobiva veekogu.
+
     * funktsionaalsuse loetelu prioriteedi järjekorras, nt
         * v0.1 Saab teha kasutaja ja sisselogida
         * v0.2 Saab lisada ...
