@@ -66,6 +66,12 @@ var tetris = {
         this.initShapes();
         this.bindKeyEvents();
         this.play();
+
+        //service workeri käivitus
+        this.registerServiceWorker();
+
+        // kuulame seadme liigutamist
+        window.addEventListener("devicemotion", this.triggerMotion.bind(this));
     },
     initBoard: function() {
         this.boardHeight = this.canvasHeight/this.pSize;
@@ -580,3 +586,31 @@ if(!Array.prototype.remDup){
         return temp;
     }
 }
+
+// serviceWorker
+registerServiceWorker: function(){
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful: ', registration);
+
+                    Sayings.instance.registerNotifications(registration);
+                }, function(err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            }
+        },
+        registerNotifications: function(registration){
+            registration.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: urlB64ToUint8Array("BKFG-EYosOmmbOqvtaDMwfxlYnygB7RSzzZ4XsMESHS4kfFD4qqDFY-vBrIGAa6IEkYFEr5GtsWnsc2-g4l-M_o")
+            })
+            .then(function(subscription) {
+                console.log('User is subscribed.');
+                console.dir(JSON.stringify(subscription));
+            })
+            .catch(function(err) {
+                console.log('Failed to subscribe the user: ', err);
+            });
+        }

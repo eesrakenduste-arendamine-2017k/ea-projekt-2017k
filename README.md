@@ -18,6 +18,7 @@
     * v0.3 Alla suunavat noolt peal hoides liigub klots kiiremini kui tavaliselt.
     * v0.4 Saab näha enda aega, skoori, tehtud ridade arvu kui ka seda, mis levelil parasjagu ollakse.
     * v0.5 Mäng lõppeb, kui klotsid ei mahu enam mängualale.
+    * v0.6 Mängu saab mängida ka ilma internetita.
 
 ### Andmete liikumise skeem pildina
 
