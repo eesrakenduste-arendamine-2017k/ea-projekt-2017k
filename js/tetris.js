@@ -68,10 +68,10 @@ var tetris = {
         this.play();
 
         //service workeri käivitus
-        this.registerServiceWorker();
+        registerServiceWorker();
 
         // kuulame seadme liigutamist
-        window.addEventListener("devicemotion", this.triggerMotion.bind(this));
+        //window.addEventListener("devicemotion", this.triggerMotion.bind(this));
     },
     initBoard: function() {
         this.boardHeight = this.canvasHeight/this.pSize;
@@ -584,11 +584,25 @@ if(!Array.prototype.remDup){
             if(bool === true){temp.push(this[i]);}
         }
         return temp;
-    }
+    };
 }
 
+
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+}
 // serviceWorker
-registerServiceWorker: function(){
+/*registerServiceWorker: function(){
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
                     // Registration was successful
@@ -614,3 +628,4 @@ registerServiceWorker: function(){
                 console.log('Failed to subscribe the user: ', err);
             });
         }
+*/
