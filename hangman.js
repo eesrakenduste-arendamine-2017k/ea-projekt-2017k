@@ -107,7 +107,7 @@ window.onload = function () {
       //$("canvas").fadeOut(5000);
       showLives.style.color = "red";
     }else if (lives < 5) {
-      showLives.innerHTML = "Sul on " + lives + " elu veel alles!";
+      showLives.innerHTML = "Sul on " + lives + " elu alles!";
       showLives.style.color = "orange";
     }else{
       showLives.style.color = "lime";
@@ -146,6 +146,7 @@ window.onload = function () {
       context.beginPath();
       context.arc(60, 25, 10, 0, Math.PI*2, true);
       context.stroke();
+      //draw (60, 30, 70, 25);
     };
 
   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
@@ -237,7 +238,7 @@ window.onload = function () {
   // Play
   play = function () {
     $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
-    $("#reset").fadeOut(1000);
+    $("#reset").fadeOut(800);
     categories = [
         ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
         ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],

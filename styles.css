@@ -31,7 +31,8 @@ button {
 canvas {
   margin-top: 2%;
   color: white;
-  border: black dashed 2px;
+  background: rgba(0, 0, 0, 0.6);
+  border: white dashed 2px;
   padding: 15px;
 }
 
@@ -53,7 +54,7 @@ h2 {
 }
 
 p {
-  font-size: 1.6em;
+  font-size: 1.2em;
 }
 #cinzel {
   font-family:'Cinzel', serif;
