@@ -7,8 +7,8 @@ window.onload = function () {
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categories;
-  var categoryNames=["jalka", "filmid", 'linnad'];         // Array of topics
-  var chosenCategory;     // Selected catagory
+  var categoryNames= ["jalka", "filmid", 'linnad'];         // Array of topics
+  var randCategoryName;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
   var geuss ;             // Geuss
@@ -57,13 +57,12 @@ window.onload = function () {
 <<<<<<< HEAD
 =======
   }*/
-  var randIndex = Math.floor(Math.random()*categoryNames.length);
-  var randCategory = categoryNames[randIndex];
   //alert(randIndex);
   var selectCategory = function(){
       for (var i = 0; i < categoryNames.length; i++) {
-        if (randCategory === categoryNames[i]) {
+        if (randCategoryName === categoryNames[i]) {
           categoryName.innerHTML = "valitud kategooria on: " + categoryNames[i];
+          return categoryNames[i];
         }
       }
   };
@@ -237,13 +236,15 @@ window.onload = function () {
 
   // Play
   play = function () {
-    $("#buttons").add("#categoryNames").add("#hint").add("#clue").fadeIn(1000);
+    $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
+    $("#reset").fadeOut(1000);
     categories = [
         ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
         ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
         ["manchester", "milan", "madrid", "amsterdam", "prague"]
     ];
-
+    var randIndex = Math.floor(Math.random()*categoryNames.length);
+    randCategoryName = categoryNames[randIndex];
     word = categories[randIndex][Math.floor(Math.random() * categories[randIndex].length)];
     //alert(word);
     word = word.replace(/\s/g, "-");
@@ -272,9 +273,11 @@ window.onload = function () {
         ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
     ];
 
-    var catagoryIndex = categories.indexOf(chosenCategory);
-    var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Vihje: - " +  hints [catagoryIndex][hintIndex];
+    var catagoryIndex = categories.indexOf(randCategoryName);
+    console.log(catagoryIndex);
+    var hintIndex = randCategoryName.indexOf(word);
+    console.log(hintIndex);
+    showClue.innerHTML = "Vihje: - " +  hints [categoryNames[catagoryIndex]][hintIndex];
   };
 
    // Reset
