@@ -10,17 +10,17 @@ var urlsToCache = [
   "/~karojyrg/ea-projekt-2017k/css/loader.css",
 ];
 
-self.addEventListener('install', function(event)){
-  //Perform install steps
+self.addEventListener('install', function(event) {
+    // Perform install steps
 
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then(function(cache)){
-      console.log('Opened cache');
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+        .then(function(cache) {
+            console.log('Opened cache');
 
-      return cache.addAll(urlsToCache);
-    })
-  );
+            return cache.addAll(urlsToCache);
+        })
+    );
 });
 
 self.addEventListener("fetch", function(event) {
