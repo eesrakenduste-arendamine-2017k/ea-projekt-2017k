@@ -7,7 +7,7 @@ window.onload = function () {
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categories;
-  var categoryName=["jalka", "filmid", 'linnad'];         // Array of topics
+  var categoryNames=["jalka", "filmid", 'linnad'];         // Array of topics
   var chosenCategory;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
@@ -16,7 +16,7 @@ window.onload = function () {
   var lives ;             // Lives
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
-  //var categoryName = ["jalka", "kino", "linnad"];
+  //var categoryNames = ["jalka", "kino", "linnad"];
   // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
@@ -45,25 +45,25 @@ window.onload = function () {
   /*var selectCat = function () {
     if (chosenCategory === categories[0]) {
 <<<<<<< HEAD
-      categoryName.innerHTML = "The Chosen Category Is Premier league";
+      categoryNames.innerHTML = "The Chosen Category Is Premier league";
 =======
       catagoryName.innerHTML = "";
 >>>>>>> origin/master
     } else if (chosenCategory === categories[1]) {
-      categoryName.innerHTML = "The Chosen Category Is Films";
+      categoryNames.innerHTML = "The Chosen Category Is Films";
     } else if (chosenCategory === categories[2]) {
-      categoryName.innerHTML = "The Chosen Category Is Cities";
+      categoryNames.innerHTML = "The Chosen Category Is Cities";
     }
 <<<<<<< HEAD
 =======
   }*/
-  var randIndex = Math.floor(Math.random()*categoryName.length);
-  var rand = categoryName[randIndex];
+  var randIndex = Math.floor(Math.random()*categoryNames.length);
+  var randCategory = categoryNames[randIndex];
   //alert(randIndex);
-  var selectCat=function(){
-      for (var i = 0; i < categoryName.length; i++) {
-        if (rand === categoryName[i]) {
-          catName.innerHTML="valitud kategooria on: " + categoryName[i];
+  var selectCategory = function(){
+      for (var i = 0; i < categoryNames.length; i++) {
+        if (randCategory === categoryNames[i]) {
+          categoryName.innerHTML = "valitud kategooria on: " + categoryNames[i];
         }
       }
   };
@@ -101,7 +101,7 @@ window.onload = function () {
       $("#buttons").add("#hint").add("#clue").fadeOut(1000);
       $("#reset").fadeIn(1000);
       showLives.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
-      //$("categoryName").fadeOut(1000);
+      //$("categoryNames").fadeOut(1000);
       gameOver.play();
       setTimeout(wrongAudio, 1000);
       //fatality.play();
@@ -237,7 +237,7 @@ window.onload = function () {
 
   // Play
   play = function () {
-    $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
+    $("#buttons").add("#categoryNames").add("#hint").add("#clue").fadeIn(1000);
     categories = [
         ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
         ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
@@ -256,7 +256,7 @@ window.onload = function () {
     space = 0;
     result();
     comments();
-    selectCat();
+    selectCategory();
     canvas();
   };
 
