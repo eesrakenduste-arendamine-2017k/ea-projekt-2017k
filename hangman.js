@@ -1,8 +1,10 @@
 window.onload = function () {
-
-  var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-        't', 'u', 'v', 'w', 'õ', 'ä', 'ö', 'ü', 'x', 'y', 'z'];
+  $("body").hide();
+  $("body").fadeIn(1000);
+  $("#reset").hide();
+  var alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
+        'o', 'p', 'ü', 'õ', 'a', 's', 'd', 'f', 'g', 'h', 'j',
+        'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categories;
   var categoryName=["filmid", "vms", 'asdassad'];         // Array of topics
@@ -14,11 +16,11 @@ window.onload = function () {
   var lives ;             // Lives
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
-
+  //var categoryName = ["jalka", "kino", "linnad"];
   // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
-  var getHint = document.getElementById("hint");
+  getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
 
 
@@ -37,18 +39,23 @@ window.onload = function () {
       myButtons.appendChild(letters);
       letters.appendChild(list);
     }
-  }
-
+  };
 
   // Select Catagory
   /*var selectCat = function () {
     if (chosenCategory === categories[0]) {
+<<<<<<< HEAD
+      categoryName.innerHTML = "The Chosen Category Is Premier league";
+=======
       catagoryName.innerHTML = "";
+>>>>>>> origin/master
     } else if (chosenCategory === categories[1]) {
-      catagoryName.innerHTML = "The Chosen Category Is Films";
+      categoryName.innerHTML = "The Chosen Category Is Films";
     } else if (chosenCategory === categories[2]) {
-      catagoryName.innerHTML = "The Chosen Category Is Cities";
+      categoryName.innerHTML = "The Chosen Category Is Cities";
     }
+<<<<<<< HEAD
+=======
   }*/
   var randIndex = Math.floor(Math.random()*categoryName.length);
   var rand = categoryName[randIndex];
@@ -60,6 +67,7 @@ window.onload = function () {
           console.log('hello');
         }
       }
+>>>>>>> origin/master
   };
   // Create geusses ul
    result = function () {
@@ -81,26 +89,48 @@ window.onload = function () {
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
     }
-  }
+  };
+
+    var hideElement = function(){
+
+    };
 
   // Show lives
    comments = function () {
-    showLives.innerHTML = "Sul on " + lives + " elu alles!";
+
+    showLives.innerHTML = "Sul on " + lives + " elu!";
     if (lives < 1) {
-      showLives.innerHTML = "Mäng Läbi";
+      $("#buttons").add("#hint").add("#clue").fadeOut(1000);
+      $("#reset").fadeIn(1000);
+      showLives.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
+      //$("categoryName").fadeOut(1000);
+      gameOver.play();
+      setTimeout(wrongAudio, 1000);
+      //fatality.play();
+      //$("canvas").fadeOut(5000);
+      showLives.style.color = "red";
+    }else if (lives < 5) {
+      showLives.innerHTML = "Sul on " + lives + " elu veel alles!";
+      showLives.style.color = "orange";
+    }else{
+      showLives.style.color = "lime";
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
-        showLives.innerHTML = "You Win!";
+        $("#buttons").add("#hint").add("#clue").fadeOut(1000);
+        $("#reset").fadeIn(1000);
+        showLives.innerHTML = "Vastasid õigesti!";
+        showLives.style.color = "lime";
+        winSound.play();
       }
     }
-  }
+  };
 
       // Animate man
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
-  }
+  };
 
 
    // Hangman
@@ -119,14 +149,14 @@ window.onload = function () {
       context.beginPath();
       context.arc(60, 25, 10, 0, Math.PI*2, true);
       context.stroke();
-    }
+    };
 
   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
 
     context.moveTo($pathFromx, $pathFromy);
     context.lineTo($pathTox, $pathToy);
     context.stroke();
-}
+};
 
    frame1 = function() {
      draw (0, 150, 150, 150);
@@ -149,23 +179,34 @@ window.onload = function () {
    };
 
    rightArm = function() {
-     draw (60, 46, 100, 50);
+     draw (60, 46, 90, 50);
    };
 
    leftArm = function() {
-     draw (60, 46, 20, 50);
+     draw (60, 46, 30, 50);
    };
 
    rightLeg = function() {
-     draw (60, 70, 100, 100);
+     draw (60, 70, 90, 100);
    };
 
    leftLeg = function() {
-     draw (60, 70, 20, 100);
+     draw (60, 70, 30, 100);
    };
 
   drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1];
 
+  var rightSound = document.getElementById("rightSound");
+  var wrongSound = document.getElementById("wrongSound");
+  var gameOver = document.getElementById('gameOver');
+  var winSound = document.getElementById('winSound');
+  var fatality = document.getElementById('fatality');
+  correctAudio = function(){
+    rightSound.play();
+  };
+  wrongAudio = function(){
+    fatality.play();
+  };
 
   // OnClick Function
    check = function () {
@@ -177,23 +218,28 @@ window.onload = function () {
         if (word[i] === geuss) {
           geusses[i].innerHTML = geuss;
           counter += 1;
+          this.style.backgroundColor = "rgba(0, 255, 0, 1)";
+          rightSound.play();
         }
       }
       var j = (word.indexOf(geuss));
       if (j === -1) {
         lives -= 1;
+        this.style.backgroundColor = "rgba(255, 0, 0, 1)";
+        wrongSound.play();
         comments();
         animate();
       } else {
         comments();
       }
-    }
-  }
+    };
+  };
 
 
 
   // Play
   play = function () {
+    $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
     categories = [
         ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
         ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
@@ -214,7 +260,7 @@ window.onload = function () {
     comments();
     selectCat();
     canvas();
-  }
+  };
 
   play();
 
@@ -230,7 +276,7 @@ window.onload = function () {
 
     var catagoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
+    showClue.innerHTML = "Vihje: - " +  hints [catagoryIndex][hintIndex];
   };
 
    // Reset
@@ -241,5 +287,5 @@ window.onload = function () {
     showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     play();
-  }
-}
+  };
+};
