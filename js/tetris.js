@@ -67,7 +67,6 @@ var tetris = {
         this.bindKeyEvents();
         this.play();
 
-        //service workeri käivitus
         registerServiceWorker();
 
         // kuulame seadme liigutamist
@@ -304,7 +303,7 @@ var tetris = {
         if (this.isActive === 1){
             this.clearTimers();
             this.isActive = 0;
-        }else {this.play();}
+        } else {this.play();}
     },
     clearTimers: function(){
         clearTimeout(this.timer);
@@ -414,17 +413,6 @@ var tetris = {
         return 'U';
     },
     checkRows: function(){
-        //does check for full lines, removes them, and shifts everything else down
-        /* var me = this;
-        var memo = 0;
-        var checks = (function(){
-            me.curShape.eachdo(function(){
-            if ((this[1] + me.curY) > memo) {
-            return this[1];
-            }
-            });
-        });
-        console.log(checks); */
         var me = this;
         var start = this.boardHeight;
         this.curShape.eachdo(function(){
@@ -544,24 +532,6 @@ var tetris = {
     bTest: function(rgx){
         return rgx.test(navigator.userAgent);
     }
-    /*debug: function(){
-    var me = this;
-    var str = '';
-    for (var i = 0; i < me.board.length; i++){
-        if(i % me.boardWidth === 0){
-           if (me.board[i] === 1) {
-              str += ' X ';
-           }
-           else {
-              str += "&nbsp; * &nbsp;";
-           }
-           var par = document.creatElement('p');
-           par.innerHTML = str;
-           me.boardDiv.innerHTML = '';
-           me.boardVid.apendChild(par);
-        }, */
-
-
 };
 tetris.init();
 }) ();
@@ -601,31 +571,3 @@ function registerServiceWorker() {
   });
 }
 }
-// serviceWorker
-/*registerServiceWorker: function(){
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful: ', registration);
-
-                    Sayings.instance.registerNotifications(registration);
-                }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            }
-        },
-        registerNotifications: function(registration){
-            registration.pushManager.subscribe({
-                userVisibleOnly: true,
-                applicationServerKey: urlB64ToUint8Array("BKFG-EYosOmmbOqvtaDMwfxlYnygB7RSzzZ4XsMESHS4kfFD4qqDFY-vBrIGAa6IEkYFEr5GtsWnsc2-g4l-M_o")
-            })
-            .then(function(subscription) {
-                console.log('User is subscribed.');
-                console.dir(JSON.stringify(subscription));
-            })
-            .catch(function(err) {
-                console.log('Failed to subscribe the user: ', err);
-            });
-        }
-*/
