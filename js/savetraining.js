@@ -1,13 +1,26 @@
 var name;
 var description;
 var picture;
-var username = "OssuBoys";
+var username;
 var trainingID;
 var exercise = "harjutus1";
 var nr = 1;
 var exerciseNR = 1;
+window.onload = gettrainingID;
+function gettrainingID(){
+
+    var a = location.search.substring(1);
+    //console.log(a);
+    var b = a.split(/&/);
+    //console.log(b);
+    //console.log(location);
+    trainingID = b[1].substring(13);
+    username = b[0].substring(9);
+    console.log(username);
+    document.getElementById("trainingID").value = trainingID;
+}
 function saveTraining(){
-    trainingID = document.getElementById('trainingID').value;
+    //trainingID = document.getElementById('trainingID').value;
     name = document.getElementById('exercise').value;
     description = document.getElementById('description').value;
     //picture = document.getElementById('image').value;

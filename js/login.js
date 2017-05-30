@@ -2,7 +2,6 @@ var username;
 var password;
 var a;
 var databasepassword;
-
 function login(){
     username = document.getElementById('username').value;
     password = document.getElementById('password').value;
@@ -17,7 +16,7 @@ function checkUsername(){
             databasepassword = snapshot.val().Password;
             if(databasepassword == password){
                 console.log("Parool õige");
-                location.href = '../home.html';
+                location.href = 'home.html?username='+username;
             }else{
                 console.log("Parool vale");
             }

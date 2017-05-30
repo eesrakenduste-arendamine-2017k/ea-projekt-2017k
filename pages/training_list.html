@@ -5,38 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOME</title>
-
+  <script  type="text/javascript" src = "../js/training_list.js"></script>
+  <script type="text/javascript" src = "../js/firebase.js" ></script>
+  <script type="text/javascript" src = "../js/config.js" ></script>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 
 </head>
 
 <body>
-  <button type="button" onclick="location.href = 'home.html'; "name="button">Tagasi avalehele</button>
+  <button type="button" onclick="location.href = 'home.html?username='+username; "name="button">Tagasi avalehele</button>
   <h1>Kavade loend</h1>
   <p class="loading">Laeb...</p><br>
-  <ul class="list-of-schedules">Siin on kavade loend</ul>
-  <script>
-  window.onload = function(){
-      // käivitame siis kui lehte laeme
-      console.log('>>>>loend');
-
-      // peidan loendi ja näitan loading...
-      document.querySelector('.list-of-schedules').style.display = 'none';
-      document.querySelector('.loading').style.display = 'block';
-
-
-      //simulatsioon laeb kaua
-      window.setTimeout(function(){
-
-          // peidan loading... ja näitan loendit
-          document.querySelector('.loading').style.display = 'none';
-          document.querySelector('.list-of-schedules').style.display = 'block';
-
-      }, 2000);
-
-  }
-  </script>
+  <ul id="training" class="list-of-schedules">Siin on kavade loend</ul>
+  
 
 </body>
 </html>
