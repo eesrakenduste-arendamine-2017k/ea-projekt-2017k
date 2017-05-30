@@ -1,13 +1,13 @@
 // service worker
 var CACHE_NAME = 'tetris_game';
 var urlsToCache = [
-  "/~karojyrg/ea-projekt-2017k/tetris.html",
-  "/~karojyrg/ea-projekt-2017k/index.html",
-  "/~karojyrg/ea-projekt-2017k/",
-  "/~karojyrg/ea-projekt-2017k/js/tetris.js",
-  "/~karojyrg/ea-projekt-2017k/css/style.css",
-  "/~karojyrg/ea-projekt-2017k/css/style.css",
-  "/~karojyrg/ea-projekt-2017k/css/loader.css",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/tetris.html",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/index.html",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/js/tetris.js",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/css/style.css",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/css/style.css",
+  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/css/loader.css",
 ];
 
 self.addEventListener('install', function(event) {
