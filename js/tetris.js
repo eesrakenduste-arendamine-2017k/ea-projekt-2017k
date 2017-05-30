@@ -274,7 +274,20 @@ var tetris = {
     },
     gameOver: function(){
         this.clearTimers();
-        this.canvas.innerHTML = "<h1>GAME OVER</h1>";
+        this.canvas.innerHTML = "<h1>GAME OVER </h1>";
+
+      /*BUTTON IN WORK
+        var button = document.createElement("button");
+        button.innerHTML = "Play again";
+
+        // 2. Append somewhere
+        var body = document.getElementsByTagName("body")[0];
+        body.appendChild(button);
+
+        // 3. Add event handler
+        button.addEventListener ("click", function() {
+          alert("did something");
+        });*/
     },
     play: function(){
         var me = this;
