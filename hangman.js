@@ -7,7 +7,7 @@ window.onload = function () {
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categories;
-  var categoryNames= ["jalka", "filmid", 'linnad'];         // Array of topics
+  var categoryNames= ["raamatute kultusklassika", "õudusfilmid", 'euroopa linnad'];         // Array of topics
   var randCategoryName;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
@@ -107,7 +107,7 @@ window.onload = function () {
       //$("canvas").fadeOut(5000);
       showLives.style.color = "red";
     }else if (lives < 5) {
-      showLives.innerHTML = "Sul on " + lives + " elu alles!";
+      showLives.innerHTML = "Sul on " + lives + " elu veel alles!";
       showLives.style.color = "orange";
     }else{
       showLives.style.color = "lime";
@@ -146,7 +146,6 @@ window.onload = function () {
       context.beginPath();
       context.arc(60, 25, 10, 0, Math.PI*2, true);
       context.stroke();
-      //draw (60, 30, 70, 25);
     };
 
   draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
@@ -238,11 +237,11 @@ window.onload = function () {
   // Play
   play = function () {
     $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
-    $("#reset").fadeOut(800);
+    $("#reset").fadeOut(1000);
     categories = [
-        ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-        ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-        ["manchester", "milan", "madrid", "amsterdam", "prague"]
+        ["1984", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
+        ["voonakeste-vaikimine", "reede 13", "tulnukas", "carrie", "metsamajake","elm streeti luupainaja", "ring"],
+        ["london", "pariis", "firenze", "amsterdam", "manchester", "tallinn", "leeuwarden"]
     ];
     var randIndex = Math.floor(Math.random()*categoryNames.length);
     randCategoryName = categoryNames[randIndex];
@@ -269,9 +268,9 @@ window.onload = function () {
     hint.onclick = function() {
 
       hints = [
-        ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
-        ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
-        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
+        ["autor: george orwell", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "Antoine de Saint-Exupéry", "Vladimir Nabokov", "Bret Easton Ellis"],
+        ["maailma kuulsaim kannibal", "tüüp ei lase noortel järve ääres lõbutseda", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei  lase magada", "tsikk ronib kaevust välja"],
+        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","renessanssi sünnipaik", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "2017 mais toimus seal toimunud popkontserdil pommirünnak", "ajalooline nimi on olnud saksalaadne reval", "linn hollandis"]
     ];
 
     var catagoryIndex = categories.indexOf(randCategoryName);
