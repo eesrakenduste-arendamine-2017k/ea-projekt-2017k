@@ -268,7 +268,7 @@ window.onload = function () {
     hint.onclick = function() {
 
       hints = [
-        ["autor: george orwell", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "Antoine de Saint-Exupéry", "Vladimir Nabokov", "Bret Easton Ellis"],
+        ["autor: george orwell", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
         ["maailma kuulsaim kannibal", "tüüp ei lase noortel järve ääres lõbutseda", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei  lase magada", "tsikk ronib kaevust välja"],
         ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","renessanssi sünnipaik", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "2017 mais toimus seal toimunud popkontserdil pommirünnak", "ajalooline nimi on olnud saksalaadne reval", "linn hollandis"]
     ];
