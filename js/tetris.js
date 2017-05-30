@@ -273,20 +273,7 @@ var tetris = {
     },
     gameOver: function(){
         this.clearTimers();
-        this.canvas.innerHTML = "<h1>GAME OVER </h1>";
-
-      /*BUTTON IN WORK
-        var button = document.createElement("button");
-        button.innerHTML = "Play again";
-
-        // 2. Append somewhere
-        var body = document.getElementsByTagName("body")[0];
-        body.appendChild(button);
-
-        // 3. Add event handler
-        button.addEventListener ("click", function() {
-          alert("did something");
-        });*/
+        this.canvas.innerHTML = "<h1>GAME OVER</h1>";
     },
     play: function(){
         var me = this;
@@ -574,7 +561,7 @@ if(!Array.prototype.remDup){
 function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('js/serviceWorker.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function(err) {
