@@ -7,8 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="projekt.css">
 	<script src="projekt.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.2/math.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="setPlayerName()">
 
 <!-- MAATRIKSITE HARJUTAMINE -->
 	
@@ -72,14 +73,23 @@
 		
 	</div>
 	
-	<button type="button" onclick="checkMatrixAnswers()">Kontrolli vastust</button>
+	<button id="checkAndRestart"type="button" onclick="checkMatrixAnswers()">Kontrolli vastust</button>
 	<button type="button" onclick="resetScore()">Lõpeta</button>
 	
 	<div id="gameStats">
+	<div id="playerName">MÄNGIJA:nimetu</div>
 	<div id= "playerScore">SKOOR:0</div>
 	<div id="wrongAnswers">VIGU:0 </div>
 	<div id= "TotalSum">MAATRIKSEID KOKKU:0</div>
 	</div>
+	
+	<button type="button" onclick="startNewGame()">UUS MÄNG</button>
+	<button type="button" onclick="viewTopPlayers()">TOP10</button>
+	
+	<div id="scoreTable">
+    <table id="myTable">
+    </div>
+		
 
 </body>
 </html>

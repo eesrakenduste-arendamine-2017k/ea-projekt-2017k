@@ -1,23 +1,51 @@
 [
-  {},
+  
   {
-    "score": 0,
-    "errors": 2,
+    "name": "playername",
+    "score": 6,
+    "errors": 0,
+    "exercises": 4
+  },
+  {
+    "name": "test",
+    "score": 1,
+    "errors": 1,
     "exercises": 2
   },
   {
+    "name": "Nimetu",
     "score": 0,
-    "errors": 3,
-    "exercises": 3
+    "errors": 0,
+    "exercises": 0
   },
   {
+    "name": "Nimetu",
+    "score": 0,
+    "errors": 0,
+    "exercises": 0
+  },
+  {
+    "name": "Nimetu",
+    "score": 0,
+    "errors": 0,
+    "exercises": 0
+  },
+  {
+    "name": "ted",
+    "score": 0,
+    "errors": 0,
+    "exercises": 0
+  },
+  {
+    "name": "mäng",
     "score": 0,
     "errors": 1,
     "exercises": 1
   },
   {
-    "score": 1,
+    "name": "Nimetu",
+    "score": 0,
     "errors": 0,
-    "exercises": 1
+    "exercises": 0
   }
 ]

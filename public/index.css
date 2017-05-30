@@ -31,29 +31,13 @@ body{
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.19);
-
-
-
 }
-
-
 
 .optionButtons:hover {
     background-color: #221a54; 
     color: white;
 }
 
-#Calculator{
-	   
-     
-     
-      
-}
-#Game{
-	 
-    
-
-}
 .optionsContainer{
 	transition: margin-left .5s;
   position: absolute;
