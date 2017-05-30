@@ -5,6 +5,8 @@
 
   POOMISMÄNG veebirakendus
 
+  viide hangman koodi algsele põhjale: https://codepen.io/anon/pen/WjBOaX
+
 * Tõnu Trubetsky, Lauri Valma, Brigitta Kannel
 
 * klassikaline poomismäng:

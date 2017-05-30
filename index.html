@@ -4,29 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Barrio|Cinzel|Kumar+One|Monoton|Montserrat+Subrayada|Special+Elite" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
+  <title>Poomismäng - Esileht</title>
 </head>
 <body>
   <div class="wrapper">
   <h1>Poomismäng</h1>
-  <h2>Klassikaline sõnade äraarvasmis mäng!</h2>
-  <p>Kasuta all olevat tähestikku, et sõnu arvata või vajuta vihje nupule. </p>
+  <h2>Klassikaline sõnade äraarvasmise mäng!</h2>
+  <p>Kasuta antud tähestikku, et sõnu arvata või vajuta vihje nupule. </p>
 </div>
 <div class="wrapper">
-  <div id="buttons">
-  </div>
-  <p id="catagoryName"></p>
-  <div id="hold">
-  </div>
-  <p id="mylives"></p>
-  <p id="clue">Clue -</p>
-  <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+  <p>Vali kategooria:</p>
+  <button id="kat1" onclick="changeFont()">Kategooria1</button>
+  <button id="kat2" onclick="changeFont()">Kategooria2</button>
+  <button id="kat3" onclick="changeFont()">Kategooria3</button>
   <div class="container">
-    <button id="hint">Hint</button>
-    <button id="reset">Play again</button>
+    <button id="reset" onclick="location.href='hangman.html'">Mängi!</button>
   </div>
 </div>
-<script src="hangman.js"></script>
+<script>
+function changeFont(){
+  document.body.style.fontFamily = "'Cinzel', serif";
+}
+</script>
 </body>
 </html>
