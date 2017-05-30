@@ -7,7 +7,7 @@ window.onload = function () {
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categories;
-  var categoryName=["filmid", "vms", 'asdassad'];         // Array of topics
+  var categoryName=["jalka", "filmid", 'linnad'];         // Array of topics
   var chosenCategory;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
@@ -59,15 +59,13 @@ window.onload = function () {
   }*/
   var randIndex = Math.floor(Math.random()*categoryName.length);
   var rand = categoryName[randIndex];
-  alert(randIndex);
+  //alert(randIndex);
   var selectCat=function(){
       for (var i = 0; i < categoryName.length; i++) {
         if (rand === categoryName[i]) {
           catName.innerHTML="valitud kategooria on: " + categoryName[i];
-          console.log('hello');
         }
       }
->>>>>>> origin/master
   };
   // Create geusses ul
    result = function () {
@@ -247,7 +245,7 @@ window.onload = function () {
     ];
 
     word = categories[randIndex][Math.floor(Math.random() * categories[randIndex].length)];
-    alert(word);
+    //alert(word);
     word = word.replace(/\s/g, "-");
     console.log(word);
     buttons();
