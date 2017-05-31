@@ -4,8 +4,8 @@ var tetris = {
     boardDiv: null,
     canvas: null,
     pSize: 20,
-    canvasHeight: 440,
-    canvasWidth: 280,
+    canvasHeight: document.getElementById('canvas').offsetHeight,
+    canvasWidth: document.getElementById('canvas').offsetWidth, //280,
     boardHeight: 0,
     boardWidth: 0,
     spawnX: 4,
@@ -87,6 +87,10 @@ var tetris = {
         this.timeDisplay = document.getElementById("time").getElementsByTagName("span")[0];
         this.scoreDisplay = document.getElementById("score").getElementsByTagName("span")[0];
         this.linesDisplay = document.getElementById("lines").getElementsByTagName("span")[0];
+        this.visLeft = document.getElementById("button_left");
+        this.visDown = document.getElementById("button_down");
+        this.visRight = document.getElementById("button_right");
+        this.visTurn = document.getElementById("button_turn");
         this.setInfo('time');
         this.setInfo('score');
         this.setInfo('level');
@@ -200,11 +204,44 @@ var tetris = {
         var cb = function(e){
           me.handleKey(e);
         };
+        var cR = function(e) {
+          me.handleClick("right");
+        };
+        var cL = function(e) {
+          me.handleClick("left");
+        };
+        var cD = function(e) {
+          me.handleClick("down");
+        };
+        var cT = function(e) {
+          me.handleClick("turn");
+        };
         if (window.addEventListener){
+
+            me.visLeft.addEventListener("click", cL, false);
+            me.visRight.addEventListener("click", cR, false);
+            me.visDown.addEventListener("click", cD, false);
+            me.visTurn.addEventListener("click", cT, false);
             document.addEventListener(event, cb, false);
         } else {
             document.attachEvent('on' + event, cb);
         }
+    },
+    handleClick: function(e) {
+      switch(e) {
+        case "left":
+        this.move('L');
+        break;
+        case "right":
+        this.move('R');
+        break;
+        case "down":
+        this.move('D');
+        break;
+        case "turn":
+        this.move('RT');
+        break;
+      }
     },
     handleKey: function(e){
         var c = this.whichKey(e);
