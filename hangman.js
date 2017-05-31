@@ -16,9 +16,11 @@ window.onload = function () {
   var lives ;             // Lives
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
+  var score = 0;
   //var categoryNames = ["jalka", "kino", "linnad"];
   // Get elements
   var showLives = document.getElementById("mylives");
+  var gameOver = document.getElementById("gameOver");
   var showCatagory = document.getElementById("scatagory");
   getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
@@ -95,19 +97,21 @@ window.onload = function () {
   // Show lives
    comments = function () {
 
-    showLives.innerHTML = "Sul on " + lives + " elu!";
+    showLives.innerHTML = "Elud: " + lives;
+
     if (lives < 1) {
-      $("#buttons").add("#hint").add("#clue").fadeOut(1000);
-      $("#reset").fadeIn(1000);
-      showLives.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
+      $("#buttons").add("#hint").add("#clue").fadeOut(400);
+      $("#gameOver").add("#reset").fadeIn(400);
+      gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
       //$("categoryNames").fadeOut(1000);
+      score = 0;
       gameOver.play();
       setTimeout(wrongAudio, 1000);
       //fatality.play();
       //$("canvas").fadeOut(5000);
-      showLives.style.color = "red";
+      gameState.style.color = "red";
     }else if (lives < 5) {
-      showLives.innerHTML = "Sul on " + lives + " elu veel alles!";
+      showLives.innerHTML = "Elud: " + lives;
       showLives.style.color = "orange";
     }else{
       showLives.style.color = "lime";
@@ -115,10 +119,11 @@ window.onload = function () {
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         $("#buttons").add("#hint").add("#clue").fadeOut(1000);
-        $("#reset").fadeIn(1000);
         showLives.innerHTML = "Vastasid õigesti!";
         showLives.style.color = "lime";
         winSound.play();
+        //console.log(counter);
+        reset();
       }
     }
   };
@@ -195,7 +200,7 @@ window.onload = function () {
 
   var rightSound = document.getElementById("rightSound");
   var wrongSound = document.getElementById("wrongSound");
-  var gameOver = document.getElementById('gameOver');
+  var gameState = document.getElementById('gameState');
   var winSound = document.getElementById('winSound');
   var fatality = document.getElementById('fatality');
   correctAudio = function(){
@@ -215,6 +220,12 @@ window.onload = function () {
         if (word[i] === geuss) {
           geusses[i].innerHTML = geuss;
           counter += 1;
+          score += 1;
+          if (score > 0){
+            showScore.style.color = "lime";
+          }
+          showScore.innerHTML = "skoor: " + score;
+          console.log(score);
           this.style.backgroundColor = "rgba(0, 255, 0, 1)";
           rightSound.play();
         }
@@ -222,7 +233,13 @@ window.onload = function () {
       var j = (word.indexOf(geuss));
       if (j === -1) {
         lives -= 1;
-        this.style.backgroundColor = "rgba(255, 0, 0, 1)";
+        score -= 1;
+        if (score < 1){
+          showScore.style.color = "red";
+        }
+
+        showScore.innerHTML = "skoor: " + score;
+        this.style.backgroundColor = "rgba(105,105,105, 1)";
         wrongSound.play();
         comments();
         animate();
@@ -236,11 +253,11 @@ window.onload = function () {
 
   // Play
   play = function () {
-    $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
-    $("#reset").fadeOut(1000);
+    $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(400);
+    $("#reset").fadeOut(400);
     categories = [
         ["tappa laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
-        ["voonakeste-vaikimine", "reede 13", "tulnukas", "carrie", "metsamajake","elm streeti luupainaja", "ring"],
+        ["voonakeste-vaikimine", "reede 13", "tulnukas", "carrie", "metsamajake","elmstreeti-luupainaja", "ring"],
         ["london", "pariis", "stockholm", "amsterdam", "helsinki", "tallinn", "viin"]
     ];
     var randIndex = Math.floor(Math.random()*categoryNames.length);
@@ -282,7 +299,7 @@ window.onload = function () {
 
    // Reset
 
-  document.getElementById('reset').onclick = function() {
+  var reset = document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     showClue.innerHTML = "";
