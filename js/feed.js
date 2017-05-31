@@ -350,28 +350,6 @@ function printTweets(newTweets){
         '</div>';
         counter ++;
 		
-		
-		$.get('positive_words.txt', function(data){
-        var positiveWords = data.split("\n");
-		var tweetText = tweet.text;
-		var matchCount = 0;
-		//console.log(tweetText);
-		positiveWords.forEach(function(element){
-			//console.log(element);
-			var regex = new RegExp(element);
-			var matchResult = tweetText.match(regex);
-			if(matchResult != null && matchResult[0] == regex){
-				//match found!
-				matchCount++;
-				console.log(element);
-				console.log(matchCount);
-			}
-				
-		});
-		
-        //console.log(positiveWords);
-		
-		});
 	});
 	
 	console.log(counter);
@@ -396,6 +374,27 @@ function printTweets(newTweets){
         getTweets();
     },5000);*/
 
+	$.get('positive_words.txt', function(data){
+        var positiveWords = data.split("\n");
+		var matchCount = 0;
+		
+		$(newTweets).each(function(i, tweet){
+			var tweetText = tweet.text;
+			//console.log(tweetText);
+			positiveWords.forEach(function(element){
+				//console.log(element);
+				if(tweetText.toLowerCase().indexOf(element.toLowerCase()) !== -1){
+				// leidis sealt sees selle sõna ja annab tagasi indexi selles stringis
+					matchCount++;
+					console.log(element);
+					console.log(matchCount);
+				}
+			});
+		
+		});
+	});
+	
+	
 }
 function printTrends(newTrends){
     var html = '';
