@@ -1,15 +1,12 @@
 /* Variabes */
 /* Mixin's */
 body {
-  background: #4bc5ff;
+  background: rgba(75,197,255,1);
   font-family: 'Cinzel', serif;
   color: black;
   height: 100%;
   text-align: center;
   font-size: 18px;
-}
-button {
-  font-family: 'Cinzel', serif
 }
 
 #buttons {
@@ -29,7 +26,7 @@ button {
 }
 
 canvas {
-  margin-top: 2%;
+  margin-top: 1%;
   color: white;
   background: rgba(0, 0, 0, 0.6);
   border: white dashed 2px;
@@ -42,10 +39,11 @@ h3 {
   font-family: 'Cinzel', serif;
   font-weight: 100;
   text-transform: uppercase;
-  margin: 5px 0;
+  margin: 5px auto;
 }
 
 h1 {
+  margin: 5% auto;
   font-size: 2.6em;
 }
 
@@ -105,25 +103,31 @@ p {
   color: black;
 }
 
-#gameState p {
+#gameState {
   color:red;
 }
 
 #player p {
   display:inline-block;
-  padding: 10px;
-  border: solid 1px black;
+  padding: 20px;
+  border: solid 0px black;
   font-size: 1.6em;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
 }
 #my-word {
-  margin: 0;
+  margin:  0 auto;
+  padding: 0 auto;
   display: block;
-  padding: 0;
-  display: block;
-  border: solid 1px black;
+  border: solid 1px white;
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 900px;
+
 }
 
 #my-word li {
+  color: white;
   position: relative;
   list-style: none;
   margin: 0;
@@ -168,24 +172,27 @@ button {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -khtml-border-radius: 5px;
-  background: #4bc5ff;
-  color: black;
-  border: solid 1px black;
+  background: rgba(0, 0, 0, 1);
+  color: white;
+  border: solid 0.1px black;
   text-decoration: none;
   cursor: pointer;
   font-size: 1.2em;
   padding: 18px 10px;
   width: 180px;
-  margin: 10px;
+  margin: 2% auto;
   outline: none;
+  display:block;
+  font-family: 'Cinzel', serif
 }
 button:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background: black;
-  border: solid 1px black;
-  color: #4bc5ff;
+  border: solid 0.1px black;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(75,197,255,1);
 }
 
 @media (max-width: 767px) {
