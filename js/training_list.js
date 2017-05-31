@@ -20,7 +20,7 @@ window.onload = function(){
           printTrainings();
       }, 2000);
      //
-    }
+   };
 
   function getTraining(){
 
@@ -35,6 +35,12 @@ function gotData(data){
 }
 
 function printTrainings(){
-    exnames.toString();
-    document.getElementById("training").innerHTML=exnames;
+    //exnames.toString();
+    var content = document.getElementsByClassName('list-of-schedules')[0];
+    for (var i = 0; i < exnames.length; i++) {
+      content.innerHTML += "<a>"+exnames[i]+"</a>"+"<br>";
+
+    }
+
+
 }
