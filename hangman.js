@@ -84,17 +84,21 @@ window.onload = function () {
 
   // Show lives
    updateGameState = function () {
+
     showLives.innerHTML = "Elud: " + lives;
 
     if (lives < 1) {
       $("#buttons").add("#hint").add("#clue").fadeOut(400);
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
+
       console.log(p_name+':'+score);
 
       //SIIA SKOORI SALVESTAMINE
       saveScore(p_name, score);
+
       //$("categoryNames").fadeOut(1000);
+
       //gameState.style.color = "red";
 
       score = 0;
@@ -102,7 +106,10 @@ window.onload = function () {
       showScore.innerHTML = "skoor: " + score;
       gameOver.play();
       setTimeout(wrongAudio, 1000);
+    }else if (lives < 5) {
+      gameState.style.color = "red";
     }else if (lives <= 5 && lives > 2) {
+      showLives.innerHTML = "Elud: " + lives;
       showLives.style.color = "orange";
     }else if(lives <= 2){
       showLives.style.color = "red";
@@ -244,14 +251,13 @@ window.onload = function () {
     };
   };
 
-
   function playerName() {
-    p_name = prompt("Sisesta mängija nimi");
-    if (p_name === null || p_name ==='') {
-      p_name = 'Tundmatu';
-    }
-    console.log(p_name);
-  }
+     p_name = prompt("Sisesta mängija nimi");
+     if (p_name === null || p_name ==='') {
+       p_name = 'Tundmatu';
+     }
+     console.log(p_name);
+   }
 
 
   // Play
@@ -277,7 +283,9 @@ window.onload = function () {
     counter = 0;
     space = 0;
     result();
+
     updateGameState();
+
     selectCategory();
     canvas();
     return randIndex;
@@ -322,23 +330,23 @@ window.onload = function () {
     play();
   };
 
-
   function saveScore(x,y) {
-    var session = [];
-    var game = {
-      id: parseInt(1000 + Math.random()*999),
-      nimi: x,
-      skoor: y
-    };
-    var gamesFromStorage = null;
-    if (localStorage.getItem("session")) {
-      gamesFromStorage = JSON.parse(localStorage.getItem("session"));
-      if (gamesFromStorage) {
-        session = gamesFromStorage;
-      }
-    }
-    session.push(game);
-    console.log(game);
-    localStorage.setItem("session", JSON.stringify(session));
-  }
+     var session = [];
+     var game = {
+       id: parseInt(1000 + Math.random()*999),
+       nimi: x,
+       skoor: y
+     };
+     var gamesFromStorage = null;
+     if (localStorage.getItem("session")) {
+       gamesFromStorage = JSON.parse(localStorage.getItem("session"));
+       if (gamesFromStorage) {
+         session = gamesFromStorage;
+       }
+     }
+     session.push(game);
+     console.log(game);
+     localStorage.setItem("session", JSON.stringify(session));
+   }
+
 };
