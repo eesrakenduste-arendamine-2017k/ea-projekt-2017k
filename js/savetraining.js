@@ -8,14 +8,16 @@ var nr = 1;
 var exerciseNR = 1;
 window.onload = gettrainingID;
 function gettrainingID(){
-
     var a = location.search.substring(1);
     //console.log(a);
     var b = a.split(/&/);
     //console.log(b);
     //console.log(location);
-    trainingID = b[1].substring(13);
-    username = b[0].substring(9);
+
+    //decodeURIComponent tegel täpitähtede convertimisega
+    trainingID = decodeURIComponent(b[1].substring(13));
+    username = decodeURIComponent(b[0].substring(9));
+    console.log(trainingID, username);
     console.log(username);
     document.getElementById("trainingID").value = trainingID;
 }
