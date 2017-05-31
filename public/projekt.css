@@ -5,25 +5,18 @@ element <-- elemendi põjal
 
 */
 
-/*
-.YdropdownContent{
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-.show {display:block;}
-*/
-body{
+body {
 	font-family:verdana;
 	margin: 5px;
     padding: 5px;
 	background-color:#ffffff;
     
 }
-h1{
+
+h1 {
 	color:#004080;
 }
+
 button, #optionButtons {
     background-color:#004080;
     border: none;
@@ -33,13 +26,13 @@ button, #optionButtons {
     text-decoration: none;
     display: inline-block;
     font-size: 15px;
-	  margin:10px;
+	margin:10px;
 }
-form{
+form {
 	color:grey;
 }
 
-input{
+input {
 	margin-bottom: 5px;
 	width:30px;
 	margin-left:5px;
@@ -49,6 +42,7 @@ input{
 	float:left;
 	border-style:solid;
 }
+
 tbody{
 	width:650px;
     margin-left:20px;
@@ -124,37 +118,36 @@ tbody{
 	border:none;
 }
 
-#gameStats{
-  background-color: white;
-  color:  #272788;
-  padding: 15px 32px;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 4px;
-  width:250px;
-  height:100px;
-  text-align:left;
-  border-radius:6px;
-  font-size:20px;
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.19);
-  position: absolute;
-  right: 10%;
-  top:10%
-
-	
+#gameStats {
+	background-color: white;
+	color:  #272788;
+	padding: 15px 32px;
+	text-decoration: none;
+	display: inline-block;
+	margin: 4px 4px;
+	width:250px;
+	height:100px;
+	text-align:left;
+	border-radius:6px;
+	font-size:20px;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.19);
+	position: absolute;
+	right: 10%;
+	top:10%
 }
 
 scoreTable {
     border-collapse: collapse;
     width: 100%;
-	
 }
 
 th, td {
-    text-align: left;
-    padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){
+	background-color: #f2f2f2
+}
 
 
