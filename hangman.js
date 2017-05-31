@@ -90,15 +90,13 @@ window.onload = function () {
       $("#buttons").add("#hint").add("#clue").fadeOut(400);
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
-<<<<<<< HEAD
       console.log(p_name+':'+score);
 
       //SIIA SKOORI SALVESTAMINE
       saveScore(p_name, score);
       //$("categoryNames").fadeOut(1000);
-=======
       //gameState.style.color = "red";
->>>>>>> origin/master
+
       score = 0;
       backgroundMusic.pause();
       showScore.innerHTML = "skoor: " + score;
@@ -279,10 +277,7 @@ window.onload = function () {
     counter = 0;
     space = 0;
     result();
-<<<<<<< HEAD
-=======
     updateGameState();
->>>>>>> origin/master
     selectCategory();
     canvas();
     return randIndex;
