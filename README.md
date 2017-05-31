@@ -1,5 +1,7 @@
 # Eesrakenduste arendamine 2017k – projekt
 
+##
+
 ## Tähtaeg 
 
 Valitud eksamipäev
