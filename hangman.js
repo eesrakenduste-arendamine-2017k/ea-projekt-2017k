@@ -1,6 +1,6 @@
 window.onload = function () {
-  $("body").hide();
-  $("body").fadeIn(1000);
+  //$("body").hide();
+  $("body").fadeIn(400);
   $("#reset").hide();
   var alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
         'o', 'p', 'ü', 'õ', 'a', 's', 'd', 'f', 'g', 'h', 'j',
@@ -43,27 +43,10 @@ window.onload = function () {
     }
   };
 
-  // Select Catagory
-  /*var selectCat = function () {
-    if (chosenCategory === categories[0]) {
-<<<<<<< HEAD
-      categoryNames.innerHTML = "The Chosen Category Is Premier league";
-=======
-      catagoryName.innerHTML = "";
->>>>>>> origin/master
-    } else if (chosenCategory === categories[1]) {
-      categoryNames.innerHTML = "The Chosen Category Is Films";
-    } else if (chosenCategory === categories[2]) {
-      categoryNames.innerHTML = "The Chosen Category Is Cities";
-    }
-<<<<<<< HEAD
-=======
-  }*/
-  //alert(randIndex);
   var selectCategory = function(){
       for (var i = 0; i < categoryNames.length; i++) {
         if (randCategoryName === categoryNames[i]) {
-          categoryName.innerHTML = "kategooria = " + categoryNames[i];
+          categoryName.innerHTML = "kategooria - " + categoryNames[i];
           return categoryNames[i];
         }
       }
@@ -90,9 +73,14 @@ window.onload = function () {
     }
   };
 
-    var hideElement = function(){
-
-    };
+    /* mute music
+    document.getElementById("mute").onclick = function(){
+      if (backgroundMusic.pause()){
+        backgroundMusic.play();
+      }else {
+        backgroundMusic.pause();
+      }
+    };*/
 
   // Show lives
    updateGameState = function () {
@@ -103,16 +91,21 @@ window.onload = function () {
       $("#buttons").add("#hint").add("#clue").fadeOut(400);
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
+<<<<<<< HEAD
       console.log(p_name+':'+score);
 
       //SIIA SKOORI SALVESTAMINE
       saveScore(p_name, score);
       //$("categoryNames").fadeOut(1000);
+=======
+      //gameState.style.color = "red";
+>>>>>>> origin/master
       score = 0;
+      backgroundMusic.pause();
+      showScore.innerHTML = "skoor: " + score;
       gameOver.play();
       setTimeout(wrongAudio, 1000);
-      //fatality.play();
-      //$("canvas").fadeOut(5000);
+    }else if (lives < 5) {
       gameState.style.color = "red";
     }else if (lives <= 5 && lives > 2) {
       showLives.innerHTML = "Elud: " + lives;
@@ -125,7 +118,10 @@ window.onload = function () {
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         $("#buttons").add("#hint").add("#clue").fadeOut(1000);
-        showLives.innerHTML = "Vastasid õigesti!";
+        //showLives.innerHTML = "Vastasid õigesti!";
+        score += 10;
+        //removeWord(randIndex);
+        showScore.innerHTML = "skoor: " + score;
         showLives.style.color = "lime";
         winSound.play();
         //console.log(counter);
@@ -204,18 +200,17 @@ window.onload = function () {
 
   drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1];
 
+  // helid
   var rightSound = document.getElementById("rightSound");
   var wrongSound = document.getElementById("wrongSound");
   var gameState = document.getElementById('gameState');
   var winSound = document.getElementById('winSound');
   var fatality = document.getElementById('fatality');
-  correctAudio = function(){
-    rightSound.play();
-  };
+  var backgroundMusic = document.getElementById("backgroundMusic");
+
   wrongAudio = function(){
     fatality.play();
   };
-
   // OnClick Function
    check = function () {
     list.onclick = function () {
@@ -240,7 +235,7 @@ window.onload = function () {
       if (j === -1) {
         lives -= 1;
         score -= 1;
-        if (score < 1){
+        if (score < 0){
           showScore.style.color = "red";
         }
 
@@ -267,11 +262,12 @@ window.onload = function () {
 
   // Play
   play = function () {
+    //backgroundMusic.play();
     $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(400);
     $("#reset").fadeOut(400);
     categories = [
         ["tappa laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
-        ["voonakeste-vaikimine", "reede 13", "tulnukas", "carrie", "metsamajake","elmstreeti-luupainaja", "ring"],
+        ["voonakeste-vaikimine", "kurja kutsumine", "tulnukas", "carrie", "metsamajake","elmstreeti-luupainaja", "ring"],
         ["london", "pariis", "stockholm", "amsterdam", "helsinki", "tallinn", "viin"]
     ];
     var randIndex = Math.floor(Math.random()*categoryNames.length);
@@ -287,8 +283,21 @@ window.onload = function () {
     counter = 0;
     space = 0;
     result();
+<<<<<<< HEAD
+=======
+    updateGameState();
+>>>>>>> origin/master
     selectCategory();
     canvas();
+    return randIndex;
+  };
+
+  var removeWord = function(index) {
+    var removeIndex = categories.indexOf(word);
+    console.log(word);
+    categories[index].splice(removeIndex, 1);
+    console.log(removeIndex);
+    console.log(categories);
   };
 
   play();
@@ -300,8 +309,8 @@ window.onload = function () {
 
       hints = [
         ["autor: harper lee", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
-        ["maailma kuulsaim kannibal", "tüüp ei lase noortel järve ääres lõbutseda", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei lase magada", "tsikk ronib kaevust välja"],
-        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "valge venelane"]
+        ["maailma kuulsaim kannibal", "ed & lorraine warren", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei lase magada", "tsikk ronib kaevust välja"],
+        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "vodka"]
     ];
 
     var catagoryIndex = categories.indexOf(randCategoryName);
@@ -317,6 +326,7 @@ window.onload = function () {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     showClue.innerHTML = "";
+    $("#gameState").hide();
     context.clearRect(0, 0, 400, 400);
     play();
   };

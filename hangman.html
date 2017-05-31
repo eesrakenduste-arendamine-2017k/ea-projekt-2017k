@@ -15,24 +15,23 @@
 
   <body>
     <div class="wrapper">
-      <p id="categoryName"></p>
-      <div id="hold"></div>
-      <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+      <div id="gameHolder">
+        <p id="categoryName"></p>
+        <div id="hold"></div>
+        <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+      </div>
       <div id="buttons"></div>
-
+      <p id="clue"></p>
       <p id="gameState"></p>
 
       <div id="player">
         <p id="showScore">skoor: 0</p><p id="mylives"></p>
       </div>
 
-      <p id="clue">Vihjet? -</p>
-
-      <div class="container">
         <button id="hint">Hint</button>
         <button id="reset" class="reset">Mängi uuesti!</button>
         <button id="back" class="back" onclick="location.href='index.html'">Tagasi</button>
-      </div>
+        <!--<button id="mute" onclick="">Mute</button>-->
 
     </div>
 
@@ -41,6 +40,7 @@
     <audio id="gameOver"><source src="sounds/wilhelm scream.wav" type="audio/wav"></audio>
     <audio id="winSound"><source src="sounds/csi win.mp3" type="audio/mp3"></audio>
     <audio id="fatality"><source src="sounds/Fatality-Sound-Effect-Mortal-Kombat.mp3" type="audio/mp3"></audio>
+    <audio id="backgroundMusic"><source src="sounds/bensound-instinct.mp3" type="audio/mp3"></audio>
 
   </body>
 </html>
