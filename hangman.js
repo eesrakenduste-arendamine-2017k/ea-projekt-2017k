@@ -7,7 +7,7 @@ window.onload = function () {
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categories;
-  var categoryNames= ["raamatute kultusklassika", "õudusfilmid", 'euroopa linnad'];         // Array of topics
+  var categoryNames= ["raamatute kultusklassika", "õudusfilmid", 'euroopa pealinnad'];         // Array of topics
   var randCategoryName;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
@@ -61,7 +61,7 @@ window.onload = function () {
   var selectCategory = function(){
       for (var i = 0; i < categoryNames.length; i++) {
         if (randCategoryName === categoryNames[i]) {
-          categoryName.innerHTML = "valitud kategooria on: " + categoryNames[i];
+          categoryName.innerHTML = "kategooria = " + categoryNames[i];
           return categoryNames[i];
         }
       }
@@ -239,9 +239,9 @@ window.onload = function () {
     $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(1000);
     $("#reset").fadeOut(1000);
     categories = [
-        ["1984", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
+        ["tappa laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
         ["voonakeste-vaikimine", "reede 13", "tulnukas", "carrie", "metsamajake","elm streeti luupainaja", "ring"],
-        ["london", "pariis", "firenze", "amsterdam", "manchester", "tallinn", "leeuwarden"]
+        ["london", "pariis", "stockholm", "amsterdam", "helsinki", "tallinn", "viin"]
     ];
     var randIndex = Math.floor(Math.random()*categoryNames.length);
     randCategoryName = categoryNames[randIndex];
@@ -268,9 +268,9 @@ window.onload = function () {
     hint.onclick = function() {
 
       hints = [
-        ["autor: george orwell", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
-        ["maailma kuulsaim kannibal", "tüüp ei lase noortel järve ääres lõbutseda", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei  lase magada", "tsikk ronib kaevust välja"],
-        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","renessanssi sünnipaik", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "2017 mais toimus seal toimunud popkontserdil pommirünnak", "ajalooline nimi on olnud saksalaadne reval", "linn hollandis"]
+        ["autor: harper lee", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
+        ["maailma kuulsaim kannibal", "tüüp ei lase noortel järve ääres lõbutseda", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei lase magada", "tsikk ronib kaevust välja"],
+        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "valge venelane"]
     ];
 
     var catagoryIndex = categories.indexOf(randCategoryName);

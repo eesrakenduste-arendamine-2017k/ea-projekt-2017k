@@ -54,7 +54,7 @@ h2 {
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 #cinzel {
   font-family:'Cinzel', serif;
@@ -89,6 +89,13 @@ p {
   cursor: pointer;
   border: solid 1px black;
   border-radius: 3px;
+  -webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+
+  -webkit-box-shadow: 0px 2px 2px gray;
+  -moz-box-shadow: 0px 2px 2px gray;
+  box-shadow: 0px 2px 2px gray;
 }
 #alphabet li:hover {
   background: gray;
@@ -111,7 +118,7 @@ p {
   margin: 0;
   display: inline-block;
   padding: 0 10px;
-  font-size: 2.6em;
+  font-size: 2.2em;
 }
 
 .active {
@@ -121,6 +128,11 @@ p {
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   cursor: default;
+  -webkit-box-shadow: 0px 2px 0px gray;
+  -moz-box-shadow: 0px 2px 0px gray;
+  box-shadow: 0px 2px 0px gray;
+  position:relative;
+  top:1px;
 }
 .active:hover {
   -moz-transition: all 1s ease-in;
@@ -131,6 +143,7 @@ p {
   -moz-transition: all 1s ease-in;
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
+
 }
 
 #mylives {
