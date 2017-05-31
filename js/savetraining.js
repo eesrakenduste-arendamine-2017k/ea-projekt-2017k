@@ -7,11 +7,12 @@ var exercise = "harjutus1";
 var nr = 1;
 var exerciseNR = 1;
 var t;
-window.onload = gettrainingID;
+//window.onload = gettrainingID;
 
 window.onload = function(){
     document.querySelector('.sk-circle').style.display = 'none';
     document.querySelector('.saving').style.display = 'block';
+    gettrainingID();
 };
 
 function gettrainingID(){
@@ -50,7 +51,7 @@ function saveTraining(){
     t = setTimeout(function(){
       document.querySelector('.sk-circle').style.display = 'none';
      document.querySelector('.saving').style.display = 'block';
-  }, 3000);
+  }, 1000);
    }
 
 
