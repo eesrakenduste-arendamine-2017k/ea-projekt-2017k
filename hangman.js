@@ -103,6 +103,10 @@ window.onload = function () {
       $("#buttons").add("#hint").add("#clue").fadeOut(400);
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
+      console.log(p_name+':'+score);
+
+      //SIIA SKOORI SALVESTAMINE
+      saveScore(p_name, score);
       //$("categoryNames").fadeOut(1000);
       score = 0;
       gameOver.play();
@@ -252,6 +256,14 @@ window.onload = function () {
   };
 
 
+  function playerName() {
+    p_name = prompt("Sisesta mängija nimi");
+    if (p_name === null || p_name ==='') {
+      p_name = 'Tundmatu';
+    }
+    console.log(p_name);
+  }
+
 
   // Play
   play = function () {
@@ -275,12 +287,12 @@ window.onload = function () {
     counter = 0;
     space = 0;
     result();
-    comments();
     selectCategory();
     canvas();
   };
 
   play();
+  playerName();
 
   // Hint
 
@@ -308,4 +320,24 @@ window.onload = function () {
     context.clearRect(0, 0, 400, 400);
     play();
   };
+
+
+  function saveScore(x,y) {
+    var session = [];
+    var game = {
+      id: parseInt(1000 + Math.random()*999),
+      nimi: x,
+      skoor: y
+    };
+    var gamesFromStorage = null;
+    if (localStorage.getItem("session")) {
+      gamesFromStorage = JSON.parse(localStorage.getItem("session"));
+      if (gamesFromStorage) {
+        session = gamesFromStorage;
+      }
+    }
+    session.push(game);
+    console.log(game);
+    localStorage.setItem("session", JSON.stringify(session));
+  }
 };
