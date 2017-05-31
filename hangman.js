@@ -84,7 +84,6 @@ window.onload = function () {
 
   // Show lives
    updateGameState = function () {
-
     showLives.innerHTML = "Elud: " + lives;
 
     if (lives < 1) {
@@ -105,10 +104,7 @@ window.onload = function () {
       showScore.innerHTML = "skoor: " + score;
       gameOver.play();
       setTimeout(wrongAudio, 1000);
-    }else if (lives < 5) {
-      gameState.style.color = "red";
     }else if (lives <= 5 && lives > 2) {
-      showLives.innerHTML = "Elud: " + lives;
       showLives.style.color = "orange";
     }else if(lives <= 2){
       showLives.style.color = "red";
