@@ -98,8 +98,12 @@ window.onload = function () {
       gameOver.play();
       setTimeout(wrongAudio, 1000);
     }else if (lives < 5) {
+      gameState.style.color = "red";
+    }else if (lives <= 5 && lives > 2) {
       showLives.innerHTML = "Elud: " + lives;
       showLives.style.color = "orange";
+    }else if(lives <= 2){
+      showLives.style.color = "red";
     }else{
       showLives.style.color = "lime";
     }
@@ -286,7 +290,7 @@ window.onload = function () {
       hints = [
         ["autor: harper lee", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
         ["maailma kuulsaim kannibal", "ed & lorraine warren", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei lase magada", "tsikk ronib kaevust välja"],
-        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "valge venelane"]
+        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "vodka"]
     ];
 
     var catagoryIndex = categories.indexOf(randCategoryName);
