@@ -1,13 +1,12 @@
 // service worker
 var CACHE_NAME = 'tetris_game';
 var urlsToCache = [
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/tetris.html",
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/index.html",
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/",
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/js/tetris.js",
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/css/style.css",
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/css/style.css",
-  "/~karojyrg/2_semester/eesrakenduste_arendamine/ea-projekt-2017k/css/loader.css",
+  '/~milaine/2_semester/eesrakenduste_arendamine/katse/tetris.html',
+  '/~milaine/2_semester/eesrakenduste_arendamine/katse/index.html',
+  '/~milaine/2_semester/eesrakenduste_arendamine/katse/',
+  '/~milaine/2_semester/eesrakenduste_arendamine/katse/tetris.js',
+  '/~milaine/2_semester/eesrakenduste_arendamine/katse/style.css',
+  '/~milaine/2_semester/eesrakenduste_arendamine/katse/style2.css',
 ];
 
 self.addEventListener('install', function(event) {
@@ -17,13 +16,15 @@ self.addEventListener('install', function(event) {
         caches.open(CACHE_NAME)
         .then(function(cache) {
             console.log('Opened cache');
+            console.log(urlsToCache);
 
-            return cache.addAll(urlsToCache);
+            return cache.add(urlsToCache);
         })
     );
 });
 
 self.addEventListener("fetch", function(event) {
+    console.log('WORKER: fetch event in progress.');
 
     if (event.request.method !== 'GET') { return; }
     event.respondWith(
@@ -33,10 +34,12 @@ self.addEventListener("fetch", function(event) {
             var networked = fetch(event.request)
             .then(fetchedFromNetwork, unableToResolve)
             .catch(unableToResolve);
+            console.log('WORKER: fetch event', cached ? '(cached)' : '(network)', event.request.url);
             return cached || networked;
 
             function fetchedFromNetwork(response) {
                 var cacheCopy = response.clone();
+                console.log('WORKER: fetch response from network.', event.request.url);
                 caches
                 .open(version + 'pages')
                 .then(function add(cache) {
@@ -50,6 +53,7 @@ self.addEventListener("fetch", function(event) {
             }
 
             function unableToResolve () {
+                console.log('WORKER: fetch request failed in both cache and network.', event.request.url);
                 return new Response('<h1>Service Unavailable</h1>', {
                     status: 503,
                     statusText: 'Service Unavailable',
