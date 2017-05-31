@@ -110,17 +110,19 @@ window.onload = function () {
       //fatality.play();
       //$("canvas").fadeOut(5000);
       gameState.style.color = "red";
-    }else if (lives < 5) {
+    }else if (lives <= 5 && lives > 2) {
       showLives.innerHTML = "Elud: " + lives;
       showLives.style.color = "orange";
+    }else if(lives <= 2){
+      showLives.style.color = "red";
     }else{
-      showLives.style.color = "lime";
+      showLives.style.color = "green";
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         $("#buttons").add("#hint").add("#clue").fadeOut(1000);
         showLives.innerHTML = "Vastasid õigesti!";
-        showLives.style.color = "lime";
+        showLives.style.color = "green";
         winSound.play();
         //console.log(counter);
         reset();
@@ -222,7 +224,7 @@ window.onload = function () {
           counter += 1;
           score += 1;
           if (score > 0){
-            showScore.style.color = "lime";
+            showScore.style.color = "green";
           }
           showScore.innerHTML = "skoor: " + score;
           console.log(score);
