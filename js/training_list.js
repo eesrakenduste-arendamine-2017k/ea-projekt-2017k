@@ -38,13 +38,13 @@ function printTrainings(){
     //exnames.toString();
     var content = document.getElementsByClassName('list-of-schedules')[0];
     for (var i = 0; i < exnames.length; i++) {
-      content.innerHTML += "<a>"+exnames[i]+"</a>"+"<br>";
+      content.innerHTML += "<a href='do_schedule.html?username="+username+"&exercise="+exnames[i]+"'>"+exnames[i]+"</a>"+"<br>";
 
       /*
     var n = "do_schedule.html";
     content.innerHTML += "<a onclick='location.href="+n+"'>"+exnames[i]+"</a>"+"<br>";
 
-      */ 
+      */
 
     }
 

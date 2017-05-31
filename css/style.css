@@ -18,6 +18,11 @@ a {
   background: lightgray;
   height: 50px;
   width: 100%;
+  color: #000000;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 35px;
 }
 
 p, h1, body{
