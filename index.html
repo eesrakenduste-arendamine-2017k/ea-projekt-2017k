@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+	<title>How do people on Twitter feel about... </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css">
+	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+	<link type="text/css" rel="stylesheet" href="css/animate.css" />
+	<script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
+	<script src="js/feed.js"></script>
+
+
+</head>
+<body>
+
+
+		<header>
+			<div id="toppage" class="top-page animated fadeIn">
+				<h1>HOW DO PEOPLE ON TWITTER FEEL ABOUT</h1>
+				<div class="container">
+					<form id="form" autocomplete="off" method="post" action="getfeed.php">
+						<div class="form-group has-feedback">
+							<label for="query"></label>
+							<input type="text" id="querybox" name="query" class="form-control" aria-describedby="searchHelp" placeholder=""/>
+							<span class="glyphicon glyphicon-search form-control-feedback"></span>
+							<small id="emailHelp" class="form-text text-muted">Search returns 100 recent tweets</small>
+						</div>
+						<input type="submit" id="submitbutton" name="submit" />
+					</form>
+					<div class="toggle-search"><span class="glyphicon glyphicon-search"></span></div>
+
+					<button class="c-hamburger c-hamburger--htx toggle-menu" id="simple-menu">
+					  <span>toggle menu</span>
+					</button>
+				</div>
+
+
+			</div>
+		</header>
+
+		<div id="sidr">
+		  <!-- Your content -->
+		  <ul>
+		    <li><a class="active" href="#">Newest</a></li>
+		    <li><a href="#">Popular</a></li>
+		    <li><a href="#">Retweet count</a></li>
+		    <li><a href="#">Favorite count</a></li>
+		  </ul>
+
+		  <div class="bottom-credits">
+		  	<hr>
+		  	<p>Authors: <a href="https://www.facebook.com/jpartna">Janno</a> & <a href="https://www.facebook.com/T6nisNerep">Tõnis</a></p>
+		  	<p><a href="https://github.com/squingu/ea-projekt-2017k">Github repository</a></p>
+		 	<hr>
+		  </div>
+
+		</div>
+
+		<div class="container-fluid">
+		<div class="loading-container">
+			<div class="loader"></div>
+			<div class="overlay"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="message">Feed updated</div>
+				<div class="trends">
+					<h2>Trending</h2>
+					<div id="trendsContent"></div>
+				</div>
+				<ul class="nav nav-pills center-pills">
+				  <li class="active"><a data-toggle="pill" href="#allTweets">All Tweets <span class="badge" id="tweetCounter"></span></a></li>
+				  <li><a data-toggle="pill" href="#goodTweets">Good Tweets <span class="badge" id="goodTweetCounter"></span></a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="allTweets" class="tab-pane active animated fadeInUp content"></div>
+					<div id="goodTweets" class="tab-pane active animated fadeInUp content"></div>
+				</div>
+				<div class="text-center load-more">
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#notificationModal" disabled>Load more</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title text-center" id="myModalLabel">SORRY!</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p><strong>Unfortunately that function is not working yet.</strong><br>We´ll give our best to get it functioning soon.</p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- alert modal -->
+	<div id="alert-modal" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 id="alert-modal-title" class="modal-title"></h4>
+	      </div>
+	      <div id="alert-modal-body" class="modal-body"></div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</body>
+<script>
+
+	$(document).ready(function() {
+	  $('#simple-menu').sidr();
+
+	    var toggles = document.querySelectorAll(".c-hamburger");
+
+		  for (var i = toggles.length - 1; i >= 0; i--) {
+		    var toggle = toggles[i];
+		    toggleHandler(toggle);
+		  };
+
+		  function toggleHandler(toggle) {
+		    toggle.addEventListener( "click", function(e) {
+		      e.preventDefault();
+		      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+		    });
+		  }
+
+	});
+
+	$(".toggle-menu").click(function(){
+		$(this).siblings().removeClass("glyphicon-menu-hamburger");
+	})
+
+
+	var  topage = $(".top-page");
+    topageScrolled = "top-page-scrolled";
+    hdr = $('.top-page').height();
+
+	$(window).scroll(function() {
+
+	  if( $(this).scrollTop() > hdr ) {
+	    topage.addClass(topageScrolled);
+	    $(".toggle-search, .toggle-menu").addClass("visible");
+	    $("#form").addClass("scroll");
+	    $(".trends").addClass("scroll");
+	  } else {
+	    topage.removeClass(topageScrolled);
+	    $(".toggle-search, .toggle-menu").removeClass("visible");
+	    $("#form").removeClass("scroll");
+	    $(".trends").removeClass("scroll");
+	  }
+	});
+	$(".toggle-search").click(function(){
+		$('html, body').animate({
+            scrollTop: $("#form").offset().top
+        }, 300);
+
+	})
+</script>
+</html>
