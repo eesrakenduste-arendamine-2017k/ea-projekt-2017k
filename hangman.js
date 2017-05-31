@@ -95,13 +95,13 @@ window.onload = function () {
     };
 
   // Show lives
-   comments = function () {
+   updateGameState = function () {
 
     showLives.innerHTML = "Elud: " + lives;
 
     if (lives < 1) {
       $("#buttons").add("#hint").add("#clue").fadeOut(400);
-      $("#gameOver").add("#reset").fadeIn(400);
+      $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
       //$("categoryNames").fadeOut(1000);
       score = 0;
@@ -116,13 +116,13 @@ window.onload = function () {
     }else if(lives <= 2){
       showLives.style.color = "red";
     }else{
-      showLives.style.color = "green";
+      showLives.style.color = "lime";
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
         $("#buttons").add("#hint").add("#clue").fadeOut(1000);
         showLives.innerHTML = "Vastasid õigesti!";
-        showLives.style.color = "green";
+        showLives.style.color = "lime";
         winSound.play();
         //console.log(counter);
         reset();
@@ -224,7 +224,7 @@ window.onload = function () {
           counter += 1;
           score += 1;
           if (score > 0){
-            showScore.style.color = "green";
+            showScore.style.color = "lime";
           }
           showScore.innerHTML = "skoor: " + score;
           console.log(score);
@@ -243,10 +243,10 @@ window.onload = function () {
         showScore.innerHTML = "skoor: " + score;
         this.style.backgroundColor = "rgba(105,105,105, 1)";
         wrongSound.play();
-        comments();
+        updateGameState();
         animate();
       } else {
-        comments();
+        updateGameState();
       }
     };
   };
