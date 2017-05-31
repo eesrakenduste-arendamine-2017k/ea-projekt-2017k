@@ -6,7 +6,7 @@ $matchcount = 0;
 foreach($alltweets as $tweet){
 	foreach($words as $word){
 		if (preg_match("/\b$word\b/", $tweet, $match)) {
-			print_r($match[0]."\n");
+			print_r($tweet."<br>");
 			$matchcount++;
 		}
 	}

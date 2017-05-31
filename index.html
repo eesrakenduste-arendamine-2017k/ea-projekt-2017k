@@ -15,11 +15,11 @@
 
 </head>
 <body>
-	
-		
+
+
 		<header>
 			<div id="toppage" class="top-page animated fadeIn">
-				<h1>HOW DO PEOPLE ON TWITTER FEEL ABOUT</h1> 
+				<h1>HOW DO PEOPLE ON TWITTER FEEL ABOUT</h1>
 				<div class="container">
 					<form id="form" autocomplete="off" method="post" action="getfeed.php">
 						<div class="form-group has-feedback">
@@ -31,13 +31,13 @@
 						<input type="submit" id="submitbutton" name="submit" />
 					</form>
 					<div class="toggle-search"><span class="glyphicon glyphicon-search"></span></div>
-					
+
 					<button class="c-hamburger c-hamburger--htx toggle-menu" id="simple-menu">
 					  <span>toggle menu</span>
 					</button>
 				</div>
 
-		
+
 			</div>
 		</header>
 
@@ -49,17 +49,17 @@
 		    <li><a href="#">Retweet count</a></li>
 		    <li><a href="#">Favorite count</a></li>
 		  </ul>
-		  
+
 		  <div class="bottom-credits">
 		  	<hr>
 		  	<p>Authors: <a href="https://www.facebook.com/jpartna">Janno</a> & <a href="https://www.facebook.com/T6nisNerep">Tõnis</a></p>
 		  	<p><a href="https://github.com/squingu/ea-projekt-2017k">Github repository</a></p>
 		 	<hr>
 		  </div>
-		  
+
 		</div>
 
-		<div class="container-fluid">	
+		<div class="container-fluid">
 		<div class="loading-container">
 			<div class="loader"></div>
 			<div class="overlay"></div>
@@ -72,9 +72,16 @@
 					<h2>Trending</h2>
 					<div id="trendsContent"></div>
 				</div>
-				<div id="content" class="animated fadeInUp"></div>
+				<ul class="nav nav-pills center-pills">
+				  <li class="active"><a data-toggle="pill" href="#allTweets">All Tweets <span class="badge" id="tweetCounter"></span></a></li>
+				  <li><a data-toggle="pill" href="#goodTweets">Good Tweets <span class="badge" id="goodTweetCounter"></span></a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="allTweets" class="tab-pane active animated fadeInUp content"></div>
+					<div id="goodTweets" class="tab-pane active animated fadeInUp content"></div>
+				</div>
 				<div class="text-center load-more">
-					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#notificationModal">Load more</button>
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#notificationModal" disabled>Load more</button>
 				</div>
 			</div>
 		</div>
@@ -110,7 +117,7 @@
 	</div>
 </body>
 <script>
-	
+
 	$(document).ready(function() {
 	  $('#simple-menu').sidr();
 
@@ -161,5 +168,3 @@
 	})
 </script>
 </html>
-
-

@@ -4,7 +4,6 @@
 
 	"use strict";
 
-
 	var Typed = function(el, options){
 
 		// chosen element to manipulate text
@@ -17,7 +16,7 @@
 
 		// typing speed
 		this.typeSpeed = this.options.typeSpeed;
-		
+
 		// add a delay before typing starts
 		this.startDelay = this.options.startDelay;
 
@@ -251,10 +250,10 @@ $(function() {
 	           success: function(data)
 	           {
 	           		$("#form #querybox").val('');
-	           		
+
 	           		getTweets();
 
-	               
+
 	           },
 	           error: function(data){
 	           		//alert("Some problem occured. Please try again!")
@@ -273,10 +272,10 @@ $(function() {
 		  });*/
 	    e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
-	
+
 
     /*$grid = $('#content').isotope({
-        //üks kast
+        //ï¿½ks kast
         itemSelector: ".item"
     });*/
 
@@ -298,8 +297,11 @@ function getTweets(){
             //console.log(array);
             printTweets(array);
 
+						compareTweets(array)
+
         },
-        error: function(error){
+        error: function(error,data,jqXHR, status, err){
+					 alert(jqXHR.responseText);
             console.log(error);
         }
     });
@@ -339,7 +341,8 @@ function printTweets(newTweets){
         // Replace plain text links by hyperlinks
         var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
         // Echo link
-       
+
+
         html += '<div class="item animated fadeIn">'+
 
         '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+');"></div>'+
@@ -349,59 +352,93 @@ function printTweets(newTweets){
         '<p class="count">Favorite count: '+tweet.favorite_count+'</p>'+
         '</div>';
         counter ++;
-		
+
 	});
-	
-	console.log(counter);
-
-    
-    // laeb sisu allapoole otsa
-    //$("#content").append( $(html) );
-
-    // $(html) teeb tavalise stringi html elementideks, see on vajalik isotope'i jaoks
+	//console.log(counter);
     var tweetsHTML = $(html);
-
-    // laeb ettepoole otsa ja aktiveerib isotope'i
-    $("#content").html(tweetsHTML)
+    $("#allTweets").html(tweetsHTML)
     $("#tweetCounter").html(counter)
     $(".loading-container").hide();
-    //$grid.prepend(tweetsHTML)
-    //.isotope('prepended', tweetsHTML)
-    //.isotope('layout');
 
-    //oota ja siis küsi uuesti
-    /*window.setTimeout(function(){
-        getTweets();
-    },5000);*/
+}
+function printGoodTweets(newTweets){
 
-	$.get('positive_words.txt', function(data){
-        var positiveWords = data.split("\n");
+    var html = '';
+    var counter = 0;
+	var matchCount = 0;
+    $(newTweets).each(function(i, tweet){
+    	var str = tweet.text;
+        // Set the regex string
+        var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+        // Replace plain text links by hyperlinks
+        var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+        // Echo link
+
+
+        html += '<div class="item animated fadeIn">'+
+
+        '<div class="profile-image" style="background-image:url('+tweet.user.profile_image_url.replace("_normal", "")+');"></div>'+
+        '<p><a class="twitter-screen-name" href="https://twitter.com/'+tweet.user.screen_name+'" target="_blank">'+tweet.user.screen_name+'</a></p>'+
+        '<p>'+replaced_text+'</p>'+
+        '<p class="count">Retweet count: '+tweet.retweet_count+'</p>'+
+        '<p class="count">Favorite count: '+tweet.favorite_count+'</p>'+
+        '</div>';
+        counter ++;
+
+	});
+	//console.log(counter);
+    var tweetsHTML = $(html);
+    $("#goodTweets").html(tweetsHTML)
+    $("#goodTweetCounter").html(counter)
+    $(".loading-container").hide();
+
+}
+function getPositiveWords(){
+	var result;
+	$.ajax({
+          url : "positive_words.txt",
+					async : false,
+          success : function (data) {
+              positiveWords = data.split('\r\n');
+							result = positiveWords;
+          }
+      });
+			return result;
+}
+function compareTweets(newTweets){
+		var goodTweets = new Array();
+		var positiveWords = getPositiveWords();
+		//console.log(positiveWords);
 		var matchCount = 0;
-		
 		$(newTweets).each(function(i, tweet){
+
 			var tweetText = tweet.text;
 			//console.log(tweetText);
+
 			positiveWords.forEach(function(element){
 				//console.log(element);
+				//console.log(tweetText);
+
 				if(tweetText.toLowerCase().indexOf(element.toLowerCase()) !== -1){
-				// leidis sealt sees selle sõna ja annab tagasi indexi selles stringis
+				// leidis sealt sees selle sï¿½na ja annab tagasi indexi selles stringis
 					matchCount++;
-					console.log(element);
-					console.log(matchCount);
+					goodTweets.push(tweet);
+					//console.log(tweetText + " / " + element.toLowerCase()+"/");
+					//console.log(matchCount);
 				}
 			});
-		
+
 		});
-	});
-	
-	
+		//console.log(goodTweets);
+		printGoodTweets(goodTweets);
+
 }
 function printTrends(newTrends){
     var html = '';
 
     $(newTrends).each(function(i, trend){
     	var str = trend.text;
-		
+
         html += '<span class="trend-link" name="query" data-volume="'+trend.tweet_volume+'" data-trend ="'+trend.name+'" >'+trend.name+'(<span class="tweet-volume">'+trend.tweet_volume+'</span>)</span> ';
 
     });
@@ -434,7 +471,7 @@ function printTrends(newTrends){
     		fontSize = 20;
     	}
 		$(this).css("fontSize", fontSize);
-		
+
 	});
 	getTrendTweets();
 
@@ -453,8 +490,8 @@ function getTrendTweets(){
 		  });*/
 
 	    $.ajax({
-	           type: "POST",
-	           url: url,
+							type: "POST",
+						  url: url,
 	           data: {query: serializedData} , // serializes the form's elements.
 	           success: function(data)
 	           {
@@ -474,6 +511,6 @@ function getTrendTweets(){
 		  }, 500, function() {
 		    // Animation complete.
 		  });*/
-	   
+
 	});
 }
