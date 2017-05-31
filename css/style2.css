@@ -5,6 +5,28 @@ body {
     font-size: 11px;
 }
 
+.button {
+  padding: 5px;
+  margin: 25px;
+  color: black;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  transition: .5s;
+  text-align: center;
+}
+
+.button:hover {
+  background: lightgray;
+  padding: 15px;
+  margin: 15px;
+}
+
+.button:active {
+  background: darkgray;
+  transition: .1s;
+}
+
 .Tetris{
   font-family: 'Julius Sans One', sans-serif;
   font-size: 25px;
