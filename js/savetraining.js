@@ -6,7 +6,14 @@ var trainingID;
 var exercise = "harjutus1";
 var nr = 1;
 var exerciseNR = 1;
+var t;
 window.onload = gettrainingID;
+
+window.onload = function(){
+    document.querySelector('.sk-circle').style.display = 'none';
+    document.querySelector('.saving').style.display = 'block';
+};
+
 function gettrainingID(){
 
     var a = location.search.substring(1);
@@ -18,6 +25,7 @@ function gettrainingID(){
     username = b[0].substring(9);
     console.log(username);
     document.getElementById("trainingID").value = trainingID;
+
 }
 function saveTraining(){
     //trainingID = document.getElementById('trainingID').value;
@@ -30,12 +38,23 @@ function saveTraining(){
     nr += 1;
     exercise = "harjutus"+nr;
     console.log(exercise);
-
-    document.body.style.background = "blue";
-      window.setTimeout(function () {
-          document.body.style.background = "white";
-                }, 100);
+    doEffect();
    }
+
+
+   function doEffect(){
+     document.querySelector('.saving').style.display = 'none';
+    document.querySelector('.sk-circle').style.display = 'block';
+    t = setTimeout(function(){
+      document.querySelector('.sk-circle').style.display = 'none';
+     document.querySelector('.saving').style.display = 'block';
+  }, 3000);
+   }
+
+
+
+
+
 
 
 function saveTrainingLast(){

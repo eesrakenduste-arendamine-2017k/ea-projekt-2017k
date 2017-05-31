@@ -24,7 +24,7 @@ window.onload = function(){
 
   function getTraining(){
 
-    firebase.database().ref("Trainings/"+username).once('value', gotData);    
+    firebase.database().ref("Trainings/"+username).once('value', gotData);
 }
 
 function gotData(data){
