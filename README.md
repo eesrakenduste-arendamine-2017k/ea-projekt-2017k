@@ -1,14 +1,14 @@
-# IRL Counter-Strik telefonidega
+# IRL Counter-Strike telefonidega
 
-##Osalised
+## Osalised
 *Mattias Põldaru*
 *Leevi Põldaru*
 *Rando Tomingas*
 
-##Eesmärk
+## Eesmärk
 Simuleerida maastikumänguna arvutimängu Counter-Strike.
 Kasutaja saab registreerida kas veebiliidesed, või kui ilma internetita mängija, siis mängu baasis.
 Registreeride või kui mängija pihta saab, tuleb baasist läbi käia, koodiga ennast vabastada ja prinditakse välja paber, kus on peal kood tabamiseks (tuleb riputada selja peale).
 
-##Failid
+## Failid
 https://github.com/mahfiaz/spotter_irl
