@@ -30,15 +30,21 @@ function saveuser(){
     //checkUsername();
     //setTimeout(saveUser, 2000);
     //saveUser();
+    if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
+      checkUsername();
+      setTimeout(saveUser(),100);
+    }else{
+       allfieldsError();
+    }  
 }
 
 
 function saveUser(){
 
   //console.log("a="+a);
-  if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
+  /*if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
     checkUsername();
-    console.log("T6hjasi v2ljasi ei ole");
+    console.log("T6hjasi v2ljasi ei ole");*/
     if((isNaN(username)===true) && (isNaN(password)===true) && (isNaN(password1)===true) && (isNaN(firstname)===true) && (isNaN(surename)===true) && (isNaN(birthdate)===true)){
       console.log("Kõik tekstiväljad on teksti kujul");
   if(password==password1){
@@ -57,9 +63,9 @@ function saveUser(){
   }else{
     textfieldsError();
   }
-  }else{
+  /*}else{
     allfieldsError();
-  }
+  }*/
 }
 function writeUserData(username, password, firstname, surename, birthdate, weight, id) {
   firebase.database().ref("userinfo/"+username).set({
