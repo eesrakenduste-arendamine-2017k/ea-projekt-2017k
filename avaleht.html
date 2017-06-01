@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8" name="mobile-web-app-capable" content="yes">
+<title>Activity Reminder</title>
+<link rel="stylesheet" type="text/css" href="offline-app.css">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+<script type="text/javascript" src="offline-app.js" defer></script>
+<base target="_blank">
+</head>
+<body>
+<div class="divs">
+<div class="div1" id="div1" onclick="openList('ollist1')"><text class="tekst">ESMASPÄEV</text></div>
+<ol class="list" id="ollist1" style="display:none;">
+	<input type="text" class="lahter" id="task1" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo1()">LISA</button> 
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li id="div1task"></li>
+</ol>
+<div class="div2" id="div2" onclick="openList('ollist2')"><text class="tekst">TEISIPÄEV</text></div>
+<ol class="list" id="ollist2" style="display:none;">
+	<input type="text" class="lahter" id="task2" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo2()">LISA</button>
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li></li>
+	<li id="div2task"></li>
+</ol>
+<div class="div3" id="div3" onclick="openList('ollist3')"><text class="tekst">KOLMAPÄEV</text></div>
+<ol class="list" id="ollist3" style="display:none;">
+	<input type="text" class="lahter" id="task3" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo3()">LISA</button>
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li id="div3task"></li>
+</ol>
+<div class="div4" id="div4" onclick="openList('ollist4')"><text class="tekst">NELJAPÄEV</text></div>
+<ol class="list" id="ollist4" style="display:none;">
+	<input type="text" class="lahter" id="task4" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo4()">LISA</button>
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li id="div4task"></li>
+</ol>
+<div class="div5" id="div5" onclick="openList('ollist5')"><text class="tekst">REEDE</text></div>
+<ol class="list" id="ollist5" style="display:none;">
+	<input type="text" class="lahter" id="task5" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo5()">LISA</button>
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li id="div5task"></li>
+</ol>
+<div class="div6" id="div6" onclick="openList('ollist6')"><text class="tekst">LAUPÄEV</text></div>
+<ol class="list" id="ollist6" style="display:none;">
+	<input type="text" class="lahter" id="task6" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo6()">LISA</button>
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li id="div6task"></li>
+</ol>
+<div class="div7" id="div7" onclick="openList('ollist7')"><text class="tekst">PÜHAPÄEV</text></div>
+<ol class="list" id="ollist7" style="display:none;">
+	<input type="text" class="lahter" id="task7" placeholder="Lisa ülesanne"><button type="button" class="nupp" onclick="addToDo7()">LISA</button>
+	<li><h1>SINU ÜLESANDED SEL PÄEVAL</h1></li>
+	<li id="div7task"></li>
+</ol>
+</div>
+</body>
+</html>	
