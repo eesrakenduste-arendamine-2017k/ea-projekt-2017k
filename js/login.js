@@ -5,6 +5,7 @@ var databasepassword;
 
 window.onload = function(){
       document.querySelector('.login_error').style.display = 'none';
+      document.querySelector('.empty_error').style.display = 'none';
       doEffect();
    };
 
@@ -16,6 +17,7 @@ function login(){
 }
 
 function checkUsername(){
+    if(username !== "" || password !== ""){
     firebase.database().ref("userinfo").child(username).once('value', function(snapshot) {
         if(snapshot.exists()){
             a = "OK";
@@ -32,9 +34,16 @@ function checkUsername(){
         }else{
             a = "ERROR";
             console.log(" Kasutajat ei ole olemas");
-            alert("Viga kasutajanimes ja/või paroolis");
+            document.querySelector('.empty_error').style.display = 'none';
+            document.querySelector('.login_error').style.display = 'block';
+
         }
     });
+  } else {
+    console.log("Väljad tühjad");
+    document.querySelector('.empty_error').style.display = 'block';
+    document.querySelector('.login_error').style.display = 'none';
+  }
 }
 
 function doEffect(){
