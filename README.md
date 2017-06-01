@@ -1,10 +1,16 @@
 # IRL Counter-Strike telefonidega
 
 ##Osalised 
-1. 
+1. miks
     *Mattias Põldaru
     *Leevi Põldaru
     *Rando Tomingas
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Eesmärk
 Simuleerida maastikumänguna arvutimängu Counter-Strike.
