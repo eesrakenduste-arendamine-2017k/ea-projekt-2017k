@@ -10,6 +10,10 @@ var weight ;
 var t;
 
 window.onload = function(){
+    document.querySelector('.allfields_error').style.display = 'none';
+    document.querySelector('.textfields_error').style.display = 'none';
+    document.querySelector('.username_error').style.display = 'none';
+    document.querySelector('.password_error').style.display = 'none';
     document.querySelector('.sk-circle').style.display = 'none';
     document.querySelector('.signup').style.display = 'block';
 };
@@ -45,18 +49,16 @@ function saveUser(){
           alert("Kasutaja loomine õnnestus !");
           window.location.href= 'login.html';
       }else{
-        console.log("Selline kasutaja juba olemas");
-        alert("Selline kasutaja on juba olemas!");
+        usernameError();
       }
     }else{
-      console.log("Paroolid pole sama");
-      alert("Paroolid peavad olema samad!");
+      passwordError();
     }
   }else{
-    alert("Kasutajanimi, parool ja nimi peavad olema tekst!");
+    textfieldsError();
   }
   }else{
-    alert("Täida kõik väljad!");
+    allfieldsError();
   }
 }
 function writeUserData(username, password, firstname, surename, birthdate, weight, id) {
@@ -108,12 +110,32 @@ function doEffect(){
 }
 
 
-function doEffect(){
-  document.querySelector('.signup').style.display = 'none';
- document.querySelector('.sk-circle').style.display = 'block';
- t = setTimeout(function(){
-   document.querySelector('.sk-circle').style.display = 'none';
-  document.querySelector('.signup').style.display = 'block';
-  saveUser();
-}, 2000);
+function usernameError(){
+  console.log("Selline kasutaja juba olemas");
+  document.querySelector('.allfields_error').style.display = 'none';
+  document.querySelector('.textfields_error').style.display = 'none';
+  document.querySelector('.password_error').style.display = 'none';
+  document.querySelector('.username_error').style.display = 'block';
+}
+
+function passwordError(){
+  console.log("Paroolid pole sama");
+  document.querySelector('.allfields_error').style.display = 'none';
+  document.querySelector('.textfields_error').style.display = 'none';
+  document.querySelector('.username_error').style.display = 'none';
+  document.querySelector('.password_error').style.display = 'block';
+}
+
+function textfieldsError(){
+  document.querySelector('.allfields_error').style.display = 'none';
+  document.querySelector('.username_error').style.display = 'none';
+  document.querySelector('.password_error').style.display = 'none';
+  document.querySelector('.textfields_error').style.display = 'block';
+}
+
+function allfieldsError(){
+  document.querySelector('.textfields_error').style.display = 'none';
+  document.querySelector('.username_error').style.display = 'none';
+  document.querySelector('.password_error').style.display = 'none';
+  document.querySelector('.allfields_error').style.display = 'block';
 }
