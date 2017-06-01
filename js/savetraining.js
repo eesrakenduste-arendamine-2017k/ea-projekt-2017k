@@ -10,6 +10,7 @@ var t;
 window.onload = gettrainingID;
 
 window.onload = function(){
+  
     document.querySelector('.sk-circle').style.display = 'none';
     document.querySelector('.saving').style.display = 'block';
 };
@@ -50,7 +51,15 @@ function saveTraining(){
     t = setTimeout(function(){
       document.querySelector('.sk-circle').style.display = 'none';
      document.querySelector('.saving').style.display = 'block';
-  }, 3000);
+  }, 2000);
+   }
+
+   function doEffectLast(){
+     document.querySelector('.saving').style.display = 'none';
+    document.querySelector('.sk-circle').style.display = 'block';
+    t = setTimeout(function(){
+      window.location.href='ready.html';
+  }, 2000);
    }
 
 
@@ -66,7 +75,8 @@ function saveTrainingLast(){
     saveToDatabase();
     clean();
     console.log("salvestatud");
-    window.location.href='ready.html';
+    doEffectLast();
+
 }
 
 function saveToDatabase(){
