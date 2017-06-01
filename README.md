@@ -1,7 +1,7 @@
 # IRL Counter-Strike telefonidega
 
-## 
-**Osalised
+##Osalised 
+1. 
     *Mattias Põldaru
     *Leevi Põldaru
     *Rando Tomingas
