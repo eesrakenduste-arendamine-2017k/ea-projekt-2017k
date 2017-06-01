@@ -1,0 +1,28 @@
+{
+    "site_blocked_info": {
+        "message": "Lehekülg blokeeritud kuni pausini",
+        "description": "Text for the blocked-site overlay, explaining that the site is blocked and when it will become unblocked"
+    },
+    "site_blocked_motivator": {
+        "message": "Tagasi tööle!",
+        "description": "Text for the blocked-site overlay, motivating the user to get back to work"
+    },
+    "options_work_block_info": {
+        "message": "Et eemaldada ahvatlus on mõned valikud blokeeritud töötegemise sessiooni ajaks. Oleme kannatlikud.",
+        "description": "On options page, message shown during a work session to indicate that some options are disabled"
+    },
+    "timer_end_notification_header": {
+        "message": "Aeg sai läbi!",
+        "description": "Bold header of pop-up notification when a timer ends"
+    },
+    "timer_end_notification_body": {
+        "message": "Time for the $TYPE$ phase.",
+        "description": "Body of pop-up notification when a timer ends",
+        "placeholders": {
+            "type": {
+                "content": "$1",
+                "example": "work"
+            }
+        }
+    }
+}

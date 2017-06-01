@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body class="gradient">
+    <h1>Töötegemise valikud</h1>
+    <p id="work-block-info"></p>
+    <form id="options-form">
+        <div id="site-list-wrapper">
+            <header id="site-list-header">
+                <select id="blacklist-or-whitelist">
+            <option id="blacklist">Blokeeri</option>
+            <option id="whitelist">Luba</option>
+          </select>
+          <br><br>
+                <span>Leheküljed selles listis: </span>
+            </header>
+            <textarea id="site-list"></textarea>
+            <p class="note">Lisage üks lehekülg nii: \"youtube.com\" või nii \"google.com/reader/\". Me blokeerime kõik leheküljed selles formaadis.</p>
+            <p class="note">Näiteks, \"mail.example.com\" ei ole sama mis \"www.example.com\", aga  \"example.com\" on sobiv. Sarnaselt, \"google.com/reader/\" samastub Google Reader-iga,  aga ei samastu Google Search, Gmailiga,või mõne teise Google rakendusega.</p>
+        </div>
+        <div id="durations">
+            <label for="work-duration">
+          <span>Tööaeg</span>:
+        </label>
+            <input id="work-duration" type="text" size="2" />
+            <span class="minutes">Minutit</span>
+            <label for="break-duration">
+          <span>Paus</span>:
+        </label>
+            <input id="break-duration" type="text" size="2" />
+            <span class="minutes">Minutit</span>
+            <span id="time-format-error">Aeg peab olema formaadis MM või MM:SS</span>
+        </div>
+        <div>
+            <input id="show-notifications" type="checkbox" />
+            <label for="show-notifications">Näita teadet kui timer lõpetab</label>
+        </div>
+        <div>
+            <input id="should-ring" type="checkbox" />
+            <label for="should-ring">Mängi heli kui timer lõpetab</label>
+        </div>
+        <div>
+            <input id="click-restarts" type="checkbox" />
+            <label for="click-restarts">
+          <span>Jooksva timeri peale vajutamine teeb sellele restardi</span>
+          <p class="note">Kuna timer on mõeldud rangelt töö tegemiseks, saab teda tühistada vaid  tehes extensionile disable.</p>
+        </label>
+        </div>
+        <button type="submit" id="save-button">Salvesta muudatused</button>
+        <span id="save-successful">Salvestamine õnnestus!</span>
+    </form>
+    <br><br>
+    <script type="text/javascript" src="options.js"></script>
+</body>
+<a href="popup.html" class="first-popup-link">Tagasi muusika juurde</a>
+</html>

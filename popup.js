@@ -22,6 +22,7 @@ window.onload = function() { // lehe laadimisel paneb need funktsioonid t88le
     playAll();
     CheckboxCheck();
     //Count();
+
 };
 
 function addChangeListener() {
