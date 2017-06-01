@@ -35,7 +35,9 @@ body {
 }
 
     #tetris {
-        width: 280px;
+        max-width: 360px;
+        height: 95vh;
+        height: 90%;
         border: 5px solid #7073f0;
         border-radius: 9px;
         padding: 0px;
@@ -47,13 +49,15 @@ body {
     }
     #canvas {
         width: 280px;
-        height: 320px;
+        height: 380px;
+        height: 45vh;
+        height: 380px;
+        margin: auto;
         background-color: white;
         position: relative;
         color: #fff;
         color: black;
         border-top: 1px solid #7073f0;
-        border-bottom: 1px solid #7073f0;
 
     }
     #canvas h1 {
