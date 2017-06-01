@@ -1,16 +1,13 @@
 body {
     overflow: hidden;
-    overflow-y: hidden;
     background: #fff;
     font-family: 'Julius Sans One', sans-serif;
     font-size: 11px;
 }
-html {
-  height: 95vh;
-}
+
 .button {
   padding: 5px;
-  margin: 25px;
+  margin: 20px;
   color: black;
   background: white;
   border: none;
@@ -23,14 +20,12 @@ html {
   cursor: default;
   background: lightgray;
   padding: 15px;
-  margin: 15px;
+  margin: 10px;
 }
 
 .button:active {
   background: darkgray;
-  transition: .02s;
-  padding: 20px;
-  margin: 10px;
+  transition: .1s;
 }
 
 .Tetris{
@@ -40,13 +35,10 @@ html {
 }
 
     #tetris {
-        max-width: 480px;
-        height: 95vh;
-        height: 90%;
+        width: 280px;
         border: 5px solid #7073f0;
         border-radius: 9px;
         padding: 0px;
-        margin: 20px;
         position: relative;
         color: #fff;
         left: 0; top: 10px; right: 0; bottom: 10px;
@@ -54,17 +46,14 @@ html {
         text-align: center;
     }
     #canvas {
-        display: block;
         width: 280px;
-        height: 100px;
-        width: 280px;
-        height: 45vh;
-        margin: auto;
+        height: 320px;
         background-color: white;
         position: relative;
         color: #fff;
         color: black;
         border-top: 1px solid #7073f0;
+        border-bottom: 1px solid #7073f0;
 
     }
     #canvas h1 {
