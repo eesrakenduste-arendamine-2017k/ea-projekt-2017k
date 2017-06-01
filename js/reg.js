@@ -31,6 +31,8 @@ function saveUser(){
           window.setTimeout(function () {
               document.body.style.background = "white";
                     }, 100);
+          alert("Kasutaja loomine õnnestus !");
+          window.location.href= 'login.html';
       }else{
         console.log("Selline kasutaja juba olemas");
       }

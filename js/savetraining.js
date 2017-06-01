@@ -7,12 +7,12 @@ var exercise = "harjutus1";
 var nr = 1;
 var exerciseNR = 1;
 var t;
-window.onload = gettrainingID;
+//window.onload = gettrainingID;
 
 window.onload = function(){
-  
     document.querySelector('.sk-circle').style.display = 'none';
     document.querySelector('.saving').style.display = 'block';
+    gettrainingID();
 };
 
 function gettrainingID(){
@@ -51,15 +51,7 @@ function saveTraining(){
     t = setTimeout(function(){
       document.querySelector('.sk-circle').style.display = 'none';
      document.querySelector('.saving').style.display = 'block';
-  }, 2000);
-   }
-
-   function doEffectLast(){
-     document.querySelector('.saving').style.display = 'none';
-    document.querySelector('.sk-circle').style.display = 'block';
-    t = setTimeout(function(){
-      window.location.href='ready.html';
-  }, 2000);
+  }, 1000);
    }
 
 
@@ -75,8 +67,7 @@ function saveTrainingLast(){
     saveToDatabase();
     clean();
     console.log("salvestatud");
-    doEffectLast();
-
+    window.location.href='ready.html';
 }
 
 function saveToDatabase(){

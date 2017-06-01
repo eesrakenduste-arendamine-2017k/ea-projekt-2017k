@@ -19,10 +19,12 @@ function checkUsername(){
                 location.href = 'home.html?username='+username;
             }else{
                 console.log("Parool vale");
+                alert("Viga kasutajanimes ja/või paroolis");
             }
         }else{
             a = "ERROR";
             console.log(" Kasutajat ei ole olemas");
+            alert("Viga kasutajanimes ja/või paroolis");
         }
     });
 }
