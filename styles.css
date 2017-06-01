@@ -1,0 +1,100 @@
+.gradient
+{
+  background: #FF5F6D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);
+  background: linear-gradient(to right, #FFC371, #FF5F6D);
+}
+/*$size: 80px;
+$button-color: #fff;
+$background-color: rgba(#000, .5);
+
+/* Base
+   ================================ */
+/*, *:before, *:after {
+    box-sizing: border-box;
+}
+.box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: $size;
+    height: $size;
+    margin: auto;
+}
+
+.play-button {
+    display: block;
+    position: relative;
+    width: $size;
+    height: $size;
+    margin: auto;
+    background: $background-color;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        display: none;
+
+        &:checked {
+
+            ~ span {
+
+                &::before,
+                &::after {
+                    border: ($size / 4) solid transparent;
+                    border-left: ($size / 2) solid $button-color;
+                    border-right: 0;
+                }
+
+                &::after {
+                    -webkit-transform: translateY(-50%) scaleY(0.5);
+                    -moz-transform: translateY(-50%) scaleY(0.5);
+                    -o-transform: translateY(-50%) scaleY(0.5);
+                    -ms-transform: translateY(-50%) scaleY(0.5);
+                    transform: translateY(-50%) scaleY(0.5);
+                }
+            }
+        }
+    }
+
+    span {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: ($size / 2);
+        height: ($size / 2);
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            height: 100%;
+            border: 0 solid transparent;
+            border-left: ($size / 5) solid $button-color;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+    }
+} work in progress...*/

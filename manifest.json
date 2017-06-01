@@ -1,0 +1,37 @@
+{
+  "name": "Concentration to the MAX",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Relax to get assignments done or browse the web while
+   listening to soothing music and sounds. ",
+   "background": {
+     "page": "background.html"
+   },
+
+   "browser_action": {
+     "default_title": "Play music",
+     "default_popup":"popup.html",
+     "default_icon":"ikoon.png"
+     },
+     "icons": {
+             "16": "ikoon16.png",
+             "48": "ikoon.png",
+             "128": "ikoon128.png"
+           },
+  "permissions": [
+    "activeTab",
+	"tabs",
+	"http://*/*",
+	"https://*/*",
+  "background"
+
+  ],
+  "content_scripts" : [{
+        "matches" : [ "*://*/*"],
+        "js" : ["sounds.js","firebase.js","background.js"],
+        "css" : ["styles.css"]
+    }]
+
+
+
+}
