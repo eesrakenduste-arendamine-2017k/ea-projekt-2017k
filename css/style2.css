@@ -40,7 +40,7 @@ html {
 }
 
     #tetris {
-        width: 95vw;
+        max-width: 480px;
         height: 95vh;
         height: 90%;
         border: 5px solid #7073f0;
@@ -58,7 +58,7 @@ html {
         width: 280px;
         height: 100px;
         width: 280px;
-        height: 50vh;
+        height: 45vh;
         margin: auto;
         background-color: white;
         position: relative;
