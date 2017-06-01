@@ -2,7 +2,6 @@
 #id <-- ID põhjal
 .class <-- klassi põhjal
 element <-- elemendi põjal
-
 */
 
 body {
@@ -10,7 +9,6 @@ body {
 	margin: 5px;
     padding: 5px;
 	background-color:#ffffff;
-    
 }
 
 h1 {
@@ -28,6 +26,7 @@ button, #optionButtons {
     font-size: 15px;
 	margin:10px;
 }
+
 form {
 	color:grey;
 }
