@@ -8,10 +8,14 @@ var exarray;
 var exnames;
 var exname="harjutus1";
 var exnr;
+var starttime;
+var endtime;
+var totaltime = 0;
 window.onload = getinfo;
 
 function getinfo(){
     doEffect();
+    starttimer();
     var a = location.search.substring(1);
     var b = a.split(/&/);
     trainingID = decodeURIComponent(b[1].substring(9));
@@ -39,36 +43,20 @@ function sgotData(data){
 }
 
 
-
-
-function getex(){
-
-    var exname = exnames[i];
-    if(exname===undefined){
-        window.location.href = 'trainign_finish.html';
-    }
-    console.log(exname);
-    var Description = exarray[exname].Description;
-    var Name = exarray[exname].Name;
-    document.getElementById('exercise').value = Description;
-    document.getElementById('description').value = Name;
-    console.log(Description, Name);
-    i += 1;
+function starttimer(){
+  starttime = performance.now();
 }
 
-function sgotData(data){
-    exarray = data.val();
-    //console.log(exarray);
-    exnames = Object.keys(exarray);
-    //console.log(exnames);
-    for (i = 0; i < exnames.length; i++) {
-        var exname = exnames[i];
-        console.log(exname);
-        var Description = exarray[exname].Description;
-        var Name = exarray[exname].Name;
-        console.log(Description, Name);
-    }
+function endtimer(){
+  endtime = performance.now();
 }
+
+function caltotaltime(){
+  endtimer();
+  totaltime = endtime - starttime;
+  console.log(totaltime);
+}
+
 
 function gotData(data){
     exarray = data.val();
@@ -87,8 +75,9 @@ function getnextex(){
   doEffect();
     //siis kui harjutused on tehtud
     if(excount>exnr){
+        caltotaltime();
         console.log("tehtud");
-        window.location.href='trainign_finish.html?username='+username;
+        window.location.href='trainign_finish.html?username='+username+'&totaltime='+totaltime;
     }
     var Name = exarray[exname].Name;
     document.getElementById('exercise').value = Name;
