@@ -40,12 +40,6 @@ function printTrainings(){
     for (var i = 0; i < exnames.length; i++) {
       content.innerHTML += "<a href='do_schedule.html?username="+username+"&exercise="+exnames[i]+"'>"+exnames[i]+"</a>"+"<br>";
 
-      /*
-    var n = "do_schedule.html";
-    content.innerHTML += "<a onclick='location.href="+n+"'>"+exnames[i]+"</a>"+"<br>";
-
-      */
-
     }
 
 

@@ -54,12 +54,6 @@ function saveTraining(){
   }, 1000);
    }
 
-
-
-
-
-
-
 function saveTrainingLast(){
     name = document.getElementById('exercise').value;
     description = document.getElementById('description').value;
@@ -67,7 +61,7 @@ function saveTrainingLast(){
     saveToDatabase();
     clean();
     console.log("salvestatud");
-    window.location.href='ready.html';
+    window.location.href="ready.html?username="+username+"&trainingID="+trainingID+"";
 }
 
 function saveToDatabase(){
