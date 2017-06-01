@@ -88,7 +88,7 @@ function getnextex(){
     //siis kui harjutused on tehtud
     if(excount>exnr){
         console.log("tehtud");
-        window.location.href='ready.html';
+        window.location.href='trainign_finish.html?username='+username;
     }
     var Name = exarray[exname].Name;
     document.getElementById('exercise').value = Name;
