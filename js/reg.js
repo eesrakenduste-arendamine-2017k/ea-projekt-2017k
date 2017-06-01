@@ -18,15 +18,17 @@ function saveuser(){
     surename = document.getElementById('surename').value;
     birthdate = document.getElementById('birthdate').value;
     weight = document.getElementById('weight').value;
-    checkUsername();
-    setTimeout(saveUser, 2000);
-
+    //checkUsername();
+    //setTimeout(saveUser, 2000);
+    saveUser();
 }
+
 
 function saveUser(){
 
   //console.log("a="+a);
   if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
+    checkUsername();
     console.log("T6hjasi v2ljasi ei ole");
     if((isNaN(username)===true) && (isNaN(password)===true) && (isNaN(password1)===true) && (isNaN(firstname)===true) && (isNaN(surename)===true) && (isNaN(birthdate)===true)){
       console.log("Kõik tekstiväljad on teksti kujul");
