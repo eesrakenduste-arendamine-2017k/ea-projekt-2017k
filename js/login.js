@@ -4,6 +4,7 @@ var a;
 var databasepassword;
 
 window.onload = function(){
+      document.querySelector('.login_error').style.display = 'none';
       doEffect();
    };
 
@@ -21,11 +22,12 @@ function checkUsername(){
             console.log("Kasutaja on olemas");
             databasepassword = snapshot.val().Password;
             if(databasepassword == password){
+                document.querySelector('.login_error').style.display = 'none';
                 console.log("Parool õige");
                 location.href = 'home.html?username='+username;
             }else{
                 console.log("Parool vale");
-                alert("Viga kasutajanimes ja/või paroolis");
+                document.querySelector('.login_error').style.display = 'block';
             }
         }else{
             a = "ERROR";
