@@ -1,9 +1,10 @@
 # IRL Counter-Strike telefonidega
 
-## Osalised
-*Mattias Põldaru
-*Leevi Põldaru
-*Rando Tomingas
+## 
+**Osalised
+    *Mattias Põldaru
+    *Leevi Põldaru
+    *Rando Tomingas
 
 ## Eesmärk
 Simuleerida maastikumänguna arvutimängu Counter-Strike.
