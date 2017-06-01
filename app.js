@@ -41,6 +41,9 @@ window.onload = function (){
     var menuOpen=false;
     var totalMoneySpentVisible=false;
     var categorySelected;
+    var SAVEDM;
+    var SAVEDMH;
+    var SAVEDMHH;
 
     registerServiceWorker();
 
@@ -55,7 +58,6 @@ window.onload = function (){
         var freeMoney = parseInt(localStorage.getItem("freeMoney")) ;
         freeMoneyLeft2.innerHTML = parseInt(localStorage.getItem("freeMoney"));
         freeMoneyLeft.innerHTML = parseInt(localStorage.getItem("freeMoney"));
-        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
         getStarted.style.opacity="0";
         getStarted.style.zIndex="-100";
         getStartedBg.style.opacity="0";
@@ -69,7 +71,6 @@ window.onload = function (){
         var clothesMoney = parseInt(localStorage.getItem("clothesMoney"));
         spentOnClothes2.innerHTML = parseInt(localStorage.getItem("clothesMoney"));
         spentOnClothes.innerHTML = parseInt(localStorage.getItem("clothesMoney"));
-        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
         getStarted.style.opacity="0";
         getStarted.style.zIndex="-100";
         getStartedBg.style.opacity="0";
@@ -83,7 +84,6 @@ window.onload = function (){
         var foodMoney = parseInt(localStorage.getItem("foodMoney"));
         spentOnFood2.innerHTML = parseInt(localStorage.getItem("foodMoney"));
         spentOnFood.innerHTML = parseInt(localStorage.getItem("foodMoney"));
-        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
         getStarted.style.opacity="0";
         getStarted.style.zIndex="-100";
         getStartedBg.style.opacity="0";
@@ -97,7 +97,6 @@ window.onload = function (){
         var otherMoney = parseInt(localStorage.getItem("otherMoney"));
         spentOnOther2.innerHTML = parseInt(localStorage.getItem("otherMoney"));
         spentOnOther.innerHTML = parseInt(localStorage.getItem("otherMoney"));
-        saved.innerHTML =  parseInt(localStorage.getItem("savedMoney"));
         getStarted.style.opacity="0";
         getStarted.style.zIndex="-100";
         getStartedBg.style.opacity="0";
@@ -106,8 +105,8 @@ window.onload = function (){
         var otherMoney = 0;
         spentOnOther2.innerHTML = 0;
     }
-    if(localStorage.getItem("savedMoney")!=null) {
-        var otherMoney = parseInt(localStorage.getItem("savedMoney"));
+    if(localStorage.getItem("savedMoney")!=null && localStorage.getItem("savedMoney")>"0"){
+        var savedMoney = parseInt(localStorage.getItem("savedMoney"));
         saved.innerHTML = parseInt(localStorage.getItem("savedMoney"));
         getStarted.style.opacity="0";
         getStarted.style.zIndex="-100";
@@ -269,14 +268,19 @@ window.onload = function (){
                 enterMoneyAside.style.opacity="0";
                 saveMoneyAside.style.opacity="0";
                 freeMoney=freeMoney-parseInt(enterMoneyAside.value);
-                saved.innerHTML=parseInt(saved.innerHTML)+parseInt(enterMoneyAside.value);
+
+                SAVEDM=enterMoneyAside.value;
+                SAVEDMH=saved.innerHTML;
+                SAVEDMHH=enterMoneyAside.value;
+
+                saved.innerHTML=SAVEDM+SAVEDMH;
 
                 freeMoneyLeft.innerHTML=freeMoney;
                 freeMoneyLeft2.innerHTML=freeMoney;
                 //saved.innerHTML=saved;
-                console.log("savedmoney: "+parseInt(saved.innerHTML));
+                console.log("savedmoney: "+JSON.stringify(SAVEDM+SAVEDMH));
                 localStorage.setItem("freeMoney", freeMoney);
-                localStorage.setItem("savedMoney", parseInt(saved.innerHTML));
+                localStorage.setItem("savedMoney", JSON.stringify(SAVEDM+SAVEDMH));
 
 
                 menu.style.left="-300px";
