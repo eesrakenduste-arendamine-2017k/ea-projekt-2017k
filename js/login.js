@@ -2,6 +2,8 @@ var username;
 var password;
 var a;
 var databasepassword;
+
+
 function login(){
     username = document.getElementById('username').value;
     password = document.getElementById('password').value;
