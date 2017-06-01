@@ -55,15 +55,15 @@ hr {
 }
 
 .button3 {
-
+  background-color: red;
 }
 
 .readonly {
   width: 30%;
   text-align: center;
-  line-height: 20px; font-size: 13px;
-  height: 30px;
-  background-color: #b2b2b2;
+  line-height: 28px; font-size: 30px;
+  height: 45px;
+  background-color: #d3d3d3;
   border: 2px solid white;
 }
 
