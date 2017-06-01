@@ -1,6 +1,6 @@
 window.onload = getName;
 var username;
-
+var left
 function getName(){
     doEffect();
     username = location.search.substring(10);
