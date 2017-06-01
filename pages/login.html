@@ -17,17 +17,23 @@
   <img src="../pictures/logo.png" alt="logo">
     <div id="login">
         <div>
+          <div class="center">         
+
             <p class="login_error errors">Viga kasutajanimes või paroolis!</p>
             <p class="empty_error errors">Väljad ei tohi olla tühjad!</p>
             <label>Kasutajanimi</label><br>
             <input id="username"></input><br>
             <label>Parool</label><br>
             <input id="password" type="password"></input><br>
-            <button onclick="login()">Logi sisse</button>
+          </div>
+            <div class="bottom_BTN">
+              <button onclick="login()">Logi sisse</button><br>
+              <button class="button2" type="button" name="button" onclick="location.href='reg.html';">Registreerima !</button>
+            </div>
+
         </div>
     </div>
-    <br><br>
-    <button class="button2" type="button" name="button" onclick="location.href='reg.html';">Registreerima !</button>
+
 </div>
     <div class="sk-circle">
     <div class="sk-circle1 sk-child"></div>
