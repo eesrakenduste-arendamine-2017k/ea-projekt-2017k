@@ -90,13 +90,13 @@ self.addEventListener('install', function(event) {
 		caches.open(CACHE_NAME.prefetch)
 		.then(function(cache) {
 			return cache.addAll([
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/",
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/projekt.js",
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/index.html",
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/game.html",
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/calculator.html",
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/index.css",
-				"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/projekt.css",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/projekt.js",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/index.html",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/game.html",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/calculator.html",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/index.css",
+				"/~karlbork/eesrakenduste_arendamine/ea-projekt-2017k/public/projekt.css",
 				"http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.2/math.min.js",
 				"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 			])

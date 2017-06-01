@@ -117,6 +117,13 @@ tbody{
 	border:none;
 }
 
+#exerciseMatrixPreAnswerContainer {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border: none;
+}
+
 #gameStats {
 	background-color: white;
 	color:  #272788;
