@@ -35,7 +35,7 @@ function saveuser(){
       setTimeout(saveUser(),100);
     }else{
        allfieldsError();
-    }  
+    }
 }
 
 
@@ -49,11 +49,12 @@ function saveUser(){
       console.log("Kõik tekstiväljad on teksti kujul");
   if(password==password1){
       if(a == 'OK'){
-        writeUserData(username, password, firstname, surename, birthdate, weight);
-        console.log("Kasutaja salvestamine õnnestus");
 
-          alert("Kasutaja loomine õnnestus !");
-          window.location.href= 'login.html';
+        writeUserData(username, password, firstname, surename, birthdate, weight);
+        window.location.href= 'reg_login.html';
+        console.log("Kasutaja salvestamine õnnestus");
+        clearTimeout(t);
+
       }else{
         usernameError();
       }
@@ -112,7 +113,7 @@ function doEffect(){
    document.querySelector('.sk-circle').style.display = 'none';
   document.querySelector('.signup').style.display = 'block';
   saveUser();
-}, 2000);
+}, 3000);
 }
 
 
