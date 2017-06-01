@@ -20,6 +20,7 @@ window.onload = function() { // lehe laadimisel paneb need funktsioonid t88le
     addChangeListener();
     addClickListener();
     playAll();
+    
 };
 
 function addChangeListener() {

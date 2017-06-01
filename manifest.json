@@ -1,11 +1,12 @@
 {
   "name": "Concentration to the MAX",
-  "version": "1.0",
+  "version": "1.6.2",
   "manifest_version": 2,
   "description": "Relax to get assignments done or browse the web while
    listening to soothing music and sounds. ",
    "background": {
      "page": "background.html"
+
    },
 
    "browser_action": {
@@ -13,6 +14,7 @@
      "default_popup":"popup.html",
      "default_icon":"ikoon.png"
      },
+     "default_locale": "et",
      "icons": {
              "16": "ikoon16.png",
              "48": "ikoon.png",
@@ -23,7 +25,9 @@
 	"tabs",
 	"http://*/*",
 	"https://*/*",
-  "background"
+  "background",
+  "notifications",
+  "<all_urls>"
 
   ],
   "content_scripts" : [{
