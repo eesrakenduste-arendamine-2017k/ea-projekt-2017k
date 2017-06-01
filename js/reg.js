@@ -7,8 +7,10 @@ var firstname;
 var surename;
 var birthdate;
 var weight ;
+var t;
 
 function saveuser(){
+    doEffect();
     username = document.getElementById('username').value;
     password = document.getElementById('password').value;
     password1 = document.getElementById('password1').value;
@@ -22,23 +24,33 @@ function saveuser(){
 }
 
 function saveUser(){
+
   //console.log("a="+a);
+  if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
+    console.log("T6hjasi v2ljasi ei ole");
+    if((isNaN(username)===true) && (isNaN(password)===true) && (isNaN(password1)===true) && (isNaN(firstname)===true) && (isNaN(surename)===true) && (isNaN(birthdate)===true)){
+      console.log("Kõik tekstiväljad on teksti kujul");
   if(password==password1){
       if(a == 'OK'){
         writeUserData(username, password, firstname, surename, birthdate, weight);
         console.log("Kasutaja salvestamine õnnestus");
-        document.body.style.background = "blue";
-          window.setTimeout(function () {
-              document.body.style.background = "white";
-                    }, 100);
+
           alert("Kasutaja loomine õnnestus !");
           window.location.href= 'login.html';
       }else{
         console.log("Selline kasutaja juba olemas");
+        alert("Selline kasutaja on juba olemas!");
       }
     }else{
       console.log("Paroolid pole sama");
+      alert("Paroolid peavad olema samad!");
     }
+  }else{
+    alert("Kasutajanimi, parool ja nimi peavad olema tekst!");
+  }
+  }else{
+    alert("Täida kõik väljad!");
+  }
 }
 function writeUserData(username, password, firstname, surename, birthdate, weight, id) {
   firebase.database().ref("userinfo/"+username).set({
@@ -76,4 +88,13 @@ function getInfo(){
         }
     document.getElementById('value').innerHTML = s;
     });
+}
+
+function doEffect(){
+  document.querySelector('.signup').style.display = 'none';
+ document.querySelector('.sk-circle').style.display = 'block';
+ t = setTimeout(function(){
+   document.querySelector('.sk-circle').style.display = 'none';
+  document.querySelector('.signup').style.display = 'block';
+}, 2000);
 }
