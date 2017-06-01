@@ -10,6 +10,7 @@
 		<script src="projekt.js"></script>
 	</head>
 	<button type="button" onclick="location.href='index.html'">Tagasi</button>
+	<button type="button" onclick="viewTopPlayers()">TOP10</button>
 	<!--Võib-olla peaks seda muutma-->
 	<body onload="setPlayerName()">
 
@@ -56,8 +57,8 @@
 			</select>
 		</form>
 		
-		<button type="button" onclick="generateExerciseMatrix()">Genereeri maatriksid</button>
-		<button type="button" onclick="generateRandomExerciseMatrix()">Genereeri suvalise suurusega maatriksid</button>
+		<button id="generateExerciseMatrix" type="button" onclick="generateExerciseMatrix()">Genereeri maatriksid</button>
+		<button id="generateRandomExerciseMatrix" type="button" onclick="generateRandomExerciseMatrix()">Genereeri suvalise suurusega maatriksid</button>
 		
 		
 		<div id="exerciseMatrixContainer">
@@ -70,7 +71,7 @@
 		</div>
 		
 		<button id="checkAndRestart"type="button" onclick="checkMatrixAnswers()">Kontrolli vastust</button>
-		<button type="button" onclick="resetScore()">Lõpeta</button>
+		<button id="resetScore" type="button" onclick="resetScore()">Lõpeta</button>
 		
 		<div id="gameStats">
 			<div id="playerName">MÄNGIJA:nimetu</div>
@@ -79,8 +80,7 @@
 			<div id= "TotalSum">MAATRIKSEID KOKKU:0</div>
 		</div>
 		
-		<button type="button" onclick="startNewGame()">UUS MÄNG</button>
-		<button type="button" onclick="viewTopPlayers()">TOP10</button>
+		<button id="startNewGame" type="button" onclick="startNewGame()">UUS MÄNG</button>
 		
 		<div id="scoreTable">
 			<table id="myTable">

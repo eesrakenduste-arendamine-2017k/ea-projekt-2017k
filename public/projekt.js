@@ -334,7 +334,14 @@ function setPlayerName() {
 // **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 
 function generateExerciseMatrix() {
-
+	
+	document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
+	document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
+	
+	document.getElementById("checkAndRestart").style.visibility = "visible";
+	document.getElementById("resetScore").style.visibility = "visible";
+	//document.getElementById("startNewGame").style.visibility = "hidden";
+		
 	Em1x = document.getElementById("Em1x").value;
 	Em1y = document.getElementById("Em1y").value;
 	Em2x = document.getElementById("Em2x").value;
@@ -384,6 +391,12 @@ function generateExerciseMatrix() {
 // **** GENEREERIB SUVALISE SUURUSEGA MAATRIKSID ****
 
 function generateRandomExerciseMatrix() {
+	
+	document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
+	document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
+	
+	document.getElementById("checkAndRestart").style.visibility = "visible";
+	document.getElementById("resetScore").style.visibility = "visible";
 	
 	Em1x = document.getElementById("Em1x").value = Math.floor((Math.random() * 5) + 1);
 	Em1y = document.getElementById("Em1y").value = Math.floor((Math.random() * 5) + 1);
@@ -568,7 +581,7 @@ function createExerciseMatrixAnswer() {
 // **** KÄIVITAB ARVUDE GENEREERIMISE MAATRIKSISSE ****
 
 function generateValuesForMatrices() {
-
+	
 	generateValuesForMatrix1();
 	generateValuesForMatrix2();
 
@@ -618,9 +631,12 @@ function generateValuesForMatrix2() {
 
 // **** KONTROLLIB MAATRIKSITE VASTUSEID ****
 
+var matrixFinalAnswerErrors = 0;
+var matrixPreAnswerErrors = 0;
+
 function checkMatrixFinalAnswers() {
 
-	c = 1;
+	var c = 1;
 
 	for (var rowId = 1; rowId <= Em1x; rowId++) {
 
@@ -654,11 +670,11 @@ function checkMatrixFinalAnswers() {
 			} else {
 				matrixAnswer.style.color = "red";
 				errorCount += 1;
+				matrixFinalAnswerErrors++;
 			}
-
 		}
 	}
-	updateScore();
+	
 	//tuleb lisada veel kontroll, mis ei lase "kontrolli vastuseid" nuppu spämmida
 
 
@@ -668,7 +684,7 @@ function checkMatrixFinalAnswers() {
 
 function checkMatrixPreAnswers() {
 	
-	c = 1;
+	var c = 1;
 	
 	for(var rowId = 1; rowId <= Em1x; rowId++) {
 		
@@ -696,8 +712,8 @@ function checkMatrixPreAnswers() {
 				matrixAnswer.style.color = "green";
 			} else {
 				matrixAnswer.style.color = "red";
+				matrixPreAnswerErrors++;
 			}
-			
 		}
 	}
 }
@@ -709,12 +725,28 @@ function checkMatrixAnswers() {
 	checkMatrixFinalAnswers();
 	checkMatrixPreAnswers();
 	
+	if(matrixFinalAnswerErrors === 0 && matrixPreAnswerErrors === 0) {
+		updateScore();
+		generateExerciseMatrix();
+	}
+	
+	matrixFinalAnswerErrors = 0;
+	matrixPreAnswerErrors = 0;
+	
 }
 
 // MÄNGU SKOORI FUNKTSIOONID
 function resetScore() {
+	
+	//document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
+	//document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
+	
+	document.getElementById("checkAndRestart").style.visibility = "hidden";
+	document.getElementById("resetScore").style.visibility = "hidden";
+	document.getElementById("startNewGame").style.visibility = "visible";
+	
 	alert("MÄNG LÄBI! Sinu skoor: " + score + ", vigu tegid kokku " + errorCount + ", maatrikseid kokku: " + sumOfExercises)
-
+	
 	var gameData = {
 		"name": playerName,
 		"score": score,
@@ -772,6 +804,14 @@ function viewTopPlayers() {
 //uue mängu alustamine(pole kõige parem meetod)
 
 function startNewGame() {
+	
+	document.getElementById("generateExerciseMatrix").style.visibility = "visible";
+	document.getElementById("generateRandomExerciseMatrix").style.visibility = "visible";
+	
+	//document.getElementById("checkAndRestart").style.visibility = "hidden";
+	//document.getElementById("resetScore").style.visibility = "hidden";
+	document.getElementById("startNewGame").style.visibility = "hidden";
+	
 	window.location.reload(false);
 }
 
@@ -795,48 +835,3 @@ function createTable(obj) {
 	}
 }
 
-//EI TEA KAS ON KÕIGE OPTIMAALSEM VÄÄRTUSE SAAMISE VIIS
-function Calculate() {
-
-	for (var i = 0; i < x1; i++) {
-		matrix[i] = [];
-		for (var j = 0; j < y1; j++) {
-			matrix[i][j] = undefined;
-			console.log(matrix[i][j]);
-			//CreateInput(x1);
-		}
-	}
-
-	IDCounter = 0;
-	for (var i = 0; i < x1; i++) {
-		for (var j = 0; j < y1; j++) {
-			IDCounter++;
-			//console.log("IDCOUNTER1: "+IDCounter);
-			//inputBoxvalue1 = document.getElementById("inputmatrix" + IDCounter).value;
-			matrix[i][j] = document.getElementById("inputmatrix" + IDCounter).value;
-			console.log("Maatriks: " + matrix[i][j] + "; I:" + i + "; J:" + j);
-			//console.log("inputBoxvalue1: "+inputBoxvalue1);
-			//matrix1.push(inputBoxvalue1);
-			/*
-			MAATRIKS PEAKS OLEMA KUJUL (2x2)
-			1 2
-			3 4
-			 */
-		}
-	}
-	console.log("Esimene maatriks: " + matrix1);
-	IDCounter = 30;
-	for (var i = 0; i < x2; i++) {
-		for (var j = 0; j < y2; j++) {
-			IDCounter++;
-			//console.log("IDCOUNTER2: "+IDCounter);
-			inputBoxvalue2 = document.getElementById("inputmatrix" + IDCounter).value;
-			//console.log("inputBoxvalue2: "+inputBoxvalue2);
-			matrix2.push(inputBoxvalue2);
-			//var test+IDCounter = inputBoxvalue2;
-			//console.log("MUUTUJA TEST+IDCOUNTER"+ window["test"+IDCounter]);
-		}
-	}
-	console.log("Teine maatriks: " + matrix2);
-}
-//};
