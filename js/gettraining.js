@@ -16,7 +16,7 @@ function getinfo(){
     trainingID = decodeURIComponent(b[1].substring(9));
     username = decodeURIComponent(b[0].substring(9));
     console.log(trainingID, username);
-    getTraining();
+    getTraining();   
     document.getElementById("rep1_minus").addEventListener("click", rep1Minus);
     document.getElementById("rep2_minus").addEventListener("click", rep2Minus);
     document.getElementById("rep3_minus").addEventListener("click", rep3Minus);
