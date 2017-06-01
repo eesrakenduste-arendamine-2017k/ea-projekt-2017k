@@ -27,7 +27,8 @@
 	"https://*/*",
   "background",
   "notifications",
-  "<all_urls>"
+  "<all_urls>",
+  "storage"
 
   ],
   "content_scripts" : [{
