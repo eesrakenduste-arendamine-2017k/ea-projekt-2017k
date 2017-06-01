@@ -3,6 +3,10 @@ var password;
 var a;
 var databasepassword;
 
+window.onload = function(){
+      doEffect();
+   };
+
 
 function login(){
     username = document.getElementById('username').value;
@@ -29,4 +33,13 @@ function checkUsername(){
             alert("Viga kasutajanimes ja/või paroolis");
         }
     });
+}
+
+function doEffect(){
+  document.querySelector('.loginpage').style.display = 'none';
+ document.querySelector('.sk-circle').style.display = 'block';
+ t = setTimeout(function(){
+   document.querySelector('.sk-circle').style.display = 'none';
+  document.querySelector('.loginpage').style.display = 'block';
+}, 1000);
 }
