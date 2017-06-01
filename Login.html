@@ -29,9 +29,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="FAQ.html">FAQ</a></li>
-            <li><a href="Login.html">Log In/Sign Out</a></li>
 			<li><a href="Index.html" id="task" style="visibility:hidden;">Tasks</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+			<li><a href="Homepage.html">Homepage</a></li>
+            <li><a href="Login.html">Dashboard</a></li>
           </ul>
         </div>
       </div>
@@ -48,13 +49,16 @@
 			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 			<input type="password" id="passwordField" placeholder="Password" class="form-control"></input><br>
 		</div>
-        <button type="button" class="btn btn-primary" id="loginBtn" onclick="LogIn()">Log In</button>
-        <button type="button" class="btn btn-default" id="signupBtn" onclick="SignUp()">Sign Up</button>
+        <button type="button" class="btn logbutton" id="loginBtn" onclick="LogIn()">Log In</button>
+        <button type="button" class="btn signbutton" id="signupBtn" onclick="SignUp()">Sign Up</button>
         
       </div>
 	  <div id="logout" class="welcome" style="visibility:hidden;">
-		<h2>TERE TULEMAST</h2>
-		<button type="button" class="btn btn-primary" id="logoutBtn" onclick="LogOut()">Log Out</button>
+		<h2>Welcome!</h2>
+		<p>Choose what you want to do:</p><br>
+		<a href="Index.html" class="btn signbutton"><span>Go to tasks</span></a><br><br>
+		<a href="FAQ.html" class="btn signbutton"><span>view FAQ</span></a><br><br>
+		<button type="button" class="btn signbutton" id="logoutBtn" onclick="LogOut()">Log Out</button>
 	  </div>
     </div>
   </body>
