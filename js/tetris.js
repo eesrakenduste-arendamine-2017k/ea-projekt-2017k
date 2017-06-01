@@ -4,7 +4,7 @@ var tetris = {
     boardDiv: null,
     canvas: null,
     pSize: 20,
-    canvasHeight: 280,
+    canvasHeight: 300,
     canvasWidth: 280,
     boardHeight: 0,
     boardWidth: 0,

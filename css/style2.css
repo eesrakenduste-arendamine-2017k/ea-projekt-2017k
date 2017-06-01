@@ -49,8 +49,7 @@ body {
     }
     #canvas {
         width: 280px;
-        height: 320px;
-        height: 45vh;
+        height: 300px;
         margin: auto;
         background-color: white;
         position: relative;
