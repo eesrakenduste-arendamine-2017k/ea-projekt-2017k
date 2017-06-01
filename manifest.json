@@ -23,7 +23,8 @@
 	"tabs",
 	"http://*/*",
 	"https://*/*",
-  "background"
+  "background",
+  "storage"
 
   ],
   "content_scripts" : [{
