@@ -1,4 +1,5 @@
 // service worker
+//https://stackoverflow.com/questions/42333355/serviceworker-not-working-offline
 
 var CACHE_NAME = 'MatrixCalulator';
 /*
@@ -80,8 +81,6 @@ self.addEventListener('push', function(event) {
     event.waitUntil(self.registration.showNotification(title, options));
 });
 */
-
-
 
 self.addEventListener('install', function(event) {
 	console.log('Service Worker Install...');

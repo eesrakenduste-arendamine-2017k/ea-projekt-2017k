@@ -19,9 +19,8 @@ var b = [[null, null, null]];
 
 // ||||| ----- ----- ----- ----- MAATRIKSITE KALKULAATORI OSA ----- ----- ----- ----- |||||
 
-//window.onload = function(){
 	
-
+//SERVICEWORKER-i osa
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
 		// Registration was successful
