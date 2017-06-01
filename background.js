@@ -63,14 +63,3 @@ function setSounds() {
         el.volume = '.3';
     }
 }
-/*function setSounds() {
-    var lines = sounds.split("\n");
-    for (var i = 0, len = lines.length; i < len; i++) {
-        var name = lines[i];
-        $('body')
-            .append('<audio class="player" id="' + name + '" src="./audio/' + name + '.ogg"
-            controls loop preload="auto" autobuffer></audio>');
-        $('#' + name)
-            .attr('volume', '.3');
-    }
-}*/
