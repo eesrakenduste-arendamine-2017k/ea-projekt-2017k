@@ -1,7 +1,7 @@
 var username;
 var trainingID;
-var exercise = "harjutus1"
-var i = 0;  
+var exercise = "harjutus1";
+var i = 0;
 var n = 1;
 var excount = 0;
 var exarray;
@@ -11,12 +11,13 @@ var exnr;
 window.onload = getinfo;
 
 function getinfo(){
+    doEffect();
     var a = location.search.substring(1);
     var b = a.split(/&/);
     trainingID = decodeURIComponent(b[1].substring(9));
     username = decodeURIComponent(b[0].substring(9));
     console.log(trainingID, username);
-    getTraining();   
+    getTraining();
     document.getElementById("rep1_minus").addEventListener("click", rep1Minus);
     document.getElementById("rep2_minus").addEventListener("click", rep2Minus);
     document.getElementById("rep3_minus").addEventListener("click", rep3Minus);
@@ -27,7 +28,7 @@ function getinfo(){
 
 function getTraining(){
 
-    firebase.database().ref("Trainings/"+username+"/"+trainingID).once('value', gotData);    
+    firebase.database().ref("Trainings/"+username+"/"+trainingID).once('value', gotData);
 }
 
 function sgotData(data){
@@ -83,6 +84,7 @@ function gotData(data){
 }
 
 function getnextex(){
+  doEffect();
     //siis kui harjutused on tehtud
     if(excount>exnr){
         console.log("tehtud");
@@ -163,3 +165,12 @@ rep3Plus = function(){
   }
   document.getElementById("rep3_x").value = newValue;
 };
+
+function doEffect(){
+  document.querySelector('.schedulepage').style.display = 'none';
+ document.querySelector('.sk-circle').style.display = 'block';
+ t = setTimeout(function(){
+   document.querySelector('.sk-circle').style.display = 'none';
+  document.querySelector('.schedulepage').style.display = 'block';
+}, 1000);
+}

@@ -9,6 +9,11 @@ var birthdate;
 var weight ;
 var t;
 
+window.onload = function(){
+    document.querySelector('.sk-circle').style.display = 'none';
+    document.querySelector('.signup').style.display = 'block';
+};
+
 function saveuser(){
     doEffect();
     username = document.getElementById('username').value;
@@ -20,7 +25,7 @@ function saveuser(){
     weight = document.getElementById('weight').value;
     //checkUsername();
     //setTimeout(saveUser, 2000);
-    saveUser();
+    //saveUser();
 }
 
 
@@ -98,5 +103,17 @@ function doEffect(){
  t = setTimeout(function(){
    document.querySelector('.sk-circle').style.display = 'none';
   document.querySelector('.signup').style.display = 'block';
+  saveUser();
+}, 2000);
+}
+
+
+function doEffect(){
+  document.querySelector('.signup').style.display = 'none';
+ document.querySelector('.sk-circle').style.display = 'block';
+ t = setTimeout(function(){
+   document.querySelector('.sk-circle').style.display = 'none';
+  document.querySelector('.signup').style.display = 'block';
+  saveUser();
 }, 2000);
 }
