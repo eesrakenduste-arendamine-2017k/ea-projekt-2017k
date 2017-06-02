@@ -3,7 +3,15 @@ function saveToDB(){
 
   var d_date = document.getElementById('due_date').value;
   var task = document.getElementById('task').value;
-
+  var date_check = CheckDate(d_date);
+  
+  if(date_check === false){
+	  
+	console.log("Due dates must be in the future");
+	return;
+	  
+  }
+  
   if(d_date === null || d_date === "" || task === "" || task === null){
 
     console.log("No task or due date was specified");
@@ -20,14 +28,15 @@ function saveToDB(){
 
       firebase.database().ref("UserTasks/"+ uid +"/").push({
         Task: task,
-        Due: d_date
+        Due: d_date,
+		Status: "Not Completed"
       });
 
       console.log(task, d_date);
       clearFields();
 
     } else {
-      console.log("You are not logged in!");
+      console.log("Users must be signed in to add tasks");
     }
 
   }
@@ -97,4 +106,17 @@ function clearFields(){
   document.getElementById('due_date').value = "";
   document.getElementById('task').value = "";
 
+}
+
+//Function to check if the date is in the future
+function CheckDate(date){
+	
+	var selectedDate = new Date(date);
+	var currentDate = new Date();
+	
+	if(selectedDate < currentDate){
+		return false;
+	} else {
+		return true;
+	}
 }
