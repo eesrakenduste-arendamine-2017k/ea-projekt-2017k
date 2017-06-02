@@ -723,7 +723,7 @@ function checkMatrixFinalAnswers() {
 	
 	// ***NB!*** tuleb lisada veel kontroll, mis ei lase "kontrolli vastuseid" nuppu spämmida
 
-rightanswerCounter()
+//rightanswerCounter()
 
 
 }
