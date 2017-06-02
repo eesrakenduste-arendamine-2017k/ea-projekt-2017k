@@ -9,13 +9,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="projekt.js"></script>
 	</head>
-	<button type="button" onclick="location.href='index.html'">Tagasi</button>
-	<button type="button" onclick="viewTopPlayers()">TOP10</button>
-	<div id="stopper">aeg</div>
 	<!--Võib-olla peaks seda muutma-->
 	<body onload="setPlayerName()">
-
-	<!-- MAATRIKSITE HARJUTAMINE -->
+		<button type="button" onclick="location.href='index.html'">Tagasi</button>
+		<button type="button" onclick="viewTopPlayers()">TOP10</button>
+		
+		<!-- MAATRIKSITE HARJUTAMINE -->
 		
 		<h1>Harjutamine</h1>
 		<p1>Harjutusmängu alustamiseks vali maatriksite suurused</p1>
@@ -61,8 +60,6 @@
 		<button id="generateExerciseMatrix" type="button" onclick="generateExerciseMatrix()">Genereeri maatriksid</button>
 		<button id="generateRandomExerciseMatrix" type="button" onclick="generateRandomExerciseMatrix()">Genereeri suvalise suurusega maatriksid</button>
 		
-		
-		
 		<div id="exerciseMatrixContainer">
 			<!-- maatriksid, kus arvud ette antud -->
 			<div id="exerciseMatrix1Container"><table id="exerciseMatrix1"></table></div>
@@ -73,7 +70,7 @@
 		</div>
 		
 		<button id="checkAndRestart"type="button" onclick="checkMatrixAnswers()">Kontrolli vastust</button>
-		<button id="resetScore" type="button" onclick="resetScore()">Loobu</button>
+		<button id="resetScore" type="button" onclick="resetScore()">Lõpeta</button>
 		
 		<div id="gameStats">
 			<div id="playerName">MÄNGIJA:nimetu</div>
