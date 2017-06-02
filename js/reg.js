@@ -53,7 +53,7 @@ function saveUser(){
         writeUserData(username, password, firstname, surename, birthdate, weight);
         window.location.href= 'reg_login.html';
         console.log("Kasutaja salvestamine õnnestus");
-        clearTimeout(t);
+        //clearTimeout(t);
 
       }else{
         usernameError();
@@ -109,11 +109,12 @@ function getInfo(){
 function doEffect(){
   document.querySelector('.signup').style.display = 'none';
  document.querySelector('.sk-circle').style.display = 'block';
- t = setTimeout(function(){
+ /*t = setTimeout(function(){
    document.querySelector('.sk-circle').style.display = 'none';
   document.querySelector('.signup').style.display = 'block';
   saveUser();
-}, 3000);
+}, 3000);*/
+
 }
 
 
