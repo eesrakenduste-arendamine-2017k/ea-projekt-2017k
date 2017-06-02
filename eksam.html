@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  
+	<head>
+	<link rel="stylesheet" type="text/css"
+	href="style.css">
+	</head>
+
+	<body>
+		
+		<section>
+		
+			<div id="drawingTools">
+			
+				<div id="colors">
+					<button id="black" onclick="changeColor('black')"></button>
+					<button id="white" onclick="changeColor('white')"></button>
+					<button id="red" onclick="changeColor('red')"></button>
+					<button id="green" onclick="changeColor('green')"></button>
+					<button id="blue" onclick="changeColor('blue')"></button>
+				</div>
+				
+				<div id="otherTools">
+					<button id="clearCanvas" onclick="clearCanvas()">C</button>
+				</div>
+				
+			</div>
+			
+			<canvas id="canvas" width="800"
+			height="500"> </canvas>
+			
+		</section>
+	
+		<script src="script.js"></script>
+	</body>
+
+ </html>
