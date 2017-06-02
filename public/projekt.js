@@ -647,9 +647,10 @@ function checkMatrixFinalAnswers() {
 			}
 		}
 	}
-
+	
 // ***NB!*** tuleb lisada veel kontroll, mis ei lase "kontrolli vastuseid" nuppu spämmida
 //rightanswerCounter()
+
 }
 
 // **** KONTROLLIB VAHEMAATRIKSITE VASTUSEID ****
@@ -689,6 +690,12 @@ function checkMatrixPreAnswers() {
 	}
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e2a6bd88d358c969883aae962ee9763dc0fe3093
 // **** JUST FOR DEVS FUNKTSIOON, MIS GENEREERIB MÄNGU TESTIMISEKS MAATRIKSITESSE ÕIGED VASTUSED ****
 
 function justForDevsMatrixAnswers() {
@@ -704,6 +711,10 @@ function justForDevsMatrixAnswers() {
 			var matrixAnswerString = "";
 
 			for (var i = 0; i < Em1y; i++) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2a6bd88d358c969883aae962ee9763dc0fe3093
 				var Ea = document.getElementById("Ea" + rowId + c).value;
 				var Eb = document.getElementById("Eb" + c + colId).value;
 				matrixAnswerString += Ea + "*" + Eb + " + ";
@@ -717,6 +728,13 @@ function justForDevsMatrixAnswers() {
 	}
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> e2a6bd88d358c969883aae962ee9763dc0fe3093
 // **** KÄIVITAB MAATRIKSITE VASTUSTE KONTROLLI (mitte random suurustega kuvatud maatriksid) ****
 
 function checkMatrixAnswers() {
