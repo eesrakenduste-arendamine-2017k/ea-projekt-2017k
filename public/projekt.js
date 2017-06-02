@@ -68,6 +68,7 @@ function urlB64ToUint8Array(base64String) {
 // **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 
 function generateMatrix() {
+	document.getElementById("checkAnswer").style.visibility = "visible";
 
 	m1x = document.getElementById("m1x").value;
 	m1y = document.getElementById("m1y").value;
@@ -807,7 +808,7 @@ function updateScore() {
 function sendDataToServer(object) {
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://draama.duckdns.org:30001', true);
+	xhr.open('POST', 'http://www.heleri.eu', true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -828,7 +829,7 @@ function viewTopPlayers() {
 			createTable(dB)
 		}
 	};
-	xhttp.open("GET", "http://draama.duckdns.org:30001/top", true);
+	xhttp.open("GET", "http://www.heleri.eu/top", true);
 	//xhttp.open("GET", "http://localhost:5555/top", true) või midagi, kui greenysse tõsta;
 	xhttp.send();
 }
