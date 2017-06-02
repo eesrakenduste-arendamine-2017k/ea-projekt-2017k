@@ -9,6 +9,8 @@ var score = 0;
 var sumOfExercises = 0;
 var errorCount = 0;
 var playerName = "";
+var timer=60;
+var answerCounter=0;
 
 // kalkulaatori maatriksi mõõdu muutujad
 var m1x, m1y, m2x, m2y;
@@ -19,6 +21,15 @@ var Em1x, Em1y, Em2x, Em2y;
 // massiivid harjutusmaatriksite väärtuste jaoks
 var a = [[null, null, null]];
 var b = [[null, null, null]];
+
+
+
+
+
+
+
+
+
 
 // ||||| ----- ----- ----- ----- MAATRIKSITE KALKULAATORI OSA ----- ----- ----- ----- |||||
 
@@ -63,6 +74,16 @@ function urlB64ToUint8Array(base64String) {
 	}
 	return outputArray;
 }
+
+
+
+
+
+
+
+
+
+
 
 // **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 
@@ -315,9 +336,29 @@ function calculateMatrixFinalAnswer() {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ||||| ----- ----- ----- ----- MAATRIKSITE HARJUTAMISE OSA ----- ----- ----- ----- |||||
 
-//Mängija nimi
+
 
 
 //mängija nime küsimine
@@ -664,6 +705,8 @@ function checkMatrixFinalAnswers() {
 
 			if (matrixInputCell == matrixCellValue) {
 				matrixAnswer.style.color = "green";
+				answerCounter += 1
+				
 
 				score += 1
 				console.log("skoor " + score)
@@ -676,6 +719,13 @@ function checkMatrixFinalAnswers() {
 			}
 		}
 	}
+
+	
+	// ***NB!*** tuleb lisada veel kontroll, mis ei lase "kontrolli vastuseid" nuppu spämmida
+
+rightanswerCounter()
+
+
 }
 
 // **** KONTROLLIB VAHEMAATRIKSITE VASTUSEID ****
@@ -822,7 +872,7 @@ function updateScore() {
 
 }
 
-//mängija tulemuste saatmine serverile
+//MÄNGIJA TULEMUSTE SAATMINE SERVERILE
 function sendDataToServer(object) {
 
 	var xhr = new XMLHttpRequest();
@@ -837,7 +887,7 @@ function sendDataToServer(object) {
 	xhr.send(object);
 }
 
-//top10 tabeli funktsioon(andmed serverist)
+//TOP10 TABELI JAOKS ANDMED SERVERIST
 function viewTopPlayers() {
 
 	var xhttp = new XMLHttpRequest();
@@ -850,11 +900,12 @@ function viewTopPlayers() {
 		}
 	};
 	xhttp.open("GET", "http://draama.duckdns.org:30001/top", true);
+	//xhttp.open("GET", "http://localhost:5555/top", true) või midagi, kui greenysse tõsta;
 	xhttp.send();
 
 }
 
-//uue mängu alustamine(pole kõige parem meetod)
+//UUE MÄNGU ALUSTAMINE(pole kõige parem meetod)
 
 function startNewGame() {
 	
@@ -868,7 +919,7 @@ function startNewGame() {
 	window.location.reload(false);
 }
 
-//top10 skooride tabeli loomine jquery abil
+//TOP10 SKOORIDE TABEL JQUERY ABIL
 function createTable(obj) {
 
 	var tbl = $("<table/>").attr("id", "myTable");
@@ -887,4 +938,52 @@ function createTable(obj) {
 
 	}
 }
+
+
+
+
+//TAIMER
+
+	function gameTimer () {
+		var interval = setInterval(function () {
+				if (timer != 0) {
+					timer = timer - 1
+				}
+				document.getElementById("stopper").innerHTML = "AEG:" + timer;
+				if (timer <= 0) {
+					clearInterval(interval)
+					
+					
+					
+
+				resetScore()	
+				
+
+				}
+
+			}, 1000)
+			
+	}
+	
+gameTimer()
+
+
+/*
+function rightanswerCounter(){
+	
+	if (answerCounter===3) {
+		console.log("counter töötab")
+	
+	}
+	
+}
+
+*/
+
+
+	
+	
+	
+	
+
 
