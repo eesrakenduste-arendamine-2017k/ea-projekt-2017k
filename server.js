@@ -10,7 +10,7 @@ var fs = require("fs")
 			extended: false
 		}))
 	app.use(bodyParser.json())
-	app.listen(3000);
+	app.listen(30001);
 //andmete salvestamine dB.json faili
 app.post('/', function (req, res) {
 	res.send("test")
