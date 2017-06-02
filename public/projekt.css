@@ -160,11 +160,19 @@ tr:nth-child(even){
 	visibility: hidden;
 }
 
+#checkAndRestartRandom {
+	visibility: hidden;
+}
+
 #resetScore {
 	visibility: hidden;
 }
 
 #startNewGame {
+	visibility: hidden;
+}
+
+#justForDevs {
 	visibility: hidden;
 }
 

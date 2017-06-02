@@ -1,5 +1,8 @@
 // **** GLOBAALSED MUUTUJAD ****
 
+// muutujad mängu jaoks
+var matrixFinalAnswerErrors = 0;
+var matrixPreAnswerErrors = 0;
 
 //mängu skoori muutujad
 var score = 0;
@@ -334,12 +337,14 @@ function setPlayerName() {
 
 function generateExerciseMatrix() {
 	
+	document.getElementById("justForDevs").style.visibility = "visible";
 	document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
 	document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
 	
 	document.getElementById("checkAndRestart").style.visibility = "visible";
+	document.getElementById("checkAndRestartRandom").style.visibility = "hidden";
 	document.getElementById("resetScore").style.visibility = "visible";
-	//document.getElementById("startNewGame").style.visibility = "hidden";
+	document.getElementById("startNewGame").style.visibility = "hidden";
 		
 	Em1x = document.getElementById("Em1x").value;
 	Em1y = document.getElementById("Em1y").value;
@@ -391,10 +396,12 @@ function generateExerciseMatrix() {
 
 function generateRandomExerciseMatrix() {
 	
+	document.getElementById("justForDevs").style.visibility = "visible";
 	document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
 	document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
 	
-	document.getElementById("checkAndRestart").style.visibility = "visible";
+	document.getElementById("checkAndRestart").style.visibility = "hidden";
+	document.getElementById("checkAndRestartRandom").style.visibility = "visible";
 	document.getElementById("resetScore").style.visibility = "visible";
 	
 	Em1x = document.getElementById("Em1x").value = Math.floor((Math.random() * 5) + 1);
@@ -410,7 +417,7 @@ function generateRandomExerciseMatrix() {
 	
 	if(Em1y === Em2x) {
 		
-		console.log("Saab arvutada");
+		console.log("Saab arvutada Random");
 		console.log("Esimene maatriks on Em1x x Em1y (" + Em1x + " x " + Em1y + ")");
 		console.log("Teine maatriks on Em2x x Em2y (" + Em2x + " x " + Em2y + ")");
 		
@@ -507,7 +514,6 @@ function createExerciseMatrix2() {
 // **** FUNKTSIOON, MIS GENEREERIB VAHETULEMUSTE MAATRIKSI ****
 
 function createExerciseMatrixPreAnswer() {
-	
 	
 	var exerciseMatrixPreAnswerContainer = document.getElementById("exerciseMatrixPreAnswerContainer");
 	var EmAnswerWidth = 42 * Em2y * 3;
@@ -630,9 +636,6 @@ function generateValuesForMatrix2() {
 
 // **** KONTROLLIB MAATRIKSITE VASTUSEID ****
 
-var matrixFinalAnswerErrors = 0;
-var matrixPreAnswerErrors = 0;
-
 function checkMatrixFinalAnswers() {
 
 	var c = 1;
@@ -656,8 +659,8 @@ function checkMatrixFinalAnswers() {
 			var matrixInputCell = parseInt(matrixAnswer.value);
 			c = 1;
 
-			console.log(matrixInputCell);
-			console.log(matrixCellValue);
+			//console.log(matrixInputCell);
+			//console.log(matrixCellValue);
 
 			if (matrixInputCell == matrixCellValue) {
 				matrixAnswer.style.color = "green";
@@ -673,10 +676,6 @@ function checkMatrixFinalAnswers() {
 			}
 		}
 	}
-	
-	//tuleb lisada veel kontroll, mis ei lase "kontrolli vastuseid" nuppu spämmida
-
-
 }
 
 // **** KONTROLLIB VAHEMAATRIKSITE VASTUSEID ****
@@ -704,8 +703,8 @@ function checkMatrixPreAnswers() {
 			var matrixInputCell = matrixAnswer.value;
 			c = 1;
 			
-			console.log(matrixInputCell);
-			console.log(matrixCellValue);
+			//console.log(matrixInputCell);
+			//console.log(matrixCellValue);
 			
 			if(matrixInputCell === matrixCellValue) {
 				matrixAnswer.style.color = "green";
@@ -717,7 +716,43 @@ function checkMatrixPreAnswers() {
 	}
 }
 
-// **** KÄIVITAB MAATRIKSITE VASTUSTE KONTROLLI ****
+
+
+
+// **** JUST FOR DEVS FUNKTSIOON, MIS GENEREERIB MÄNGU TESTIMISEKS MAATRIKSITESSE ÕIGED VASTUSED ****
+
+function justForDevsMatrixAnswers() {
+
+	var c = 1;
+
+	for (var rowId = 1; rowId <= Em1x; rowId++) {
+
+		for (var colId = 1; colId <= Em2y; colId++) {
+
+			var matrixFinalAnswer = document.getElementById("Ec" + rowId + colId);
+			var matrixAnswer = document.getElementById("Ed" + rowId + colId);
+			var matrixAnswerString = "";
+
+			for (var i = 0; i < Em1y; i++) {
+
+				var Ea = document.getElementById("Ea" + rowId + c).value;
+				var Eb = document.getElementById("Eb" + c + colId).value;
+				matrixAnswerString += Ea + "*" + Eb + " + ";
+				c++;
+			}
+			var strLength = matrixAnswerString.length;
+			matrixAnswer.value = matrixAnswerString.slice(0, strLength - 3);
+			matrixFinalAnswer.value = math.eval(matrixAnswerString.slice(0, strLength - 3));
+			c = 1;
+		}
+	}
+}
+
+
+
+
+
+// **** KÄIVITAB MAATRIKSITE VASTUSTE KONTROLLI (mitte random suurustega kuvatud maatriksid) ****
 
 function checkMatrixAnswers() {
 	
@@ -727,20 +762,39 @@ function checkMatrixAnswers() {
 	if(matrixFinalAnswerErrors === 0 && matrixPreAnswerErrors === 0) {
 		updateScore();
 		generateExerciseMatrix();
+	} else {
+		updateScore();
 	}
-	
 	matrixFinalAnswerErrors = 0;
 	matrixPreAnswerErrors = 0;
+}
+
+// **** KÄIVITAB MAATRIKSITE VASTUSTE KONTROLLI (random suurustega kuvatud maatriksid) ****
+
+function checkMatrixAnswersRandom() {
 	
+	checkMatrixFinalAnswers();
+	checkMatrixPreAnswers();
+	
+	if(matrixFinalAnswerErrors === 0 && matrixPreAnswerErrors === 0) {
+		updateScore();
+		generateRandomExerciseMatrix();
+	} else {
+		updateScore();
+	}
+	matrixFinalAnswerErrors = 0;
+	matrixPreAnswerErrors = 0;
 }
 
 // MÄNGU SKOORI FUNKTSIOONID
 function resetScore() {
 	
-	//document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
-	//document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
+	document.getElementById("justForDevs").style.visibility = "hidden";
+	document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
+	document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
 	
 	document.getElementById("checkAndRestart").style.visibility = "hidden";
+	document.getElementById("checkAndRestartRandom").style.visibility = "hidden";
 	document.getElementById("resetScore").style.visibility = "hidden";
 	document.getElementById("startNewGame").style.visibility = "visible";
 	
