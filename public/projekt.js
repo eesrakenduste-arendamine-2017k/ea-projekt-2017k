@@ -801,7 +801,7 @@ function resetScore() {
 		"errors": errorCount,
 		"exercises": sumOfExercises
 	}
-	//sendDataToServer(JSON.stringify(gameData));
+	sendDataToServer(JSON.stringify(gameData));
 	score = 0;
 	sumOfExercises = 0;
 	errorCount = 0;
