@@ -2,6 +2,9 @@ window.onload = getName;
 var username;
 
 function getName(){
+    document.querySelector('.name_error').style.display = 'none';
+    document.querySelector('.text_error').style.display = 'none';
+    document.querySelector('.sk-circle').style.display = 'none';
     username = location.search.substring(10);
     console.log(location);
     //siia võiks lisada veel, et ütleb olenevalt kellaajast tere hommikust/õhtut
@@ -9,5 +12,25 @@ function getName(){
 
 function sendname(){
     schedulename = document.getElementById('schedulename').value;
-    location.href = 'new_schedule.html?username='+username+'&schedulename='+schedulename;
+    if(schedulename !== ''){
+      if((isNaN(schedulename)===true)){
+        doEffect();
+        document.querySelector('.name_error').style.display = 'none';
+        document.querySelector('.text_error').style.display = 'none';
+        location.href = 'new_schedule.html?username='+username+'&schedulename='+schedulename;
+        } else {
+          document.querySelector('.name_error').style.display = 'none';
+          document.querySelector('.text_error').style.display = 'block';
+        }
+    } else {
+      document.querySelector('.name_error').style.display = 'block';
+      document.querySelector('.text_error').style.display = 'none';
+    }
+
+}
+
+function doEffect(){
+  document.querySelector('.saving').style.display = 'none';
+ document.querySelector('.sk-circle').style.display = 'block';
+ 
 }
