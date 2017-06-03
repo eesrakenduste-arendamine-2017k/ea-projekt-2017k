@@ -1,6 +1,10 @@
 var Main = Main || {};
 
 Main.Game = function(){
+    this.enemies = null;
+    this.enemies_onscreen = 5;
+    this.timer = 0;
+    this.spawn_rate = 2;
 };
 
 Main.Game.prototype = {
@@ -13,10 +17,20 @@ Main.Game.prototype = {
 
         this.player = new Player(100, 490, this.game);
         this.player.create();
+        this.enemies = this.game.add.group();
     },
 
     update: function(){
+        this.timer += 1;
+        if(this.timer % (60*this.spawn_rate) === 0 && this.enemies.length < this.enemies_onscreen){
+            var enemy = new Enemy(Math.floor((Math.random()*800)), Math.floor((Math.random()*600)), this.game);
+            enemy.create();
+            this.enemies.add(enemy.sprite);
+        }
         //collision, actions here
-        //this.Player.update();
+        this.enemies.forEachAlive(function(enemy){
+            enemy.update();
+        });
+
     }
 };
