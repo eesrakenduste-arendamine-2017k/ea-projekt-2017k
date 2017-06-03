@@ -10,4 +10,4 @@ Main.Player.prototype = {
     update: function(){
         //collision, actions here
     }
-}
+};
