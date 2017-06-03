@@ -5,6 +5,8 @@ function Player(x, y, game){
     this.game = game;
     this.x = x;
     this.y = y;
+    this.laserCooldown = 200;
+    this.nextLaser = 0
 };
 
 Player.prototype = {
@@ -18,6 +20,15 @@ Player.prototype = {
         this.sprite.body.collideWorldBounds = true;
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
+
+        this.lasers = this.game.add.group();
+        this.lasers.enableBody = true;
+
+        this.lasers.createMultiple(10, 'laser1');
+        this.lasers.setAll('checkWorldBounds', true);
+        this.lasers.setAll('outOfBoundsKill', true);
+
+
     },
 
     update: function(){
@@ -37,6 +48,23 @@ Player.prototype = {
         } else if (this.cursors.down.isDown){
             this.game.physics.arcade.velocityFromAngle(this.sprite.angle + 90, 300, this.sprite.body.velocity);
         }
+        if(this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown){
+            this.shoot();
+        }
 
+    },
+
+    shoot: function(){
+        if (this.game.time.now > this.nextLaser && this.lasers.countDead() > 0){
+            this.nextLaser = this.game.time.now + this.laserCooldown;
+
+            var laser = this.lasers.getFirstDead();
+
+            laser.reset(this.sprite.x, this.sprite.y);
+            laser.pivot.x = 0.2 * this.sprite.width;
+            laser.pivot.y =  this.sprite.height;
+            this.game.physics.arcade.velocityFromAngle(this.sprite.angle - 90, 500, laser.body.velocity);
+            laser.angle = this.sprite.angle;
+        }
     }
 };

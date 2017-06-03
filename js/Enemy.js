@@ -18,7 +18,7 @@ Enemy.prototype = {
     update: function(player){
         //collision, actions here
         //this.game.physics.arcade.angleBetween(this.sprite, player.sprite);
-        this.game.physics.arcade.moveToObject(this.sprite, player, 200);
+        //this.game.physics.arcade.moveToObject(this.sprite, player, 200);
 
     }
 };
