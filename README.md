@@ -1,21 +1,19 @@
 # Task Scheduler
 
-##Autorid
+## Autorid
 
 Anu Sadam, Mariam Reintop, Kristjan Liiva
 
-##Eesmärk
+## Eesmärk
 
 Tihti ununevad inimestel reaalelulised sündmused/kohustused, kui nad ei ole neid eelnevalt kuhugile kirja pannud/salvestanud. 
 Selle jaoks tegimegi sellise app-i, millega saab salvestada reaalelulisi sündmusi/kohustusi(koos kuupäevadega), et neid oleks selle võrra kergem jälgida.
 
-##Funktsionaalsused
+## Funktsionaalsused
 
-Rakendus sisaldab järgmisi funktsionaalsusi:
+1. Saab luua kasutaja ning sisse logida.
+1. Saab salvestada tulveaseid sündmuseid/kohustusi(ainult sisselogitud kasutaja).
+1. Kasutaja saab eemaldada juba tehtud/toimunud kohustusi/sündmusi.
 
-	1.Saab luua kasutaja ning sisse logida.
-	1.Saab salvestada tulveaseid sündmuseid/kohustusi(ainult sisselogitud kasutaja).
-	1.Kasutaja saab eemaldada juba tehtud/toimunud kohustusi/sündmusi.
-
-##Andmete liikumise skeem
+## Andmete liikumise skeem
 
