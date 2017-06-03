@@ -581,7 +581,7 @@ function generateValuesForMatrices() {
 	generateValuesForMatrix1();
 	generateValuesForMatrix2();
 
-	sumOfExercises += 1;
+	//sumOfExercises += 1;
 }
 
 // **** GENEREERIB VÄÄRTUSED ESIMESSE MAATRIKSISSE JA MASSIIVI ****
@@ -702,7 +702,7 @@ function checkMatrixPreAnswers() {
 			} else {
 				matrixAnswer.style.color = "red";
 				errorCount += 1;
-				//matrixPreAnswerErrors++;
+				matrixPreAnswerErrors++;
 			}			
 		}
 	}
@@ -801,7 +801,7 @@ function resetScore() {
 		"errors": errorCount,
 		"exercises": sumOfExercises
 	}
-	sendDataToServer(JSON.stringify(gameData));
+	//sendDataToServer(JSON.stringify(gameData));
 	score = 0;
 	sumOfExercises = 0;
 	errorCount = 0;
