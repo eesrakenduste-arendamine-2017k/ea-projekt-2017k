@@ -30,6 +30,7 @@ Main.Game.prototype = {
             this.enemies.add(enemy.sprite);
             this.enemylist.push(enemy);
         }
+        this.player.update();
         //collision, actions here
         this.enemylist.forEach(function(enemy){
             enemy.update(this.player.sprite);
