@@ -2,6 +2,7 @@ var Main = Main || {};
 
 Main.Game = function(){
     this.enemies = null;
+    this.enemylist = [];
     this.enemies_onscreen = 5;
     this.timer = 0;
     this.spawn_rate = 2;
@@ -18,6 +19,7 @@ Main.Game.prototype = {
         this.player = new Player(100, 490, this.game);
         this.player.create();
         this.enemies = this.game.add.group();
+
     },
 
     update: function(){
@@ -26,11 +28,12 @@ Main.Game.prototype = {
             var enemy = new Enemy(Math.floor((Math.random()*800)), Math.floor((Math.random()*600)), this.game);
             enemy.create();
             this.enemies.add(enemy.sprite);
+            this.enemylist.push(enemy);
         }
         //collision, actions here
-        this.enemies.forEachAlive(function(enemy){
-            enemy.update();
-        });
+        this.enemylist.forEach(function(enemy){
+            enemy.update(this.player.sprite);
+        }, this);
 
     }
 };
