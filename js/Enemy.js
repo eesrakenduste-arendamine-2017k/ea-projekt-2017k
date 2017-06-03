@@ -3,6 +3,8 @@ function Enemy(x, y, game){
     this.y = y;
     this.game = game;
     this.sprite = null;
+    this.laserCooldown = 1000;
+    this.nextLaser = 0;
 }
 
 Enemy.prototype = {
@@ -17,23 +19,47 @@ Enemy.prototype = {
 
         this.game.physics.arcade.enable(this.sprite);
         this.sprite.scale.setTo(0.25, 0.25);
+        this.sprite.anchor.setTo(0.5, 0.5);
         this.sprite.angle = Math.floor(Math.random()*360);
-
+        this.lasers = this.game.add.group();
+        this.lasers.enableBody = true;
+        this.lasers.createMultiple(1, 'laser2');
+        this.lasers.setAll('checkWorldBounds', true);
+        this.lasers.setAll('outOfBoundsKill', true);
     },
 
     update: function(player){
         //collision, actions here
         this.sprite.angle = this.game.physics.arcade.angleBetweenCenters(this.sprite, player) * (180/Math.PI) + 90;
-        if(this.game.physics.arcade.distanceBetween(this.sprite, player) < 200 ){
+        if(this.sprite.key === 'enemy1'){
+            if(this.game.physics.arcade.distanceBetween(this.sprite, player) < 200 ){
+                this.fire();
+                this.game.physics.arcade.moveToObject(this.sprite, player, 0);
+            } else {
+                this.game.physics.arcade.moveToObject(this.sprite, player, 200);
+            }
+        } else if(this.sprite.key === 'enemy2') {
             this.fire();
-            this.game.physics.arcade.moveToObject(this.sprite, player, 0);
-        } else {
-            this.game.physics.arcade.moveToObject(this.sprite, player, 50);
+            this.sprite.body.immovable = true;
         }
+
 
     },
 
-    fire: function(){
-        console.log("pewpew");
+    fire: function() {
+        if (this.game.time.now > this.nextLaser && this.lasers.countDead() > 0) {
+            this.nextLaser = this.game.time.now + this.laserCooldown;
+
+            var laser = this.lasers.getFirstDead();
+            laser.reset(this.sprite.x, this.sprite.y);
+            if(this.sprite.key === 'enemy1'){
+                laser.scale.setTo(1, 0.25);
+            }
+            laser.body.setSize(4, 17, 0, 10);
+            laser.pivot.x = 0.2 * this.sprite.width;
+            laser.pivot.y = this.sprite.height;
+            this.game.physics.arcade.velocityFromAngle(this.sprite.angle - 90, 200, laser.body.velocity);
+            laser.angle = this.sprite.angle;
+        }
     }
 };

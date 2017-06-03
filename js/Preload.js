@@ -10,8 +10,8 @@ Main.Preload.prototype = {
         this.game.load.image('ship2', 'assets/shipColor.png');
         this.game.load.image('enemy1', 'assets/enemy1.png');
         this.game.load.image('enemy2', 'assets/enemy2.png');
-        this.game.load.image('laser1', 'assets/laser1.png');
-        this.game.load.image('laser2', 'assets/laser2.png');
+        this.game.load.image('laser1', 'assets/laserplayer.png');
+        this.game.load.image('laser2', 'assets/laserenemy.png');
         this.game.state.start("Menu");
     }
 };
