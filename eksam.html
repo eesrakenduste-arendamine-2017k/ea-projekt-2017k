@@ -8,28 +8,62 @@
 
 	<body>
 		
-		<section>
+		<div class="container">
 		
 			<div id="drawingTools">
 			
+			<div class="column column-one">
 				<div id="colors">
-					<button id="black" onclick="changeColor('black')"></button>
-					<button id="white" onclick="changeColor('white')"></button>
-					<button id="red" onclick="changeColor('red')"></button>
-					<button id="green" onclick="changeColor('green')"></button>
-					<button id="blue" onclick="changeColor('blue')"></button>
+				<h1>COLORS:</h1>
+					<input type="image"  name="cassete" src="color/0black.png" alt="submit" onclick="changeColor('black')"/>
+					<input type="image"  name="cassete" src="color/0grey.png" alt="submit" onclick="changeColor('#404040')"/>
+					<input type="image"  name="cassete" src="color/0white.png" alt="submit" onclick="changeColor('white')"/>
+					<input type="image"  name="cassete" src="color/1greybrown.png" alt="submit" onclick="changeColor('#818054')"/>
+					<input type="image"  name="cassete" src="color/2grey.png" alt="submit" onclick="changeColor('#605F4B')"/>
+					<input type="image"  name="cassete" src="color/2grey2brown.png" alt="submit" onclick="changeColor('#54301A')"/>
+					<input type="image"  name="cassete" src="color/2grey2brown2.png" alt="submit" onclick="changeColor('#776003')"/>
+					<input type="image"  name="cassete" src="color/2grey2brown22.png" alt="submit" onclick="changeColor('#B25B1D')"/>
+					<input type="image"  name="cassete" src="color/3lime.png" alt="submit" onclick="changeColor('#BFC928')"/>
+					<input type="image"  name="cassete" src="color/4green.png" alt="submit" onclick="changeColor('#8BC83F')"/>
+					<input type="image"  name="cassete" src="color/5darkgreen.png" alt="submit" onclick="changeColor('#4E6F18')"/>
+					<input type="image"  name="cassete" src="color/6waveblue.png" alt="submit" onclick="changeColor('#2BB1A6')"/>
+					<input type="image"  name="cassete" src="color/7bluegreen.png" alt="submit" onclick="changeColor('#008B5C')"/>
+					<input type="image"  name="cassete" src="color/8darkbluegreen.png" alt="submit" onclick="changeColor('#005A58')"/>					
+					<input type="image"  name="cassete" src="color/10darkenblue.png" alt="submit" onclick="changeColor('#016893')"/>
+					<input type="image"  name="cassete" src="color/11darkenblue.png" alt="submit" onclick="changeColor('#2F536B')"/>
+					<input type="image"  name="cassete" src="color/12pink.png" alt="submit" onclick="changeColor('#C2749E')"/>
+					<input type="image"  name="cassete" src="color/14cherrydarkpink.png" alt="submit" onclick="changeColor('#79133B')"/>
+					<input type="image"  name="cassete" src="color/15pinkydark.png" alt="submit" onclick="changeColor('#C6254F')"/>
+					<input type="image"  name="cassete" src="color/16pinkyred.png" alt="submit" onclick="changeColor('#EA2B3A')"/>					
+					<input type="image"  name="cassete" src="color/17red.png" alt="submit" onclick="changeColor('#C02D1B')"/>
+					<input type="image"  name="cassete" src="color/17red2wine.png" alt="submit" onclick="changeColor('#7B1200')"/>
+					<input type="image"  name="cassete" src="color/18yellordark.png" alt="submit" onclick="changeColor('#C5960C')"/>				
+					<input type="image"  name="cassete" src="color/19yellow.png" alt="submit" onclick="changeColor('#F2CB01')"/>
+					<input type="image"  name="cassete" src="color/20lightyellow.png" alt="submit" onclick="changeColor('#FFD457')"/>
+					<input type="image"  name="cassete" src="color/21skinyellow.png" alt="submit" onclick="changeColor('#F8B159')"/>				
+					<input type="image"  name="cassete" src="color/22skinyellow2.png" alt="submit" onclick="changeColor('#FFE292')"/>				
 				</div>
-				
+			</div>	
+				<!--
 				<div id="otherTools">
 					<button id="clearCanvas" onclick="clearCanvas()">C</button>
-				</div>
+				</div> -->
 				
 			</div>
 			
-			<canvas id="canvas" width="800"
-			height="500"> </canvas>
+			<div class="column column-two">	
+			<h1>CANVAS:</h1>
+				<canvas id="canvas" width="800"
+				height="500"> </canvas>
+			</div>
 			
-		</section>
+			<div class="column column-three">	
+			<h1>INSTRUMENTS:</h1>
+			</div>
+			
+			
+			
+		</div>
 	
 		<script src="script.js"></script>
 	</body>
