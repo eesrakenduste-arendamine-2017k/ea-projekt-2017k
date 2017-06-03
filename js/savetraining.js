@@ -40,7 +40,7 @@ function saveTraining(){
     //picture = document.getElementById('image').value;
     if(name !== ""){
         if((isNaN(name)===true)){
-          if(name <= 20){
+          if(name.length <= 20){
             document.querySelector('.schedule_error').style.display = 'none';
             document.querySelector('.scheduletext_error').style.display = 'none';
             doEffect();
