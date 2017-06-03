@@ -27,6 +27,7 @@ Main.Game.prototype = {
             enemy.create();
             this.enemies.add(enemy.sprite);
         }
+        this.player.update();
         //collision, actions here
         this.enemies.forEachAlive(function(enemy){
             enemy.update();
