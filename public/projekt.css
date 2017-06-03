@@ -125,21 +125,21 @@ tbody{
 }
 
 #gameStats {
-	background-color: white;
+	/*background-color: white;*/
 	color:  #272788;
 	padding: 15px 32px;
 	text-decoration: none;
-	display: inline-block;
+	/*display: inline-block;*/
 	margin: 4px 4px;
-	width:250px;
-	height:100px;
+	width:260px;
+	height:120px;
 	text-align:left;
 	border-radius:6px;
 	font-size:20px;
 	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.19);
-	position: absolute;
+	/*position: absolute;
 	right: 10%;
-	top:10%
+	top:10%*/
 }
 
 scoreTable {
