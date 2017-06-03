@@ -328,14 +328,20 @@ function setPlayerName() {
 
 function generateExerciseMatrix() {
 	
-	document.getElementById("beginGame").style.visibility = "hidden";
+	document.getElementById("exerciseMatrix1Container").style.visibility = "visible";
+	document.getElementById("exerciseMatrix2Container").style.visibility = "visible";
+	document.getElementById("exerciseMatrixAnswerContainer").style.visibility = "visible";
+	document.getElementById("exerciseMatrixPreAnswerContainer").style.visibility = "visible";
+	
+	
+	//document.getElementById("beginGame").style.visibility = "hidden";
 	document.getElementById("justForDevs").style.visibility = "visible";
 	//document.getElementById("generateExerciseMatrix").style.visibility = "hidden";
 	//document.getElementById("generateRandomExerciseMatrix").style.visibility = "hidden";
 	
 	document.getElementById("checkAndRestart").style.visibility = "visible";
 	//document.getElementById("checkAndRestartRandom").style.visibility = "hidden";
-	document.getElementById("resetScore").style.visibility = "visible";
+	//document.getElementById("resetScore").style.visibility = "visible";
 	//document.getElementById("startNewGame").style.visibility = "hidden";
 	
 		
@@ -765,6 +771,7 @@ function checkMatrixAnswersRandom() {
 // MÄNGU SKOORI FUNKTSIOONID
 function resetScore() {
 	
+	//startTimer(0)
 	//timer = 0;
 	//gameTimer(timer);
 	
@@ -774,7 +781,7 @@ function resetScore() {
 	
 	document.getElementById("checkAndRestart").style.visibility = "hidden";
 	//document.getElementById("checkAndRestartRandom").style.visibility = "hidden";
-	document.getElementById("resetScore").style.visibility = "hidden";
+	//document.getElementById("resetScore").style.visibility = "hidden";
 	document.getElementById("beginGame").style.visibility = "visible";
 	//document.getElementById("startNewGame").style.visibility = "visible";
 	
@@ -870,26 +877,10 @@ function createTable(obj) {
 }
 
 //TAIMER
-//function gameTimer() {
-	/*
-	var interval = setInterval(function () {
-			if (timer != 0) {
-				timer = timer - 1
-			}
-			document.getElementById("stopper").innerHTML = "AEG:" + timer;
-			console.log("AJA TEST");
-			if (timer <= 0) {
-				clearInterval(interval)
-			resetScore()
-			}
-		}, 1000)
-*/
-
 function startTimer(secs){
 	timeInSecs = parseInt(secs)-1;
 	ticker = setInterval("tick()",1000);   // every second
 }
-
 function tick() {
 	var secs = timeInSecs;
 	if (secs>=0) {
@@ -908,10 +899,6 @@ function tick() {
 		resetScore();
 	}
 }
-//startTimer(60);
-		
-//}
-//gameTimer()
 
 /*
 function rightanswerCounter(){
