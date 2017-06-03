@@ -2,12 +2,27 @@ window.onload = function () {
   //$("body").hide();
   $("body").fadeIn(400);
   $("#reset").hide();
+  $("#gameState").hide();
   var alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
         'o', 'p', 'ü', 'õ', 'a', 's', 'd', 'f', 'g', 'h', 'j',
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
-  var categories;
-  var categoryNames= ["raamatute kultusklassika", "õudusfilmid", 'euroopa pealinnad'];         // Array of topics
+  var categoryNames= ["raamatute kultusklassika", "õudusfilmid", 'euroopa pealinnad'];
+  var categories = [
+        ["tappa laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
+        ["voonakeste-vaikimine", "kurja kutsumine", "tulnukas", "carrie", "metsamajake","elmstreeti-luupainaja", "ring"],
+        ["london", "pariis", "stockholm", "amsterdam", "helsinki", "tallinn", "viin"]
+      ];
+
+  var hints = [
+        ["autor: harper lee", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
+        ["maailma kuulsaim kannibal", "ed & lorraine warren", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei lase magada", "tsikk ronib kaevust välja"],
+        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "vodka"]
+      ];
+
+  var randIndex;
+  var randWordIndex;
+  var wordHint;
   var randCategoryName;     // Selected catagory
   var getHint ;          // Word getHint
   var word ;              // Selected word
@@ -88,7 +103,7 @@ window.onload = function () {
     showLives.innerHTML = "Elud: " + lives;
 
     if (lives < 1) {
-      $("#buttons").add("#hint").add("#clue").fadeOut(400);
+      //$("#buttons").add("#hint").add("#clue").fadeOut(400);
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
 
@@ -118,10 +133,13 @@ window.onload = function () {
     }
     for (var i = 0; i < geusses.length; i++) {
       if (counter + space === geusses.length) {
-        $("#buttons").add("#hint").add("#clue").fadeOut(1000);
+        //$("#buttons").add("#clue").fadeOut(400);
         //showLives.innerHTML = "Vastasid õigesti!";
         score += 10;
-        //removeWord(randIndex);
+        removeWord(randIndex);
+        console.log(categories);
+        console.log(hints);
+        $("#hold").add("#categoryName").add("#stickman").fadeOut(10);
         showScore.innerHTML = "skoor: " + score;
         showLives.style.color = "lime";
         winSound.play();
@@ -263,16 +281,15 @@ window.onload = function () {
   // Play
   play = function () {
     //backgroundMusic.play();
-    $("#buttons").add("#categoryName").add("#hint").add("#clue").fadeIn(400);
+    $("#buttons").add("#stickman").add("#categoryName").add("#hint").add("#clue").add("#hold").add("#categoryName").fadeIn(400);
     $("#reset").fadeOut(400);
-    categories = [
-        ["tappa laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
-        ["voonakeste-vaikimine", "kurja kutsumine", "tulnukas", "carrie", "metsamajake","elmstreeti-luupainaja", "ring"],
-        ["london", "pariis", "stockholm", "amsterdam", "helsinki", "tallinn", "viin"]
-    ];
-    var randIndex = Math.floor(Math.random()*categoryNames.length);
+    randIndex = Math.floor(Math.random()*categoryNames.length);
+    removeCategory();
+    randWordIndex = Math.floor(Math.random() * categories[randIndex].length);
+    console.log("cat index :" + categories[randIndex].length);
     randCategoryName = categoryNames[randIndex];
-    word = categories[randIndex][Math.floor(Math.random() * categories[randIndex].length)];
+    wordHint = hints[randIndex][randWordIndex];
+    word = categories[randIndex][randWordIndex];
     //alert(word);
     word = word.replace(/\s/g, "-");
     console.log(word);
@@ -288,15 +305,20 @@ window.onload = function () {
 
     selectCategory();
     canvas();
-    return randIndex;
+    return randIndex, randWordIndex;
   };
 
-  var removeWord = function(index) {
-    var removeIndex = categories.indexOf(word);
+  var removeWord = function(rIndex) {
     console.log(word);
-    categories[index].splice(removeIndex, 1);
-    console.log(removeIndex);
-    console.log(categories);
+    var removeIndex = categories[rIndex].indexOf(word);
+    categories[rIndex].splice(removeIndex, 1);
+    hints[randIndex].splice(removeIndex, 1);
+  };
+
+  var removeCategory = function(){
+    if (categories[randIndex].length <= 0){
+      categories.splice(randIndex, 1);
+    }
   };
 
   play();
@@ -305,18 +327,9 @@ window.onload = function () {
   // Hint
 
     hint.onclick = function() {
-
-      hints = [
-        ["autor: harper lee", "autor: j.d. salinger", "autor: anthony burgess", "autor: chuck palahniuk", "autor: Antoine de Saint-Exupéry", "autor: Vladimir Nabokov", "autor: Bret Easton Ellis"],
-        ["maailma kuulsaim kannibal", "ed & lorraine warren", "ripley päästab päeva", "puberteedieas tüdruk avastab telekineesivõimed", "thor sõidab motikaga nähtamatu seina vastu", "küünistega tüüp ei lase magada", "tsikk ronib kaevust välja"],
-        ["suurim linn euroopas","selle linna tuntuim vaatamisväärsus pidi seal algselt olema vaid 20 aastat","abba", "selle linna kanalitest tõmmatakse iga aasta 25000 jalgratast välja", "nokia", "ajalooline nimi on olnud saksalaadne reval", "vodka"]
-    ];
-
-    var catagoryIndex = categories.indexOf(randCategoryName);
-    console.log(catagoryIndex);
-    var hintIndex = randCategoryName.indexOf(word);
-    console.log(hintIndex);
-    showClue.innerHTML = "Vihje: - " +  hints [categoryNames[catagoryIndex]][hintIndex];
+    //console.log(hintIndex);
+    //getHint.disabled = true;
+    showClue.innerHTML = "vihje - " +  wordHint;
   };
 
    // Reset
@@ -325,7 +338,6 @@ window.onload = function () {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     showClue.innerHTML = "";
-    $("#gameState").hide();
     context.clearRect(0, 0, 400, 400);
     play();
   };
