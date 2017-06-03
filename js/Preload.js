@@ -1,10 +1,10 @@
 var Main = Main || {};
 
-Main.preload = {};
+Main.Preload = {};
 
-Main.preload.prototype = {
+Main.Preload.prototype = {
     preload: function(){
-        //load all assets and go to menu state
+        //load all assets to cache and go to menu state
         game.state.start("Menu");
     }
 };

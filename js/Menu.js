@@ -4,14 +4,9 @@ Main.Menu = {};
 
 Main.Menu.prototype = {
 
-    preload: function(){
-        //temporary
-        game.state.start("Game");
-    },
-
     create: function(){
         //create menu here
-
+        game.state.start("Game");
     },
 
     update: function(){

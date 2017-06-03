@@ -4,12 +4,8 @@ Main.Scoreboard = {};
 
 Main.Scoreboard.prototype = {
 
-    preload: function(){
-
-    },
-
     create: function(){
-
+        //create table from localstorage
     },
 
     update: function(){
