@@ -5,6 +5,7 @@ var exarray;
 var exnames;
 
 function getinfo(){
+    doEffect();
     var a = location.search.substring(1);
     var b = a.split(/&/);
     trainingID = decodeURIComponent(b[1].substring(11));
@@ -43,4 +44,13 @@ function printTrainings(){
 
     }
 
+}
+
+function doEffect(){
+  document.querySelector('.content').style.display = 'none';
+ document.querySelector('.sk-circle').style.display = 'block';
+ t = setTimeout(function(){
+   document.querySelector('.sk-circle').style.display = 'none';
+  document.querySelector('.content').style.display = 'block';
+}, 2000);
 }

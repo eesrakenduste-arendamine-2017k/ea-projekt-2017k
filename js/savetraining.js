@@ -10,6 +10,7 @@ var t;
 //window.onload = gettrainingID;
 
 window.onload = function(){
+    document.querySelector('.length_error').style.display = 'none';
     document.querySelector('.schedule_error').style.display = 'none';
     document.querySelector('.scheduletext_error').style.display = 'none';
     document.querySelector('.sk-circle').style.display = 'none';
@@ -39,22 +40,30 @@ function saveTraining(){
     //picture = document.getElementById('image').value;
     if(name !== ""){
         if((isNaN(name)===true)){
-          document.querySelector('.schedule_error').style.display = 'none';
-          document.querySelector('.scheduletext_error').style.display = 'none';
+          if(name <= 20){
+            document.querySelector('.schedule_error').style.display = 'none';
+            document.querySelector('.scheduletext_error').style.display = 'none';
+            doEffect();
             saveToDatabase();
             clean();
             console.log("salvestatud");
             nr += 1;
             exercise = "harjutus"+nr;
             console.log(exercise);
-            doEffect();
+          }else{
+            document.querySelector('.schedule_error').style.display = 'none';
+            document.querySelector('.scheduletext_error').style.display = 'none';
+            document.querySelector('.length_error').style.display = 'block';
+           }
         }else{
           document.querySelector('.schedule_error').style.display = 'none';
           document.querySelector('.scheduletext_error').style.display = 'block';
+          document.querySelector('.length_error').style.display = 'none';
          }
     } else {
       document.querySelector('.schedule_error').style.display = 'block';
       document.querySelector('.scheduletext_error').style.display = 'none';
+      document.querySelector('.length_error').style.display = 'none';
     }
    }
 
@@ -77,10 +86,11 @@ function saveTrainingLast(){
       if((isNaN(name)===true)){
         document.querySelector('.schedule_error').style.display = 'none';
         document.querySelector('.scheduletext_error').style.display = 'none';
-    saveToDatabase();
-    clean();
-    console.log("salvestatud");
-    window.location.href="ready.html?username="+username+"&trainingID="+trainingID+"";
+        doEffect();
+        saveToDatabase();
+        clean();
+        console.log("salvestatud");
+        window.location.href="ready.html?username="+username+"&trainingID="+trainingID+"";
       }else{
         document.querySelector('.schedule_error').style.display = 'none';
         document.querySelector('.scheduletext_error').style.display = 'block';
