@@ -1,6 +1,6 @@
 var Main = Main || {};
 
-Main.Game = {};
+Main.Game = function(){};
 
 Main.Game.prototype = {
     create: function(){

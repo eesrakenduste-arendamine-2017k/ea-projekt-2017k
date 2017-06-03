@@ -1,6 +1,6 @@
 var Main = Main || {};
 
-Main.Scoreboard = {};
+Main.Scoreboard = function(){};
 
 Main.Scoreboard.prototype = {
 

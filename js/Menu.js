@@ -1,12 +1,12 @@
 var Main = Main || {};
 
-Main.Menu = {};
+Main.Menu = function(){};
 
 Main.Menu.prototype = {
 
     create: function(){
         //create menu here
-        game.state.start("Game");
+        this.game.state.start("Game");
     },
 
     update: function(){
