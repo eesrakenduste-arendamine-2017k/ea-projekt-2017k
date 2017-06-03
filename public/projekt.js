@@ -697,10 +697,13 @@ function checkMatrixPreAnswers() {
 			
 			if(matrixInputCell === matrixCellValue) {
 				matrixAnswer.style.color = "green";
+				answerCounter += 1
+				score += 1
 			} else {
 				matrixAnswer.style.color = "red";
-				matrixPreAnswerErrors++;
-			}
+				errorCount += 1;
+				//matrixPreAnswerErrors++;
+			}			
 		}
 	}
 }
