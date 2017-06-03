@@ -1,15 +1,16 @@
-var Main = Main || {};
+function Enemy(x, y, game){
+    this.x = x;
+    this.y = y;
+    this.game = game;
+    this.sprite = null;
+}
 
-Main.Enemy = function(){
-    this.x = 0;
-    this.y = 0;
-    this.sprite = null
-};
-
-Main.Enemy.prototype = {
+Enemy.prototype = {
     create: function(){
         //sprites here
-        this.sprite = this.game.add.sprite(this.x, this.y, 'enemy');
+        this.sprite = this.game.add.sprite(this.x, this.y, 'enemy1');
+        this.sprite.scale.setTo(0.25, 0.25);
+        this.sprite.angle = Math.floor(Math.random()*360);
 
     },
 
