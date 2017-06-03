@@ -1,15 +1,13 @@
 var Main = Main || {};
 
-Main.Game = function(){};
+Main.Player = function(){};
 
-Main.Game.prototype = {
+Main.Player.prototype = {
     create: function(){
         //sprites here
-        this.Player.create();
     },
 
     update: function(){
         //collision, actions here
-        this.Player.update();
     }
-};
+}
