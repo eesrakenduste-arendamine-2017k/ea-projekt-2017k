@@ -11,6 +11,7 @@ Main.Game = function(){
 Main.Game.prototype = {
     create: function(){
         //sprites here
+        //this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
         this.bg = this.game.add.sprite(0,0, 'bg');
