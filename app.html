@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--bs4-->
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
+
+    <meta charset="utf-8">
+    <title>Trip Planner</title>
+    <script type="text/javascript" src="app.js" defer></script>
+    <!--<script type="text/javascript" src="sources/links.js"></script>-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+
+    <!--<link rel="stylesheet" type="text/css" href="sources/links.css">-->
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#12133f">
+    <link rel="shortcut icon" href="shortcutPic.jpg">
+    <meta name="msapplication-TileColor" content="#12133f">
+    <meta name="msapplication-TileImage" content="images/mstile-144x144.png">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#12133f">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="heading1c">
+    <h1>TRIP PLANNER</h1>
+</div>
+<div class="gasPrices">
+    <div class="editCurrent">
+        <input type="number" id="nfiveNew" class="new" placeholder="Price" style="font-family: 'Suissnord'">
+        <input type="number" id="neightNew" class="new" placeholder="Price" style="font-family: 'Suissnord'">
+        <input type="number" id="DNew" class="new" placeholder="Price" style="font-family: 'Suissnord'">
+    </div>
+    <p class="current">
+        <text id="test1"><text id="nfiveprice" class="gas">95</text><span id="95price">1.195€/l</span></text><br>
+        <text id="test2"><text id="neightprice" class="gas">98</text><span id="98price">1.199€/l</span></text><br>
+        <text id="test3"><text id="dprice" class="disel">D</text><span id="Dprice">1.140€/l</span></text><br>
+    </p>
+</div>
+<div class="activity">
+    <div class="selectCar">
+        <h2>VALI AUTO:</h2><div id="cars" class="carsC"></div>
+        <center>
+        <div id="addCarC" class="addCarC">
+            <div id="addCarB" class="addCarB">
+                <span id="addCar" class="addCar">+</span>
+            </div>
+        </div></center>
+    </div>
+    <div class="trip" id="trip">
+        <section>
+            <input type="text" name="length" id="tripLength" placeholder="Trip length (KM)" class="tripInput input"><br>
+            <select class="tripInput" id="tripPassengers">
+                <option></option>
+            </select><br>
+            <button class="tripInput" id="saveTrip">save</button>
+        </section>
+        <section id="finalone" class="final">
+            <h3 class="header">Andmed:</h3>
+            <div id="tripdata"></div>
+        </section>
+        <section id="finaltwo" class="final">
+
+            <h3 class="header">Tulemus:</h3>
+            <div id="tripPlan"></div>
+        </section>
+    </div>
+</div>
+
+</body>
+<link rel="stylesheet" type="text/css" href="style.css" >
