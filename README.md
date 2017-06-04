@@ -17,7 +17,7 @@ Selle jaoks tegimegi sellise app-i, millega saab salvestada reaalelulisi sündmu
 
 ## Andmete liikumise skeem
 
-![Alt text](Images/Andmeskeem.png?raw=true "Andmeskeem")
+![Alt text](Images/Andmeskeem.PNG?raw=true "Andmeskeem")
 
 ## Kättesaadavus
 
