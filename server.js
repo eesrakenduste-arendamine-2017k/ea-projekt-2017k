@@ -29,5 +29,4 @@ app.get('/top', function (req, res) {
 	res.send(dataBase.slice(0, 10))
 
 })
-
 console.log(dataBase);

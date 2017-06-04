@@ -9,70 +9,23 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="projekt.js"></script>
 	</head>
-	<!--Võib-olla peaks seda muutma-->
 	<body>
-		<button type="button" onclick="location.href='index.html'">Tagasi</button>
-		<button type="button" onclick="viewTopPlayers()">TOP10</button>
+		<button class="gameButton" type="button" onclick="location.href='index.html'">Tagasi</button>
+		<button class="gameButton" type="button" onclick="viewTopPlayers()">TOP10</button>
 		
-		<!-- MAATRIKSITE HARJUTAMINE -->
+		<!-- MAATRIKSITE MÄNG -->
 		
 		<h1>Mäng</h1>
-		<!--
-		<p1>Harjutusmängu alustamiseks vali maatriksite suurused</p1>
-		
-		<form>
-			Esimene
-			<select id="Em1x">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-			
-			<select id="Em1y">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-		</form>
-		
-		<form>
-			Teine
-			<select id="Em2x">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-			
-			<select id="Em2y">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-		</form>
-		-->
 		
 		<div id="gameStats">
 			<div id="playerName">MÄNGIJA:</div>
-			<div id="stopper">AEG:60</div>
+			<div id="stopper">AEG: 60</div>
 			<div id="playerScore">SKOOR: 0</div>
 			<div id="wrongAnswers">VIGU: 0</div>
 			<div id="TotalSum">MAATRIKSEID KOKKU: 0</div>
 		</div>
 		
-		<!--<button id="generateRandomExerciseMatrix" type="button" onclick="generateRandomExerciseMatrix()">Genereeri suvalise suurusega maatriksid</button>
-		<button id="generateExerciseMatrix" type="button" onclick="generateExerciseMatrix()">Genereeri maatriksid</button>-->
-		<button id="beginGame" type="button" onclick="setPlayerName()">Mängi</button>
-		<!--<button id="resetScore" type="button" onclick="resetScore()">Loobu</button>-->
-		<!--<button id="startNewGame" type="button" onclick="startNewGame()">Uus mäng</button>-->
-		
+		<button id="beginGame" type="button" onclick="setPlayerName()">Mängi</button>		
 
 		<div id="exerciseMatrixContainer">
 			<!-- maatriksid, kus arvud ette antud -->
@@ -83,13 +36,13 @@
 			<div id="exerciseMatrixAnswerContainer"><table id="exerciseMatrixAnswer"></table></div>
 		</div>
 		
-		<button id="checkAndRestart"type="button" onclick="checkMatrixAnswers()">Kontrolli vastust</button>
-		<!--<button id="checkAndRestartRandom" type="button" onclick="checkMatrixAnswersRandom()">Kontrolli vastust (random)</button>-->
-		<!--<button id="resetScore" type="button" onclick="resetScore()">Lõpeta</button>-->
+		<!--RANDOMI VASTUSE KONTROLLIMINE-->
+		<button id="checkAndRestartRandom" type="button" onclick="checkMatrixAnswersRandom()">Kontrolli vastust</button>
 		<button id="justForDevs" type="button" onclick="justForDevsMatrixAnswers()">katsetamiseks täidab vastuse</button>
 		
 		<div id="scoreTable">
 			<table id="myTable">
 		</div>
+		
 	</body>
 </html>

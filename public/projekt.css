@@ -6,6 +6,8 @@ element <-- elemendi põjal
 
 body {
 	font-family:verdana;
+	/*height: 100%;
+	width: 100%;*/
 	margin: 5px;
     padding: 5px;
 	background-color:#ffffff;
@@ -31,6 +33,7 @@ form {
 	color:grey;
 }
 
+
 input {
 	margin-bottom: 5px;
 	width:30px;
@@ -49,6 +52,7 @@ tbody{
 	float:left;
 	clear:left;
 }
+
 
 #matrixContainer {
 	position: relative;
@@ -91,7 +95,7 @@ tbody{
 
 #exerciseMatrixContainer {
 	position: relative;
-	width:1500px;
+	width:100%;
 	height: 200px;
 	border:none;
 }
