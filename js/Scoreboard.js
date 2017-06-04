@@ -1,16 +1,24 @@
 var Main = Main || {};
 
-Main.Scoreboard = function(){};
+Main.Scoreboard = function(){
+    this.button = null;
+};
 
 Main.Scoreboard.prototype = {
 
     create: function(){
-        //create table from localstorage
+        this.scale.pageAlignHorizontally = true;
+        this.scale.pageAlignVertically = true;
+        this.bg = this.game.add.sprite(0,0, 'score');
+        this.button = this.game.add.button(20, this.game.world.centerY + 200, 'btn2', this.redirect, this, 1, 0, 0);
     },
 
     update: function(){
-        //if Back button , go back to menu state
-        //if Play button, start game state
+
+    },
+
+    redirect: function(){
+        this.game.state.start("Menu");
     }
 
 };
