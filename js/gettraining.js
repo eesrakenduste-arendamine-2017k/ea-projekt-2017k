@@ -15,11 +15,11 @@ var totaltime = 0;
 var arrayi = 0;
 var arrayrepmain = new Array();
 var arrayweightmain = new Array();
-var date;
+var dates;
 window.onload = getinfo;
 var c, o,arraylength;
-
-
+var ksi;
+var valuesindex = "1";
 var setsavenr = 1;
 var arrayrep = new Array();
 var arrayweight = new Array();
@@ -37,21 +37,13 @@ function makearray(){
     var arrayweightset3 = document.getElementById("set3weight").value; 
     //console.log(arrayi); 
    
-    /*arrayrep[0][0] = arrayrepset1;
-    arrayweight[0][0] = arrayweightset1;
-    arrayrep[0][1] = arrayrepset2;
-    arrayweight[0][1] = arrayweightset2;
-    arrayrep[0][2] = arrayrepset3;
-    arrayweight[0][2] = arrayweightset3;
-    console.log(arrayrep);
-    console.log(arrayweight);*/
+ 
     arrayrep[0] = arrayrepset1;
     arrayweight[0] = arrayweightset1;
     arrayrep[1] = arrayrepset2;
     arrayweight[1] = arrayweightset2;
     arrayrep[2] = arrayrepset3;
     arrayweight[2] = arrayweightset3;
-    //arrayrepmain.push.apply(arrayrepmain, arrayweight);
     arrayrepmain.push(arrayrep);
     arrayweightmain.push(arrayweight);
     console.log(arrayrepmain);
@@ -63,17 +55,15 @@ function makearray(){
 }
 
 function saveworkout(){
-  console.log("salvestab "+arrayrepmain.length);
+  
   for (c = 0; c < arrayrepmain.length; c++) { 
-    for (o = 0; o < 3; o++) { 
-      console.log("REP: "+arrayrepmain[c][o]);
-      console.log("WEIGHT: "+arrayweightmain[c][o]);
-    firebase.database().ref("TrainingDone/"+username+"/"+trainingID+"/"+date+"/"+exnrsave+"/"+setsavenr).set({
-    Reps: arrayrepmain[c][o],
-    Weight: arrayweightmain[c][o],
-  });
-  //setTimeout(function(){console.log("Ül: "+setsavenr);}, 1000);
-      //saveToDatabase();
+      for (o = 0; o < 3; o++) { 
+        console.log("REP: "+arrayrepmain[c][o]);
+        console.log("WEIGHT: "+arrayweightmain[c][o]);
+      firebase.database().ref("TrainingDone/"+username+"/"+trainingID+"/"+exnrsave+"/"+setsavenr).set({
+      Reps: arrayrepmain[c][o],
+      Weight: arrayweightmain[c][o],
+    });
       setsavenr++;
     }
     setsavenr = 1;
@@ -82,7 +72,6 @@ function saveworkout(){
 }
 
 function getinfo(){
-    date = new Date();
     doEffect();
     starttimer();
     var a = location.search.substring(1);
@@ -91,6 +80,7 @@ function getinfo(){
     username = decodeURIComponent(b[0].substring(9));
     console.log(trainingID, username);
     getTraining();
+    getlastworkout();
     document.getElementById("rep1_minus").addEventListener("click", rep1Minus);
     document.getElementById("rep2_minus").addEventListener("click", rep2Minus);
     document.getElementById("rep3_minus").addEventListener("click", rep3Minus);
@@ -99,17 +89,38 @@ function getinfo(){
     document.getElementById("rep3_plus").addEventListener("click", rep3Plus);
 }
 
+function getlastworkout(){
+    firebase.database().ref("TrainingDone/"+username+"/"+trainingID).once('value', gotWorkoutData);
+}
+
+function gotWorkoutData(data){
+    ksi = data.val();
+    console.log("ksi: "+ksi);
+    getlastgetlastworkoutvalues();
+}
+
+function getlastgetlastworkoutvalues(){
+    if(ksi != null){
+      console.log("ksi II: "+ksi);
+      var reps1 = ksi[valuesindex][1].Reps;
+      var weight1 = ksi[valuesindex][1].Weight;
+      var reps2 = ksi[valuesindex][2].Reps;
+      var weight2 = ksi[valuesindex][2].Weight;
+      var reps3 = ksi[valuesindex][3].Reps;
+      var weight3 = ksi[valuesindex][3].Weight;
+    document.getElementById("rep1").innerHTML = "Kordusi: "+reps1+"  Raskus: "+weight1+" kg";
+      document.getElementById("rep2").innerHTML = "Kordusi: "+reps2+"  Raskus: "+weight2+" kg";
+      document.getElementById("rep3").innerHTML = "Kordusi: "+reps3+"  Raskus: "+weight3+" kg";
+      valuesindex++;
+    }
+}
+
+
 function getTraining(){
 
     firebase.database().ref("Trainings/"+username+"/"+trainingID).once('value', gotData);
 }
 
-function sgotData(data){
-    exarray = data.val();
-    console.log(exarray);
-    exnames = Object.keys(exarray);
-    console.log(exnames);
-}
 
 
 function starttimer(){
@@ -129,13 +140,8 @@ function caltotaltime(){
 
 function gotData(data){
     exarray = data.val();
-    /*var Name = exarray[exname].Name;
-    console.log(Name);
-    n += 1;
-    exname = "harjutus"+n;*/
     exnames = Object.keys(exarray);
     exnr = exnames.length;
-    //console.log(exnr);
     excount += 1;
     getnextex();
 }
@@ -143,18 +149,20 @@ function gotData(data){
 function getnextex(){
   if(exname != "harjutus1"){
     makearray();
+    cleanvalues();
+
   }
   
   doEffect();
-    //siis kui harjutused on tehtud
     if(excount>exnr){
         caltotaltime();
         saveworkout();
-        //SALVESTA
-        console.log("tehtud");
-        window.location.href='trainign_finish.html?username='+username+'&totaltime='+totaltime;
-        //setTimeout(function(){window.location.href='trainign_finish.html?username='+username+'&totaltime='+totaltime;}, 2000);
-    }else{
+        //console.log("tehtud");
+       window.location.href='trainign_finish.html?username='+username+'&totaltime='+totaltime;
+    }else{ 
+    if(exname != "harjutus1"){
+    getlastgetlastworkoutvalues();
+    }
     var Name = exarray[exname].Name;
     document.getElementById('exercise').value = Name;
     //console.log(Name);
@@ -163,6 +171,16 @@ function getnextex(){
     //console.log(exname);
     excount += 1;
     }
+}
+
+// peale harjutuse tegemist muudav väljad 10 ja tühjaks tagasi
+function cleanvalues(){
+    document.getElementById("rep1_x").value = 10;
+    document.getElementById("set1weight").value = "";
+    document.getElementById("rep2_x").value = 10;
+    document.getElementById("set2weight").value = "";
+    document.getElementById("rep3_x").value = 10;
+    document.getElementById("set3weight").value = ""; 
 }
 
 
