@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'Suissnord';
+    src: url('Suissnord.otf')  format('opentype');
+}
+body{
+    position: relative;
+    width: 98.7%;
+    color: #3d3d3f;
+    background-color: rgba(72, 123, 92, 0.65);
+    font-family: 'Suissnord';
+    overflow-x: hidden;
+    cursor: default;
+
+}
+body *{
+    transition: all 0.5s;
+    font-family: 'Suissnord';
+}
+.heading1c{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gasPrices{
+    position: fixed;
+    margin-right: 10px;
+    width: 200px;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    text-align: start;
+}
+.editCurrent{
+    width: 70px;
+    height: 63px;
+    margin-bottom:-5px;
+    display: inline-block;
+    margin-right: -6px;
+}
+.current{
+    position: relative;
+    top: 0;
+    width: 120px;
+    display: inline-block;
+}
+.new{
+    width:65px;
+    height: 18px;
+    opacity: 0;
+    border: none;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left:2px ;
+}
+.activity{
+    position: relative;
+}
+.selectCar{
+    padding-left: 20px;
+    border: 2px solid #3d3d3f;
+    border-radius: 5px;
+}
+.gas{
+    width: 200%;
+    padding: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #7dce94;
+    margin-right: 10px;
+}
+.disel{
+    padding-left: 9px;
+    padding-right: 9px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #7dce94;
+    background-color: #3d3d3f;
+    margin-right: 10px;
+}
+.addCarB{
+    border-bottom: 2px solid #3d3d3f;
+    margin-bottom: 5px;
+    text-align: center;
+    height: 55px;
+}
+.addCarB:hover{
+    background-color: #3d3d3f;
+}
+.addCarC{
+    border: 2px solid #3d3d3f;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: -10px;
+    margin-bottom: 5px;
+    height: 55px;
+
+}
+
+.addCar{
+    height: 60px;
+    color: #8fe8a9;
+    font-size: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+.trip{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #3d3d3f;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    opacity:0;
+}
+.tripInput{
+    height: 30px;
+    width: 250px;
+    border: none;
+    padding-left: 5px;
+    margin-bottom: 2px;
+}
+.input{
+    width: 245px;
+}
+.header{
+    font-weight: bold;
+}
+.final{
+    opacity:0;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
