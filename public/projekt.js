@@ -312,7 +312,7 @@ function setPlayerName() {
 		playerName = "Nimetu";
 	} else {
 		document.getElementById("playerName").innerHTML = "MÄNGIJA: " + playerName;
-		startTimer(20);
+		startTimer(60);
 		//generateExerciseMatrix();
 		generateRandomExerciseMatrix();
 	}
