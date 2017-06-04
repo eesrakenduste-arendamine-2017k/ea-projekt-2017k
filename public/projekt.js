@@ -340,9 +340,9 @@ function generateExerciseMatrix() {
 
 	if (Em1y === Em2x) {
 
-		console.log("Saab arvutada");
-		console.log("Esimene maatriks on Em1x x Em1y (" + Em1x + " x " + Em1y + ")");
-		console.log("Teine maatriks on Em2x x Em2y (" + Em2x + " x " + Em2y + ")");
+		//console.log("Saab arvutada");
+		//console.log("Esimene maatriks on Em1x x Em1y (" + Em1x + " x " + Em1y + ")");
+		//console.log("Teine maatriks on Em2x x Em2y (" + Em2x + " x " + Em2y + ")");
 
 		if (Em1 && Em2 && EmFA && EmPA) {
 
@@ -397,9 +397,9 @@ function generateRandomExerciseMatrix() {
 	
 	if(Em1y === Em2x) {
 		
-		console.log("Saab arvutada Random");
-		console.log("Esimene maatriks on Em1x x Em1y (" + Em1x + " x " + Em1y + ")");
-		console.log("Teine maatriks on Em2x x Em2y (" + Em2x + " x " + Em2y + ")");
+		//console.log("Saab arvutada Random");
+		//console.log("Esimene maatriks on Em1x x Em1y (" + Em1x + " x " + Em1y + ")");
+		//console.log("Teine maatriks on Em2x x Em2y (" + Em2x + " x " + Em2y + ")");
 		
 		if(Em1 && Em2 && EmFA && EmPA) {
 			
@@ -621,13 +621,13 @@ function checkMatrixFinalAnswers() {
 			
 			if (matrixInputCell == matrixCellValue) {
 				matrixAnswer.style.color = "green";
-				answerCounter += 1
-				score += 1
-				console.log("skoor " + score)
-				console.log("lahendatud maatrikseid: " + sumOfExercises)
+				//answerCounter += 1
+				//score += 1
+				//console.log("skoor " + score)
+				//console.log("lahendatud maatrikseid: " + sumOfExercises)
 			} else {
 				matrixAnswer.style.color = "red";
-				errorCount += 1;
+				//errorCount += 1;
 				matrixFinalAnswerErrors++;
 			}
 		}
@@ -659,11 +659,11 @@ function checkMatrixPreAnswers() {
 			
 			if(matrixInputCell === matrixCellValue) {
 				matrixAnswer.style.color = "green";
-				answerCounter += 1
-				score += 1
+				//answerCounter += 1
+				//score += 1
 			} else {
 				matrixAnswer.style.color = "red";
-				errorCount += 1;
+				//errorCount += 1;
 				matrixPreAnswerErrors++;
 			}			
 		}
@@ -721,9 +721,24 @@ function checkMatrixAnswersRandom() {
 	checkMatrixPreAnswers();
 	
 	if(matrixFinalAnswerErrors === 0 && matrixPreAnswerErrors === 0) {
+		var matrixScore = Em1x * Em1y * Em2x * Em2y;
+		console.log("");
+		console.log("Maatriks suurusega " + Em1x + "x" + Em1y + " x " + Em2x + "x" + Em2y);
+		console.log("Skoori arvutamine " + Em1x + "*" + Em1y + "*" + Em2x + "*" + Em2y + " = " + (Em1x * Em1y * Em2x * Em2y));
+		console.log("Skoor kokku " + score + "+" + matrixScore + " = " + (score+matrixScore));
+		sumOfExercises++;
+		score += matrixScore;
 		updateScore();
 		generateRandomExerciseMatrix();
 	} else {
+		var matrixErrorScore = parseInt((Em1x * Em1y * Em2x * Em2y)/2, 10);
+		console.log("");
+		console.log("Maatriks suurusega " + Em1x + "x" + Em1y + " x " + Em2x + "x" + Em2y);
+		console.log("Vea skoori arvutamine " + "(" + Em1x + "*" + Em1y + "*" + Em2x + "*" + Em2y + ")/2" + " = " + ((Em1x * Em1y * Em2x * Em2y)/2));
+		console.log("Skoor kokku " + score + "-" + matrixErrorScore + " = " + (score-matrixErrorScore));
+		console.log("");
+		score -= matrixErrorScore;
+		errorCount++;
 		updateScore();
 	}
 	matrixFinalAnswerErrors = 0;
