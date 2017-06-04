@@ -3,7 +3,7 @@
 		<br>
 		<br>
 		<div class="col-md-12 text-center">
-			<p>Kristjan Veensalu</p>
+			<p>Kristjan Veensalu & Stivo Sirel</p>
 			<p>Tallinna Ülikool IFIFB-1</p>
 			<br>
 		</div>
