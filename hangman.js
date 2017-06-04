@@ -2,15 +2,14 @@ window.onload = function () {
   //$("body").hide();
   $("body").fadeIn(400);
   $("#reset").hide();
-  $("#gameState").hide();
   var alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
         'o', 'p', 'ü', 'õ', 'a', 's', 'd', 'f', 'g', 'h', 'j',
         'k', 'l', 'ö', 'ä', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   var categoryNames= ["raamatute kultusklassika", "õudusfilmid", 'euroopa pealinnad'];
   var categories = [
-        ["tappa laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints","lolita","ameerika-psühho"],
-        ["voonakeste-vaikimine", "kurja kutsumine", "tulnukas", "carrie", "metsamajake","elmstreeti-luupainaja", "ring"],
+        ["tappa-laulurästas", "kuristik-rukkis", "kellavärgiga-apelsin", "kaklusklubi", "väike-prints", "lolita", "ameerika-psühho"],
+        ["voonakeste-vaikimine", "kurja-kutsumine", "tulnukas", "carrie", "metsamajake", "elmstreeti-luupainaja", "ring"],
         ["london", "pariis", "stockholm", "amsterdam", "helsinki", "tallinn", "viin"]
       ];
 
@@ -103,21 +102,16 @@ window.onload = function () {
     showLives.innerHTML = "Elud: " + lives;
 
     if (lives < 1) {
-      //$("#buttons").add("#hint").add("#clue").fadeOut(400);
+      $("#buttons").add("#hint").add("#clue").fadeOut(400);
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
-
       console.log(p_name+':'+score);
-
       //SIIA SKOORI SALVESTAMINE
       saveScore(p_name, score);
-
       //$("categoryNames").fadeOut(1000);
-
       //gameState.style.color = "red";
-
       score = 0;
-      backgroundMusic.pause();
+      //backgroundMusic.pause();
       showScore.innerHTML = "skoor: " + score;
       gameOver.play();
       setTimeout(wrongAudio, 1000);
@@ -136,13 +130,13 @@ window.onload = function () {
         //$("#buttons").add("#clue").fadeOut(400);
         //showLives.innerHTML = "Vastasid õigesti!";
         score += 10;
-        removeWord(randIndex);
-        console.log(categories);
-        console.log(hints);
         $("#hold").add("#categoryName").add("#stickman").fadeOut(10);
         showScore.innerHTML = "skoor: " + score;
         showLives.style.color = "lime";
-        winSound.play();
+        removeWord(randIndex);
+        removeCategory();
+        console.log(categories);
+        //winSound.play();
         //console.log(counter);
         reset();
       }
@@ -277,47 +271,51 @@ window.onload = function () {
      console.log(p_name);
    }
 
+   var removeWord = function(rIndex) {
+     var removeIndex = categories[rIndex].indexOf(word);
+     console.log("kustutab: " + categories[rIndex][removeIndex]);
+     categories[rIndex].splice(removeIndex, 1);
+     hints[randIndex].splice(removeIndex, 1);
+   };
+
+   var removeCategory = function(){
+     if (categories[randIndex].length === 0){
+       categories.splice(randIndex, 1);
+       categoryNames.splice(randIndex, 1);
+     }
+   };
 
   // Play
   play = function () {
     //backgroundMusic.play();
-    $("#buttons").add("#stickman").add("#categoryName").add("#hint").add("#clue").add("#hold").add("#categoryName").fadeIn(400);
-    $("#reset").fadeOut(400);
-    randIndex = Math.floor(Math.random()*categoryNames.length);
-    removeCategory();
-    randWordIndex = Math.floor(Math.random() * categories[randIndex].length);
-    console.log("cat index :" + categories[randIndex].length);
-    randCategoryName = categoryNames[randIndex];
-    wordHint = hints[randIndex][randWordIndex];
-    word = categories[randIndex][randWordIndex];
-    //alert(word);
-    word = word.replace(/\s/g, "-");
-    console.log(word);
-    buttons();
+    console.log("cat length: " + categories.length);
+    if (categories.length === 0){
+      document.getElementById("gameOverState").innerHTML = "Vastasid kõik õigesti! Mäng läbi!";
+      //alert("Tegin mängu läbi!");
+      $("#hint").fadeOut(400);
+    } else {
+      $("#buttons").add("#stickman").add("#categoryName").add("#hint").add("#clue").add("#hold").add("#categoryName").fadeIn(400);
+      $("#reset").add("#gameState").fadeOut(400);
+      randIndex = Math.floor(Math.random()*categoryNames.length);
+      randWordIndex = Math.floor(Math.random() * categories[randIndex].length);
+      console.log("cat index :" + categories[randIndex].length);
+      randCategoryName = categoryNames[randIndex];
+      wordHint = hints[randIndex][randWordIndex];
+      word = categories[randIndex][randWordIndex];
+      //alert(word);
+      word = word.replace(/\s/g, "-");
+      console.log(word);
+      buttons();
 
-    geusses = [ ];
-    lives = 10;
-    counter = 0;
-    space = 0;
-    result();
-
-    updateGameState();
-
-    selectCategory();
-    canvas();
-    return randIndex, randWordIndex;
-  };
-
-  var removeWord = function(rIndex) {
-    console.log(word);
-    var removeIndex = categories[rIndex].indexOf(word);
-    categories[rIndex].splice(removeIndex, 1);
-    hints[randIndex].splice(removeIndex, 1);
-  };
-
-  var removeCategory = function(){
-    if (categories[randIndex].length <= 0){
-      categories.splice(randIndex, 1);
+      geusses = [ ];
+      lives = 10;
+      counter = 0;
+      space = 0;
+      result();
+      updateGameState();
+      selectCategory();
+      canvas();
+      return randIndex, randWordIndex;
     }
   };
 
@@ -325,7 +323,6 @@ window.onload = function () {
   playerName();
 
   // Hint
-
     hint.onclick = function() {
     //console.log(hintIndex);
     //getHint.disabled = true;
@@ -333,12 +330,12 @@ window.onload = function () {
   };
 
    // Reset
-
   var reset = document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
     showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
+
     play();
   };
 
