@@ -22,6 +22,11 @@ Main.Game.prototype = {
         this.player.create();
         this.enemies = this.game.add.group();
 
+        this.scoreText = this.game.add.text(16, 16, 'score: 0',
+            {fontSize: '26px', fontFamily: 'Arial', fill: '#ffffff'});
+        this.timeText = this.game.add.text(this.game.world.width * 0.82, 16, 'time: 0',
+            {fontSize: '26px', fontFamily: 'Arial', fill: '#ffffff'});
+
     },
 
     update: function(){
@@ -44,6 +49,7 @@ Main.Game.prototype = {
             enemy.update(this.player.sprite);
             this.game.physics.arcade.overlap(enemy.sprite, this.player.lasers, function(e, l){
                 e.kill();
+                Main.playerdata.score = Number(Main.playerdata.score) + 10;
                 this.enemies.remove(e)
                 var index = this.enemylist.indexOf(enemy);
                 this.enemylist.splice(index, 1);
@@ -56,12 +62,11 @@ Main.Game.prototype = {
         }, this);
 
         this.stateCheck();
-
+        this.updateText();
     },
 
     stateCheck: function(){
-        if(this.player.health === 0){
-            Main.playerdata.score = 0;
+        if(this.player.health === 2){
             Main.playerdata.time = this.time;
 
             Main.players[Main.players.length] = Main.playerdata;
@@ -70,13 +75,18 @@ Main.Game.prototype = {
 
             this.shutdown();
         }
-    }
-    ,
+    },
+
+    updateText: function(){
+        this.scoreText.setText('score: ' + Main.playerdata.score);
+        this.timeText.setText('time: ' + this.time);
+    },
 
     shutdown: function(){
         this.enemies = null;
         this.enemylist = [];
         this.player = null;
+        localStorage.ship = null;
         this.game.state.start("Scoreboard");
     }
     /*render: function(){

@@ -8,6 +8,7 @@ Main.Preload.prototype = {
         this.game.load.image('bg', 'assets/bg.png');
         this.game.load.image('menu', 'assets/menu5.png');
         this.game.load.image('score', 'assets/score2.png');
+        this.game.load.image('namebg', 'assets/name.png');
         this.game.load.image('table', 'assets/table.png');
         this.game.load.spritesheet('btn', 'assets/buttons.png', 200, 100);
         this.game.load.spritesheet('btn2', 'assets/buttons1.png', 150, 100);

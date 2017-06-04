@@ -12,38 +12,42 @@ Main.Scoreboard.prototype = {
     create: function(){
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
-        Main.players.forEach(function (p){
-            console.log(p.name, p.score, p.time);
-        });
-
         this.bg = this.game.add.sprite(0, 0, 'score');
-        this.button = this.game.add.button(20, this.game.world.centerY + 200, 'btn2', this.redirect, this, 1, 0, 0);
+        this.table();
+        this.button = this.game.add.button(10, this.game.world.centerY + 200, 'btn2', this.redirect, this, 1, 0, 0);
 
     },
-
-    update: function(){
-
-    },
-
     redirect: function(){
-        this.game.state.start("Menu");
+        this.shutdown();
     },
     table: function() {
-        this.players = JSON.parse(localStorage.getItem('players'));
-        var top10 = this.players.sort(function(a, b) { return a.score < b.score ? 1 : -1; })
+        var top10 = Main.players.sort(function(a, b) { return a.score < b.score ? 1 : -1; })
             .slice(0, 10);
         var i = 0;
         top10.forEach(function(player){
             //player.name player.score player.time
-            this.game.add.sprite(60, 60 + 60*i, 'table');
-            this.nameText = this.game.add.text(80, 60 + 60*i, player.name,
+            var y = 72 + 48*i;
+            if(i === 0){
+                var y = 72 + 60*i;
+            }
+            this.game.add.sprite(81, y, 'table');
+            this.nameText = this.game.add.text(200, y + 32, player.name,
                 {fontSize: '26px', fill: '#ffffff'});
-            this.scoreText = this.game.add.text(160, 60 + 60*i, player.score,
+            this.scoreText = this.game.add.text(420, y + 50, player.score,
                 {fontSize: '26px', fill: '#ffffff'});
-            this.timeText = this.game.add.text(320, 60 + 60*i, player.time,
+            this.timeText = this.game.add.text(650, y + 50, player.time,
                 {fontSize: '26px', fill: '#ffffff'});
+            this.nameText.anchor.setTo(0.5, 0.5);
+            this.scoreText.anchor.setTo(0.5, 1);
+            this.timeText.anchor.setTo(0.5, 1);
             i++;
-        });
+        }, this);
+    },
+
+    shutdown: function() {
+        this.bg = null;
+        this.button = null;
+        this.game.state.start("Menu");
     }
 
 };

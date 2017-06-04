@@ -13,7 +13,7 @@ function Player(x, y, game){
 Player.prototype = {
     create: function(){
         //sprites here
-        this.sprite = this.game.add.sprite(this.x, this.y, "ship1");
+        this.sprite = this.game.add.sprite(this.x, this.y, localStorage.ship);
         this.game.physics.arcade.enable(this.sprite);
         this.sprite.scale.setTo(0.32, 0.32);
         this.sprite.anchor.setTo(0.5, 0.5);
