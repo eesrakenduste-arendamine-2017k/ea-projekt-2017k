@@ -138,19 +138,19 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 	
 $view = $data->getAllDataComputer($email);
 
-	$html = "<table class='table table-bordered'>";
+	$html = "<table class='table table-bordered' id=''>";
 	
 		$html .= "<tr>";
-			$html .= "<h3>Computer</h3>";
-			$html .= "<th>Game</th>";
-			$html .= "<th>Amount</th>";
+			$html .= "<h3 id='computerHeading'>Computer</h3>";
+			$html .= "<th id='computerTable' style='display:none'>Game</th>";
+			$html .= "<th id='computerTable' style='display:none'>Amount</th>";
 		$html .= "</tr>";
 		
 		foreach ($view as $v) {
 			
 			$html .= "<tr>";
-				$html .= "<td>".$v->game."</td>";
-				$html .= "<td>".$v->amount."</td>";
+				$html .= "<td id='computerTable' style='display:none'>".$v->game."</td>";
+				$html .= "<td id='computerTable' style='display:none'>".$v->amount."</td>";
 			$html .= "</tr>";
 		}
 		
@@ -168,16 +168,16 @@ $view = $data->getAllDataConsole($email);
 	$html = "<table class='table table-bordered'>";
 	
 		$html .= "<tr>";
-			$html .= "<h3>Console</h3>";
-			$html .= "<th>Game</th>";
-			$html .= "<th>Amount</th>";
+			$html .= "<h3 id='consoleHeading'>Console</h3>";
+			$html .= "<th id='consoleTable' style='display:none'>Game</th>";
+			$html .= "<th id='consoleTable' style='display:none'>Amount</th>";
 		$html .= "</tr>";
 		
 		foreach ($view as $v) {
 			
 			$html .= "<tr>";
-				$html .= "<td>".$v->game."</td>";
-				$html .= "<td>".$v->amount."</td>";
+				$html .= "<td id='consoleTable' style='display:none'>".$v->game."</td>";
+				$html .= "<td id='consoleTable' style='display:none'>".$v->amount."</td>";
 			$html .= "</tr>";
 		}
 		
@@ -194,16 +194,16 @@ $view = $data->getAllDataPortable($email);
 	$html = "<table class='table table-bordered'>";
 	
 		$html .= "<tr>";
-			$html .= "<h3>Portable</h3>";
-			$html .= "<th>Game</th>";
-			$html .= "<th>Amount</th>";
+			$html .= "<h3 id='portableHeading'>Portable</h3>";
+			$html .= "<th id='portableTable' style='display:none'>Game</th>";
+			$html .= "<th id='portableTable' style='display:none'>Amount</th>";
 		$html .= "</tr>";
 		
 		foreach ($view as $v) {
 			
 			$html .= "<tr>";
-				$html .= "<td>".$v->game."</td>";
-				$html .= "<td>".$v->amount."</td>";
+				$html .= "<td id='portableTable' style='display:none'>".$v->game."</td>";
+				$html .= "<td id='portableTable' style='display:none'>".$v->amount."</td>";
 			$html .= "</tr>";
 		}
 		
@@ -219,16 +219,16 @@ $view = $data->getAllDataBoard($email);
 	$html = "<table class='table table-bordered'>";
 	
 		$html .= "<tr>";
-			$html .= "<h3>Board Games</h3>";
-			$html .= "<th>Game</th>";
-			$html .= "<th>Amount</th>";
+			$html .= "<h3 id='boardHeading'>Board Games</h3>";
+			$html .= "<th id='boardTable' style='display:none'>Game</th>";
+			$html .= "<th id='boardTable' style='display:none'>Amount</th>";
 		$html .= "</tr>";
 		
 		foreach ($view as $v) {
 			
 			$html .= "<tr>";
-				$html .= "<td>".$v->game."</td>";
-				$html .= "<td>".$v->amount."</td>";
+				$html .= "<td id='boardTable' style='display:none'>".$v->game."</td>";
+				$html .= "<td id='boardTable' style='display:none'>".$v->amount."</td>";
 			$html .= "</tr>";
 		}
 		
@@ -244,16 +244,16 @@ $view = $data->getAllDataCard($email);
 	$html = "<table class='table table-bordered'>";
 	
 		$html .= "<tr>";
-			$html .= "<h3>Card Games</h3>";
-			$html .= "<th>Game</th>";
-			$html .= "<th>Amount</th>";
+			$html .= "<h3 id='cardHeading'>Card Games</h3>";
+			$html .= "<th id='cardTable' style='display:none'>Game</th>";
+			$html .= "<th id='cardTable' style='display:none'>Amount</th>";
 		$html .= "</tr>";
 		
 		foreach ($view as $v) {
 			
 			$html .= "<tr>";
-				$html .= "<td>".$v->game."</td>";
-				$html .= "<td>".$v->amount."</td>";
+				$html .= "<td id='cardTable' style='display:none'>".$v->game."</td>";
+				$html .= "<td id='cardTable' style='display:none'>".$v->amount."</td>";
 			$html .= "</tr>";
 		}
 		
