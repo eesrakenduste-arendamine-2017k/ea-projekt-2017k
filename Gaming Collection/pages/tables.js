@@ -5,6 +5,9 @@ var boardContent = 0;
 var cardContent = 0;
 
 window.onload = function(){
+	document.getElementById("animatePage").style.marginLeft = "0%";
+	document.getElementById("animatePage").style.margin = "50px";
+
 	try{computerContent = document.getElementById("computerContent").innerHTML.length;}
 	catch(e){computerContent = 0}
 	

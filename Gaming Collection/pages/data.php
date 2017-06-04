@@ -79,7 +79,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript" src = "tables.js"></script>
 
-<div class="container">
+<div class="container" id="animatePage">
 	<div class="col-md-2">
 		<?php
 			if (isset($_SESSION["userId"])) {?>

@@ -8,7 +8,7 @@
 <html>
 	<head>
 	<title>Collection</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="pages/style.css">
 		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		
@@ -31,13 +31,9 @@
 					<h2>
 				</div>
 				<div style="text-align:center">
-					<button type="button" class="navButton" style="background:none;border:2px white;font-size:20px" 
-						onclick="window.location.href='esileht.php'">HOME
-					<button type="button" class="navButton" style="background:none;border:2px white;font-size:20px;margin-left:40px" 
-						onclick="window.location.href='chat.php'">CHAT
+					<button type="button" class="navButton" onclick="window.location.href='esileht.php'">HOME
+					<button type="button" class="navButton" style="margin-left:40px" onclick="window.location.href='chat.php'">CHAT
 				</div>
 			</div>
 	</head>
-	<body style="
-		background-color:#efefef;
-	">
+	<body style="background-color:#efefef;">
