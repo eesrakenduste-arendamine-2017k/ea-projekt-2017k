@@ -2,8 +2,6 @@
 
 require("functions.php");
 
-
-
 if (isset($_SESSION["userId"])) {
 	header("Location: data.php");
 }
@@ -81,10 +79,10 @@ if ( isset($_POST["loginUsername"]) &&
 <?php require "../header.php"; ?>
 <link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
-	<div class="col-md-2"
+	<div class="col-md-2">
 	<br>
 		<form method="POST">
-				<div class="input-group input-group-sm">
+				<div class="input-group input-group-sm" style="width:100%">
 					<div class="row">
 						<input class="form-control" name="loginUsername" placeholder="Username" type="username" value="<?= $loginUsername; ?>">
 					</div>
@@ -107,7 +105,7 @@ if ( isset($_POST["loginUsername"]) &&
 		<br><br>
 		
 		<form method="POST">
-				<div class="input-group input-group-sm">
+				<div class="input-group input-group-sm" style="width:100%">
 					<div class="row">
 							<input class="form-control" name="signupUsername" placeholder="Username" type="username" value="<?=$signupUsername;?>">
 					</div>
@@ -131,13 +129,13 @@ if ( isset($_POST["loginUsername"]) &&
 	<div class="col col-xs-offset-3">
 
 		<p>
-			<div class="col text-center">
+			<div class="col">
 			Welcome to the database of your personal gaming collection! <br></br>
 			Here we host a free to use database for you to add and subtract games from.
 			
 			</div>
 			<br></br>
-			<div class="col text-center">
+			<div class="col">
 			<img src="http://www.wtfgamersonly.com/wp-content/uploads/2017/03/gaming.jpg" alt="Gaming" style="width:720px;height:420px;">
 			</div>
 		<p>

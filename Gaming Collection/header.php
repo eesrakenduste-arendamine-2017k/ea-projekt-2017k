@@ -20,29 +20,22 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	<header style="
-		top:0;
-		width:100%;
-		z-index:1000
-	">
-			<div class="row page-header" style="background-color:#000000;height:75px;top:0">
-				<div class="col-xs-offset-1 col-xs-4">
-						<h2>
-							<font style="font-family:verdana;font-weight:bold;color:white">
-								Personal Gaming Collection
-							</font>
-						<h2>
+			<div style="background:linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+				margin-top:0px;margin-bottom:20px;padding:11.25px">
+				<div>
+					<h2 style="text-align:center">
+						<font style="font-family:verdana;font-weight:bold;color:white;font-size:30px">
+							Personal Gaming Collection
+						</font>
+					<h2>
 				</div>
-				
-				<div class="col-xs-offset-4 col-xs-2">
-					<nav class="navbar-header" style="background-color:black;height:74px;padding:21px">
-						<div class="container-fluid" style="background-color:black">
-							<div class="navbar-header">	
-
-						</div>
-					</nav
+				<div style="text-align:center">
+					<button type="button" style="background:none;border:2px white;font-size:20px" 
+						onclick="window.location.href='pages/esileht.php'">HOME
+					<button type="button" style="background:none;border:2px white;font-size:20px;margin-left:40px" 
+						onclick="window.location.href='pages/chat.php'">CHAT
+				</div>
 			</div>
-	</header>
 	</head>
 	<body style="
 		background-color:#efefef;

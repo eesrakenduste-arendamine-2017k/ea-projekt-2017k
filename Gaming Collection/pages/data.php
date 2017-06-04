@@ -105,7 +105,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 					<option value="Card">Card</option>
 				</select>
 			</div>
-			<div class="input-group input-group-sm">
+			<div class="input-group input-group-sm" style="width:100%">
 				<div class="row">
 					<input class="form-control" name="Game" placeholder="Game" type="text"> <?php echo $gameError ?>
 				</div>
@@ -132,7 +132,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 		
 	</div>
 	
-	<div class="col col-xs-offset-3">
+	<div class="col col-md-offset-3 col-xs-offset-0">
 
 	<h1>Collection</h1>
 	
