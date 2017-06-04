@@ -1,39 +1,24 @@
 # Eesrakenduste arendamine 2017k – projekt
 
-## Tähtaeg 
-
-Valitud eksamipäev
-
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
-
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
-
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
-
-### Nõuded
-
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
-
-2. **Veebirakenduse nõuded:**
-    * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;
-    * andmeid talletatakse lisaks kohalikule (nt localStorage) ka serveripool (soovitatavalt andmebaasi või faili) – AJAX + serveripoolel nt PHP, Java, Node;
-    * Mugavalt kasutatav ka mobiilselt seadmelt;
-    * muutujad/tabelid on inglise keeles;
-    * rakendus on piisava funktsionaalsusega ja turvaline – eelnev kokkulepe õppejõuga, mis saab valmis;
-    * kood on jaotatud vajadusel eri failidesse ja kood on kokkupakitud kujul (ingl _minified_);
-
-3. **Funktsionaalsus**
-    * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+# Dark Space
+![alt text](https://raw.githubusercontent.com/rkajaste/ea-projekt-2017k/master/collage1.png)
+## Liikmed
+   Richard Kajaste, Ege-Rita Noor
+## Eesmärk
+   Meie eesmärk oli luua huvitav ning mängijaid kaasahaarav videomäng. Mäng paneb mängijaid proovile oma raskusastme poolest.
+   Raskeks teeb mängus olevad vaenlased. Kui edetabelis tahad kõrgele jõuda pead saama võimalikult palju punkte ja ellu jääma
+   võimalikult kaua.
+## Funktsionaalsuse loetelu
+   * v0.1 Saab mängu siseneda
+   * v0.2 Mängus tekivad vaenlased
+   * v0.3 Mängija saab tulistada
+   * v0.4 Mängija saab liikuda
+   * v0.5 Vaenlaste tapmisel suureneb skoor
+   * v0.6 Vaenlaseid on eri tüüpi, ühed seisavad paigal, teised ajavad mängijat taga, mõlemad tulistavad
+   * v0.7 Mängus on taimer, mis kasvab igal sekundil, mil elus oled
+   * v0.8 Mängija andmed s.h nimi, millise laeva ta valib, lõppskoor ja aeg salvestatakse localStorage'sse
+   * v0.9 Surma saades saab koha edetabelis kui skoor piisavalt kõrge
+   * v1.0 Mängus menüü, menüüs saad kas mängu siseneda või edetabelit vaadata
+   * v1.1 Mängu sisenedes saab sisestada nime ja valida laeva
+## Skeem
+![alt text](https://raw.githubusercontent.com/rkajaste/ea-projekt-2017k/master/schema.png)
