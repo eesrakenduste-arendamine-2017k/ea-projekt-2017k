@@ -16,7 +16,7 @@ window.onload = function(){
 function checkConnection(){
 
     if(navigator.onLine===true) {
-      console.log("ühendus olemas!");
+      //console.log("ühendus olemas!");
       setTimeout(checkConnection, 10000);
     } else {
       alert("Interneti ühendus puudub!");

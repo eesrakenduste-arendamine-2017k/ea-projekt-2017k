@@ -6,12 +6,24 @@ window.onload = function(){
       console.log('>>>>loend');
       username = location.search.substring(10);
       console.log(username);
-
       getTraining();
-    
-
-
+      checkConnection();
+      setTimeout(function checkConnection(){
+        setTimeout(checkConnection, 10000);
+      });
    };
+
+   function checkConnection(){
+
+       if(navigator.onLine===true) {
+         //console.log("ühendus olemas!");
+         setTimeout(checkConnection, 10000);
+       } else {
+         alert("Interneti ühendus puudub!");
+         setTimeout(checkConnection, 10000);
+       }
+
+   }
 
   function getTraining(){
 

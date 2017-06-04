@@ -1,6 +1,25 @@
-window.onload = getName;
 var username;
-var left
+
+window.onload = function(){
+  getName();
+  checkConnection();
+  setTimeout(function checkConnection(){
+    setTimeout(checkConnection, 10000);
+  });
+};
+
+function checkConnection(){
+
+    if(navigator.onLine===true) {
+      console.log("ühendus olemas!");
+      setTimeout(checkConnection, 10000);
+    } else {
+      alert("Interneti ühendus puudub!");
+      setTimeout(checkConnection, 10000);
+    }
+
+}
+
 function getName(){
     doEffect();
     username = location.search.substring(10);

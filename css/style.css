@@ -67,7 +67,7 @@ hr {
 }
 
 .bottom_BTN{
-	bottom: 80px;
+	bottom: 100px;
 	position: absolute;
 	height: 60px;
 	width: 100%;
@@ -83,7 +83,7 @@ hr {
 	text-align: center;
 	width: 100%;
 	position: absolute;
-	top: 300px;
+	top: 250px;
 }
 
 .button2 {
