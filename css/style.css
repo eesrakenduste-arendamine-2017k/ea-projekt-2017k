@@ -73,6 +73,13 @@ hr {
 	width: 100%;
 }
 
+.bottom_BTN_2{
+	bottom: 100px;
+	position: absolute;
+	height: 60px;
+	width: 100%;
+}
+
 .center{
 	width: 100%;
 	position: absolute;
