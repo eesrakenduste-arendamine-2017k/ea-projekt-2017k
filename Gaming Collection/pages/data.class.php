@@ -315,6 +315,8 @@ class data{
 		$stmt = $this->connection->prepare("
 			SELECT message, posted, email
 			FROM chatRoom
+			ORDER BY posted DESC
+			LIMIT 20
 			
 		");
 		$stmt->bind_result($message, $posted, $emailD);
