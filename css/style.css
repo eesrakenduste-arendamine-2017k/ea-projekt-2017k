@@ -134,7 +134,11 @@ hr {
   height: 40px;
 }
 
-
+.lastrep
+{
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .list-of-schedules{
   padding: 0px;
