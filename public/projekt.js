@@ -1,6 +1,7 @@
 // **** GLOBAALSED MUUTUJAD ****
 
 // muutujad mängu jaoks
+var online = true;
 var matrixFinalAnswerErrors = 0;
 var matrixPreAnswerErrors = 0;
 var Btn;
@@ -773,6 +774,9 @@ function loadStatsFromLocalStorage() {
 		var arr = JSON.parse(localStorage.getItem("top"))
 			createTable(arr)
 	}
+	else{
+		console.log("localstorage tühi!")
+	}
 }
 
 // MÄNGU SKOORI FUNKTSIOONID
@@ -795,7 +799,7 @@ function resetScore() {
 		"exercises": sumOfExercises
 	}
 	sendDataToServer(JSON.stringify(gameData));
-	saveStatsToLocalstorage(gameData);
+	
 
 	score = 0;
 	sumOfExercises = 0;
@@ -813,22 +817,33 @@ function updateScore() {
 
 //MÄNGIJA TULEMUSTE SAATMINE SERVERILE, ÜHENDUSE PUUDUMISE KORRAL LOCALSTORAGELE
 function sendDataToServer(object) {
+	if(online){
     var xhr = new XMLHttpRequest();
     xhr.timeout = 2000;
     xhr.open('POST', 'http://www.heleri.eu/save', true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            console.log(xhr.responseText);
+        if (xhr.readyState === 4 && xhr.status === 200  ) {
+            console.log("RESPONSE TEXT " + xhr.responseText);
             console.log("saadan serverisse")
+			
         }
+	
     }
-    xhr.send(object);
-    xhr.ontimeout = function(e) {
-        console.log("saadan localstoragesse")
-        saveStatsToLocalstorage(object)
-    };
+	xhr.send(object);
+	}
+	if(!online) {
+		saveStatsToLocalstorage(JSON.parse(object))
+console.log("saadan localstoragesse")
+		
+	}
+	
+    
+
 }
+
+
+
 //TOP10 TABELI JAOKS ANDMED SERVERIST VÕI ÜHENDUSE PUUDUMISE KORRAL LOCALSTORAGEST
 function viewTopPlayers() {
     var xhr = new XMLHttpRequest();
@@ -836,19 +851,30 @@ function viewTopPlayers() {
     xhr.open("POST", "http://www.heleri.eu/load", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+		
+	if(online) {
+		 if (xhr.readyState === 4 && xhr.status === 200) {
             console.log("tõmban serverist")
             var dB = JSON.parse(xhr.responseText)
             $("#myTable").remove();
             createTable(dB)
         }
-    };
-    xhr.send();
-    xhr.ontimeout = function(e) {
-        $("#myTable").remove();
+		
+		
+	}
+		
+		
+       
+		else {
+		$("#myTable").remove();
         loadStatsFromLocalStorage()
         console.log("tõmban localstoragest")
-    };   
+			
+		}
+    }
+	xhr.send();
+    
+    
 }
 
 
@@ -909,3 +935,12 @@ function tick() {
 	}
 
 }
+
+
+window.addEventListener("offline", function(e) {
+  online = false
+}, false);
+
+window.addEventListener("online", function(e) {
+  online = true
+}, false);
