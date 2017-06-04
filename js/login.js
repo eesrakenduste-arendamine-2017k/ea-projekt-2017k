@@ -13,6 +13,13 @@ window.onload = function(){
       });
    };
 
+
+function login(){
+    username = document.getElementById('username').value;
+    password = document.getElementById('password').value;
+    checkUsername();
+}
+
 function checkConnection(){
 
     if(navigator.onLine===true) {
@@ -22,13 +29,6 @@ function checkConnection(){
       alert("Interneti ühendus puudub!");
       setTimeout(checkConnection, 10000);
     }
-
-}
-
-function login(){
-    username = document.getElementById('username').value;
-    password = document.getElementById('password').value;
-    checkUsername();
 }
 
 function checkUsername(){

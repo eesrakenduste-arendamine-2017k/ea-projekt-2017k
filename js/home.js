@@ -8,17 +8,6 @@ window.onload = function(){
   });
 };
 
-function checkConnection(){
-
-    if(navigator.onLine===true) {
-      console.log("ühendus olemas!");
-      setTimeout(checkConnection, 10000);
-    } else {
-      alert("Interneti ühendus puudub!");
-      setTimeout(checkConnection, 10000);
-    }
-
-}
 
 function getName(){
     doEffect();
@@ -26,6 +15,17 @@ function getName(){
     console.log(username);
     //siia võiks lisada veel, et ütleb olenevalt kellaajast tere hommikust/õhtut
     document.getElementById("sayHello").innerHTML = "Tere "+username;
+}
+
+function checkConnection(){
+
+    if(navigator.onLine===true) {
+      //console.log("ühendus olemas!");
+      setTimeout(checkConnection, 10000);
+    } else {
+      alert("Interneti ühendus puudub!");
+      setTimeout(checkConnection, 10000);
+    }
 }
 
 function doEffect(){

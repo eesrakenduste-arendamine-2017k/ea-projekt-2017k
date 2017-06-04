@@ -10,6 +10,9 @@ var t;
 //window.onload = gettrainingID;
 
 window.onload = function(){
+    document.querySelector('.length_error').style.display = 'none';
+    document.querySelector('.schedule_error').style.display = 'none';
+    document.querySelector('.scheduletext_error').style.display = 'none';
     document.querySelector('.sk-circle').style.display = 'none';
     document.querySelector('.saving').style.display = 'block';
     gettrainingID();
@@ -28,7 +31,6 @@ function checkConnection(){
       alert("Interneti ühendus puudub!");
       setTimeout(checkConnection, 10000);
     }
-
 }
 
 function gettrainingID(){
@@ -51,13 +53,33 @@ function saveTraining(){
     name = document.getElementById('exercise').value;
     description = document.getElementById('description').value;
     //picture = document.getElementById('image').value;
-    saveToDatabase();
-    clean();
-    console.log("salvestatud");
-    nr += 1;
-    exercise = "harjutus"+nr;
-    console.log(exercise);
-    doEffect();
+    if(name !== ""){
+        if((isNaN(name)===true)){
+          if(name.length <= 20){
+            document.querySelector('.schedule_error').style.display = 'none';
+            document.querySelector('.scheduletext_error').style.display = 'none';
+            doEffect();
+            saveToDatabase();
+            clean();
+            console.log("salvestatud");
+            nr += 1;
+            exercise = "harjutus"+nr;
+            console.log(exercise);
+          }else{
+            document.querySelector('.schedule_error').style.display = 'none';
+            document.querySelector('.scheduletext_error').style.display = 'none';
+            document.querySelector('.length_error').style.display = 'block';
+           }
+        }else{
+          document.querySelector('.schedule_error').style.display = 'none';
+          document.querySelector('.scheduletext_error').style.display = 'block';
+          document.querySelector('.length_error').style.display = 'none';
+         }
+    } else {
+      document.querySelector('.schedule_error').style.display = 'block';
+      document.querySelector('.scheduletext_error').style.display = 'none';
+      document.querySelector('.length_error').style.display = 'none';
+    }
    }
 
 
@@ -71,14 +93,29 @@ function saveTraining(){
    }
 
 function saveTrainingLast(){
+
     name = document.getElementById('exercise').value;
     description = document.getElementById('description').value;
     //picture = document.getElementById('image').value;
-    saveToDatabase();
-    clean();
-    console.log("salvestatud");
-    window.location.href="ready.html?username="+username+"&trainingID="+trainingID+"";
+    if(name !== ""){
+      if((isNaN(name)===true)){
+        document.querySelector('.schedule_error').style.display = 'none';
+        document.querySelector('.scheduletext_error').style.display = 'none';
+        doEffect();
+        saveToDatabase();
+        clean();
+        console.log("salvestatud");
+        window.location.href="ready.html?username="+username+"&trainingID="+trainingID+"";
+      }else{
+        document.querySelector('.schedule_error').style.display = 'none';
+        document.querySelector('.scheduletext_error').style.display = 'block';
+       }
+    } else {
+    document.querySelector('.schedule_error').style.display = 'block';
+    document.querySelector('.scheduletext_error').style.display = 'none';
+      }
 }
+
 
 function saveToDatabase(){
     firebase.database().ref("Trainings/"+username+"/"+trainingID+"/"+exercise).set({

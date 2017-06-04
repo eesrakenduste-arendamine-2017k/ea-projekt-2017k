@@ -1,4 +1,11 @@
-window.onload = getName;
+window.onload = function(){
+  getName();
+  checkConnection();
+  setTimeout(function checkConnection(){
+    setTimeout(checkConnection, 10000);
+  });
+};
+
 var username;
 
 function getName(){
@@ -9,6 +16,17 @@ function getName(){
     username = location.search.substring(10);
     console.log(location);
     //siia võiks lisada veel, et ütleb olenevalt kellaajast tere hommikust/õhtut
+}
+
+function checkConnection(){
+
+    if(navigator.onLine===true) {
+      //console.log("ühendus olemas!");
+      setTimeout(checkConnection, 10000);
+    } else {
+      alert("Interneti ühendus puudub!");
+      setTimeout(checkConnection, 10000);
+    }
 }
 
 function sendname(){

@@ -13,21 +13,20 @@ window.onload = function(){
       });
    };
 
-   function checkConnection(){
-
-       if(navigator.onLine===true) {
-         //console.log("ühendus olemas!");
-         setTimeout(checkConnection, 10000);
-       } else {
-         alert("Interneti ühendus puudub!");
-         setTimeout(checkConnection, 10000);
-       }
-
-   }
-
   function getTraining(){
 
     firebase.database().ref("Trainings/"+username).once('value', gotData);
+}
+
+function checkConnection(){
+
+    if(navigator.onLine===true) {
+      //console.log("ühendus olemas!");
+      setTimeout(checkConnection, 10000);
+    } else {
+      alert("Interneti ühendus puudub!");
+      setTimeout(checkConnection, 10000);
+    }
 }
 
 function gotData(data){
