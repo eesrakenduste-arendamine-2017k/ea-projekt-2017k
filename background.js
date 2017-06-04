@@ -63,8 +63,7 @@ function setSounds() {
         el.volume = '.3';
     }
 }
-<<<<<<< HEAD
-=======
+
 /*function setSounds() {
     var lines = sounds.split("\n");
     for (var i = 0, len = lines.length; i < len; i++) {
@@ -76,8 +75,10 @@ function setSounds() {
             .attr('volume', '.3');
     }
 }*/
+
+
 /*
-  Constants
+  Pomodoro part
 */
 var PREFS = loadPrefs(),
     BADGE_BACKGROUND_COLORS = {
@@ -303,7 +304,7 @@ function isLocationBlocked(location) {
     return PREFS.whitelist;
 }
 function executeInTabIfBlocked(action, tab) {
-    var file = "content_scripts/" + action + ".js",
+    var file = "content_script/" + action + ".js",
         location;
     location = tab.url.split('://');
     location = parseLocation(location[1]);
@@ -406,4 +407,3 @@ chrome.notifications.onClicked.addListener(function(id) {
         });
     });
 });
->>>>>>> cbd9ceffe1f0c27cb83d8ec67da0b12ce9755ad5

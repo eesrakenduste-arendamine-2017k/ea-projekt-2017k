@@ -14,7 +14,6 @@
      "default_popup":"popup.html",
      "default_icon":"ikoon.png"
      },
-     "default_locale": "et",
      "icons": {
              "16": "ikoon16.png",
              "48": "ikoon.png",
