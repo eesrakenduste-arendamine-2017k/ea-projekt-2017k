@@ -8,6 +8,7 @@ if (!isset($_SESSION["userId"])) {
 	$email = $_SESSION["userEmail"];
 	$messageError = "";
 	$post = 1;
+	$deleted = 1;
 
 
 	if (isset ($_POST["message"]))
@@ -19,7 +20,7 @@ if (!isset($_SESSION["userId"])) {
 	if (isset ($_POST["message"]))
 		{
 		if(strlen($_POST["message"])>300){
-			$messageError = "Message too long";}
+			$messageError = "Message too long, MAX 300";}
 		}
 
 	if(isset ($_POST["message"]) &&
@@ -53,10 +54,10 @@ if (!isset($_SESSION["userId"])) {
 			<?php } ?>
 		<form method="POST">
 			<div class="input-group input-group-sm">
-				<div class="row">
+				<div class="row" id = "ChatBoxEntry" style = "text-align: center;">
 					<?php echo $email ?>
 					<br><br>
-					<textarea rows="4" cols="50" name = "message" id = "message" style = "color:Black;">MAX (300) Characters</textarea> <?php echo $messageError ?>
+					<textarea rows="4" cols="50" name = "message" id = "message" style = "color:Black;"></textarea> <?php echo $messageError ?>
 				</div>
 				<br>
 				<div class="row">
@@ -64,3 +65,32 @@ if (!isset($_SESSION["userId"])) {
 				</div>
 			</div>
 		</form>
+
+
+<?php 
+	
+$view = $data->getAllDataChat();
+
+	$html = "<table class='table table-bordered' id='consoleTable1' style='display:none'>";
+	
+		$html .= "<tr>";
+			$html .= "<h3 id='consoleTable2' style='display:none'>Console</h3>";
+			$html .= "<th>Username</th>";
+			$html .= "<th>Message</th>";
+			$html .= "<th>Posted</th>";
+		$html .= "</tr>";
+		
+		foreach ($view as $v) {
+			
+			$html .= "<tr>";
+				$html .= "<td id='consoleContent'>".$v->email."</td>";
+				$html .= "<td>".$v->message."</td>";
+				$html .= "<td>".$v->posted."</td>";
+			$html .= "</tr>";
+		}
+		
+	$html .= "</table>";
+	
+	echo $html;
+	
+?>

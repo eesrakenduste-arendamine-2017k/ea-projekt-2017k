@@ -309,9 +309,36 @@ class data{
 		
 	}
 	
-	
-	
-	
+		function getAllDataChat() {
+		
+
+		$stmt = $this->connection->prepare("
+			SELECT message, posted, email
+			FROM chatRoom
+			
+		");
+		$stmt->bind_result($message, $posted, $emailD);
+		$stmt->execute();
+		
+		$results = array();
+		
+		
+		while ($stmt->fetch()) {
+			
+			$info = new StdClass();
+			$info->message = $message;
+			$info->posted = $posted;
+			$info->email = $emailD;
+			
+			
+			array_push($results, $info);
+			
+		}
+		
+		return $results;
+		
+	}
+
 	
 	
 
