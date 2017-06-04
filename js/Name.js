@@ -39,7 +39,6 @@ Main.Name.prototype = {
             var self = this;
             this.game.input.keyboard.onDownCallback = function (e) {
                 if(!this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE).isDown &&
-                    !this.game.input.keyboard.addKey(Phaser.Keyboard.F5).isDown &&
                     !this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL).isDown &&
                     !this.game.input.keyboard.addKey(Phaser.Keyboard.ALT).isDown &&
                     !this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT).isDown &&

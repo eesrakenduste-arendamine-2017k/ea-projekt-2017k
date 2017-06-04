@@ -5,6 +5,7 @@ function Enemy(x, y, game){
     this.sprite = null;
     this.laserCooldown = 1000;
     this.nextLaser = 0;
+    this.onScreen = false;
 }
 
 Enemy.prototype = {
@@ -31,19 +32,39 @@ Enemy.prototype = {
     update: function(player){
         //collision, actions here
         this.sprite.angle = this.game.physics.arcade.angleBetweenCenters(this.sprite, player) * (180/Math.PI) + 90;
-        if(this.sprite.key === 'enemy1'){
-            if(this.game.physics.arcade.distanceBetween(this.sprite, player) < 200 ){
+
+        if(this.onScreen){
+            if(this.sprite.key === 'enemy1'){
+                if(this.game.physics.arcade.distanceBetween(this.sprite, player) < 200 ){
+                    this.fire();
+                    this.game.physics.arcade.moveToObject(this.sprite, player, 0);
+                } else {
+                    this.game.physics.arcade.moveToObject(this.sprite, player, 100);
+                }
+            } else if(this.sprite.key === 'enemy2') {
+                this.sprite.body.velocity.x = 0;
+                this.sprite.body.velocity.y = 0;
                 this.fire();
-                this.game.physics.arcade.moveToObject(this.sprite, player, 0);
-            } else {
-                this.game.physics.arcade.moveToObject(this.sprite, player, 200);
+                this.sprite.body.immovable = true;
             }
-        } else if(this.sprite.key === 'enemy2') {
-            this.fire();
-            this.sprite.body.immovable = true;
+        } else {
+            this.onSpawn();
         }
 
 
+    },
+    onSpawn: function(){
+        this.sprite.rotation = this.game.physics.arcade.moveToXY(
+            this.sprite,
+            this.game.world.centerX,
+            this.game.world.centerY,
+            150,
+            500
+        );
+        if(this.sprite.x - 20 >= 0 && this.sprite.x + 20 <= this.game.world.width &&
+            this.sprite.y - 20 >= 0 && this.sprite.y + this.sprite.height + 20 <= this.game.world.height){
+            this.onScreen = true;
+        }
     },
 
     fire: function() {

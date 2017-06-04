@@ -23,8 +23,11 @@ Main.Scoreboard.prototype = {
     table: function() {
         var top10 = Main.players.sort(function(a, b) { return a.score < b.score ? 1 : -1; })
             .slice(0, 10);
+
+        //if score is equal, then calculate spot based on survival time
+        var top10new = top10.sort(function(a, b){ return a.score === b.score && a.time < b.time ? 1 : -1; });
         var i = 0;
-        top10.forEach(function(player){
+        top10new.forEach(function(player){
             //player.name player.score player.time
             var y = 72 + 48*i;
             if(i === 0){

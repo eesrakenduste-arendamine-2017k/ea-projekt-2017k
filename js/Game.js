@@ -6,7 +6,7 @@ Main.Game = function(){
     this.enemies_onscreen = 5;
     this.timer = 0;
     this.time = 0;
-    this.spawn_rate = 2;
+    this.spawn_rate = 4;
 };
 
 Main.Game.prototype = {
@@ -32,13 +32,22 @@ Main.Game.prototype = {
     update: function(){
         this.timer += 1;
         this.time = Math.floor(this.timer / 60);
-        if(this.timer % 60 === 0){
-            console.log(this.time)
-        }
         this.game.physics.arcade.collide(this.enemies);
         this.game.physics.arcade.collide(this.enemies, this.player.sprite);
         if(this.timer % (60*this.spawn_rate) === 0 && this.enemies.length < this.enemies_onscreen){
-            var enemy = new Enemy(Math.floor((Math.random()*800)), Math.floor((Math.random()*600)), this.game);
+
+            var randX = Math.floor((Math.random()* 880) -40);
+            if(randX >= 0 && randX <= 800){
+                var rand = Math.floor((Math.random()*2)+1);
+                if(rand === 1){
+                    var randY = -40;
+                } else {
+                    var randY = 640;
+                }
+            } else {
+                var randY = Math.floor((Math.random()* 640) - 40);
+            }
+            var enemy = new Enemy(randX, randY, this.game);
             enemy.create();
             this.enemies.add(enemy.sprite);
             this.enemylist.push(enemy);
@@ -66,7 +75,7 @@ Main.Game.prototype = {
     },
 
     stateCheck: function(){
-        if(this.player.health === 2){
+        if(this.player.health === 0){
             Main.playerdata.time = this.time;
 
             Main.players[Main.players.length] = Main.playerdata;
@@ -85,6 +94,8 @@ Main.Game.prototype = {
     shutdown: function(){
         this.enemies = null;
         this.enemylist = [];
+        this.time = 0;
+        this.timer = 0;
         this.player = null;
         localStorage.ship = null;
         this.game.state.start("Scoreboard");
