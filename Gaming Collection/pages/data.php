@@ -93,11 +93,6 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 						<font style="color:white">Edit</font>
 				</div>
 				<br>
-				<div class="row">
-					<button type="button" class="btn btn-block" style="background-color:black; vertical-align: middle;" onclick="window.location.href='chat.php'">
-						<font style="color:white">Chat</font>
-				</div>
-				<br>
 			<?php } ?>
 		<form method="POST">
 			<div class="row">
@@ -126,7 +121,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 
 		<br><br>
 		
-		<div class = "row" id = "counter" style ="Color:White; background-color: Black; border-style:dotted; text-align: center; font-weight:bold;"  >
+		<div class = "row" id = "counter" style ="Color:White; background-color: Black; border-style:dotted; text-align: center; font-weight:bold" >
 			<p> Computer = <?php echo $displayComputer ?> </p>
 			<p> Console = <?php echo $displayConsole ?> </p>
 			<p> Portable = <?php echo $displayPortable ?> </p>
@@ -139,7 +134,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 	
 	<div class="col col-md-offset-3 col-xs-offset-0">
 
-	<h1>Collection</h1>
+	<h1>Your collection</h1>
 	
 	
 <?php 

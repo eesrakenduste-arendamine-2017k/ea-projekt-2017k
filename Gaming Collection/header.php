@@ -7,7 +7,8 @@
 ?>
 <html>
 	<head>
-		<title>Collection</title>
+	<title>Collection</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		
@@ -30,10 +31,10 @@
 					<h2>
 				</div>
 				<div style="text-align:center">
-					<button type="button" style="background:none;border:2px white;font-size:20px" 
-						onclick="window.location.href='pages/esileht.php'">HOME
-					<button type="button" style="background:none;border:2px white;font-size:20px;margin-left:40px" 
-						onclick="window.location.href='pages/chat.php'">CHAT
+					<button type="button" class="navButton" style="background:none;border:2px white;font-size:20px" 
+						onclick="window.location.href='esileht.php'">HOME
+					<button type="button" class="navButton" style="background:none;border:2px white;font-size:20px;margin-left:40px" 
+						onclick="window.location.href='chat.php'">CHAT
 				</div>
 			</div>
 	</head>
