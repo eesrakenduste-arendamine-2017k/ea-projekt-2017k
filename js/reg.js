@@ -19,7 +19,7 @@ window.onload = function(){
 };
 
 function saveuser(){
-    doEffect();
+    //doEffect();
     username = document.getElementById('username').value;
     password = document.getElementById('password').value;
     password1 = document.getElementById('password1').value;
@@ -49,11 +49,11 @@ function saveUser(){
       console.log("Kõik tekstiväljad on teksti kujul");
   if(password==password1){
       if(a == 'OK'){
-
+        doEffect();
         writeUserData(username, password, firstname, surename, birthdate, weight);
         window.location.href= 'reg_login.html';
         console.log("Kasutaja salvestamine õnnestus");
-        clearTimeout(t);
+        //clearTimeout(t);
 
       }else{
         usernameError();
@@ -109,11 +109,12 @@ function getInfo(){
 function doEffect(){
   document.querySelector('.signup').style.display = 'none';
  document.querySelector('.sk-circle').style.display = 'block';
- t = setTimeout(function(){
+ /*t = setTimeout(function(){
    document.querySelector('.sk-circle').style.display = 'none';
   document.querySelector('.signup').style.display = 'block';
   saveUser();
-}, 3000);
+}, 3000);*/
+
 }
 
 

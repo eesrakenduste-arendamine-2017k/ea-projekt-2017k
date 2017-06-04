@@ -62,10 +62,10 @@ function checkUsername(){
 }
 
 function doEffect(){
-  document.querySelector('.loginpage').style.display = 'none';
+  document.querySelector('.login').style.display = 'none';
  document.querySelector('.sk-circle').style.display = 'block';
  t = setTimeout(function(){
    document.querySelector('.sk-circle').style.display = 'none';
-  document.querySelector('.loginpage').style.display = 'block';
+  document.querySelector('.login').style.display = 'block';
 }, 1000);
 }
