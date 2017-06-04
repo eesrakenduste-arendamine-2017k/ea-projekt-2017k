@@ -98,11 +98,9 @@ window.onload = function () {
 
   // Show lives
    updateGameState = function () {
-
     showLives.innerHTML = "Elud: " + lives;
-
     if (lives < 1) {
-      $("#buttons").add("#hint").add("#clue").fadeOut(400);
+      $("#buttons").add("#hint").add("#clue").hide();
       $("#gameState").add("#reset").fadeIn(400);
       gameState.innerHTML = "Mäng Läbi! " + "<br/>" + "Õige vastus oli: " + "<br/>" + "''" + word + "''";
       console.log(p_name+':'+score);
@@ -115,10 +113,7 @@ window.onload = function () {
       showScore.innerHTML = "skoor: " + score;
       gameOver.play();
       setTimeout(wrongAudio, 1000);
-    }else if (lives < 5) {
-      gameState.style.color = "red";
     }else if (lives <= 5 && lives > 2) {
-      showLives.innerHTML = "Elud: " + lives;
       showLives.style.color = "orange";
     }else if(lives <= 2){
       showLives.style.color = "red";
@@ -251,7 +246,7 @@ window.onload = function () {
         if (score < 0){
           showScore.style.color = "red";
         }
-
+        showLives.innerHTML = "Elud: " + lives;
         showScore.innerHTML = "skoor: " + score;
         this.style.backgroundColor = "rgba(105,105,105, 1)";
         wrongSound.play();
@@ -295,7 +290,7 @@ window.onload = function () {
       $("#hint").fadeOut(400);
     } else {
       $("#buttons").add("#stickman").add("#categoryName").add("#hint").add("#clue").add("#hold").add("#categoryName").fadeIn(400);
-      $("#reset").add("#gameState").fadeOut(400);
+      $("#reset").add("#gameState").hide();
       randIndex = Math.floor(Math.random()*categoryNames.length);
       randWordIndex = Math.floor(Math.random() * categories[randIndex].length);
       console.log("cat index :" + categories[randIndex].length);
@@ -326,7 +321,7 @@ window.onload = function () {
     hint.onclick = function() {
     //console.log(hintIndex);
     //getHint.disabled = true;
-    showClue.innerHTML = "vihje - " +  wordHint;
+    showClue.innerHTML = wordHint;
   };
 
    // Reset
