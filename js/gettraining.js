@@ -100,17 +100,19 @@ function gotWorkoutData(data){
 }
 
 function getlastgetlastworkoutvalues(){
-    console.log("ksi II: "+ksi);
-    var reps1 = ksi[valuesindex][1].Reps;
-    var weight1 = ksi[valuesindex][1].Weight;
-    var reps2 = ksi[valuesindex][2].Reps;
-    var weight2 = ksi[valuesindex][2].Weight;
-    var reps3 = ksi[valuesindex][3].Reps;
-    var weight3 = ksi[valuesindex][3].Weight;
-   document.getElementById("rep1").innerHTML = "Kordusi: "+reps1+"  Raskus: "+weight1+" kg";
-    document.getElementById("rep2").innerHTML = "Kordusi: "+reps2+"  Raskus: "+weight2+" kg";
-    document.getElementById("rep3").innerHTML = "Kordusi: "+reps3+"  Raskus: "+weight3+" kg";
-    valuesindex++;
+    if(ksi != null){
+      console.log("ksi II: "+ksi);
+      var reps1 = ksi[valuesindex][1].Reps;
+      var weight1 = ksi[valuesindex][1].Weight;
+      var reps2 = ksi[valuesindex][2].Reps;
+      var weight2 = ksi[valuesindex][2].Weight;
+      var reps3 = ksi[valuesindex][3].Reps;
+      var weight3 = ksi[valuesindex][3].Weight;
+    document.getElementById("rep1").innerHTML = "Kordusi: "+reps1+"  Raskus: "+weight1+" kg";
+      document.getElementById("rep2").innerHTML = "Kordusi: "+reps2+"  Raskus: "+weight2+" kg";
+      document.getElementById("rep3").innerHTML = "Kordusi: "+reps3+"  Raskus: "+weight3+" kg";
+      valuesindex++;
+    }
 }
 
 
