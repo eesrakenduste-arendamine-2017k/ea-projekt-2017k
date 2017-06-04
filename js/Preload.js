@@ -6,6 +6,10 @@ Main.Preload.prototype = {
     preload: function(){
         //load all assets to cache and go to menu state
         this.game.load.image('bg', 'assets/bg.png');
+        this.game.load.image('full', 'assets/full.png');
+        this.game.load.image('third', 'assets/quarter.png');
+        this.game.load.image('twothird', 'assets/twothird.png');
+        this.game.load.image('dead', 'assets/ded.png');
         this.game.load.image('menu', 'assets/menu5.png');
         this.game.load.image('score', 'assets/score2.png');
         this.game.load.image('namebg', 'assets/name.png');

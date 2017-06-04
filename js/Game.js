@@ -7,6 +7,8 @@ Main.Game = function(){
     this.timer = 0;
     this.time = 0;
     this.spawn_rate = 4;
+    this.getHit = 0;
+    this.getHitCooldown = 2000;
 };
 
 Main.Game.prototype = {
@@ -26,6 +28,7 @@ Main.Game.prototype = {
             {fontSize: '26px', fontFamily: 'Arial', fill: '#ffffff'});
         this.timeText = this.game.add.text(this.game.world.width * 0.82, 16, 'time: 0',
             {fontSize: '26px', fontFamily: 'Arial', fill: '#ffffff'});
+        this.healthBar = this.game.add.sprite(this.game.world.width / 2.4, 20, 'full');
 
     },
 
@@ -66,7 +69,11 @@ Main.Game.prototype = {
             }, null, this);
             this.game.physics.arcade.overlap(this.player.sprite, enemy.lasers, function(p, e){
                 //p.kill();
-                this.player.health = Number(this.player.health) - 1;
+                if (this.game.time.now > this.getHit){
+                    this.getHit = this.game.time.now + this.getHitCooldown;
+                    this.player.health = Number(this.player.health) - 1;
+                }
+
             }, null, this);
         }, this);
 
@@ -75,7 +82,15 @@ Main.Game.prototype = {
     },
 
     stateCheck: function(){
-        if(this.player.health === 0){
+        if(this.player.health === 3){
+            this.healthBar.loadTexture('full');
+        } else if(this.player.health === 2){
+            this.healthBar.loadTexture('third');
+        } else if(this.player.health === 1){
+            this.healthBar.loadTexture('twothird');
+        } else if(this.player.health === 0){
+            this.healthBar.loadTexture('dead');
+
             Main.playerdata.time = this.time;
 
             Main.players[Main.players.length] = Main.playerdata;
@@ -99,14 +114,14 @@ Main.Game.prototype = {
         this.player = null;
         localStorage.ship = null;
         this.game.state.start("Scoreboard");
-    }
-    /*render: function(){
+    },
+    render: function(){
         this.game.debug.body(this.player.sprite);
         this.player.lasers.forEachAlive(this.renderGroup, this);
     },
     renderGroup: function(member){
         this.game.debug.body(member);
-    }*/
+    }
 
 
 };

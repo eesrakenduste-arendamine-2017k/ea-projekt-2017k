@@ -17,6 +17,7 @@ Player.prototype = {
         this.game.physics.arcade.enable(this.sprite);
         this.sprite.scale.setTo(0.32, 0.32);
         this.sprite.anchor.setTo(0.5, 0.5);
+        this.sprite.body.setSize(140, 140, 15, 70);
         this.sprite.angle = 90;
         this.sprite.body.collideWorldBounds = true;
 
@@ -37,7 +38,7 @@ Player.prototype = {
         this.sprite.body.velocity.x = 0;
         this.sprite.body.velocity.y = 0;
         this.sprite.body.angularVelocity = 0;
-
+        console.log(this.sprite.angle);
         if (this.cursors.left.isDown){
             this.sprite.body.angularVelocity = -200;
         }
@@ -64,8 +65,8 @@ Player.prototype = {
             laser.reset(this.sprite.x, this.sprite.y);
             laser.anchor.setTo(0.5, 0.5);
             laser.body.setSize(4, 17, 0, 10);
-            laser.pivot.x = 0.2 * this.sprite.width;
-            laser.pivot.y =  this.sprite.height;
+            laser.pivot.x = 0.05 * this.sprite.width;
+            laser.pivot.y =  0.5 * this.sprite.height;
             this.game.physics.arcade.velocityFromAngle(this.sprite.angle - 90, 500, laser.body.velocity);
             laser.angle = this.sprite.angle;
         }
