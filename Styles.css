@@ -198,6 +198,10 @@ body {
   right: 0;
 }
 
+.carousel-caption{
+    position:static;
+}
+
 /*scrolling arrow bounce*/
 .order {
   position: absolute;
