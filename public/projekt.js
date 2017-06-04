@@ -312,7 +312,7 @@ function setPlayerName() {
 		playerName = "Nimetu";
 	}
 	document.getElementById("playerName").innerHTML = "MÄNGIJA: " + playerName;	
-	startTimer(60);
+	startTimer(100);
 	//generateExerciseMatrix();
 	generateRandomExerciseMatrix();
 }
@@ -374,6 +374,12 @@ function generateExerciseMatrix() {
 
 // **** GENEREERIB SUVALISE SUURUSEGA MAATRIKSID ****
 function generateRandomExerciseMatrix() {
+	
+	document.getElementById("exerciseMatrix1Container").style.visibility = "visible";
+	document.getElementById("exerciseMatrix2Container").style.visibility = "visible";
+	document.getElementById("exerciseMatrixAnswerContainer").style.visibility = "visible";
+	document.getElementById("exerciseMatrixPreAnswerContainer").style.visibility = "visible";
+	
 	
 	document.getElementById("beginGame").style.visibility = "hidden";
 	document.getElementById("justForDevs").style.visibility = "visible";
@@ -838,5 +844,7 @@ function tick() {
 	}
 	if (secs=0) {
 		resetScore();
+		clearInterval(ticker)
 	}
+	
 }

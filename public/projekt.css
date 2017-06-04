@@ -6,8 +6,8 @@ element <-- elemendi põjal
 
 body {
 	font-family:verdana;
-	/*height: 100%;
-	width: 100%;*/
+	height: 100%;
+	width: 100%;
 	margin: 5px;
     padding: 5px;
 	background-color:#ffffff;
@@ -52,7 +52,6 @@ tbody{
 	float:left;
 	clear:left;
 }
-
 
 #matrixContainer {
 	position: relative;
@@ -102,29 +101,37 @@ tbody{
 
 #exerciseMatrix1Container {
 	position: absolute;
+	
 	left: 10px;
 	top: 10px;
+	
 	border: none;
 }
 
 #exerciseMatrix2Container {
 	position: absolute;
+	
 	left: 10px;
 	top: 10px;
+	
 	border:none;
 }
 
 #exerciseMatrixAnswerContainer {
 	position: absolute;
+	
 	left: 10px;
 	top: 10px;
+	
 	border:none;
 }
 
 #exerciseMatrixPreAnswerContainer {
 	position: absolute;
+	
 	left: 10px;
 	top: 10px;
+	
 	border: none;
 }
 
