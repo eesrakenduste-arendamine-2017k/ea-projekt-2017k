@@ -10,8 +10,8 @@
 		<script src="projekt.js"></script>
 	</head>
 	<body>
-		<button class="gameButton" type="button" onclick="location.href='index.html'">Tagasi</button>
-		<button class="gameButton" type="button" onclick="viewTopPlayers()">TOP10</button>
+		<div type="button" class="OptionButtons" onclick="location.href='index.html'">Tagasi</div>
+		<div type="button" class="OptionButtons" onclick="viewTopPlayers()">TOP10</div>
 		
 		<!-- MAATRIKSITE MÄNG -->
 		
@@ -25,8 +25,8 @@
 			<div id="TotalSum">MAATRIKSEID KOKKU: 0</div>
 		</div>
 		
-		<button id="beginGame" type="button" onclick="setPlayerName()">Mängi</button>		
-
+			
+        <div id="beginGame" type="button" class="OptionButtons" onclick="setPlayerName()">Mängi</div>
 		<div id="exerciseMatrixContainer">
 			<!-- maatriksid, kus arvud ette antud -->
 			<div class="fit" id="exerciseMatrix1Container"><table id="exerciseMatrix1"></table></div>
@@ -37,8 +37,8 @@
 		</div>
 		
 		<!--RANDOMI VASTUSE KONTROLLIMINE-->
-		<button id="checkAndRestartRandom" type="button" onclick="checkMatrixAnswersRandom()">Kontrolli vastust</button>
-		<button id="justForDevs" type="button" onclick="justForDevsMatrixAnswers()">katsetamiseks täidab vastuse</button>
+		<div id="checkAndRestartRandom" type="button" class="OptionButtons" onclick="checkMatrixAnswersRandom()">Kontrolli vastust</div>
+		<div id="justForDevs" type="button" class="OptionButtons" onclick="justForDevsMatrixAnswers()">katsetamiseks täidab vastuse</div>
 		
 		<div id="scoreTable">
 			<table id="myTable">

@@ -9,7 +9,7 @@
 		<script src="projekt.js"></script>
 	</head>
 	<body>
-		<button type="button" onclick="location.href='index.html'">Tagasi</button>
+		<div type="button" class="OptionButtons" onclick="location.href='index.html'">Tagasi</div>
 		<!-- X on rida ja Y on veerg -->
 		<!-- MAATRIKSITE KALKULAATOR -->
 
@@ -53,20 +53,23 @@
 			</select>
 		</form>
 		
-		<button type="button" onclick="generateMatrix()">Genereeri maatriksid</button>
+		<div type="button" class="OptionButtons" onclick="generateMatrix()">Genereeri maatriksid</div>
 		
 		<div id="matrixContainer">
+			
 			<!-- maatriksid arvude sisestuseks -->
 			<div id="matrix1Container"><table id="matrix1"></table></div>
 			<div id="matrix2Container"><table id="matrix2"></table></div>
 			<!-- maatriksid vastuste genereerimiseks -->
 			<div id="matrixAnswerContainer"><table id="matrixAnswer"></table></div>
 			<div id="matrixFinalAnswerContainer"><table id="matrixFinalAnswer"></table></div>
+			
 		</div>
-		
-		<button id="checkAnswer" type="button" onclick="calculateMatrix()">Arvuta maatriksi vastus</button>
 		   
+		 <div id="checkAnswer" type="button" class="OptionButtons" onclick="calculateMatrix()">Arvuta maatriksi vastus</div>
+
 		<br><br><br>
-		<!--<script src="serviceWorker.js"></script>-->
+		
+			<!--<script src="serviceWorker.js"></script>-->
 	</body>
 </html>
