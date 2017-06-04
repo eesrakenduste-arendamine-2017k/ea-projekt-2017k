@@ -811,41 +811,47 @@ function updateScore() {
 	document.getElementById("playerName").innerHTML = "MÄNGIJA: " + playerName;
 }
 
-//MÄNGIJA TULEMUSTE SAATMINE SERVERILE
+//MÄNGIJA TULEMUSTE SAATMINE SERVERILE, ÜHENDUSE PUUDUMISE KORRAL LOCALSTORAGELE
 function sendDataToServer(object) {
-
-	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://www.heleri.eu', true);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			console.log(xhr.responseText);
-		} else {
-			saveStatsToLocalstorage(object)
-		}
-
-	}
-	xhr.send(object);
+    var xhr = new XMLHttpRequest();
+    xhr.timeout = 2000;
+    xhr.open('POST', 'http://www.heleri.eu/save', true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            console.log(xhr.responseText);
+            console.log("saadan serverisse")
+        }
+    }
+    xhr.send(object);
+    xhr.ontimeout = function(e) {
+        console.log("saadan localstoragesse")
+        saveStatsToLocalstorage(object)
+    };
 }
-
-//TOP10 TABELI JAOKS ANDMED SERVERIST
+//TOP10 TABELI JAOKS ANDMED SERVERIST VÕI ÜHENDUSE PUUDUMISE KORRAL LOCALSTORAGEST
 function viewTopPlayers() {
-
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var dB = JSON.parse(xhttp.responseText)
-				$("#myTable").remove();
-			createTable(dB)
-		} else {
-			$("#myTable").remove();
-			loadStatsFromLocalStorage()
-		}
-
-	};
-	xhttp.open("GET", "http://www.heleri.eu/top", true);
-	xhttp.send();
+    var xhr = new XMLHttpRequest();
+    xhr.timeout = 2000;
+    xhr.open("POST", "http://www.heleri.eu/load", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            console.log("tõmban serverist")
+            var dB = JSON.parse(xhr.responseText)
+            $("#myTable").remove();
+            createTable(dB)
+        }
+    };
+    xhr.send();
+    xhr.ontimeout = function(e) {
+        $("#myTable").remove();
+        loadStatsFromLocalStorage()
+        console.log("tõmban localstoragest")
+    };   
 }
+
+
 
 //UUE MÄNGU ALUSTAMINE(pole kõige parem meetod)
 

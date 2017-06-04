@@ -11,9 +11,10 @@ var fs = require("fs")
 		}))
 	app.use(bodyParser.json())
 	app.listen(3000);
+
 //andmete salvestamine dB.json faili
-app.post('/', function (req, res) {
-	res.send("test")
+app.post('/save', function (req, res) {
+	res.send("serveri pool: salvestamine")
 	dataBase.push(req.body)
 	dataBase.sort(function (a, b) {
 		return b.score - a.score;
@@ -23,10 +24,9 @@ app.post('/', function (req, res) {
 
 })
 
-//dB.json failist andmete lugemine kliendi poolele
-app.get('/top', function (req, res) {
-	console.log("request")
-	res.send(dataBase.slice(0, 10))
+
+app.post('/load', function (req, res) {
+	
+    res.send(dataBase.slice(0, 10))
 
 })
-console.log(dataBase);
