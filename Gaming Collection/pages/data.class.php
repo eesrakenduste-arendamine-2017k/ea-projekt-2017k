@@ -188,6 +188,23 @@ class data{
 				} 			
 	}	
 	
+
+			function dataentryChatroom ($email, $message, $date) {
+		
+		
+			$stmt = $this->connection->prepare("
+		
+				INSERT INTO chatRoom(email, message, posted) VALUE (?, ?, ?)
+			
+				");
+			echo $this->connection->error;
+		
+			$stmt->bind_param("sss", $email, $message, $date);
+		
+				if ($stmt->execute()){
+				echo "";
+				} 			
+	}
 	
 	
 	

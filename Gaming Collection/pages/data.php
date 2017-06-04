@@ -93,6 +93,11 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 						<font style="color:white">Edit</font>
 				</div>
 				<br>
+				<div class="row">
+					<button type="button" class="btn btn-block" style="background-color:black; vertical-align: middle;" onclick="window.location.href='chat.php'">
+						<font style="color:white">Chat</font>
+				</div>
+				<br>
 			<?php } ?>
 		<form method="POST">
 			<div class="row">
