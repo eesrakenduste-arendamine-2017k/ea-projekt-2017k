@@ -316,15 +316,20 @@ function calculateMatrixFinalAnswer() {
 // ||||| ----- ----- ----- ----- MAATRIKSITE HARJUTAMISE OSA ----- ----- ----- ----- |||||
 //mängija nime küsimine
 function setPlayerName() {
-	playerName = prompt("Sisesta mängija nimi");
-	if (playerName === null || playerName === "") {
+	playerName = prompt("Sisesta mängija nimi: ");
+	if (playerName === null) {
+        console.log("TEST");
+		return;
+    }
+	else if(playerName === "") {
 		playerName = "Nimetu";
 	}
+	else{
 	document.getElementById("playerName").innerHTML = "MÄNGIJA: " + playerName;	
 	startTimer(60);
 	//generateExerciseMatrix();
 	generateRandomExerciseMatrix();
-}
+}}
 
 // **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 function generateExerciseMatrix() {
@@ -780,6 +785,33 @@ function resetScore() {
 	updateScore();
 }
 
+//TULEMUSTE SALVESTAMINE LOCALSTORAGESSE
+function saveStatsToLocalstorage(dataObject) {
+    if (!localStorage["top"]) {
+        var arr = []
+        arr.push(dataObject)
+        localStorage.setItem("top", JSON.stringify(arr))
+    } else {
+        var arr = JSON.parse(localStorage.getItem("top"))
+        arr.push(dataObject)
+        var sorted = sortArray(arr)
+        localStorage.setItem("top", JSON.stringify(sorted));
+    }
+}
+
+function sortArray(arr) {
+    arr.sort(function(a, b) {
+        return b.score - a.score;
+    });
+    var sliceArray = arr.slice(0, 10)
+    return sliceArray
+}
+
+function loadStatsFromLocalStorage(){
+	var arr = JSON.parse(localStorage.getItem("top"))
+	createTable(arr)
+}
+
 function updateScore() {
 	document.getElementById("playerScore").innerHTML = "SKOOR: " + score;
 	document.getElementById("TotalSum").innerHTML = "MAATRIKSEID KOKKU: " + sumOfExercises;
@@ -797,9 +829,14 @@ function sendDataToServer(object) {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			console.log(xhr.responseText);
 		}
+		else{
+			saveStatsToLocalstorage(object)
+		}
+		
 	}
 	xhr.send(object);
 }
+
 
 //TOP10 TABELI JAOKS ANDMED SERVERIST
 function viewTopPlayers() {
@@ -810,6 +847,10 @@ function viewTopPlayers() {
 			var dB = JSON.parse(xhttp.responseText)
 				$("#myTable").remove();
 			createTable(dB)
+		}
+		else{
+				$("#myTable").remove();
+			loadStatsFromLocalStorage()
 		}
 	};
 	xhttp.open("GET", "http://www.heleri.eu/top", true);

@@ -6,8 +6,6 @@ element <-- elemendi põjal
 
 body {
 	font-family:verdana;
-	height: 100%;
-	width: 100%;
 	margin: 5px;
     padding: 5px;
 	background-color:#ffffff;
@@ -17,7 +15,7 @@ h1 {
 	color:#004080;
 }
 
-button, #optionButtons {
+#optionButtons {
     background-color:#004080;
     border: none;
     color: white;
@@ -27,6 +25,39 @@ button, #optionButtons {
     display: inline-block;
     font-size: 15px;
 	margin:10px;
+}
+
+button {
+   /* background-color:#004080;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+	margin:10px;
+	*/
+
+	background-color: #272788;
+	color: white;
+	padding: 5px 20px;
+	text-decoration: none;
+	display: inline-block;
+	margin: 4px 8px;
+	cursor: pointer;
+
+	text-align:center;
+	border-radius:6px;
+
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+    background-color: #221a54; 
+    color: white;
 }
 
 form {
@@ -104,6 +135,42 @@ tbody {
 .matrixAnswerInput {
 	width: 110px;
 }
+/*
+#exerciseMatrixContainer {
+	position: relative;
+	width:1500px;
+	height: 200px;
+	border:none;
+}
+
+#exerciseMatrix1Container {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border: none;
+}
+
+#exerciseMatrix2Container {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border:none;
+}
+
+#exerciseMatrixAnswerContainer {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border:none;
+}
+
+#exerciseMatrixPreAnswerContainer {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border: none;
+}
+*/
 
 #gameStats {
 	/*background-color: white;*/
@@ -112,7 +179,7 @@ tbody {
 	text-decoration: none;
 	/*display: inline-block;*/
 	margin: 4px 4px;
-	width:280px;
+	width:260px;
 	height:120px;
 	text-align:left;
 	border-radius:6px;

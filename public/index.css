@@ -32,6 +32,7 @@ body {
 	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+
 .optionButtons:hover {
     background-color: #221a54; 
     color: white;
@@ -45,4 +46,8 @@ body {
 	transform: translate(-50%, -50%); 
 	text-align: center;
 	display:flex;
+}
+
+.wrap {
+	text-align: left;
 }
