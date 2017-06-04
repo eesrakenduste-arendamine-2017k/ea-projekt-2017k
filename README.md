@@ -1,7 +1,7 @@
 # Eesrakenduste arendamine 2017k – projekt
 
 # Dark Space
-![alt text](https://raw.githubusercontent.com/rkajaste/ea-projekt-2017k/master/collage1.png)
+
 ## Liikmed
    Richard Kajaste, Ege-Rita Noor
 ## Eesmärk
