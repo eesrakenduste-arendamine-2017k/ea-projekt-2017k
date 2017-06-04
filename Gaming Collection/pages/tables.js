@@ -1,23 +1,48 @@
-window.onload = function(){
-	document.addEventListener("computerHeading").addEventListener("onclick", openComputer());
-	document.addEventListener("consoleHeading").addEventListener("onclick", openConsole());
-	document.addEventListener("portableHeading").addEventListener("onclick", openPortable());
-	document.addEventListener("boardHeading").addEventListener("onclick", openBoard());
-	document.addEventListener("cardHeading").addEventListener("onclick", openCard());
-}
+var computerContent = 0;
+var consoleContent = 0;
+var portableContent = 0;
+var boardContent = 0;
+var cardContent = 0;
 
-function openComputer(){
+window.onload = function(){
+	try{computerContent = document.getElementById("computerContent").innerHTML.length;}
+	catch(e){computerContent = 0}
 	
-}
-function openConsole(){
+	try{consoleContent = document.getElementById("consoleContent").innerHTML.length;}
+	catch(e){consoleContent = 0}
 	
-}
-function openPortable(){
+	try{portableContent = document.getElementById("portableContent").innerHTML.length;}
+	catch(e){portableContent = 0}
 	
-}
-function openBoard(){
+	try{boardContent = document.getElementById("boardContent").innerHTML.length;}
+	catch(e){boardContent = 0}
 	
-}
-function openCard(){
+	try{cardContent = document.getElementById("cardContent").innerHTML.length;}
+	catch(e){cardContent = 0}
 	
+	console.log(computerContent,
+		consoleContent,
+		portableContent,
+		boardContent,
+		cardContent);
+	if(computerContent>0){
+		document.getElementById("computerTable1").style.display = "inline-table";
+		document.getElementById("computerTable2").style.display = "inline";
+	}
+	if(consoleContent>0){
+		document.getElementById("consoleTable1").style.display = "inline-table";
+		document.getElementById("consoleTable2").style.display = "inline";
+	}
+	if(portableContent>0){
+		document.getElementById("portableTable1").style.display = "inline-table";
+		document.getElementById("portableTable2").style.display = "inline";
+	}
+	if(boardContent>0){
+		document.getElementById("boardTable1").style.display = "inline-table";
+		document.getElementById("boardTable2").style.display = "inline";
+	}
+	if(cardContent>0){
+		document.getElementById("cardTable1").style.display = "inline-table";
+		document.getElementById("cardTable2").style.display = "inline";
+	}
 }
