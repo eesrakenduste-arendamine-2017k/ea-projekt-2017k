@@ -77,6 +77,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 
 <?php require ("../header.php"); ?>
 <link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src = "tables.js"></script>
 
 <div class="container">
 	<div class="col-md-2">
@@ -111,7 +112,7 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 				</div>
 				<br>
 				<div class="row">
-					<input class="btn btn-success btn-block" type="submit" value="Submit">
+					<input class="btn btn-success btn-block" type="submit" value="Submit" id = "Submit">
 				</div>
 			</div>
 		</form>
