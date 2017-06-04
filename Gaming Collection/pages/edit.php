@@ -51,7 +51,8 @@
 <div class="container">
 	<div class="col-md-2">
 				<div class="row">
-					<button type="button" class="btn btn-block" style="background-color:black; vertical-align: middle;"><a href="data.php"><font style="color:white">Back</font></a>
+					<button type="button" class="btn btn-block" style="background-color:black; vertical-align: middle;" onclick="window.location.href='data.php'">
+						<font style="color:white">Back</font>
 				</div>
 				<br><br>
 			<form method="POST">

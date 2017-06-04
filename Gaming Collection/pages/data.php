@@ -84,11 +84,13 @@ $displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBo
 		<?php
 			if (isset($_SESSION["userId"])) {?>
 				<div class="row">
-					<button type="button" class="btn btn-block" style="background-color:black"><a href="?logout=1"><font style="color:white">Log out</font></a>
+					<button type="button" class="btn btn-block" style="background-color:black" onclick="window.location.href='?logout=1'">
+						<font style="color:white">Log out</font>
 				</div>
 				<br>
 				<div class="row">
-					<button type="button" class="btn btn-block" style="background-color:black; vertical-align: middle;"><a href="edit.php"><font style="color:white">Edit</font></a>
+					<button type="button" class="btn btn-block" style="background-color:black; vertical-align: middle;" onclick="window.location.href='edit.php'">
+						<font style="color:white">Edit</font>
 				</div>
 				<br>
 			<?php } ?>
