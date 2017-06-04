@@ -187,6 +187,116 @@ class data{
 				echo "Success";
 				} 			
 	}	
+	
+	
+	
+	
+	
+		function getCountDataComputer($email) {
+		
+
+		$stmt = $this->connection->prepare("
+			SELECT SUM(amount)
+			FROM trackComputer
+			WHERE email = ? 
+			AND deleted IS NULL
+			
+		");
+		$stmt->bind_param("s", $email);
+		$stmt->bind_result($amount);
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		
+		return $amount;
+		
+	}
+	
+		function getCountDataConsole($email) {
+		
+
+		$stmt = $this->connection->prepare("
+			SELECT SUM(amount)
+			FROM trackConsole
+			WHERE email = ? 
+			AND deleted IS NULL
+			
+		");
+		$stmt->bind_param("s", $email);
+		$stmt->bind_result($amount);
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		
+		return $amount;
+		
+	}
+	
+		function getCountDataPortable($email) {
+		
+
+		$stmt = $this->connection->prepare("
+			SELECT SUM(amount)
+			FROM trackPortable
+			WHERE email = ? 
+			AND deleted IS NULL
+			
+		");
+		$stmt->bind_param("s", $email);
+		$stmt->bind_result($amount);
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		
+		return $amount;
+		
+	}
+	
+		function getCountDataBoard($email) {
+		
+
+		$stmt = $this->connection->prepare("
+			SELECT SUM(amount)
+			FROM trackBoard
+			WHERE email = ? 
+			AND deleted IS NULL
+			
+		");
+		$stmt->bind_param("s", $email);
+		$stmt->bind_result($amount);
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		
+		return $amount;
+		
+	}
+	
+		function getCountDataCard($email) {
+		
+
+		$stmt = $this->connection->prepare("
+			SELECT SUM(amount)
+			FROM trackCard
+			WHERE email = ? 
+			AND deleted IS NULL
+			
+		");
+		$stmt->bind_param("s", $email);
+		$stmt->bind_result($amount);
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		
+		return $amount;
+		
+	}
+	
+	
+	
+	
+	
+	
 
 	function getAllDataComputer($email) {
 		

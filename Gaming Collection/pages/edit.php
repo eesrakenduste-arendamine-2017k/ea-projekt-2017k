@@ -1,5 +1,4 @@
 <?php
-	//edit.php
 	require("functions.php");	
 	$email = $_SESSION["userEmail"];
 	$gameID = "";

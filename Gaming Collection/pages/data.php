@@ -3,7 +3,6 @@ require ("functions.php");
 if (!isset($_SESSION["userId"])) {
 	header("Location: esileht.php");
 }
-
 	$email = $_SESSION["userEmail"];
 	$gameError = ""; 
 	$amountError = "";
@@ -11,6 +10,12 @@ if (!isset($_SESSION["userId"])) {
 	$amount = " ";
 	$selectionError = "";
 	$selection = "";
+	$displayComputer = 0;
+	$displayConsole = 0;
+	$displayPortable = 0;
+	$displayBoard = 0;
+	$displayCard = 0;
+	$displaySum = 0;
 	
 if (isset ($_POST["Game"]))
 		{
@@ -41,7 +46,7 @@ if($gameError == ""  &&
 					$data->dataentryComputer ($Helper->cleanInput($amount), $Helper->cleanInput($game), $Helper->cleanInput($email));}
 									
 				if($selection == "Console"){
-					$data->dataentryConsole ($Helper->cleanInput($amout), $Helper->cleanInput($game), $Helper->cleanInput($email));}	
+					$data->dataentryConsole ($Helper->cleanInput($amount), $Helper->cleanInput($game), $Helper->cleanInput($email));}	
 								
 				if($selection == "Portable"){
 					$data->dataentryPortable ($Helper->cleanInput($amount), $Helper->cleanInput($game), $Helper->cleanInput($email));}
@@ -54,8 +59,21 @@ if($gameError == ""  &&
 					
 					header("Location: data.php");}
 	
-
+ 
+$displayComputer = $data->getCountDataComputer($email);
+$displayConsole = $data->getCountDataConsole($email);
+$displayPortable = $data->getCountDataPortable($email);
+$displayBoard = $data->getCountDataBoard($email);
+$displayCard = $data->getCountDataCard($email);
+$displaySum = $displayComputer + $displayConsole + $displayPortable + $displayBoard + $displayCard;
  ?>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 <?php require ("../header.php"); ?>
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -99,7 +117,15 @@ if($gameError == ""  &&
 		</form>
 
 		<br><br>
-	//Tabelid
+		
+		<div class = "row" id = "counter" style ="Color:White; background-color: Black; border-style:dotted; text-align: center; font-weight:bold;"  >
+			<p> Computer = <?php echo $displayComputer ?> </p>
+			<p> Console = <?php echo $displayConsole ?> </p>
+			<p> Portable = <?php echo $displayPortable ?> </p>
+			<p> Board = <?php echo $displayBoard ?> </p>
+			<p> Card = <?php echo $displayCard ?> </p>
+			<p> SUM = <?php echo $displaySum ?> </p>
+		</div>
 		
 	</div>
 	
