@@ -5,6 +5,7 @@ Main.Game = function(){
     this.enemylist = [];
     this.enemies_onscreen = 5;
     this.timer = 0;
+    this.time = 0;
     this.spawn_rate = 2;
 };
 
@@ -25,6 +26,10 @@ Main.Game.prototype = {
 
     update: function(){
         this.timer += 1;
+        this.time = Math.floor(this.timer / 60);
+        if(this.timer % 60 === 0){
+            console.log(this.time)
+        }
         this.game.physics.arcade.collide(this.enemies);
         this.game.physics.arcade.collide(this.enemies, this.player.sprite);
         if(this.timer % (60*this.spawn_rate) === 0 && this.enemies.length < this.enemies_onscreen){
@@ -37,9 +42,6 @@ Main.Game.prototype = {
         //collision, actions here
         this.enemylist.forEach(function(enemy){
             enemy.update(this.player.sprite);
-            this.game.physics.arcade.overlap(this.player.sprite, enemy.lasers, function(p, e){
-                //p.kill();
-            }, null, this);
             this.game.physics.arcade.overlap(enemy.sprite, this.player.lasers, function(e, l){
                 e.kill();
                 this.enemies.remove(e)
@@ -47,11 +49,36 @@ Main.Game.prototype = {
                 this.enemylist.splice(index, 1);
 
             }, null, this);
+            this.game.physics.arcade.overlap(this.player.sprite, enemy.lasers, function(p, e){
+                //p.kill();
+                this.player.health = Number(this.player.health) - 1;
+            }, null, this);
         }, this);
 
+        this.stateCheck();
+
+    },
+
+    stateCheck: function(){
+        if(this.player.health === 0){
+            Main.playerdata.score = 0;
+            Main.playerdata.time = this.time;
+
+            Main.players[Main.players.length] = Main.playerdata;
+
+            localStorage.players = JSON.stringify(Main.players);
+
+            this.shutdown();
+        }
     }
+    ,
 
-
+    shutdown: function(){
+        this.enemies = null;
+        this.enemylist = [];
+        this.player = null;
+        this.game.state.start("Scoreboard");
+    }
     /*render: function(){
         this.game.debug.body(this.player.sprite);
         this.player.lasers.forEachAlive(this.renderGroup, this);

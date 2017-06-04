@@ -7,6 +7,7 @@ function Player(x, y, game){
     this.y = y;
     this.laserCooldown = 200;
     this.nextLaser = 0;
+    this.health = 1;
 }
 
 Player.prototype = {

@@ -10,6 +10,7 @@ Main.Menu.prototype = {
     create: function(){
         //create menu here
         //this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        Main.playerdata = {name: "", score: 0, time: 0};
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
         this.bg = this.game.add.sprite(0,0, 'menu');

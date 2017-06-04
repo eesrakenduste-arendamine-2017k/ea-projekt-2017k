@@ -1,7 +1,6 @@
 var Main = Main || {};
 
 Main.Name = function(){
-
 };
 
 Main.Name.prototype = {
@@ -17,9 +16,9 @@ Main.Name.prototype = {
 
         if (this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER).isDown) {
             if(this.name === ""){
-                localStorage.name = "Unknown";
+                Main.playerdata.name = "Unknown";
             } else {
-                localStorage.name = this.name;
+                Main.playerdata.name = this.name;
             }
             this.game.state.start("Game");
         } else {
