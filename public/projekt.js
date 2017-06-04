@@ -74,6 +74,11 @@ function urlB64ToUint8Array(base64String) {
 // **** ÜLDINE FUNKTSIOON MAATRIKSITE GENEREERIMISEKS ****
 function generateMatrix() {
 	document.getElementById("checkAnswer").style.visibility = "visible";
+	
+	//document.getElementById("matrix1Container").style.visibility = "Hidden"; 
+	//document.getElementById("matrix2Container").style.visibility = "Hidden"; 
+	document.getElementById("matrixAnswerContainer").style.visibility = "hidden"; 
+	document.getElementById("matrixFinalAnswerContainer").style.visibility = "hidden";
 
 	m1x = document.getElementById("m1x").value;
 	m1y = document.getElementById("m1y").value;
@@ -114,7 +119,6 @@ function generateMatrix() {
 		console.log("Ei saa arvutada");
 		alert("Ei saa genereerida, muuda maatriksite suuruseid!");
 	}
-
 }
 
 // **** FUNKTSIOON, MIS GENEREERIB ESIMESE MAATRIKSI ****
@@ -250,6 +254,10 @@ function createMatrixFinalAnswer() {
 
 // **** KÄIVITAB ARVUTAMISE ****
 function calculateMatrix() {
+	
+	document.getElementById("matrixAnswerContainer").style.visibility = "visible"; 
+	document.getElementById("matrixFinalAnswerContainer").style.visibility = "visible";
+	
 	calculateMatrixAnswer();
 	calculateMatrixFinalAnswer();
 }
@@ -277,11 +285,12 @@ function calculateMatrixAnswer() {
 			c = 1;
 		}
 	}
+	//calculateMatrixFinalAnswer();
 }
 
 // **** ARVUTAB MAATRIKSI VÄÄRTUSE ****
 function calculateMatrixFinalAnswer() {
-
+	
 	var c = 1;
 
 	for (var x = 1; x <= m1x; x++) {
@@ -312,7 +321,7 @@ function setPlayerName() {
 		playerName = "Nimetu";
 	}
 	document.getElementById("playerName").innerHTML = "MÄNGIJA: " + playerName;	
-	startTimer(100);
+	startTimer(60);
 	//generateExerciseMatrix();
 	generateRandomExerciseMatrix();
 }
@@ -764,7 +773,7 @@ function resetScore() {
 		"errors": errorCount,
 		"exercises": sumOfExercises
 	}
-																																	//sendDataToServer(JSON.stringify(gameData));
+																																	sendDataToServer(JSON.stringify(gameData));
 	score = 0;
 	sumOfExercises = 0;
 	errorCount = 0;
