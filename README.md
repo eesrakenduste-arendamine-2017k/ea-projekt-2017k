@@ -2,6 +2,7 @@
 
 # Dark Space
 ![alt text](https://raw.githubusercontent.com/rkajaste/ea-projekt-2017k/master/collage1.png)
+
 ## Liikmed
    Richard Kajaste, Ege-Rita Noor
 ## Eesmärk
@@ -20,5 +21,5 @@
    * v0.9 Surma saades saab koha edetabelis kui skoor piisavalt kõrge
    * v1.0 Mängus menüü, menüüs saad kas mängu siseneda või edetabelit vaadata
    * v1.1 Mängu sisenedes saab sisestada nime ja valida laeva
-
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
+## Skeem
+![alt text](https://raw.githubusercontent.com/rkajaste/ea-projekt-2017k/master/schema.png)
