@@ -7,8 +7,23 @@ window.onload = function(){
       document.querySelector('.login_error').style.display = 'none';
       document.querySelector('.empty_error').style.display = 'none';
       doEffect();
+      checkConnection();
+      setTimeout(function checkConnection(){
+        setTimeout(checkConnection, 10000);
+      });
    };
 
+function checkConnection(){
+
+    if(navigator.onLine===true) {
+      console.log("ühendus olemas!");
+      setTimeout(checkConnection, 10000);
+    } else {
+      alert("Interneti ühendus puudub!");
+      setTimeout(checkConnection, 10000);
+    }
+
+}
 
 function login(){
     username = document.getElementById('username').value;
