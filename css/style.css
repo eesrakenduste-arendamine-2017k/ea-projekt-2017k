@@ -66,6 +66,12 @@ hr {
     background-color: #333; /* Modern Browsers */
 }
 
+.whitePicture{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+}
+
 .bottom_BTN{
 	bottom: 80px;
 	position: absolute;
@@ -78,6 +84,11 @@ hr {
 	position: absolute;
 	height: 60px;
 	width: 100%;
+}
+
+.whitePic{
+	max-width: 340px;
+	text-align: center;
 }
 
 .center{
