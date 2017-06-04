@@ -49,16 +49,16 @@ Main.Game.prototype = {
             }, null, this);
         }, this);
 
-    },
+    }
 
 
-    render: function(){
+    /*render: function(){
         this.game.debug.body(this.player.sprite);
         this.player.lasers.forEachAlive(this.renderGroup, this);
     },
     renderGroup: function(member){
         this.game.debug.body(member);
-    }
+    }*/
 
 
 };
