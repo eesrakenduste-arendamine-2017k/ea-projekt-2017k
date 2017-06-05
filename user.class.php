@@ -49,7 +49,7 @@ class User {
 				$_SESSION["userEmail"] = $emailFromDb;
 				$_SESSION["userUsername"] = $usernameFromDb;
 
-				header("Location: data.php");
+				header("Location: index.html");
 				exit();
 			} else{
 				$notice = "Vale parool!";
@@ -60,7 +60,7 @@ class User {
 		}
 
 		return $notice;
-	
+
 	}
 
 	function signup($email, $username, $password) {
