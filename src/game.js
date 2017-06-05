@@ -4,14 +4,10 @@ window.onload = function() {
 	var game = new Phaser.Game(640, 480, Phaser.AUTO, "");
 
 	// Muutujad
-	var ship;
 	var shipGravity = 800;
 	var shipSpeed = 500;
 	var shipBoostPower = 350;
 	var rockInterval = 900;
-	var rockGroup;
-	var scoreText;
-    var topScore;
      
     var play = function(game){}
      
