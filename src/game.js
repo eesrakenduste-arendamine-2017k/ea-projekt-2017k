@@ -98,35 +98,38 @@ window.onload = function() {
 		game.state.start("Play");
 	}
 
-	// Funktsioon kivide lisamiseks
+	// Funktsioon kivi tekitamiseks
 	function addrock(){
+		// Kivi asukoht on random, vahemikus 0-480px
 		var rockPosition = game.rnd.between(0, 480);
 		var oneRock = new rock(game, 640, rockPosition, -shipSpeed);
 		game.add.existing(oneRock);
 		rockGroup.add(oneRock);
 	}
 
-	// Tekitan kivi
-	rock.prototype = Object.create(Phaser.Sprite.prototype);
-	rock.prototype.constructor = rock;
-
-	// Kutsun kivi välja ja muudan ta füüsiliseks objektiks
+	// Kutsun kivi välja, muudan ta füüsiliseks objektiks ja annan omadused
 	rock = function (game, x, y, speed) {
 		Phaser.Sprite.call(this, game, x, y, "rock");
 		game.physics.enable(this, Phaser.Physics.ARCADE);
 		this.body.velocity.x = speed;
 		this.giveScore = true;	
 	};
+	
+	// Tekitan kivi
+	rock.prototype = Object.create(Phaser.Sprite.prototype);
+	rock.prototype.constructor = rock;
 
-	// Kui laev läheb kivist mööda, annan punkti ja uuendan skoori
+	// Update parameetrid seoses kiviga
 	rock.prototype.update = function() {
+
+		// Kui laev läheb kivist mööda, annan punkti ja uuendan skoori
 		if(this.x + this.width < ship.x && this.giveScore){
 			score += 1;
 			updateScore();
 			this.giveScore = false;
 		}
 
-		// Kui kivi läheb mängu ekraanist välja, hävitan kivi
+		// Kui kivi läheb mängu piiridest välja, hävitan kivi
 		if(this.x<-this.width){
 			this.destroy();
 		}
