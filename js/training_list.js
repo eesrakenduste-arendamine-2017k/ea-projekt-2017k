@@ -14,7 +14,7 @@ window.onload = function(){
    };
 
   function getTraining(){
-
+    console.log(firebase.database().ref("Trainings/"+username).once('value', gotData));
     firebase.database().ref("Trainings/"+username).once('value', gotData);
 }
 
@@ -31,9 +31,11 @@ function checkConnection(){
 
 function gotData(data){
     exarray = data.val();
-    console.log(exarray);
+    console.log("esimene "+exarray);
+    if(exarray != null){
     exnames = Object.keys(exarray);
     console.log(exnames);
+    }
 }
 
 function printTrainings(){
@@ -52,7 +54,11 @@ function printTrainings(){
      document.querySelector('.list-of-schedules').style.display = 'none';
     document.querySelector('.sk-circle').style.display = 'block';
     t = setTimeout(function(){
+      if(exarray != null){
       printTrainings();
+      }else{
+
+      }
       document.querySelector('.sk-circle').style.display = 'none';
      document.querySelector('.list-of-schedules').style.display = 'block';
   }, 1000);
