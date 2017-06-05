@@ -104,13 +104,10 @@ window.onload = function() {
 
 	// Funktsioon kivide lisamiseks
 	function addrock(){
-		var rockHolePosition = game.rnd.between(0, 480);
-		/*var upperrock = new rock(game, 640, rockHolePosition-480, -shipSpeed);
-		game.add.existing(upperrock);
-		rockGroup.add(upperrock);*/
-		var lowerrock = new rock(game, 640, rockHolePosition, -shipSpeed);
-		game.add.existing(lowerrock);
-		rockGroup.add(lowerrock);
+		var rockPosition = game.rnd.between(0, 480);
+		var oneRock = new rock(game, 640, rockPosition, -shipSpeed);
+		game.add.existing(oneRock);
+		rockGroup.add(oneRock);
 	}
 
 	rock = function (game, x, y, speed) {
