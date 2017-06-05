@@ -177,7 +177,7 @@ $signupPasswordError = "";
 			$notice = $User->login($_POST["loginUsername"], $_POST["loginPassword"]);
 
 			if(isset($notice->success)){
- 				header("Location: signup.php");
+ 				header("Location: index.html");
  				exit();
  			}else {
  				$notice = $notice->error;
