@@ -187,8 +187,8 @@ $signupPasswordError = "";
 
 ?>
 <?php require("header.php"); ?>
-	<div class="container">
-	<div class="row">
+	<!--<div class="container">
+	<div class="row">-->
 
 <!DOCTYPE html>
 <html>
@@ -270,4 +270,3 @@ $signupPasswordError = "";
 
 	</body>
 </html>
-
