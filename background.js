@@ -63,10 +63,7 @@ function setSounds() {
         el.volume = '.3';
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 5a556059000dc3b140dee046b0685245de878887
 /*function setSounds() {
     var lines = sounds.split("\n");
     for (var i = 0, len = lines.length; i < len; i++) {
@@ -110,7 +107,7 @@ function defaultPrefs() {
         shouldRing: true,
         clickRestarts: false,
         whitelist: false
-    }
+    };
 }
 function loadPrefs() {
     if (typeof localStorage['prefs'] !== 'undefined') {
@@ -157,7 +154,7 @@ function loadRingIfNecessary() {
         RING.onload = function() {
             console.log('ring loaded');
             ringLoaded = true;
-        }
+        };
         RING.load();
     }
 }
@@ -199,12 +196,12 @@ function Pomodoro(options) {
         this.running = true;
         this.currentTimer = new Pomodoro.Timer(this, timerOptions);
         this.currentTimer.start();
-    }
+    };
     this.restart = function() {
         if (this.currentTimer) {
             this.currentTimer.restart();
         }
-    }
+    };
 }
 Pomodoro.Timer = function Timer(pomodoro, options) {
     var tickInterval, timer = this;
@@ -215,18 +212,18 @@ Pomodoro.Timer = function Timer(pomodoro, options) {
         tickInterval = setInterval(tick, 1000);
         options.onStart(timer);
         options.onTick(timer);
-    }
+    };
     this.restart = function() {
         this.timeRemaining = options.duration;
         options.onTick(timer);
-    }
+    };
     this.timeRemainingString = function() {
         if (this.timeRemaining >= 60) {
             return Math.round(this.timeRemaining / 60) + "m";
         } else {
             return (this.timeRemaining % 60) + "s";
         }
-    }
+    };
     function tick() {
         timer.timeRemaining--;
         options.onTick(timer);
@@ -236,7 +233,7 @@ Pomodoro.Timer = function Timer(pomodoro, options) {
             options.onEnd(timer);
         }
     }
-}
+};
 /*
   Views
 */
@@ -332,7 +329,7 @@ function executeInAllBlockedTabs(action) {
 }
 var notification, mainPomodoro = new Pomodoro({
     getDurations: function() {
-        return PREFS.durations
+        return PREFS.durations;
     },
     timer: {
         onEnd: function(timer) {
