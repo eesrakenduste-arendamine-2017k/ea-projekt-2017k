@@ -21,7 +21,7 @@ window.onload = function() { // lehe laadimisel paneb need funktsioonid t88le
     addClickListener();
     playAll();
     CheckboxCheck();
-    //Count();
+
 
 };
 
@@ -77,6 +77,40 @@ function getSoundsToPlay() {
     return soundsToPlay;
 
 }
+
+console.log(CheckboxCheck());
+
+
+function setSounds() {  //väljanägemine
+    var lines = sounds.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+        var name = lines[i];
+        var nr = CheckboxCheck[i];
+        var description = name.replace(/^(.)|\s(.)/g, function(name) {
+            return name.toUpperCase();
+        });
+
+
+        var br = document.createElement("br");
+        document.getElementById('checks').appendChild(br);
+        var inputElement = document.createElement('input');
+        inputElement.className = 'sound';
+        inputElement.id = name;
+        inputElement.type = 'checkbox';
+        document.getElementById('checks').appendChild(inputElement);
+
+        var newlabel = document.createElement("Label");
+        //newlabel.setAttribute("for", name);
+        newlabel.innerHTML = description;
+        document.getElementById('checks').appendChild(newlabel);
+
+        var newlabel2 = document.createElement("Label");
+        newlabel2.innerHTML = nr;
+        document.getElementById('checks').appendChild(newlabel2);
+
+
+   }
+}
 function CheckboxCheck() {
   var cbs = document.getElementsByClassName('sound');
   for(var i = 0; i < cbs.length; i++) {
@@ -84,11 +118,9 @@ function CheckboxCheck() {
 
   }
 }
-
 function ChangeInput(checkbox){
   checkbox.addEventListener('change', function(event) {
       if(event.target.checked)
-
           console.log(event.target.id);
           var history = [];
 
@@ -101,16 +133,24 @@ function ChangeInput(checkbox){
           history.push(event.target.id);
           localStorage.history = JSON.stringify(history);
 
-          var counts = {};
+          var counts = {};    //objekt
+          var numbers = [];  //massiiv
           result = JSON.parse(localStorage.history); //Parse teeb eraldi objektideks ehk massiiviks
+
           for(var i = 0, j = result.length; i < j; i++) {
+
             counts[result[i]] = (counts[result[i]] || 0) + 1;
               }
-              console.log(counts);
-              //document.getElementById('sound').innerHTML
-      });
+              //console.log(counts);
+              numbers[0] = counts.birds_in_rain;
+              numbers[1] = counts.jungle;
+              numbers[2] = counts.Light_rain_and_cricets;
+              numbers[3] = counts.seawaves;
+              numbers[4] = counts.shorebirds;
+              numbers[5] = counts.sunday_church;
+              return numbers;
+          });
 }
-
 function pauseAll() {
     chrome.extension.getBackgroundPage()
         .pauseAll();
@@ -128,29 +168,6 @@ function saveOnLocalStorage(soundsToPlay) {
 	    localStorage.playedSounds = JSON.stringify(soundsToPlay);
 	}
 
-function setSounds() {  //väljanägemine
-    var lines = sounds.split("\n");
-    for (var i = 0; i < lines.length; i++) {
-        var name = lines[i];
-        var description = name.replace(/^(.)|\s(.)/g, function(name) {
-            return name.toUpperCase();
-        });
-
-
-        var br = document.createElement("br");
-        document.getElementById('checks').appendChild(br);
-        var inputElement = document.createElement('input');
-        inputElement.className = 'sound';
-        inputElement.id = name;
-        inputElement.type = 'checkbox';
-        document.getElementById('checks').appendChild(inputElement);
-
-        var newlabel = document.createElement("Label");
-        newlabel.setAttribute("for", name);
-        newlabel.innerHTML = description;
-        document.getElementById('checks').appendChild(newlabel);
-    }
-}
 
 function checkPlayedSounds() {
     var storedPlayedSounds = ["playedSounds"].localStorage;

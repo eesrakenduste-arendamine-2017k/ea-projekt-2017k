@@ -63,8 +63,6 @@ function setSounds() {
         el.volume = '.3';
     }
 }
-<<<<<<< HEAD
-=======
 /*function setSounds() {
     var lines = sounds.split("\n");
     for (var i = 0, len = lines.length; i < len; i++) {
