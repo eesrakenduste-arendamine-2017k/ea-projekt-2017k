@@ -35,21 +35,21 @@ $loginUsernameError = "";
 
 	}
 
-$loginEmailError = "";
-	$loginEmail = "";
+$loginUsernameError = "";
+	$loginUsername = "";
 
-	if (isset ($_POST["loginEmail"])) {
+	if (isset ($_POST["loginUsername"])) {
 
 		// oli olemas, ehk keegi vajutas nuppu
 		//kas oli tühi
-		if (empty ($_POST["loginEmail"])) {
+		if (empty ($_POST["loginUsername"])) {
 
 			//oli tõesti tühi
 			$loginEmailError = "See väli on kohustuslik";
 
 		} else {
 			//kõik korras, kasutaja koht ei ole tühi ja on olemas
-			$loginEmail = $_POST["loginEmail"];
+			$loginEmail = $_POST["loginUsername"];
 
 		}
 
