@@ -1,19 +1,33 @@
 window.onload = function () {
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    var dt = JSON.parse(localStorage.getItem("sweets"));
+
+    var start = new Date();
+    start.setHours(0,0,0,0);
+
+    var end = new Date();
+    end.setHours(23,59,59,999);
+
+
+
+    var data = {
         datasets: [{
-            label: 'apples',
-            data: [12, 19, 3, 17, 6, 3, 7],
-            backgroundColor: "rgba(153,255,51,0.6)"
-        }, {
-            label: 'oranges',
-            data: [2, 29, 5, 5, 2, 3, 10],
-            backgroundColor: "rgba(255,153,0,0.6)"
-        }]
-    }
-});
+            data: [10, 20, 30]
+        }],
+
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'Red',
+            'Yellow',
+            'Blue'
+        ]
+    };
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myPieChart = new Chart(ctx,{
+        type: 'pie',
+        data: data,
+        options: Chart.pie.default
+    });
+
+
 };

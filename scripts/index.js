@@ -12,13 +12,13 @@ function Master() {
     this.sleep_tiktok = 0;
     this.sport_tiktok = 0;
 
-    this.spent_sleeping = 0;
-    this.spent_sportig = 0;
+    this.spent_sleeping = {start: 0, end: 0};
+    this.spent_sportig = {start: 0, end: 0};
 
-    this.coffe_count = 0;
-    this.junkfood_count = 0;
-    this.meal_count = 0;
-    this.sweets_count = 0;
+    this.coffe_count = [];
+    this.junkfood_count = [];
+    this.meal_count = [];
+    this.sweets_count = [];
 
     this.registerServiceWorker();
 
@@ -36,37 +36,36 @@ Master.prototype = {
         document.getElementById("btn6").addEventListener("click", this.add_sporttimer.bind(this));
 
         setInterval(function () {
-            var dt = new Date().getTime();
-            localStorage.setItem("sport", JSON.stringify({date: dt, sport: master.spent_sportig}));
-            localStorage.setItem("sleeping", JSON.stringify({date: dt, sleep: master.spent_sleeping}));
-            localStorage.setItem("sweets", JSON.stringify({date: dt, sweets: master.sweets_count}));
-            localStorage.setItem("coffe", JSON.stringify({date: dt, coffe: master.coffe_count}));
-            localStorage.setItem("meal", JSON.stringify({date: dt, meal: master.meal_count}));
-            localStorage.setItem("junkfood", JSON.stringify({date: dt, junkfood: master.junkfood_count}));
+            localStorage.setItem("sport", JSON.stringify({sport: master.spent_sportig}));
+            localStorage.setItem("sleeping", JSON.stringify({sleep: master.spent_sleeping}));
+            localStorage.setItem("sweets", JSON.stringify({sweets: master.sweets_count}));
+            localStorage.setItem("coffe", JSON.stringify({coffe: master.coffe_count}));
+            localStorage.setItem("meal", JSON.stringify({meal: master.meal_count}));
+            localStorage.setItem("junkfood", JSON.stringify({junkfood: master.junkfood_count}));
 
         }, 5000);
 
     },
 
     increase_coffee: function () {
-        this.coffe_count++;
+        this.coffe_count.push(Date.now());
         console.log("Coffee", this.coffe_count);
     },
 
     increase_junkfood: function () {
-        this.junkfood_count++;
+        this.junkfood_count.push(Date.now());
         console.log("Junkfood", this.junkfood_count);
 
     },
 
     increase_meal: function () {
-        this.meal_count++;
+        this.meal_count.push(Date.now());
         console.log("Meal", this.meal_count);
 
     },
 
     increase_sweets: function () {
-        this.sweets_count++;
+        this.sweets_count.push(Date.now());
         console.log("Sweets", this.sweets_count);
 
     },
@@ -74,28 +73,24 @@ Master.prototype = {
     add_sleeptimer: function () {
         if (this.sleep_on === 0) {
             this.sleep_on = 1;
-            this.sleep_tiktok = setInterval(function () {
-                master.spent_sleeping++;
-                console.log("Sleeping", master.spent_sleeping)
-            }, 1000);
+            this.spent_sleeping.start = Date.now();
         } else {
             this.sleep_on = 0;
-            clearInterval(this.sleep_tiktok)
+            this.spent_sleeping.end = Date.now();
         }
     },
 
     add_sporttimer: function () {
         if (this.sport_on === 0) {
             this.sport_on = 1;
-            this.sport_tiktok = setInterval(function () {
-                master.spent_sportig++;
-                console.log("Sporting", master.spent_sportig)
-            }, 1000);
+                this.spent_sportig.start = Date.now();
         } else {
             this.sport_on = 0;
-            clearInterval(this.sport_tiktok);
+            this.spent_sportig.end = Date.now();
+
         }
     },
+
 
     registerServiceWorker: function () {
         if ('serviceWorker' in navigator) {

@@ -9,17 +9,11 @@ html,body {
     min-height:100%;
 }
 
-.trigger-button{
-    float:left;
-    background-color: crimson;
-    height: 100%;
+.col-sm-4{
+    height: 300px;
+    text-align: center;
+    font-size: xx-large;
+    vertical-align: middle;
+    line-height: 200px;
 }
-
-#cont{
-    height: 100%;
-}
-
-
-
-
 

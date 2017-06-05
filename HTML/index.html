@@ -46,19 +46,27 @@
 	</div>
 
 </nav>
-<div class="container-fluid">
-	<h1>Hello World!</h1>
-	<p>Resize the browser window to see the effect.</p>
-	<div id="cont" class="row">
+<div id="cont" class="container-fluid">
+	<div class="row">
 		<div id="btn1" class="col-sm-4" style="background-color:lavender;">COFFEE</div>
 		<div id="btn2" class="col-sm-4" style="background-color:lavenderblush;">JUNKFOOD</div>
 		<div id="btn3" class="col-sm-4" style="background-color:lavender;">SWEETS</div>
+	</div>
+
+	<div class="row">
 		<div id="btn4" class="col-sm-4" style="background-color:#f7faa6;">MEAL</div>
 		<div id="btn5" class="col-sm-4" style="background-color:#fa9493;">SLEEP</div>
 		<div id="btn6" class="col-sm-4" style="background-color:#f9cbfa;">SPORT</div>
-
 	</div>
 </div>
+
+
+<script>
+    // https://stackoverflow.com/users/54680/sampson
+    // https://stackoverflow.com/questions/6536797/jquery-apply-css-style-to-all-elements-within-specifed-div
+    $('#cont').find('.col-sm-4').width(window.innerWidth);
+    $('#cont').find('.col-sm-4').height(window.innerHeight * 0.17);
+</script>
 
 </body>
 </html>
