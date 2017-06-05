@@ -5,6 +5,7 @@ var completeSVG = '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.or
 document.getElementById('add').addEventListener('click', function() {
   var value = document.getElementById('note').value;
   if (value) addNoteTodo(value);
+  document.getElementById('note').value='';
 });
 
 function removeNote(){
