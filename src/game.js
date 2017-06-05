@@ -43,7 +43,7 @@ window.onload = function() {
 
 			// Loon muutujad skoori pidamiseks
 			score = 0;
-			topScore = localStorage.getItem("topSpacebirdScore")==null?0:localStorage.getItem("topSpacebirdScore");
+			topScore = localStorage.getItem("topSpacerunScore")==null?0:localStorage.getItem("topSpacerunScore");
 			scoreText = game.add.text(10, 10, "0", { font:"16px Arial", fill: "#ffffff"	});
 
 			// Kui mäng algab, uuenda skoorid
@@ -94,7 +94,7 @@ window.onload = function() {
 
 	// Funktsioon mängu lõpetamiseks ja uuesti alustamiseks
 	function gameOver(){
-		localStorage.setItem("topSpacebirdScore", Math.max(score,topScore));
+		localStorage.setItem("topSpacerunScore", Math.max(score,topScore));
 		game.state.start("Play");
 	}
 
@@ -106,23 +106,27 @@ window.onload = function() {
 		rockGroup.add(oneRock);
 	}
 
+	// Tekitan kivi
+	rock.prototype = Object.create(Phaser.Sprite.prototype);
+	rock.prototype.constructor = rock;
+
+	// Kutsun kivi välja ja muudan ta füüsiliseks objektiks
 	rock = function (game, x, y, speed) {
 		Phaser.Sprite.call(this, game, x, y, "rock");
 		game.physics.enable(this, Phaser.Physics.ARCADE);
 		this.body.velocity.x = speed;
 		this.giveScore = true;	
 	};
-	
-	// Tekitan kivi
-	rock.prototype = Object.create(Phaser.Sprite.prototype);
-	rock.prototype.constructor = rock;
 
+	// Kui laev läheb kivist mööda, annan punkti ja uuendan skoori
 	rock.prototype.update = function() {
 		if(this.x + this.width < ship.x && this.giveScore){
 			score += 1;
 			updateScore();
 			this.giveScore = false;
 		}
+
+		// Kui kivi läheb mängu ekraanist välja, hävitan kivi
 		if(this.x<-this.width){
 			this.destroy();
 		}
