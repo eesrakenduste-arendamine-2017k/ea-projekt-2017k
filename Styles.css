@@ -204,9 +204,9 @@ body {
 
 /*scrolling arrow bounce*/
 .order {
-  position: absolute;
   top: 80%;
   left: 47%;
+  background-color: inherit;
   text-align:center;
   color: white;
   -webkit-animation: bounce .3s infinite alternate;

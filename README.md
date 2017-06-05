@@ -17,3 +17,10 @@ Selle jaoks tegimegi sellise app-i, millega saab salvestada reaalelulisi sündmu
 
 ## Andmete liikumise skeem
 
+![Alt text](Images/Andmeskeem.PNG?raw=true "Andmeskeem")
+
+## Kättesaadavus
+
+Rakendus on kättesaadav järgmiselt:
+
+Greeny -  http://greeny.cs.tlu.ee/~krisliiv/Eesrakendused/ea-projekt-2017k/Homepage.html
