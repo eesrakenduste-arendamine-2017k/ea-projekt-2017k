@@ -1,39 +1,21 @@
-# Eesrakenduste arendamine 2017k – projekt
+# 3. kodutöö – Chrome extension
 
-## Tähtaeg 
+Kodutööna peab looma Chrome extension'i selliselt, et nõuded oleksid täidetud.
 
-Valitud eksamipäev
+**Töö võib teha ka kahekesi, kuid siis peab GitHubis nägema, kes mida tegi!**
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
+## Nõuded
 
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
+1. Kirjelda README.md failis, mida rakendus teeb
+1. Rakendus peab tegema veebilehe/veebirakenduse kas ilusamaks, mugavamaks või huvitamaks
+1. Peab oleama piisavalt keerukas (midagi enemat kui tunnis tegmine)
+1. Rakendus peab salvestama andmeid serverisse (võib lahendada praegu laisalt ilma autentimiseta, kasuta nt [firebase](https://firebase.google.com/))
+1. Ole loominguleine, näiteks põnevad asjad millele saab brauser ligi
+    - bluetooth, sh pulsivöö
+    - mikrofon [näide](https://www.talater.com/annyang/)
+    - webcam [näide](https://revealjs.herokuapp.com/#/0/1)
 
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
+## Täiendav abimaterjal
 
-### Nõuded
-
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
-
-2. **Veebirakenduse nõuded:**
-    * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;
-    * andmeid talletatakse lisaks kohalikule (nt localStorage) ka serveripool (soovitatavalt andmebaasi või faili) – AJAX + serveripoolel nt PHP, Java, Node;
-    * Mugavalt kasutatav ka mobiilselt seadmelt;
-    * muutujad/tabelid on inglise keeles;
-    * rakendus on piisava funktsionaalsusega ja turvaline – eelnev kokkulepe õppejõuga, mis saab valmis;
-    * kood on jaotatud vajadusel eri failidesse ja kood on kokkupakitud kujul (ingl _minified_);
-
-3. **Funktsionaalsus**
-    * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+* Chrome extension API [JavaScript APIs](https://developer.chrome.com/extensions/api_index/)
+* Chrome extension'ite näited [Sample Extensions](https://developer.chrome.com/extensions/samples/)
