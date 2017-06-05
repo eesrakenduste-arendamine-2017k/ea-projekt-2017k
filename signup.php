@@ -1,6 +1,6 @@
 <?php
 
-	require("/functions.php");
+	require("functions.php");
 
 	require("Helper.class.php");
 	$Helper = new Helper();
@@ -186,7 +186,7 @@ $signupPasswordError = "";
 	}
 
 ?>
-<?php require("../header.php"); ?>
+<?php require("header.php"); ?>
 	<div class="container">
 	<div class="row">
 
@@ -271,4 +271,3 @@ $signupPasswordError = "";
 	</body>
 </html>
 
-<?php require("../footer.php"); ?>
