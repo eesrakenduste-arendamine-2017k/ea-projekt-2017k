@@ -1,0 +1,1 @@
+if(typeof Math.rangeInt!='function'){Math.rangeInt=function(min,max){if(max==undefined){max=min;min=0;} return Math.floor(Math.random()*(max-min+1))+min;}} if(typeof Object.merge!='function'){Object.merge=function(o1,o2){for(var i in o1){o2[i]=o1[i];} return o2;}}
