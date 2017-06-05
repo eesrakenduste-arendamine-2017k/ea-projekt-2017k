@@ -72,7 +72,7 @@ $loginPasswordError = "";
 
 			//oli midagi, ei olnud tühi
 
-			// kas pikkus vähemalt 4
+			// kas pikkus vähemalt 8
 			if (strlen ($_POST["loginPassword"]) < 8 ) {
 
 				$loginPasswordError = "Parool peab olema vähemalt 8 tm pikk!";
