@@ -5,9 +5,9 @@ window.onload = function() {
 
 	// Muutujad
 	var shipGravity = 800;
-	var shipSpeed = 500;
+	var shipSpeed = 400;
 	var shipBoostPower = 350;
-	var rockInterval = 900;
+	var rockInterval = 1250;
      
     var play = function(game){}
      
