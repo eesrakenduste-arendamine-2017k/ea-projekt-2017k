@@ -3,7 +3,6 @@
 ## MAATRIKSITE KALKULAATOR
 
 ### Liikmed:
-Karl-Erik Borkmann,  Heleri Mändla, Mattias Blehner
 
 ### Eesmärk 
 Meie projekti eesmärgiks oli koostada maatriksite kalkulaator, millega oleks võimalik arvutada kuni 5x5 suuruses maatrikseid. Lisaks tegime sellest ka väikse mängu, mis aitaks muuta arvutamise lahedaks ja ka natuke arusaadavamaks.
