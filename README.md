@@ -1,31 +1,25 @@
 # Eesrakenduste arendamine 2017k – projekt
 
-## Tähtaeg 
+## Tähtaeg:
+  05.06
 
-Valitud eksamipäev
+  POOMISMÄNG veebirakendus
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
+  viide hangman koodi algsele põhjale: https://codepen.io/anon/pen/WjBOaX
 
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
+* Tõnu Trubetsky, Lauri Valma, Brigitta Kannel
 
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
+* klassikaline poomismäng:
+  1.mängija peab tähestikust valides arvama ära mis on ette antud sõnade kombinatsioon.
+  2.vihjeks on antud kategooria ja lisaks saab kasutada ka lisa vihje kuvamiseks nuppu.
+  3.valesti valitud tähtede puhul hakkab kanvasele kriipsujukut üles pooma.
 
-### Nõuded
+* funktsionaalsuse loetelu prioriteedi järjekorras:
+    * v0.1 sõnad ja kategooriad eesti keeles
+    * v0.2 salvestab skoori andmebaasi ja edetabelisse
+    * v0.3 esileht kus saab mängija nime sisestada ja kategooria valida, edetabelit kuvada.
 
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
+* andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
 
 2. **Veebirakenduse nõuded:**
     * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;

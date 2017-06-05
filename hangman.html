@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Barrio|Cinzel|Kumar+One|Monoton|Montserrat+Subrayada|Special+Elite" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Poomismäng</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="hangman.js" async></script>
+    <script>
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="gameHolder">
+        <p id="categoryName"></p>
+        <div id="hold"></div>
+        <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+      </div>
+      <div id="buttons"></div>
+      <p id="gameState"></p>
+
+      <div id="player">
+        <p id="showScore">skoor:</p>
+        <p id="mylives">Elud:</p>
+      </div>
+        <p id="clue"></p>
+        <p id="gameOverState"></p>
+        <button id="hint">Vihje</button>
+        <button id="reset" class="reset">Mängi uuesti!</button>
+        <button id="back" class="back" onclick="location.href='index.html'">Tagasi</button>
+        <!--<button id="mute" onclick="">Mute</button>-->
+
+    </div>
+
+    <audio id="rightSound"><source src="sounds/Tiny Button Push-SoundBible.com-513260752.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+    <audio id="wrongSound"><source src="sounds/winxp_error.mp3" type="audio/mp3"></audio>
+    <audio id="gameOver"><source src="sounds/wilhelm scream.wav" type="audio/wav"></audio>
+    <audio id="winSound"><source src="sounds/csi win.mp3" type="audio/mp3"></audio>
+    <audio id="fatality"><source src="sounds/Fatality-Sound-Effect-Mortal-Kombat.mp3" type="audio/mp3"></audio>
+    <audio id="backgroundMusic"><source src="sounds/bensound-instinct.mp3" type="audio/mp3"></audio>
+
+  </body>
+</html>
