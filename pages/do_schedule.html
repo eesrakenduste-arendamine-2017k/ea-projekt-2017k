@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trenn</title>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+	<script type="text/javascript" src = "../js/gettraining.js" ></script>
+  <script type="text/javascript" src = "../js/firebase.js" ></script>
+  <script type="text/javascript" src = "../js/config.js" ></script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body>
+	<div class="schedulepage">
+  <div id=kava>
+
+	  <h1>Harjutus </h1>
+		<input class="readonly" id="exercise" readonly>
+	<div class="rep1">
+			<p>I</p>
+		  <img id="rep1_minus" src="../pictures/minus.png" class="pic" alt="minus">
+			<input id="rep1_x" type="number" class="small_number" value="10" min ="1" max="40" readonly>
+			<img id="rep1_plus" src="../pictures/plus.png" class="pic" alt="minus">
+			<input type="number" id="set1weight" placeholder="raskus (kg)"><br>
+			<p id="rep1" class="lastrep"></p>
+	</div>
+	<hr>
+	<div class="rep2">
+			<p>II</p>
+		  <img id="rep2_minus" src="../pictures/minus.png" class="pic" alt="minus">
+			<input id="rep2_x" type="number" class="small_number" value="10" min ="1" max="40" readonly>
+			<img id="rep2_plus" src="../pictures/plus.png" class="pic" alt="minus">
+			<input type="number" id="set2weight" placeholder="raskus (kg)"><br>
+			<p id="rep2" class="lastrep"></p>
+	</div>
+	<hr>
+	<div class="rep3">
+			<p>III</p>
+		  <img id="rep3_minus" src="../pictures/minus.png" class="pic" alt="minus">
+			<input id="rep3_x" type="number" class="small_number" value="10" min ="1" max="40" readonly>
+			<img id="rep3_plus" src="../pictures/plus.png" class="pic" alt="minus">
+			<input type="number" id="set3weight" placeholder="raskus (kg)"><br>
+			<p id="rep3" class="lastrep"></p>
+	</div>
+
+	</div> <br>
+
+
+  <button onclick="getnextex()">Järgmine harjutus</button><br>
+	<button class="button3" onclick="location.href='home.html?username='+username;" class="btn">Katkesta treening</button><br>
+</div>
+	<div class="sk-circle">
+	<div class="sk-circle1 sk-child"></div>
+	<div class="sk-circle2 sk-child"></div>
+	<div class="sk-circle3 sk-child"></div>
+	<div class="sk-circle4 sk-child"></div>
+	<div class="sk-circle5 sk-child"></div>
+	<div class="sk-circle6 sk-child"></div>
+	<div class="sk-circle7 sk-child"></div>
+	<div class="sk-circle8 sk-child"></div>
+	<div class="sk-circle9 sk-child"></div>
+	<div class="sk-circle10 sk-child"></div>
+	<div class="sk-circle11 sk-child"></div>
+	<div class="sk-circle12 sk-child"></div>
+	</div>
+</body>
+</html>

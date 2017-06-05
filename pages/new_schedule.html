@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Loo kava</title>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script type="text/javascript" src = "../js/savetraining.js" ></script>
+  <script type="text/javascript" src = "../js/firebase.js" ></script>
+  <script type="text/javascript" src = "../js/config.js" ></script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+
+
+
+</head>
+<body>
+
+	<h1 style="color: black"></h1>
+	<img src="../pictures/logo.png" alt="logo">
+	<div class="saving">
+  <div id=kava><br>
+		<p class="schedule_error errors">Harjutusel peab olema nimi!</p>
+		<p class="scheduletext_error errors">Harjutuse nimi peab olema tekstikujul!</p>
+		<p class="length_error errors">Harjutuse nime max pikkus 20</p>
+
+	  <p>Treening <input class="readonly" id="trainingID" readonly></p> <br>
+	  <p>Harjutus <input class="readonly" id="exerciseNR" value=1 readonly> </p> <br>
+
+  Harjutuse nimi<input  id="exercise"><br>
+  Kirjeldus <input id="description"><br>
+
+	</div> <br>
+  <button class="" onclick="saveTraining()">Järgmine</button><br>
+  <button onclick="saveTrainingLast()">Valmis</button><br>
+</div>
+	<div class="sk-circle">
+	<div class="sk-circle1 sk-child"></div>
+	<div class="sk-circle2 sk-child"></div>
+	<div class="sk-circle3 sk-child"></div>
+	<div class="sk-circle4 sk-child"></div>
+	<div class="sk-circle5 sk-child"></div>
+	<div class="sk-circle6 sk-child"></div>
+	<div class="sk-circle7 sk-child"></div>
+	<div class="sk-circle8 sk-child"></div>
+	<div class="sk-circle9 sk-child"></div>
+	<div class="sk-circle10 sk-child"></div>
+	<div class="sk-circle11 sk-child"></div>
+	<div class="sk-circle12 sk-child"></div>
+	</div>
+
+
+
+</body>
+</html>
