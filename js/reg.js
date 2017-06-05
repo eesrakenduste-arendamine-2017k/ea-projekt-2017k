@@ -1,4 +1,3 @@
- //var database = firebase.database();
 var a;
 var username;
 var password;
@@ -18,7 +17,7 @@ window.onload = function(){
     document.querySelector('.signup').style.display = 'block';
 };
 
-function saveuser(){
+function saveusers(){
     //doEffect();
     username = document.getElementById('username').value;
     password = document.getElementById('password').value;
@@ -31,8 +30,7 @@ function saveuser(){
     //setTimeout(saveUser, 2000);
     //saveUser();
     if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
-      checkUsername();
-      setTimeout(saveUser(),100);
+      saveUser();
     }else{
        allfieldsError();
     }
@@ -41,32 +39,21 @@ function saveuser(){
 
 function saveUser(){
 
-  //console.log("a="+a);
-  /*if(username !== '' && password !== '' && password1 !== '' && firstname !== '' && surename !== '' && birthdate !== '' && weight !== ''){
-    checkUsername();
-    console.log("T6hjasi v2ljasi ei ole");*/
     if((isNaN(username)===true) && (isNaN(password)===true) && (isNaN(password1)===true) && (isNaN(firstname)===true) && (isNaN(surename)===true) && (isNaN(birthdate)===true)){
       console.log("Kõik tekstiväljad on teksti kujul");
   if(password==password1){
-      if(a == 'OK'){
         doEffect();
         writeUserData(username, password, firstname, surename, birthdate, weight);
-        window.location.href= 'reg_login.html';
+        setTimeout(function(){window.location.href= 'reg_login.html';}, 2000);
         console.log("Kasutaja salvestamine õnnestus");
         //clearTimeout(t);
-
-      }else{
-        usernameError();
-      }
     }else{
       passwordError();
     }
   }else{
     textfieldsError();
   }
-  /*}else{
-    allfieldsError();
-  }*/
+ 
 }
 function writeUserData(username, password, firstname, surename, birthdate, weight, id) {
   firebase.database().ref("userinfo/"+username).set({
@@ -80,31 +67,7 @@ function writeUserData(username, password, firstname, surename, birthdate, weigh
   });
 }
 
-function checkUsername(){
-    console.log("kasutaja kontroll");
-    username = document.getElementById("username").value;
-    firebase.database().ref("userinfo").child(username).once('value', function(snapshot) {
-        if(snapshot.exists()){
-            a = "x";
-            console.log("olemas");
-        }else{
-            a = "OK";
-            console.log("ei ole olemas");
-        }
-    });
-}
 
-function getInfo(){
-    var user = document.getElementById("user").value;
-    firebase.database().ref("userinfo").child(user).once('value', function(snapshot) {
-        if(snapshot.exists()){
-            s = snapshot.val().Weight;
-        }else{
-            s = "puudub";
-        }
-    document.getElementById('value').innerHTML = s;
-    });
-}
 
 function doEffect(){
   document.querySelector('.signup').style.display = 'none';
