@@ -1,0 +1,66 @@
+<style>
+body {
+min-width: 400px;
+min-height: 430px;
+color:yellow;
+background-color:lightblue;}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kodutööde andmebaas</title>
+  <script src="app.js" charset="utf-8"></script>
+ 
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <nav class="menu">
+    <ul class="menu-list">
+      <li class="menu-item"><a href="#home-view" class="menu-link home-view active-menu">Avaleht</a></li>
+      <li class="menu-item"><a href="#list-view" class="menu-link list-view">Loend</a></li>
+      <li class="menu-item"><a href="#manage-view" class="menu-link manage-view">Sisestus</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <div id="list-view">
+      <h1>Loend</h1>
+      <input type="search" placeholder="Otsi..." id="search"><br><br>
+      <ul class="list-of-homeworks"></ul>
+      </div>
+
+
+    </div>
+
+    </div>
+    <div id="manage-view">
+      <h1>Haldus</h1>
+
+      <label for="subject">Aine: </label><br>
+      <input type="text" name="subject" class="subject"><br>
+
+      <label for="title">Mida vaja teha? </label><br>
+      <input type="text" name="title" class="title"><br>
+	  
+	   <label for="date">Tähtaeg </label><br>
+      <input type="date" name="date" class="date"><br>
+
+      <button class="add-new-homework pull-right">Lisa uus kodutöö</button>
+
+    </div>
+
+    <div id="home-view">
+      <h1>Avaleht</h1>
+	  <p>See laiendus on loodud selleks, et tudengid saaksid oma kodutöid meeles pidada.</p>
+    </div>
+
+  </main>
+
+</body>
+</html>

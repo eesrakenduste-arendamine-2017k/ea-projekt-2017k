@@ -1,0 +1,14 @@
+{
+  "name": "Homework manager",
+  "version": "1.0", 
+  "manifest_version": 2,
+  "description": "Viimase kodutöö raames tehtud extension kodutööde lisamiseks ja kuvamiseks.",
+  
+  
+  
+  "browser_action": {
+    "default_popup": "app.html"
+  },
+    
+  "offline_enabled": true
+}
