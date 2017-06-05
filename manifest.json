@@ -1,0 +1,23 @@
+{
+  "name": "Delfi ja Postimees uudised",
+  "description": "Võimaldab lugeda uudiseid ilma üleliigsete meediaelementideta.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+	"tabs",
+	"http://*/*",
+	"https://*/*"
+  ],
+ 
+  "content_scripts" : [{
+        "matches" : [ "*://*/*"],
+        "js" : ["jQuery.js","background.js"],
+        "css" : ["styles.css"]
+    }],
+  "browser_action": {
+    "default_title": "News Scroller",
+	"default_icon": "icon.png",
+	"default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
