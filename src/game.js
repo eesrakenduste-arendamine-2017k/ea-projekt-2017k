@@ -89,7 +89,7 @@ window.onload = function() {
     // Funktsioon tõusmiseks
 	function boost(){
 		ship.body.velocity.y = -shipBoostPower;
-		boostSound.play()
+		// boostSound.play()
 	}
 
 	// Funktsioon mängu lõpetamiseks ja uuesti alustamiseks
@@ -105,6 +105,14 @@ window.onload = function() {
 		var oneRock = new rock(game, 640, rockPosition, -shipSpeed);
 		game.add.existing(oneRock);
 		rockGroup.add(oneRock);
+		var rockTwoPosition = game.rnd.between(0, 480);
+		var twoRock = new rock(game, 700, rockTwoPosition, -shipSpeed);
+		game.add.existing(twoRock);
+		rockGroup.add(twoRock);
+		var rockThreePosition = game.rnd.between(0, 480);
+		var threeRock = new rock(game, 800, rockThreePosition, -shipSpeed);
+		game.add.existing(threeRock);
+		rockGroup.add(threeRock);
 	}
 
 	// Kutsun kivi välja, muudan ta füüsiliseks objektiks ja annan omadused
@@ -119,7 +127,7 @@ window.onload = function() {
 	rock.prototype = Object.create(Phaser.Sprite.prototype);
 	rock.prototype.constructor = rock;
 
-	// Update parameetrid seoses kiviga
+	// Uuendan parameetrid seoses kiviga
 	rock.prototype.update = function() {
 
 		// Kui laev läheb kivist mööda, annan punkti ja uuendan skoori
