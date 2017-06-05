@@ -10,7 +10,7 @@ body {
     -webkit-user-select: none;
     padding: 1.5em;
     margin: 0;
-    text-align: center;
+  
 }
 
 p {
@@ -68,12 +68,12 @@ h1 {
 
 body.work #work-block-info {
     display: block;
-    text-align: center;
+
 }
 
 div {
     margin-bottom: .7em;
-    text-align: center;
+
 }
 
 #durations label {
@@ -89,7 +89,6 @@ div {
 
 .note {
     font-size: 75%;
-    text-align: center;
 }
 
 label {
