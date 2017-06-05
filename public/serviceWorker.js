@@ -1,7 +1,7 @@
 // service worker
 var CACHE_NAME = 'matrix';
 var urlsToCache = [
-	/*
+/*
 	"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/projekt.js",
 	"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/index.html",
 	"/~mattbleh/2.%20Semester/ea-projekt-2017k/public/game.html",
@@ -21,7 +21,6 @@ self.addEventListener('install', function(event) {
         caches.open(CACHE_NAME)
         .then(function(cache) {
             console.log('Opened cache');
-
             return cache.addAll(urlsToCache);
         })
     );
@@ -68,18 +67,4 @@ self.addEventListener("fetch", function(event) {
             }
         })
     );
-});
-
-
-// notifications in service worker
-self.addEventListener('push', function(event) {
-
-    //notificationi sees oma event
-    console.log(event.data.json());
-    var title = 'Notifications';
-    var options = {
-        body: 'Yay it works! ' + event.data.json().content
-    };
-
-    event.waitUntil(self.registration.showNotification(title, options));
 });
