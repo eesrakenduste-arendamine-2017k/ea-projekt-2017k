@@ -78,14 +78,15 @@ function getSoundsToPlay() {
 
 }
 
-console.log(CheckboxCheck());
+
 
 
 function setSounds() {  //väljanägemine
     var lines = sounds.split("\n");
+    var stats = getStats();
     for (var i = 0; i < lines.length; i++) {
         var name = lines[i];
-        var nr = CheckboxCheck[i];
+        var nr = stats[i];
         var description = name.replace(/^(.)|\s(.)/g, function(name) {
             return name.toUpperCase();
         });
@@ -133,23 +134,29 @@ function ChangeInput(checkbox){
           history.push(event.target.id);
           localStorage.history = JSON.stringify(history);
 
-          var counts = {};    //objekt
-          var numbers = [];  //massiiv
-          result = JSON.parse(localStorage.history); //Parse teeb eraldi objektideks ehk massiiviks
 
-          for(var i = 0, j = result.length; i < j; i++) {
-
-            counts[result[i]] = (counts[result[i]] || 0) + 1;
-              }
-              //console.log(counts);
-              numbers[0] = counts.birds_in_rain;
-              numbers[1] = counts.jungle;
-              numbers[2] = counts.Light_rain_and_cricets;
-              numbers[3] = counts.seawaves;
-              numbers[4] = counts.shorebirds;
-              numbers[5] = counts.sunday_church;
-              return numbers;
           });
+}
+
+function getStats(){
+  var counts = {};    //objekt
+  var numbers = [];  //massiiv
+  result = JSON.parse(localStorage.history); //Parse teeb eraldi objektideks ehk massiiviks
+
+  for(var i = 0, j = result.length; i < j; i++) {
+
+      counts[result[i]] = (counts[result[i]] || 0) + 1;
+  }
+      console.log(counts);
+      numbers[0] = counts.birds_in_rain || 0;
+      numbers[1] = counts.jungle || 0;
+      numbers[2] = counts.Light_rain_and_cricets || 0;
+      numbers[3] = counts.seawaves || 0;
+      numbers[4] = counts.shorebirds || 0;
+      numbers[5] = counts.sunday_church || 0;
+      console.log(numbers);
+
+      return numbers;
 }
 function pauseAll() {
     chrome.extension.getBackgroundPage()
