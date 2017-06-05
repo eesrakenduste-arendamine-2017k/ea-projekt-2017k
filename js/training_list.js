@@ -61,5 +61,5 @@ function printTrainings(){
       }
       document.querySelector('.sk-circle').style.display = 'none';
      document.querySelector('.list-of-schedules').style.display = 'block';
-  }, 1000);
+  }, 2000);
    }
