@@ -35,21 +35,21 @@ $loginUsernameError = "";
 
 	}
 
-$loginUsernameError = "";
-	$loginUsername = "";
+$loginEmailError = "";
+	$loginEmail = "";
 
-	if (isset ($_POST["loginUsername"])) {
+	if (isset ($_POST["loginEmail"])) {
 
 		// oli olemas, ehk keegi vajutas nuppu
 		//kas oli tühi
-		if (empty ($_POST["loginUsername"])) {
+		if (empty ($_POST["loginEmail"])) {
 
 			//oli tõesti tühi
 			$loginEmailError = "See väli on kohustuslik";
 
 		} else {
 			//kõik korras, kasutaja koht ei ole tühi ja on olemas
-			$loginEmail = $_POST["loginUsername"];
+			$loginEmail = $_POST["loginEmail"];
 
 		}
 
@@ -177,7 +177,7 @@ $signupPasswordError = "";
 			$notice = $User->login($_POST["loginUsername"], $_POST["loginPassword"]);
 
 			if(isset($notice->success)){
- 				header("Location: index.html");
+ 				header("Location: signup.php");
  				exit();
  			}else {
  				$notice = $notice->error;
