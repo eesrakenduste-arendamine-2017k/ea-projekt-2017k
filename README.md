@@ -1,39 +1,26 @@
-# Eesrakenduste arendamine 2017k – projekt
+# Task Scheduler
 
-## Tähtaeg 
+## Autorid
 
-Valitud eksamipäev
+Anu Sadam, Mariam Reintop, Kristjan Liiva
 
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
+## Eesmärk
 
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
+Tihti ununevad inimestel reaalelulised sündmused/kohustused, kui nad ei ole neid eelnevalt kuhugile kirja pannud/salvestanud. 
+Selle jaoks tegimegi sellise app-i, millega saab salvestada reaalelulisi sündmusi/kohustusi(koos kuupäevadega), et neid oleks selle võrra kergem jälgida.
 
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
+## Funktsionaalsused
 
-### Nõuded
+1. Saab luua kasutaja ning sisse logida.
+1. Saab salvestada tulveaseid sündmuseid/kohustusi(ainult sisselogitud kasutaja).
+1. Kasutaja saab eemaldada juba tehtud/toimunud kohustusi/sündmusi.
 
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
+## Andmete liikumise skeem
 
-2. **Veebirakenduse nõuded:**
-    * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;
-    * andmeid talletatakse lisaks kohalikule (nt localStorage) ka serveripool (soovitatavalt andmebaasi või faili) – AJAX + serveripoolel nt PHP, Java, Node;
-    * Mugavalt kasutatav ka mobiilselt seadmelt;
-    * muutujad/tabelid on inglise keeles;
-    * rakendus on piisava funktsionaalsusega ja turvaline – eelnev kokkulepe õppejõuga, mis saab valmis;
-    * kood on jaotatud vajadusel eri failidesse ja kood on kokkupakitud kujul (ingl _minified_);
+![Alt text](Images/Andmeskeem.PNG?raw=true "Andmeskeem")
 
-3. **Funktsionaalsus**
-    * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+## Kättesaadavus
+
+Rakendus on kättesaadav järgmiselt:
+
+Greeny -  http://greeny.cs.tlu.ee/~krisliiv/Eesrakendused/ea-projekt-2017k/Homepage.html
