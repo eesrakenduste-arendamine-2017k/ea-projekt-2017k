@@ -9,6 +9,16 @@ html,body {
     min-height:100%;
 }
 
+.trigger-button{
+    float:left;
+    background-color: crimson;
+    height: 100%;
+}
+
+#cont{
+    height: 100%;
+}
+
 
 
 
