@@ -43,7 +43,7 @@ Master.prototype = {
             localStorage.setItem("meal", JSON.stringify({meal: master.meal_count}));
             localStorage.setItem("junkfood", JSON.stringify({junkfood: master.junkfood_count}));
 
-        }, 5000);
+        }, 2000);
 
     },
 
@@ -77,6 +77,7 @@ Master.prototype = {
         } else {
             this.sleep_on = 0;
             this.spent_sleeping.end = Date.now();
+            console.log("Saved sleeping time");
         }
     },
 
@@ -87,6 +88,7 @@ Master.prototype = {
         } else {
             this.sport_on = 0;
             this.spent_sportig.end = Date.now();
+            console.log("Saved sporting time.")
 
         }
     },

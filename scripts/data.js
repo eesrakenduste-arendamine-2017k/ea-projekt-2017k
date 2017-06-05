@@ -1,32 +1,25 @@
 window.onload = function () {
 
-    var dt = JSON.parse(localStorage.getItem("sweets"));
+    var sweets_len = JSON.parse(localStorage.getItem("sweets")).sweets.length;
+    var meals_len = JSON.parse(localStorage.getItem("meal")).meal.length;
+    var junkfood_len = JSON.parse(localStorage.getItem("junkfood")).junkfood.length;
+    var coffe = JSON.parse(localStorage.getItem("coffe")).coffe.length;
 
-    var start = new Date();
-    start.setHours(0,0,0,0);
-
-    var end = new Date();
-    end.setHours(23,59,59,999);
-
-
-
-    var data = {
-        datasets: [{
-            data: [10, 20, 30]
-        }],
-
-        // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [
-            'Red',
-            'Yellow',
-            'Blue'
-        ]
-    };
     var ctx = document.getElementById("myChart").getContext("2d");
-    var myPieChart = new Chart(ctx,{
+    var myChart = new Chart(ctx, {
         type: 'pie',
-        data: data,
-        options: Chart.pie.default
+        data: {
+            labels: ["Maiustused", "Söömaajad", "Rämpstoit", "Kohv"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6"
+                ],
+                data: [sweets_len, meals_len, junkfood_len, coffe]
+            }]
+        }
     });
 
 
