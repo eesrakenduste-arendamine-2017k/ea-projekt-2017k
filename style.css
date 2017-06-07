@@ -4,6 +4,9 @@
 	
 	html, body {
 	  height: 100%;
+	  background-image: url(pattern2.png);
+	  width: 1080px;
+	  margin: 0 auto;
 	}
 
 	/*FOOTER PARAMETRS*/
@@ -19,20 +22,20 @@
 	  height: 25px; 
 	}
 	.footer-page {
-	  background: orange;
+	  background-color: #703120;
 	  text-align: center;
 	}
 	
 	h1{
-		background-color:red;
+		background-color:#703120;
 	}
 	
 	header{
 		width:100%;
 		text-align:center;
-		height:50px;
-		top:0px;
-		background-color:yellow;
+		height:100px;
+		background-image: url(pattern.png);
+		background-repeat: repeat-x;
 	}
 	
 	/*CANVAS AS PAINT SCREEN*/
@@ -68,17 +71,11 @@
 	.column-one{
 		float: left;
 		width: 25%;
-		text-align: left;
+		text-align: center;
 	}
 	
 	.column-two{
 		display: inline-block;
-		width: 50%;
+		width: 75%;
 		text-align: center;
-	}
-	
-	.column-three{
-		float: right;
-		width: 25%;
-		text-align: right;
 	}

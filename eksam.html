@@ -8,13 +8,14 @@
 	</head>
 
 	<body>
-	<header>THIS IS HEADER</header>
-		
+	<header></header>
+	
 	<div class="page">	
 		<!--COLUMN 1 COLORS TABLE-->
 		<div class="column column-one">
+		<h1>COLORS:</h1>
 			<div id="colors">
-				<h1>COLORS:</h1>
+					<br>
 					<input type="image"  name="cassete" src="color/0black.png" alt="submit" onclick="changeColor('black')"/>
 					<input type="image"  name="cassete" src="color/0grey.png" alt="submit" onclick="changeColor('#404040')"/>
 					<input type="image"  name="cassete" src="color/0white.png" alt="submit" onclick="changeColor('white')"/>
@@ -47,21 +48,17 @@
 
 			<!--COLUMN 2 CANVAS PAINT SCREEN-->
 			<div class="column column-two">	
-				
-				<h1>CANVAS:</h1>
-				<canvas height="500px" width="800px" id="canvas"> </canvas>
+			<h1>CANVAS:</h1>
+				<canvas height="600px" width="800px" id="canvas"> </canvas>
 			
 			</div>
 			
 			<!--COLUMN 3 OTHER INSTRUMENTS FOR PAING-->
-			<div class="column column-three">	
 				
 				<h1>INSTR:</h1>
 				<button onclick="clearCanvas()">REMOVE ALL</button>
 				<button onclick="saveImage()" > SAVE IMAGE </button>
-	
 			
-			</div>
 			
 			<!--SCRIPTLINK-->
 			<script src="script.js"></script>
