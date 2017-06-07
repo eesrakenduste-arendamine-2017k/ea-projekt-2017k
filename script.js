@@ -2,13 +2,7 @@ var canvas = document.getElementById('canvas');//CANVAS
 var context = canvas.getContext('2d');//VIEW
 context.lineWidth = 4; //DRAWING LINE
 var down = false; // MOUSE PRESSED OR NOT
-
-//CANVAS SIZE
-canvas.width = 800; 
-canvas.height= 550;
-
 canvas.addEventListener('mousemove', draw);
-
 
 // ON MOUSE BUTTON DOWN
 canvas.addEventListener('mousedown', function(){
@@ -19,7 +13,7 @@ canvas.addEventListener('mousedown', function(){
 	canvas.addEventListener("mousemove", draw);
 });
 
-//чтобы линия отщеликвалась-заканчивалась
+//LINE TO END(will not continue)
 canvas.addEventListener('mouseup', function(){
 	down = false;
 });
@@ -46,4 +40,16 @@ function changeColor(color){
 //clears all drawings
 function clearCanvas(){
 	context.clearRect(0, 0, canvas.width, canvas.height); // position
+}
+
+//IMAGE SAVING FUNCTION
+function saveImage() {
+
+    var gh = canvas.toDataURL('png');
+
+    var a  = document.createElement('a');
+    a.href = gh;
+    a.download = 'image.png';
+	
+    a.click()
 }
