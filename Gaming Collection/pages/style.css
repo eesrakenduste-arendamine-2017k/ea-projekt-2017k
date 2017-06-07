@@ -1,0 +1,31 @@
+body
+{
+	color: White;
+	background-image: url("https://images3.alphacoders.com/617/thumb-1920-617857.png");
+}
+
+
+.table{
+	color:White;
+	background:rgba(0,0,0,0.7);
+}
+
+.navButton{
+	background:none;
+	border:2px white;
+	font-size:20px
+}
+
+.navButton:hover{
+	background:rgba(200,200,200,0.3);
+	transition:background 0.1s ease-in-out;
+}
+
+#animatePage{
+	margin-left:100%;
+	transition:margin-left 0.5s ease-in-out;
+}
+
+.btn{
+	box-shadow: 0px 0px 2px lightgray;
+}

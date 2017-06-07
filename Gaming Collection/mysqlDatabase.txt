@@ -1,0 +1,49 @@
+CREATE TABLE userSample(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(50) NOT NULL,
+	password VARCHAR(128),
+	created timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE trackComputer(
+	id INT PRIMARY KEY,
+	email VARCHAR(100),
+	game VARCHAR(100),
+	amount INT,
+	deleted INT DEFAULT NULL
+);
+
+CREATE TABLE trackConsole(
+	id INT PRIMARY KEY,
+	email VARCHAR(100),
+	game VARCHAR(100),
+	amount INT,
+	deleted INT DEFAULT NULL
+);
+
+CREATE TABLE trackPortable(
+	id INT PRIMARY KEY,
+	email VARCHAR(100),
+	game VARCHAR(100),
+	amount INT,
+	deleted INT DEFAULT NULL
+);
+
+CREATE TABLE trackBoard(
+	id INT PRIMARY KEY,
+	email VARCHAR(100),
+	game VARCHAR(100),
+	amount INT,
+	deleted INT DEFAULT NULL
+);
+
+CREATE TABLE trackCard(
+	id INT PRIMARY KEY,
+	email VARCHAR(100),
+	game VARCHAR(100),
+	amount INT,
+	deleted INT DEFAULT NULL
+);
+
+
+
