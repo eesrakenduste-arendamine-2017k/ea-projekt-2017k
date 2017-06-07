@@ -10,10 +10,9 @@
 		
 		<div class="container">
 		
-			<div id="drawingTools">
-			
-			<div class="column column-one">
-				<div id="colors">
+		<!--COLUMN 1 COLORS TABLE-->
+		<div class="column column-one">
+			<div id="colors">
 				<h1>COLORS:</h1>
 					<input type="image"  name="cassete" src="color/0black.png" alt="submit" onclick="changeColor('black')"/>
 					<input type="image"  name="cassete" src="color/0grey.png" alt="submit" onclick="changeColor('#404040')"/>
@@ -44,21 +43,20 @@
 					<input type="image"  name="cassete" src="color/22skinyellow2.png" alt="submit" onclick="changeColor('#FFE292')"/>				
 				</div>
 			</div>	
-				<!--
-				<div id="otherTools">
-					<button id="clearCanvas" onclick="clearCanvas()">C</button>
-				</div> -->
-				
-			</div>
-			
+
+			<!--COLUMN 2 CANVAS PAINT SCREEN-->
 			<div class="column column-two">	
 			<h1>CANVAS:</h1>
-				<canvas id="canvas" width="800"
-				height="500"> </canvas>
+				<canvas id="canvas"> </canvas>
 			</div>
 			
+			<!--COLUMN 3 OTHER INSTRUMENTS FOR PAING-->
 			<div class="column column-three">	
-			<h1>INSTRUMENTS:</h1>
+			<h1>INSTR:</h1>
+			
+				<div id="otherTools">
+				<button id="clearCanvas" onclick="clearCanvas()">REMOVE ALL</button>
+			
 			</div>
 			
 			

@@ -1,7 +1,11 @@
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-context.lineWidth = 5; // drawin line will be 5px wide
-var down = false; // is mouse pressed or no
+var canvas = document.getElementById('canvas');//CANVAS
+var context = canvas.getContext('2d');//VIEW
+context.lineWidth = 4; //DRAWING LINE
+var down = false; // MOUSE PRESSED OR NOT
+
+//CANVAS SIZE
+canvas.width = 800; 
+canvas.height= 550;
 
 canvas.addEventListener('mousemove', draw);
 

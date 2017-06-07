@@ -1,16 +1,14 @@
-	
+	/*CANVAS AS PAINT SCREEN*/
 	canvas{
 		display: block;
 		border: 1px solid black;
 		margin: 15px 0px; /*for top margin*/
 	}				/*auto for left and right and 0 px for bottom margin*/
 	
-	#drawingTools{
-	}
-	
-	#colors{ /*outside*/
-		width: 260px; /*takes 100% width of container elements*/
-		height:100%;/*takes 100% width of container elements*/
+	/*CASSETE BUTTON CONTAINER*/
+	#colors{
+		width: 290px;
+		height:100%;/*TAKES 100% OF CONTAINER ELEMENTS*/
 		margin-left: 10px;
 	}
 	
@@ -29,24 +27,30 @@
 		cursor: pointer;
 	}
 	
-	
+	/*COLORS CASSETE SIZE*/
 	input[name=cassete]{
-		width:80px;
-		height: 55px ;
+		width:86px;
+		height: 60px ;
 	}
+	/*COLORS CASSETE WHEN SENS CURSOR*/
 	input[name=cassete]:hover{
 		opacity: 0.3;
 	}
+	/*COLORS CASSETE REMOVE OUTLINE*/
+	input[name=cassete]:focus{
+		outline: none; 
+	}
 	
+	
+	/*MAKING 3 TABLES DOWN*/
 	.container {
 		display:flex
 	}
 	.column{
 		flex:1;
-	   background: #f2f2f2;
+		background: #f2f2f2;
 		box-sizing: border-box;
 	}
-	
 	.column-one{ order: 1;}
 	.column-two{ order: 2;}
 	.column-three{ order: 3;}
