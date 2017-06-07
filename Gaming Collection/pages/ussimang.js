@@ -9,19 +9,19 @@ var dead = false;
 var bestScore;
 
 //snake
-var snakeRect = 40;
-var snakeSpeed = 200;
+var snakeRect = 20;
+var snakeSpeed = 190;
 var snakeSpeedMax = snakeSpeed;
 var snakeHistoryX = [];
 var snakeHistoryY = [];
 var snakeTailX = [];
 var snakeTailY = [];
-var snakeX = 240;
-var snakeY = 240;
+var snakeX = 180;
+var snakeY = 180;
 var snakeColor = "white";
 
 //food
-var foodRect = 40;
+var foodRect = 20;
 var foodX;
 var foodY;
 var foodColor = "darkred";
@@ -30,18 +30,22 @@ window.onload = function(){
 	bestScore = localStorage.getItem('Score');
 	canvas = document.getElementById("paber");
 	ctx = canvas.getContext("2d");
-	document.getElementById("startBtn").addEventListener("click", startGame);
+	document.getElementById("paber").addEventListener("click", startGame);
+	//prevent page scroll
+	window.addEventListener("keydown", function(e){
+		if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+			e.preventDefault();
+		}
+		}, false);
+	
 }
 
 function startGame(){
-	document.getElementById("startBtn").innerHTML = "Game Started";
-	document.getElementById("startBtn").removeEventListener("click", startGame);
 	console.log("Game started!")
 	window.addEventListener("keydown", whatKey);
 	newFood();
 	drawSnake();
 	document.getElementById("instructions").innerHTML = "Liikumiseks kasuta nooleklahve";
-	document.getElementById("startBtn").style = "";
 	document.getElementById("paber").style.backgroundImage = "url('bg.jpg')";
 }
 
@@ -173,7 +177,7 @@ function checkDeath(){
 							localStorage.setItem('Score', bestScore);
 						}
 						alert("!!Mäng läbi!!\nSinu skooriks sai "+ (score-1));
-						location.reload();}, 2500);
+						location.reload();}, 500);
 				}
 			}
 		

@@ -26,29 +26,29 @@
 					<h2>
 				</div>
 				<div style="text-align:center">
-					<button type="button" class="navButton" onclick="window.location.href='esileht.php'">HOME
-					<button type="button" class="navButton" style="margin-left:40px" onclick="window.location.href='chat.php'">CHAT
+					<button type="button" class="navButton" onclick="window.location.href='esileht.php'" style="color:white">HOME
+					<button type="button" class="navButton" style="margin-left:40px;color:white" onclick="window.location.href='chat.php'">CHAT
 				</div>
 			</div>
 	</head>
 <body style="background-color:#efefef;">
 
 	<section>
-		<canvas id="paber" width="480" height="480" style="
+		<canvas id="paber" width="360" height="360" style="
 			margin-bottom: 0px;
 			padding-bottom: 0px;
 			border: solid;
 			border-radius:5px;
+			background-size: 360px 360px;
 			background-image: url('snek.jpg');
-			transition: 2.5s;
+			transition: 0.5s;
 			padding: 0;
     		margin: auto;
     		display: block;
 		"></canvas>
 		
 		<h2 style = "text-align: center; color:white;">Score: <span id="score"></span></h2>
-		<p id="instructions" style="text-align: center; color:white;">To play, press "Start Game"</p>
-		<button  style="margin:auto; display:block;" id="startBtn" type="button">Start Game</button>
+		<p id="instructions" style="text-align: center; color:white;">Click on game to play</p>
 	</section>
 	<div class="container">
 		<div class="row">
