@@ -26,6 +26,12 @@ var foodX;
 var foodY;
 var foodColor = "darkred";
 
+
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+
 window.onload = function(){
 	bestScore = localStorage.getItem('Score');
 	canvas = document.getElementById("paber");
@@ -40,12 +46,14 @@ window.onload = function(){
 	
 }
 
+
+
 function startGame(){
 	console.log("Game started!")
 	window.addEventListener("keydown", whatKey);
 	newFood();
 	drawSnake();
-	document.getElementById("instructions").innerHTML = "Liikumiseks kasuta nooleklahve";
+	document.getElementById("instructions").innerHTML = "Arrow keys to move";
 	document.getElementById("paber").style.backgroundImage = "url('bg.jpg')";
 }
 
@@ -176,7 +184,7 @@ function checkDeath(){
 							bestScore = score-1;
 							localStorage.setItem('Score', bestScore);
 						}
-						alert("!!Mäng läbi!!\nSinu skooriks sai "+ (score-1));
+						alert("!!Game over!!\nYour score is: "+ (score-1));
 						location.reload();}, 500);
 				}
 			}

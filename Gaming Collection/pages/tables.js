@@ -4,6 +4,10 @@ var portableContent = 0;
 var boardContent = 0;
 var cardContent = 0;
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+
 window.onload = function(){
 	document.getElementById("animatePage").style.marginLeft = "0%";
 	document.getElementById("animatePage").style.margin = "50px";
