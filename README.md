@@ -7,3 +7,7 @@
     v0.1 Saab teha kasutaja, sisse logida ja andmed sisestada.
     v0.2 Saab andmeid kustutada.
     v0.3 Tabelid ilmuvad kui andmed on sinna sisestatud.
+    v0.4 Edit lehel saab eemaldada mänge
+    v0.5 Chat leht.
+    v0.6 Animeeritud lehed.
+    v0.7 Optimeeritud telefoni jaoks.
