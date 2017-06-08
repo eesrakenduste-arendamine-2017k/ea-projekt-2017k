@@ -64,17 +64,6 @@ function setSounds() {
     }
 }
 
-/*function setSounds() {
-    var lines = sounds.split("\n");
-    for (var i = 0, len = lines.length; i < len; i++) {
-        var name = lines[i];
-        $('body')
-            .append('<audio class="player" id="' + name + '" src="./audio/' + name + '.ogg"
-            controls loop preload="auto" autobuffer></audio>');
-        $('#' + name)
-            .attr('volume', '.3');
-    }
-}*/
 
 
 /*
@@ -182,7 +171,7 @@ function Pomodoro(options) {
     this.running = false;
     this.onTimerEnd = function(timer) {
         this.running = false;
-    }
+    };
     this.start = function() {
         var mostRecentMode = this.mostRecentMode,
             timerOptions = {};
