@@ -69,3 +69,20 @@ function setSounds() {
 /*
   Pomodoro part
 */
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse){
+    if(request.command === "startTimer"){
+      startTimer();
+      sendResponse({message: "Timer started."})
+    }
+
+});
+function startTimer(){
+	var start = moment();
+	setInterval(function(){
+		var diff = moment().diff(start, 'minutes');
+		document.getElementById('current-time').innerText = diff;
+
+	}, 60000);
+}
