@@ -30,7 +30,7 @@
   ],
   "content_scripts" : [{
         "matches" : [ "*://*/*"],
-        "js" : ["sounds.js","firebase.js","background.js","moment.js","break.js", "work.js"]
+        "js" : ["sounds.js","firebase.js","background.js","moment.js"]
 
     }]
 
