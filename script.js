@@ -2,6 +2,9 @@ var canvas = document.getElementById('canvas');//CANVAS
 var context = canvas.getContext('2d');//VIEW
 context.lineWidth = 4; //DRAWING LINE
 var down = false; // MOUSE PRESSED OR NOT
+context.fillStyle = "white"; //CANVAS BACKGROUND WHITE
+context.fillRect(0, 0, canvas.width, canvas.height); //RECTANGLE TO FILL BACKGROUND WHITE
+context.lineCap = "round";
 canvas.addEventListener('mousemove', draw);
 
 // ON MOUSE BUTTON DOWN
@@ -19,13 +22,9 @@ canvas.addEventListener('mouseup', function(){
 });
 
 function draw(e){
-	xPos = e.clientX - canvas.offsetLeft; //e is MouseEvent object
-	yPos = e.clientY - canvas.offsetTop;
-
-	/*alert(canvas.offsetLeft);
-	alert(canvas.offsetTop);
-	alert(xPos);
-	alert(yPos);*/
+	
+	xPos = e.clientX - canvas.getBoundingClientRect().left; // FIXED PROBLEM AND NOW CAN MOVE CANVAS EVERYTHERE
+	yPos = e.clientY - canvas.getBoundingClientRect().top;
 
 	if(down == true){
 		context.lineTo(xPos, yPos); //create line but doesnt draw it
@@ -33,14 +32,28 @@ function draw(e){
 	}
 }
 
-//take the color
+//TAKE THE COLOR FROM PALETTE
 function changeColor(color){
-	context.strokeStyle = color;
+	context.strokeStyle = color; //PALETTE
+	context.fillStyle = color; //FOR CANVAS FULL FILLING
 }
 //clears all drawings
 function clearCanvas(){
-	context.clearRect(0, 0, canvas.width, canvas.height); // position
+	context.fillStyle = "white"; //CANVAS "ILLUSION" OF CLEARNING
+	context.fillRect(0, 0, canvas.width, canvas.height);
 }
+
+//BRUSH SIZE CHANGES
+function changeBrushSize(size){
+	context.lineWidth = size;
+}
+
+//FILLING CANVAS
+function fillCanvas() {
+	context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+//CHANGE BRUSH STYLE
 
 //IMAGE SAVING FUNCTION
 function saveImage() {

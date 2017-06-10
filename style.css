@@ -5,21 +5,19 @@
 	
 	body{
 		background-image: url(images/Waves.gif);
-		-webkit-touch-callout: none; /*disable copying*/
 		-webkit-user-select: none; /*disable copying*/
-		-khtml-user-select: none; /*disable copying*/
-		-moz-user-select: none; /*disable copying*/
-		-ms-user-select: none; /*disable copying*/
-		user-select: none; /*disable copying*/
 	}
   	
+	/*SECTION INVISIBLE BACKGROUND*/
   	section{
-		height:1000%;
+		height:1000%; /*make as long as can*/
 		background-color:rgba(255, 255, 255, 0.6);
-		width:1080px;
+		width:1080px; /*have space on sides*/
 		margin: 0 auto;
 		border: 1px solid black;
   	}
+	
+	/*HEADERSTYLE*/
 	header{
   		width: 800px;
 		height:60px;
@@ -30,6 +28,7 @@
 		border-radius: 5px;
 	}
   	
+	/*PAINTER BOX*/
   	canvas{
   		display: block;
 		border-radius: 5px;
@@ -37,7 +36,7 @@
   		margin: 10px auto; /*for top margin*/
   	}				/*auto for left and right and 0 px for bottom margin*/
  
-  	
+  	/*DRAWING TOOLS BOX*/
   	#drawingTools{
 		border: 1px solid black;
 		border-radius: 5px;
@@ -46,16 +45,27 @@
   		margin: 0px auto;
   	}
   	
+	/*PALETTE BOX*/
   	#colors{ /*outside*/
   		width: 100%; /*takes 100% width of container elements*/
   		height: 100%;
 		text-align:center;
 		margin-top:10px;
   	}
+	
+	/*OTHER TOOLS AS CLEAR FILL A.S.O*/
+	#otherTools{
+		margin-top: 5px;
+  		width: 100%;
+  		height: 100%;
+		text-align:center;
+  	}
   	
+	/*CASSETE ICONS*/
 	input[name=cassete]{
 		width:86px;
 		height: 60px ;
+		cursor:pointer;
 	}
 	/*COLORS CASSETE WHEN SENS CURSOR*/
 	input[name=cassete]:hover{
@@ -65,25 +75,39 @@
 	input[name=cassete]:focus{
 		outline: none; 
 	}
-  	
-  	#otherTools{
-		margin-top: 5px;
-  		width: 100%;
-  		height: 100%;
-		text-align:center;
-  	}
 	
+	/*BUTTON STYLE*/
+	button{
+		cursor:pointer;
+		background-color:#C1FD67;
+		border: 1px solid black;
+		border-radius: 5px;
+		width:80px;
+		height:60px;
+		box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		font-family:Chisel_Mark;
+		font-size:15px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	}
+	
+	button.saves{background-color: #65C4F7;}
+	button.clears{background-color: #FD6876;}
+	button.eraser{background-color: #FDC967;}
+
+	/*FONTS*/
 	@font-face{
 		font-family: Chisel_Mark;
 		src:url(font/Chisel_Mark.ttf);
 	}
 
+	/*TEXT FOR HEADER*/
 	h1.headertext{
 		font-family:Chisel_Mark;
 		font-size: 60px;
 		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 	}
 	
+	/*TEXT INSIDE PAGE*/
 	h1.pagetext{
 		font-family:Chisel_Mark;
 		font-size: 40px;
@@ -91,6 +115,7 @@
 		
 	}
 	
+	/*PATTERNED BOX*/
 	h1.painterdraw{
 	background-image:url(images/pattern.png);
 	width: 800px;
@@ -102,16 +127,16 @@
 	border:1px solid black;
 	}
 	
-	h1.menutext{
+	/*ON HEADER TEXT*/
+	.menustyle{
 		background-color:#C1FD67;
 		width: 800px;
 		margin: 0px auto;
-		font-family:Chisel_Mark;
 		border-radius: 8px;
-		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 		border:1px solid black;
 	}
 	
+	/*ON FOOTER TEXT*/
 	h1.downtext{
 		background-color:#C1FD67;
 		width: 800px;
@@ -124,17 +149,23 @@
 		border:1px solid black;
 	}
 	
-	.menustyle{
-		background-color:#C1FD67;
-		width: 800px;
-		margin: 0px auto;
-		border-radius: 8px;
-		border:1px solid black;
-	}
-	
+	/*FOR UNDER HEADER MENU*/
 	table{
 		width:100%;
+		text-align:center;
 		font-size:20px;
 		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-		font-family:Chisel_Mark;	
+		font-family:Chisel_Mark;
+		cursor:pointer;		
+	}
+	
+	/*FAQ BLINK*/
+	p.blink{
+		animation: color-change 2s infinite;
+	}	
+	
+	@keyframes color-change {
+		0% { color: #FD6876; }
+		50% { color: #FDC967; }
+		100% { color: FD6876; }
 	}
