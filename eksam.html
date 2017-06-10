@@ -1,70 +1,71 @@
-<!DOCTYPE html>
-<html>
+ <!DOCTYPE html>
+  <html>
+    
+  	<head>
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	</head>
   
-	<head>
-	
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
-	</head>
-
-	<body>
-	<header></header>
-	
-	<div class="page">	
-		<!--COLUMN 1 COLORS TABLE-->
-		<div class="column column-one">
-		<h1>COLORS:</h1>
-			<div id="colors">
-					<br>
-					<input type="image"  name="cassete" src="color/0black.png" alt="submit" onclick="changeColor('black')"/>
-					<input type="image"  name="cassete" src="color/0grey.png" alt="submit" onclick="changeColor('#404040')"/>
-					<input type="image"  name="cassete" src="color/0white.png" alt="submit" onclick="changeColor('white')"/>
-					<input type="image"  name="cassete" src="color/1greybrown.png" alt="submit" onclick="changeColor('#818054')"/>
-					<input type="image"  name="cassete" src="color/2grey.png" alt="submit" onclick="changeColor('#605F4B')"/>
-					<input type="image"  name="cassete" src="color/2grey2brown.png" alt="submit" onclick="changeColor('#54301A')"/>
-					<input type="image"  name="cassete" src="color/2grey2brown2.png" alt="submit" onclick="changeColor('#776003')"/>
-					<input type="image"  name="cassete" src="color/2grey2brown22.png" alt="submit" onclick="changeColor('#B25B1D')"/>
-					<input type="image"  name="cassete" src="color/3lime.png" alt="submit" onclick="changeColor('#BFC928')"/>
-					<input type="image"  name="cassete" src="color/4green.png" alt="submit" onclick="changeColor('#8BC83F')"/>
-					<input type="image"  name="cassete" src="color/5darkgreen.png" alt="submit" onclick="changeColor('#4E6F18')"/>
-					<input type="image"  name="cassete" src="color/6waveblue.png" alt="submit" onclick="changeColor('#2BB1A6')"/>
-					<input type="image"  name="cassete" src="color/7bluegreen.png" alt="submit" onclick="changeColor('#008B5C')"/>
-					<input type="image"  name="cassete" src="color/8darkbluegreen.png" alt="submit" onclick="changeColor('#005A58')"/>					
-					<input type="image"  name="cassete" src="color/10darkenblue.png" alt="submit" onclick="changeColor('#016893')"/>
-					<input type="image"  name="cassete" src="color/11darkenblue.png" alt="submit" onclick="changeColor('#2F536B')"/>
-					<input type="image"  name="cassete" src="color/12pink.png" alt="submit" onclick="changeColor('#C2749E')"/>
-					<input type="image"  name="cassete" src="color/14cherrydarkpink.png" alt="submit" onclick="changeColor('#79133B')"/>
-					<input type="image"  name="cassete" src="color/15pinkydark.png" alt="submit" onclick="changeColor('#C6254F')"/>
-					<input type="image"  name="cassete" src="color/16pinkyred.png" alt="submit" onclick="changeColor('#EA2B3A')"/>					
-					<input type="image"  name="cassete" src="color/17red.png" alt="submit" onclick="changeColor('#C02D1B')"/>
-					<input type="image"  name="cassete" src="color/17red2wine.png" alt="submit" onclick="changeColor('#7B1200')"/>
-					<input type="image"  name="cassete" src="color/18yellordark.png" alt="submit" onclick="changeColor('#C5960C')"/>				
-					<input type="image"  name="cassete" src="color/19yellow.png" alt="submit" onclick="changeColor('#F2CB01')"/>
-					<input type="image"  name="cassete" src="color/20lightyellow.png" alt="submit" onclick="changeColor('#FFD457')"/>
-					<input type="image"  name="cassete" src="color/21skinyellow.png" alt="submit" onclick="changeColor('#F8B159')"/>				
-					<input type="image"  name="cassete" src="color/22skinyellow2.png" alt="submit" onclick="changeColor('#FFE292')"/>				
-				</div>
-			</div>	
-
-			<!--COLUMN 2 CANVAS PAINT SCREEN-->
-			<div class="column column-two">	
-			<h1>CANVAS:</h1>
-				<canvas height="600px" width="800px" id="canvas"> </canvas>
-			
+  	<body>
+  		
+  		<section>
+		
+		<header> <h1 class="headertext">P A I N T E R</h1> </header>
+			<div class="menustyle">
+				<table>
+					<th>GO BACK</th>
+					<th>MENU</th>
+					<th>GALLERY</th>
+				</table>
 			</div>
-			
-			<!--COLUMN 3 OTHER INSTRUMENTS FOR PAING-->
-				
-				<h1>INSTR:</h1>
-				<button onclick="clearCanvas()">REMOVE ALL</button>
-				<button onclick="saveImage()" > SAVE IMAGE </button>
-			
-			
-			<!--SCRIPTLINK-->
-			<script src="script.js"></script>
-		</div>
+		<br>
+  		
+  			<div id="drawingTools">
+  			
+  				<div id="colors">
+				<h1 class="pagetext"> Colours</h1>
+					<input type="image"  name="cassete" src="images/0black.png" alt="submit" onclick="changeimages('black')"/>
+					<input type="image"  name="cassete" src="images/0grey.png" alt="submit" onclick="changeimages('#404040')"/>
+					<input type="image"  name="cassete" src="images/0white.png" alt="submit" onclick="changeimages('white')"/>
+					<input type="image"  name="cassete" src="images/1greybrown.png" alt="submit" onclick="changeimages('#818054')"/>
+					<input type="image"  name="cassete" src="images/2grey.png" alt="submit" onclick="changeimages('#605F4B')"/>
+					<input type="image"  name="cassete" src="images/2grey2brown.png" alt="submit" onclick="changeimages('#54301A')"/>
+					<input type="image"  name="cassete" src="images/2grey2brown2.png" alt="submit" onclick="changeimages('#776003')"/>
+					<input type="image"  name="cassete" src="images/2grey2brown22.png" alt="submit" onclick="changeimages('#B25B1D')"/>
+					<input type="image"  name="cassete" src="images/3lime.png" alt="submit" onclick="changeimages('#BFC928')"/>
+					<input type="image"  name="cassete" src="images/4green.png" alt="submit" onclick="changeimages('#8BC83F')"/>
+					<input type="image"  name="cassete" src="images/5darkgreen.png" alt="submit" onclick="changeimages('#4E6F18')"/>
+					<input type="image"  name="cassete" src="images/6waveblue.png" alt="submit" onclick="changeimages('#2BB1A6')"/>
+					<input type="image"  name="cassete" src="images/7bluegreen.png" alt="submit" onclick="changeimages('#008B5C')"/>
+					<input type="image"  name="cassete" src="images/8darkbluegreen.png" alt="submit" onclick="changeimages('#005A58')"/>					
+					<input type="image"  name="cassete" src="images/10darkenblue.png" alt="submit" onclick="changeimages('#016893')"/>
+					<input type="image"  name="cassete" src="images/11darkenblue.png" alt="submit" onclick="changeimages('#2F536B')"/>
+					<input type="image"  name="cassete" src="images/12pink.png" alt="submit" onclick="changeimages('#C2749E')"/>
+					<input type="image"  name="cassete" src="images/14cherrydarkpink.png" alt="submit" onclick="changeimages('#79133B')"/>
+					<input type="image"  name="cassete" src="images/15pinkydark.png" alt="submit" onclick="changeimages('#C6254F')"/>
+					<input type="image"  name="cassete" src="images/16pinkyred.png" alt="submit" onclick="changeimages('#EA2B3A')"/>					
+					<input type="image"  name="cassete" src="images/17red.png" alt="submit" onclick="changeimages('#C02D1B')"/>
+					<input type="image"  name="cassete" src="images/17red2wine.png" alt="submit" onclick="changeimages('#7B1200')"/>
+					<input type="image"  name="cassete" src="images/18yellordark.png" alt="submit" onclick="changeimages('#C5960C')"/>				
+					<input type="image"  name="cassete" src="images/19yellow.png" alt="submit" onclick="changeimages('#F2CB01')"/>
+  				</div>
+  				
+  				<div id="otherTools">
+				<h1 class="pagetext">Tools<h1>
+  					<button id="clearCanvas" onclick="clearCanvas()">CLEAR</button>
+					<button id="clearCanvas" onclick="saveImage()">SAVE</button>
+  				</div>
+  				
+  			</div>
+  			
+			<br>
+			<h1 class="painterdraw">Draw your image</h1>
+  			<canvas id="canvas" width="800" height="400"> </canvas>
+  		
+		<h1 class="downtext">Page was made for university homework by Ksenia Belorusskaja</h1><br>
+		
+		</section>
+  	
+  		<script src="script.js"></script>
+  	
 	</body>
-	
-	<footer class="footer-page">THIS IS FOOTER</footer>
-	
- </html>
+</html> 

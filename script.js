@@ -44,12 +44,9 @@ function clearCanvas(){
 
 //IMAGE SAVING FUNCTION
 function saveImage() {
-
     var gh = canvas.toDataURL('png');
-
     var a  = document.createElement('a');
     a.href = gh;
     a.download = 'image.png';
-	
     a.click()
 }

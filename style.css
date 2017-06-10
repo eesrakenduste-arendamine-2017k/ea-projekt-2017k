@@ -1,58 +1,58 @@
-	*{
-		margin:0;
+ 	*{
+  		margin:0;
+  		padding:0;	
 	}
 	
-	html, body {
-	  height: 100%;
-	  background-image: url(pattern2.png);
-	  width: 1080px;
-	  margin: 0 auto;
+	body{
+		background-image: url(images/Waves.gif);
+		-webkit-touch-callout: none; /*disable copying*/
+		-webkit-user-select: none; /*disable copying*/
+		-khtml-user-select: none; /*disable copying*/
+		-moz-user-select: none; /*disable copying*/
+		-ms-user-select: none; /*disable copying*/
+		user-select: none; /*disable copying*/
 	}
-
-	/*FOOTER PARAMETRS*/
-	.page {
-	  min-height: 100%;
-	  margin-bottom: -25px; /*FOOTER PX SIZE*/
-	}
-	.page:after {
-	  content: "";
-	  display: block;
-	}
-	.footer-page, .page:after {
-	  height: 25px; 
-	}
-	.footer-page {
-	  background-color: #703120;
-	  text-align: center;
-	}
-	
-	h1{
-		background-color:#703120;
-	}
-	
-	header{
-		width:100%;
-		text-align:center;
-		height:100px;
-		background-image: url(pattern.png);
-		background-repeat: repeat-x;
-	}
-	
-	/*CANVAS AS PAINT SCREEN*/
-	canvas{
-		text-align:center;
-		display: inline-block;
+  	
+  	section{
+		height:1000%;
+		background-color:rgba(255, 255, 255, 0.6);
+		width:1080px;
+		margin: 0 auto;
 		border: 1px solid black;
-		margin: 15px 0px; /*for top margin*/
-	}				/*auto for left and right and 0 px for bottom margin*/
-	
-	/*CASSETE BUTTON CONTAINER*/
-	#colors{
-		width: 100%;
-		height:100%;/*TAKES 100% OF CONTAINER ELEMENTS*/
+  	}
+	header{
+  		width: 800px;
+		height:60px;
+		text-align:center;
+  		margin: 0px auto;
+		background-image:url(images/pattern.png);
+		border:1px solid black;
+		border-radius: 5px;
 	}
-	
-	/*COLORS CASSETE SIZE*/
+  	
+  	canvas{
+  		display: block;
+		border-radius: 5px;
+  		border: 1px solid black;
+  		margin: 10px auto; /*for top margin*/
+  	}				/*auto for left and right and 0 px for bottom margin*/
+ 
+  	
+  	#drawingTools{
+		border: 1px solid black;
+		border-radius: 5px;
+  		width: 800px;
+  		height: 100%;
+  		margin: 0px auto;
+  	}
+  	
+  	#colors{ /*outside*/
+  		width: 100%; /*takes 100% width of container elements*/
+  		height: 100%;
+		text-align:center;
+		margin-top:10px;
+  	}
+  	
 	input[name=cassete]{
 		width:86px;
 		height: 60px ;
@@ -65,17 +65,76 @@
 	input[name=cassete]:focus{
 		outline: none; 
 	}
+  	
+  	#otherTools{
+		margin-top: 5px;
+  		width: 100%;
+  		height: 100%;
+		text-align:center;
+  	}
 	
-	
-	/*MAKING 3 TABLES DOWN*/
-	.column-one{
-		float: left;
-		width: 25%;
-		text-align: center;
+	@font-face{
+		font-family: Chisel_Mark;
+		src:url(font/Chisel_Mark.ttf);
+	}
+
+	h1.headertext{
+		font-family:Chisel_Mark;
+		font-size: 60px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 	}
 	
-	.column-two{
-		display: inline-block;
-		width: 75%;
-		text-align: center;
+	h1.pagetext{
+		font-family:Chisel_Mark;
+		font-size: 40px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		
+	}
+	
+	h1.painterdraw{
+	background-image:url(images/pattern.png);
+	width: 800px;
+	margin: 0px auto;
+	text-align:center;
+	font-family:Chisel_Mark;
+	border-radius: 5px;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	border:1px solid black;
+	}
+	
+	h1.menutext{
+		background-color:#C1FD67;
+		width: 800px;
+		margin: 0px auto;
+		font-family:Chisel_Mark;
+		border-radius: 8px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		border:1px solid black;
+	}
+	
+	h1.downtext{
+		background-color:#C1FD67;
+		width: 800px;
+		margin: 0px auto;
+		font-size:20px;
+		text-align:center;
+		font-family:Chisel_Mark;
+		border-radius: 8px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		border:1px solid black;
+	}
+	
+	.menustyle{
+		background-color:#C1FD67;
+		width: 800px;
+		margin: 0px auto;
+		border-radius: 8px;
+		border:1px solid black;
+	}
+	
+	table{
+		width:100%;
+		font-size:20px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		font-family:Chisel_Mark;	
 	}
