@@ -67,5 +67,5 @@ function setSounds() {
 
 
 /*
-  Pomodoro part:
+  Pomodoro part
 */
