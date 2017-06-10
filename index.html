@@ -1,0 +1,137 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+    body {
+        background-color: lightsteelblue;
+
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="images/mstile-144x144.png">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#afd8ff">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="function.js"></script>
+    <link rel="stylesheet" type="text/css" href="edit.css">
+</head>
+<body>
+<center><h2>Sisesta trenn</h2>
+    Raskusaste: <select id="dificulty">
+        <option value="Kerge">Kerge</option>
+        <option value="Keskmine">Keskmine</option>
+        <option value="Raske">Raske</option>
+    </select>
+    <br><br>
+    Kestus tundides: <select id="length">
+        <option value="0.5">30min</option>
+        <option value="1">1h</option>
+        <option value="1.5">1h30min</option>
+        <option value="2">2h</option>
+    </select>
+    <br><br>
+    Treeningu tüüp: <select id="trainingType">
+        <option value="Jooks">Jooks</option>
+        <option value="Pallitrenn">Pallitrenn</option>
+        <option value="Taktikatrenn">Taktikatrenn</option>
+        <option value="Jousaal">Jõusaal</option>
+    </select>
+    <br><br>
+    <input type="submit" class="btn btn-success" value="Add" id="submitBtn">
+    <br><br>
+    <h2>Nädala statistika</h2>
+    <table class="table table-bordered" id="table">
+        <tr>
+            <th>Päev</th>
+            <th>Treeningutüüp</th>
+            <th>Kestus</th>
+            <th>Raskusaste</th>
+        </tr>
+        <tr id="monday">
+            <td>Esmaspäev</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="tuesday">
+            <td>Teisipäev</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="wednesday">
+            <td>Kolmapäev</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="thursday">
+            <td>Neljapäev</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="friday">
+            <td>Reede</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="saturday">
+            <td>Laupäev</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="sunday">
+            <td>Pühapäev</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <br><br>
+    <p>Kokku treenitud tunde on: <span id="totalhours">0</span></p>
+    <br><br>
+    <p>Kergeid trenne on olnud: <span id="eztraining">0</span></p>
+    <br><br>
+    <p>Keskmise raskusega trenne on olnud <span id="medtraining">0</span></p>
+    <br><br>
+    <p>Raskeid trenne on olnud: <span id="hardtraining">0</span></p>
+</center>
+</body>
