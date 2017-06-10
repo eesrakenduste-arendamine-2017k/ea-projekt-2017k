@@ -16,7 +16,7 @@
 	//var_dump($_POST);
 	
 	//MUUTUJAD
-	$signupEmailError = "*";
+	$signupEmailError = "";
 	$signupEmail = "";
 	
 	//kas keegi vajutas nuppu ja see on olemas
@@ -28,7 +28,7 @@
 		if (empty ($_POST["signupEmail"])) {
 			
 			// on tuhi
-			$signupEmailError = "* Vali on kohustuslik!";
+			$signupEmailError = " Vali on kohustuslik!";
 			
 		} else {
 			// email on olemas ja oige
@@ -41,13 +41,13 @@
  
 	
 	
-	$signupPasswordError = "*";
+	$signupPasswordError = "";
 	
 	if (isset ($_POST["signupPassword"])) {
 		
 		if (empty ($_POST["signupPassword"])) {
 			
-			$signupPasswordError = "* Vali on kohustuslik!";
+			$signupPasswordError = " Vali on kohustuslik!";
 			
 		} else {
 			
@@ -55,7 +55,7 @@
 			
 			if ( strlen($_POST["signupPassword"]) < 8 ) {
 				
-				$signupPasswordError = "* Parool peab olema vahemalt 8 tahemarkki pikk!";
+				$signupPasswordError = " Parool peab olema vahemalt 8 tahemarkki pikk!";
 				
 			}
 			
@@ -77,7 +77,7 @@
 	
 	if (isset ($_POST["gender"])) {
 		if (empty ($_POST["gender"])) {
-			$genderError = "* Vali on kohustuslik!";
+			$genderError = " Vali on kohustuslik!";
 		} else {
 			$gender = $_POST["gender"];
 		}
@@ -87,8 +87,8 @@
 	
 	
 	
-	if ( $signupEmailError == "*" AND
-		 $signupPasswordError == "*" &&
+	if ( $signupEmailError == "" AND
+		 $signupPasswordError == "" &&
 		 isset($_POST["signupPassword"]) 
 	  ) {
 		
@@ -122,36 +122,40 @@
 		<header> <h1 class="headertext">P A I N T E R</h1> </header>
 			<div class="menustyle">
 				<table>
-					<th>GO BACK</th>
-					<th>MENU</th>
-					<th>GALLERY</th>
+					<th>WELCOME TO THE WEB PAGE</th>
 				</table>
 			</div>
 		<br>
   		
-		<h1>Loo kasutaja</h1>
 		
 		<form method="POST" >
+		<h1>NEW ACCOUNT</h1>
+		<br>
 			
-			<label>E-post</label><br>
-			<input name="signupEmail" type="email" value="<?=$signupEmail;?>"> <?php echo $signupEmailError; ?>
+			<label>E-mail</label><br>
+			<input class="holder" name="signupEmail" type="email" value="<?=$signupEmail;?>"> 
+			<p style="color:#FD6876;"><?php echo $signupEmailError; ?></p>
+			
+			<br>
+			
+			<label>Password</label><br>
+			<input class="holder" name="signupPassword" type="password"> 
+			<p style="color:#FD6876;"><?php echo $signupPasswordError; ?></p>
 			
 			<br><br>
 			
-			<label>Parool</label><br>
-			<input name="signupPassword" type="password"> <?php echo $signupPasswordError; ?>
+			<input  name="pagebutton" type="submit" value="Loo kasutaja">
 			
 			<br><br>
 			
-			<input type="submit" value="Loo kasutaja">
-			<p><a href="login.php"><-Tagasi</a></p>
+			<p><a href="login.php">←Tagasi</a></p>
 		
 		</form>
   			
 			<br>
 
   		
-		<h1 class="downtext">Page was made for university homework by Ksenia Belorusskaja</h1><br>
+		<h1 class="downtext">Page was made by Kirill Kotkas and Ksenia Belorusskaja</h1><br>
 		
 		</section>
   	

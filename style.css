@@ -99,7 +99,7 @@
 		font-family: Chisel_Mark;
 		src:url(font/Chisel_Mark.ttf);
 	}
-
+	
 	/*TEXT FOR HEADER*/
 	h1.headertext{
 		font-family:Chisel_Mark;
@@ -168,4 +168,58 @@
 		0% { color: #FD6876; }
 		50% { color: #FDC967; }
 		100% { color: FD6876; }
+	}
+	
+	h1 {
+		font-family:Chisel_Mark;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		font-size:30px;
+	}
+	
+	p{
+		font-family:Chisel_Mark;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		font-size:20px;
+	}
+	
+	label{
+		font-family:Chisel_Mark;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+		font-size:20px;
+	}
+	
+	form{
+		text-align:center;
+	}
+	
+	A{ color: #FDC967;}
+	A:visited{ color: #FD6876;}
+	A:active{ color: #FDC967;}
+	
+	input[name="pagebutton"]{
+		cursor:pointer;
+		background-color:#FDC967;
+		border: 1px solid black;
+		border-radius: 5px;
+		width:80px;
+		box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		font-family:Chisel_Mark;
+		font-size:20px;
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	}
+	
+	input[name="pagebutton"]:active{
+		background-color:#C1FD67;
+	}
+	input[name="pagebutton"]:focus{
+		outline: none;
+	}
+	
+	input.holder{
+		border: 1px solid grey;
+		height:20px;
+		border-radius: 4px;
+	}
+	input.holder:focus{
+		outline: none; 
 	}

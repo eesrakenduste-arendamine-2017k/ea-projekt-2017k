@@ -3,7 +3,7 @@
 	
 	require("functions.php");
 	
-	// kui on sisseloginud siis suunan data lehele
+	// IF LOGED IN GO TO DATA PAGE
 	if (isset($_SESSION["userId"])) {
 		header("Location: eksam.php");
 		exit();
@@ -11,7 +11,7 @@
 	
 	
 	$notice = "";
-	//kas kasutaja tahab sisse logida
+	// IF WANT TO LOG IN
 	if ( isset($_POST["loginEmail"]) && 
 		 isset($_POST["loginPassword"]) &&
 		 !empty($_POST["loginEmail"]) &&
@@ -31,40 +31,42 @@
   
   	<body>
   		
-  		<section>
+		<section>
 		
 		<header> <h1 class="headertext">P A I N T E R</h1> </header>
 			<div class="menustyle">
 				<table>
-					<th>GO BACK</th>
-					<th>MENU</th>
-					<th>GALLERY</th>
+					<th>WELCOME TO THE WEB PAGE</th>
 				</table>
 			</div>
 		<br>
-  		
-				<h1>Logi sisse</h1>
-		<p style="color:red;"><?=$notice;?></p>
 		<form method="POST" >
+		
+		<br>
+		
+		<h1>LOG IN</h1>
+		
+		<br>
+		
+		<p style="color:#FD6876;"><?=$notice;?></p>
 			
-			<label>E-post</label><br>
-			<input name="loginEmail" type="email">
+			<label>E-mail</label><br>
+			<input class="holder" name="loginEmail" type="email">
 			
 			<br><br>
-			<label>Parool</label><br>
-			<input name="loginPassword" type="password">
+			<label>Password</label><br>
+			<input  class="holder" name="loginPassword" type="password">
 			
 			<br><br>
 			
-			<input type="submit" value="Logi sisse">
-			<p><a href="register.php">Loo kasutaja</a></p>
+			<input name="pagebutton" type="submit" value="Log in">
+			<br><br>
+			<p><a href="register.php">Create new account</a></p>
 		
 		</form>
-  			
-			<br>
 
-  		
-		<h1 class="downtext">Page was made for university homework by Ksenia Belorusskaja</h1><br>
+  		<br>
+		<h1 class="downtext">Page was made by Kirill Kotkas and Ksenia Belorusskaja</h1><br>
 		
 		</section>
   	
