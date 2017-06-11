@@ -94,7 +94,7 @@
 		$stmt->bind_param("sss", $picturl, $pictname, $_SESSION["userEmail"]);
 		
 		if ( $stmt->execute() ) {
-			echo "õnnestus";
+			echo "Picture have saved";
 		} else {
 			echo "ERROR ".$stmt->error;
 		}
