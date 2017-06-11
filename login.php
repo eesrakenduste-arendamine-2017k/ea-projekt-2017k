@@ -3,9 +3,9 @@
 	
 	require("functions.php");
 	
-	// IF LOGED IN GO TO DATA PAGE
+	// IF LOGED IN GO TO GALERRY PAGE
 	if (isset($_SESSION["userId"])) {
-		header("Location: eksam.php");
+		header("Location: gallerry.php");
 		exit();
 	}
 	
@@ -60,9 +60,11 @@
 			<br><br>
 			
 			<input name="pagebutton" type="submit" value="Log in">
+			
 			<br><br>
+			
 			<p><a href="register.php">Create new account</a></p>
-		
+			
 		</form>
 
   		<br>

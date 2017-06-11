@@ -56,9 +56,9 @@
 			<!--UNDER HEADER MENU -->
 			<div class="menustyle">
 				<table>
-					<th><a class="blink" href="eksam.php">BACK</a></th>
+					<th><a href="gallerry.php">GALLERY</a></th>
 					<th>MY ARTS</th>
-					<th><a href="faq.php">FAQ</a></th>
+					<th><a class="blink" href="eksam.php">PAINTER</a></th>
 					<th><a href="?logout=1">SIGN OUT</a></th>
 				</table>
 			</div>
@@ -69,16 +69,16 @@
 <form method="POST" >
 	
 	<label>Picture url</label><br>
-	<input name="picturl" type="text">
+	<input class="holder" name="picturl" type="text">
 	
 	<br><br>
 	
 	<label>Picture name</label><br>
-	<input name="pictname" type="text">
+	<input class="holder" name="pictname" type="text">
 	
 	<br><br>
 	
-	<input type="submit" value="Save">
+	<input name="pagebutton" type="submit" value="Save">
 	<br><br>
 
 </form>
@@ -87,7 +87,7 @@
 
 <?php
 
-	$html = "<table>";
+	$html = "<table class=table1>";
 		
 		$html .= "<tr>";
 
@@ -101,7 +101,7 @@
 		foreach ($people as $p) {
 		
 		$html .= "<tr>";
-			$html .= "<td>".$p->picturl."</td>";
+			$html .= "<td><img width='800' height='500' src='".$p->picturl."'/></td>";
 			$html .= "<td>".$p->pictname."</td>";
 			$html .= "<td>".$p->email."</td>";
 		$html .= "</tr>";

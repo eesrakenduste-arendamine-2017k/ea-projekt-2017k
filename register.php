@@ -106,6 +106,7 @@
   		
 		
 		<form method="POST" >
+		<br>
 		<h1>NEW ACCOUNT</h1>
 		<br>
 			
