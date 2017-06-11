@@ -5,7 +5,7 @@ var urlsToCache = [
     "/~mkollo/ea-projekt/scripts/Chart.js",
     "/~mkollo/ea-projekt/scripts/data.js",
     "/~mkollo/ea-projekt/scripts/index.js",
-    "/~mkollo/ea-projekt/styles/index_style.css"
+    "/~mkollo/ea-projekt/styles/style.css"
 ];
 
 self.addEventListener('install', function(event) {
