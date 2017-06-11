@@ -2,7 +2,8 @@
   		margin:0;
   		padding:0;
 		font-family:Chisel_Mark;
-		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;		
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+font-size:25px;		
 	}
 	
 	body{

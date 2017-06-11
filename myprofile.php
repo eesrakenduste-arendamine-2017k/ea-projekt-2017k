@@ -9,7 +9,7 @@
 		session_destroy();
 		
 		header("Location: login.php");	
-	}	
+	}
 ?>
 <!DOCTYPE html>
   <html>
@@ -35,11 +35,6 @@
 			</div>
 			
 		<br><!--SPACE BETWEEN HEAD MENU AND PAINTER -->
-
-
-</form>
-
-
 <?php
 
 	$html = "<table class='table1'>";
