@@ -15,8 +15,8 @@
 			<div class="menustyle">
 				<table>
 					<th>GALLERRY</th>
-					<th href="eksam.html">MY ARTS</th>
-					<th><a class="blink" href="eksam.html">BACK</a></th>
+					<th href="eksam.php">MY ARTS</th>
+					<th><a class="blink" href="eksam.php">BACK</a></th>
 					<th>SIGN OUT</th>
 				</table>
 			</div>
