@@ -83,6 +83,37 @@
 
 </form>
 
+<h2>Pictures</h2>
+
+<?php
+
+	$html = "<table>";
+		
+		$html .= "<tr>";
+
+			$html .= "<th>Picture</th>";
+			$html .= "<th>Picture name</th>";
+			$html .= "<th>Picture creator</th>";
+
+		$html .= "</tr>";
+		
+		// iga liikme kohta massiivis
+		foreach ($people as $p) {
+		
+		$html .= "<tr>";
+			$html .= "<td>".$p->picturl."</td>";
+			$html .= "<td>".$p->pictname."</td>";
+			$html .= "<td>".$p->email."</td>";
+		$html .= "</tr>";
+		
+		}
+	
+	$html .= "</table>";
+	echo $html;
+
+
+?>
+
   			
 	
   		<!--FOOTER PAGE TEXT-->
