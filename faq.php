@@ -1,3 +1,13 @@
+<?php
+
+	if (isset($_GET["logout"])) {
+		
+		session_destroy();
+		
+		header("Location: login.php");	
+	}
+
+?>
  <!DOCTYPE html>
   <html>
     
@@ -14,8 +24,8 @@
 			<!--UNDER HEADER MENU -->
 			<div class="menustyle">
 				<table>
-					<th href="gallerry.php">GALLERY</th>
-					<th>MY ARTS</th>
+					<th><a href="gallerry.php">GALLERY</a></th>
+					<th><a href="myprofile.php">MY ARTS</a></th>
 					<th><a class="blink" href="eksam.php">BACK</a></th>
 					<th href="?logout=1">SIGN OUT</th>
 				</table>

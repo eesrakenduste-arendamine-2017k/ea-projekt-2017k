@@ -2,7 +2,14 @@
 	//uhendan sessiooniga
 	require("functions.php");
 	
-	$people = getUserInfo();	
+	$people = getUserInfo();
+
+	if (isset($_GET["logout"])) {
+		
+		session_destroy();
+		
+		header("Location: login.php");	
+	}	
 ?>
 <!DOCTYPE html>
   <html>

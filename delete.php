@@ -10,6 +10,12 @@
 		exit();
 	}
 	
+	//kas aadressireal on logout
+	if (isset($_GET["logout"])) {
+		session_destroy();
+		header("Location: login.php");	
+	}
+	
 	
 ?>
 <!DOCTYPE html>
