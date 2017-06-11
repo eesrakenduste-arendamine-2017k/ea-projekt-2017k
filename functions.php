@@ -62,7 +62,7 @@
 				$_SESSION["userEmail"] = $emailFromDb;
 				//echo "ERROR";
 				
-				header("Location: data.php");
+				header("Location: eksam.php");
 				
 			} else {
 				$notice = "parool vale";

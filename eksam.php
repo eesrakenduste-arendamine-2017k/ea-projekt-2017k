@@ -1,3 +1,22 @@
+<?php 
+	//ühendan sessiooniga
+	require("functions.php");
+	
+	//kui ei ole sisseloginud, suunan login lehele
+	if (!isset($_SESSION["userId"])) {
+		header("Location: login.php");
+		exit();
+	}
+	
+	
+	//kas aadressireal on logout
+	if (isset($_GET["logout"])) {
+		
+		session_destroy();
+		
+		header("Location: login.php");	
+	}
+?>
 <!DOCTYPE html>
   <html>
     
@@ -18,7 +37,7 @@
 					<th>GALLERRY</th>
 					<th>MY ARTS</th>
 					<th><p class="blink">FAQ</p></th>
-					<th>SIGN OUT</th>
+					<th><a href="?logout=1">SIGN OUT</a></th>
 				</table>
 			</div>
 			
