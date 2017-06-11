@@ -1,44 +1,8 @@
-<?php 
+<?php
 	//uhendan sessiooniga
 	require("functions.php");
 	
-	//kui ei ole sisseloginud, suunan login lehele
-	if (!isset($_SESSION["userId"])) {
-		header("Location: login.php");
-		exit();
-	}
-	
-	
-	//kas aadressireal on logout
-	if (isset($_GET["logout"])) {
-		
-		session_destroy();
-		
-		header("Location: login.php");
-		
-	}
-	
-	
-	if ( isset($_POST["picturl"]) && 
-		 isset($_POST["pictname"]) &&
-		 !empty($_POST["picturl"]) &&
-		 !empty($_POST["pictname"]) 
-	) {
-		
-		$picturl = cleanInput($_POST["picturl"]);
-		
-		$pictname = cleanInput($_POST["pictname"]);
-		
-		
-		
-		saveEvent(cleanInput($_POST["picturl"]), $pictname);
-		
-	}
-	
-	$people = getAllPeople();
-	
-
-	
+	$people = getUserInfo();	
 ?>
 <!DOCTYPE html>
   <html>
@@ -64,46 +28,30 @@
 			</div>
 			
 		<br><!--SPACE BETWEEN HEAD MENU AND PAINTER -->
-		
-<h2>Upload picture</h2>
-<form method="POST" >
-	
-	<label>Picture url</label><br>
-	<input class="holder" name="picturl" type="url">
-	
-	<br><br>
-	
-	<label>Picture name</label><br>
-	<input class="holder" name="pictname" type="text">
-	
-	<br><br>
-	
-	<input name="pagebutton" type="submit" value="Save">
-	<br><br>
+
 
 </form>
 
-<h2>Pictures</h2>
 
 <?php
 
-	$html = "<table class=table1>";
+	$html = "<table class='table1'>";
 		
 		$html .= "<tr>";
-
 			$html .= "<th>Picture</th>";
 			$html .= "<th>Picture name</th>";
 			$html .= "<th>Picture creator</th>";
-
+			$html .= "<th> *** </th>";
 		$html .= "</tr>";
 		
 		// iga liikme kohta massiivis
 		foreach ($people as $p) {
 		
 		$html .= "<tr>";
-			$html .= "<td><img width='800' height='500' src='".$p->picturl."'/></td>";
+			$html .= "<td><img width='150' height='150' src='".$p->picturl."'/></td>";
 			$html .= "<td>".$p->pictname."</td>";
 			$html .= "<td>".$p->email."</td>";
+			$html .= "<td><a href='delete.php?id=".$p->id."'>See full/Delete</a></td>";
 		$html .= "</tr>";
 		
 		}
@@ -113,9 +61,6 @@
 
 
 ?>
-
-  			
-	
   		<!--FOOTER PAGE TEXT-->
 		<h1 class="downtext">Page was made by Kirill Kotkas and Ksenia Belorusskaja</h1>
 		<br>
@@ -123,6 +68,6 @@
 		</section>
   	
   		<script src="script.js"></script>
-  	
+
 	</body>
 </html>

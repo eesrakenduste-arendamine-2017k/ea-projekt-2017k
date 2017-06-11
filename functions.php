@@ -19,7 +19,7 @@
 		$stmt->bind_param("ss", $email, $password);
 		
 		if ( $stmt->execute() ) {
-			echo "õnnestus";
+			echo "";
 		} else {
 			echo "ERROR ".$stmt->error;
 		}
@@ -56,7 +56,6 @@
 			$hash = hash("sha512", $password);
 			
 			if ($hash == $passwordFromDb) {
-				echo "Kasutaja $id logis sisse";
 				
 				$_SESSION["userId"] = $id;
 				$_SESSION["userEmail"] = $emailFromDb;
@@ -65,14 +64,14 @@
 				header("Location: gallerry.php");
 				
 			} else {
-				$notice = "parool vale";
+				$notice = "wrong password";
 			}
 			
 			
 		} else {
 			
 			//ei olnud ühtegi rida
-			$notice = "Sellise emailiga ".$email." kasutajat ei ole olemas";
+			$notice = "Can't found this ".$email." email ";
 		}
 		
 		
@@ -94,7 +93,6 @@
 		$stmt->bind_param("sss", $picturl, $pictname, $_SESSION["userEmail"]);
 		
 		if ( $stmt->execute() ) {
-			echo "Picture have saved";
 		} else {
 			echo "ERROR ".$stmt->error;
 		}
@@ -130,6 +128,73 @@
 		
 	}
 	
+	function getUserInfo() {
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		
+		$stmt = $mysqli->prepare("
+		SELECT id, picturl, pictname, email
+		FROM er_pict
+		WHERE email = ?
+		");
+		
+		$stmt->bind_param("s", $_SESSION["userEmail"]);
+		$stmt->bind_result($id, $picturl, $pictname, $email);
+		$stmt->execute();
+		$results = array();
+		
+		while($stmt->fetch()) {	
+			$user = new StdClass();
+			$user->id = $id;
+			$user->picturl = $picturl;
+			$user->pictname = $pictname;
+			$user->email = $email;
+			
+			array_push($results, $user);	
+		}
+		return $results;	
+	}
+	
+	
+	function deleteart($id){
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], 
+		$GLOBALS["serverUsername"], 
+		$GLOBALS["serverPassword"], 
+		$GLOBALS["database"]);		
+		
+		$stmt = $mysqli->prepare("
+		DELETE from er_pict WHERE id=?");
+		$stmt->bind_param("i", $id);
+		if($stmt->execute()){
+		}
+		$stmt->close();	
+	}
+	
+	function getsingleId($show_id){
+			
+			$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+			
+			$stmt = $mysqli->prepare("
+			SELECT picturl
+			FROM er_pict 
+			WHERE id = ?");
+			
+			$stmt->bind_param("i", $show_id);
+			$stmt->bind_result($picturl);
+			$stmt->execute();
+			$singleId = new Stdclass();
+			
+			if($stmt->fetch()){
+				$singleId->picturl = $picturl;
+			}else{
+				header("Location: delete.php");
+				exit();
+			}
+			$stmt->close();
+			return $singleId;
+		}
+	
 	function cleanInput($input) {
 		
 		$input = trim($input);
@@ -142,5 +207,4 @@
 		
 	}
 	
-
 ?>
