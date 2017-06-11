@@ -36,7 +36,7 @@
 					<th>GO BACK</th>
 					<th>GALLERRY</th>
 					<th>MY ARTS</th>
-					<th><p class="blink">FAQ</p></th>
+					<th><p class="blink" href="FAQ.html">FAQ</p></th>
 					<th><a href="?logout=1">SIGN OUT</a></th>
 				</table>
 			</div>
