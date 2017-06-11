@@ -14,10 +14,10 @@
 			<!--UNDER HEADER MENU -->
 			<div class="menustyle">
 				<table>
-					<th>GALLERRY</th>
+					<th><a href="gallerry.php">GALLERRY</a></th>
 					<th href="eksam.php">MY ARTS</th>
 					<th><a class="blink" href="eksam.php">BACK</a></th>
-					<th>SIGN OUT</th>
+					<th><a href="?logout=1">SIGN OUT</a></th>
 				</table>
 			</div>
 			

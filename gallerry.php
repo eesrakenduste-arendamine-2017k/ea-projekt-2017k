@@ -56,10 +56,9 @@
 			<!--UNDER HEADER MENU -->
 			<div class="menustyle">
 				<table>
-					<th>GO BACK</th>
-					<th>GALLERRY</th>
+					<th><a class="blink" href="eksam.php">BACK</a></th>
 					<th>MY ARTS</th>
-					<th><p class="blink" href="FAQ.php">FAQ</p></th>
+					<th><a href="faq.php">FAQ</a></th>
 					<th><a href="?logout=1">SIGN OUT</a></th>
 				</table>
 			</div>
@@ -80,6 +79,7 @@
 	<br><br>
 	
 	<input type="submit" value="Save">
+	<br><br>
 
 </form>
 
