@@ -138,6 +138,13 @@
 		border:1px solid black;
 	}
 	
+	h2.welcometext{
+		background-color:#C1FD67;
+		width: 800px;
+		margin: 0px auto;
+		font-size:26px;
+	}
+	
 	/*FOR UNDER HEADER MENU*/
 	table{
 		width:100%;
@@ -169,21 +176,17 @@
 	}
 	
 	h1 {
-		font-family:Chisel_Mark;
-		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 		font-size:30px;
 	}
 	
 	p{
-		font-family:Chisel_Mark;
-		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-		font-size:20px;
+		font-size:25px;
 	}
 	
 	label{
 		font-family:Chisel_Mark;
 		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-		font-size:20px;
+		font-size:25px;
 	}
 	
 	form{
@@ -223,7 +226,12 @@
 		outline: none; 
 	}
 	
-	table.table1, table.table1 td, table.table1 th {
-		border: 1px solid black;
-		text-align: center;
+	table.table1, table.table1 td {
+		width: 800px;
+		margin: 0px auto;
 	}
+	
+	 table.table1 th{
+		background-image:url(images/pattern.png);
+		border: 1px solid black;
+	 }

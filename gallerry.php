@@ -30,7 +30,7 @@
 		$pictname = cleanInput($_POST["pictname"]);
 		
 		
-		
+
 		saveEvent(cleanInput($_POST["picturl"]), $pictname);
 		
 	}
@@ -64,8 +64,12 @@
 			</div>
 			
 		<br><!--SPACE BETWEEN HEAD MENU AND PAINTER -->
+<h1 class="painterdraw">Welcome !</h1>
+<h2 class="welcometext"><br> This page was made by Kirill Kotkas and Ksenia Belorusskaja
+for univesity project.<br> Copyright to app painter by William Malone and VCR Games.<br><br>
+</h2>
 		
-<h2>Upload picture</h2>
+<h1 class="painterdraw">Upload your art</h1>
 <form method="POST" >
 	
 	<label>Picture url</label><br>
@@ -93,7 +97,6 @@
 
 			$html .= "<th>Picture</th>";
 			$html .= "<th>Picture name</th>";
-			$html .= "<th>Picture creator</th>";
 
 		$html .= "</tr>";
 		
@@ -101,9 +104,8 @@
 		foreach ($people as $p) {
 		
 		$html .= "<tr>";
-			$html .= "<td><img width='800' height='500' src='".$p->picturl."'/></td>";
+			$html .= "<td><img width='700px' height='400px' src='".$p->picturl."'/></td>";
 			$html .= "<td>".$p->pictname."</td>";
-			$html .= "<td>".$p->email."</td>";
 		$html .= "</tr>";
 		
 		}
