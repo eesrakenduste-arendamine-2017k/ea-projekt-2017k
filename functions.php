@@ -83,7 +83,64 @@
 		
 	
 	}
+
+	function saveEvent($picturl, $pictname) {
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		
+		$stmt = $mysqli->prepare("INSERT INTO er_pict (picturl, pictname, email) VALUE (?, ?, ?)");
+		echo $mysqli->error;
+		
+		$stmt->bind_param("sss", $picturl, $pictname, $_SESSION["userEmail"]);
+		
+		if ( $stmt->execute() ) {
+			echo "õnnestus";
+		} else {
+			echo "ERROR ".$stmt->error;
+		}
+		
+	}
 	
+	
+	function getAllPeople() {
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		
+		$stmt = $mysqli->prepare("
+		SELECT id, picturl, pictname, email
+		FROM er_pict
+		");
+		$stmt->bind_result($id, $picturl, $pictname, $email);
+		$stmt->execute();
+		
+		$results = array();
+		
+		while($stmt->fetch()) {
+			
+			$human = new StdClass();
+			$human->id = $id;
+			$human->picturl = $picturl;
+			$human->pictname = $pictname;
+			$human->email = $email;
+			
+			array_push($results, $human);
+			
+		}
+		return $results;
+		
+	}
+	
+	function cleanInput($input) {
+		
+		$input = trim($input);
+
+		$input = stripslashes($input);
+
+		$input = htmlspecialchars($input);
+		
+		return $input;
+		
+	}
 	
 
 ?>
