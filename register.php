@@ -61,30 +61,7 @@
 			
 		}
 		
-		/* GENDER */
-		
-		if (!isset ($_POST["gender"])) {
-			
-			//error
-		}else {
-			// annad vaartuse
-		}
-		
-	}
-	
-	//vaikimisi vaartus
-	$gender = "";
-	
-	if (isset ($_POST["gender"])) {
-		if (empty ($_POST["gender"])) {
-			$genderError = " Vali on kohustuslik!";
-		} else {
-			$gender = $_POST["gender"];
-		}
-		
 	} 
-	
-	
 	
 	
 	if ( $signupEmailError == "" AND
