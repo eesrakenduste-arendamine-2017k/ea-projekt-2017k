@@ -36,7 +36,7 @@ function renderTodoList(){
 	}
 		
 	for (var j=0; j<notes.completed.length; j++) {
-		var value = notes.completed[i];
+		var value = notes.completed[j];
 		addNoteTodoM(value, true);
 		
 	}
@@ -85,7 +85,7 @@ function completeNote(){
 	
 	notesObjectUpdated();
 	
-	var target = (id === 'todo') ? document.getElementById('done'):document.getElementById('todo');
+	var target = (id === 'todo') ? document.getElementById('completed'):document.getElementById('todo');
 
 	parent.removeChild(note);
 	target.insertBefore(note, target.childNodes[0]);
