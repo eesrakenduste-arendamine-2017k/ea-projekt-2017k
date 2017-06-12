@@ -20,19 +20,25 @@ function Master() {
     this.meal_count = [];
     this.sweets_count = [];
 
+
     this.registerServiceWorker();
+    $(window).resize(function() {
+        $('.stat-button').css('height', $(window).height() /6);
+        $('.stat-button').css('line-height', $('.stat-button').css('height'));
+    });
+    $(window).trigger('resize');
     this.add_button_functionality();
 }
 
 Master.prototype = {
 
     add_button_functionality: function () {
-        document.getElementById("btn1").addEventListener("click", this.increase_coffee.bind(this));
-        document.getElementById("btn2").addEventListener("click", this.increase_junkfood.bind(this));
-        document.getElementById("btn3").addEventListener("click", this.increase_sweets.bind(this));
-        document.getElementById("btn4").addEventListener("click", this.increase_meal.bind(this));
-        document.getElementById("btn5").addEventListener("click", this.add_sleeptimer.bind(this));
-        document.getElementById("btn6").addEventListener("click", this.add_sporttimer.bind(this));
+        document.getElementById("coffee").addEventListener("click", this.increase_coffee.bind(this));
+        document.getElementById("junkfood").addEventListener("click", this.increase_junkfood.bind(this));
+        document.getElementById("sweets").addEventListener("click", this.increase_sweets.bind(this));
+        document.getElementById("meal").addEventListener("click", this.increase_meal.bind(this));
+        document.getElementById("sleep").addEventListener("click", this.add_sleeptimer.bind(this));
+        document.getElementById("sport").addEventListener("click", this.add_sporttimer.bind(this));
 
         setInterval(function () {
             localStorage.setItem("sport", JSON.stringify({sport: master.spent_sportig}));
@@ -105,7 +111,9 @@ Master.prototype = {
                 });
             });
         }
-    }
+    },
+
+
 };
 
 
