@@ -24,10 +24,10 @@
 	"tabs",
 	"http://*/*",
 	"https://*/*",
-  "background"
-
-
+  "background",
+  "notifications"
   ],
+  
   "content_scripts" : [{
         "matches" : [ "*://*/*"],
         "js" : ["sounds.js","firebase.js","background.js","moment.js"]

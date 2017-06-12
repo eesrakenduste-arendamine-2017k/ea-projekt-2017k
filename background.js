@@ -70,19 +70,54 @@ function setSounds() {
   Pomodoro part
 */
 
+var states = {
+  "off": "something",
+  "pomodoro": "something"
+};
+var currentState = "off";
+
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse){
-    if(request.command === "startTimer"){
+  function(request, sender, sendResponse) {
+    //Ainult siis alustab timeriga, kui timer oli algselt kinni. Et ei timer jookseks viivitusteta.
+    if(request.command === "startTimer" && currentState === "off") {
       startTimer();
-      sendResponse({message: "Timer started."})
+      sendResponse({message: "Timer started."});
     }
 
 });
+
+//See funktsioon paneb timeri tööle ja uuendab umbes iga sekundi tagant
+
 function startTimer(){
 	var start = moment();
-	setInterval(function(){
-		var diff = moment().diff(start, 'minutes');
-		document.getElementById('current-time').innerText = diff;
+	var timer = setInterval(function(){
+		var diff = moment().diff(start, 'seconds');//minutes
+    updateTime(diff);
+    var length = localStorage ["pomodoro-selection"] || 10;
+    if (diff > length) {
+      clearInterval(timer);
+      notifyUser();
+    }
+	}, 1000); //60000
+  currentState = "pomodoro";
+}
 
-	}, 60000);
+function updateTime(diff) {
+  chrome.runtime.sendMessage({
+    "command": "updateTime",
+    "time": diff});
+}
+
+function notifyUser(){
+  var options = {
+    "type": "basic",
+    "title": "Pausi aeg!",
+    "message": "Aeg paus teha ja lasta silmadel puhata!",
+    "iconUrl":"ikoon.png"
+  };
+  var idBase = "pomodoro";
+  var id = idBase + (new Date()).getTime();
+  chrome.notifications.create(id, options, function(){
+    console.log(idBase + " created");
+  })
 }
