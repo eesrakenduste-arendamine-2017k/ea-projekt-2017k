@@ -200,22 +200,28 @@ function checkPlayedSounds() {
 
 
 }
+//Lisab click handlerid nuppudele
+/*function init() {
+  document.getElementById("pomodoro").innerText = localStorage["pomodoro-selection"] || 5;
+  	document.getElementById("break").innerText = localStorage["break-selection"] || 5;
 
-function init() {
-  addClickHandlers();
+  	var buttonGroups = document.getElementsByClassName("time-buttons-group")
+  	Array.prototype.forEach.call(buttonGroups, function(divElem) {
 
-}
+  		Array.prototype.forEach.call(divElem.childNodes, function(elem) {
+  			elem.onclick = timeButtonOnClickHandler;
+  		});
 
-function addClickHandlers(){
-  var buttonsDiv = document.getElementById("pomodoro-selection");
-  var buttons = buttonsDiv.children;
-  Array.prototype.forEach.call(buttons, function(button){
-    button.onclick = function(event) {
-      var specificButton = event.target;
-      var timeSelected = specificButton.innerText;
-      localStorage["pomodoro-selection"] = timeSelected;
-    }
-  });
-}
+  	});
+
+  }
+
+function timeButtonOnClickHandler(event) {
+  var targetElem = event.target;
+  var timeSelected = +targetElem.innerText; // Saab nupu teksti ja converdib nr-ks
+  var settingKey = targetElem.parentNode.id;
+  localStorage[settingKey] = timeSelected; // Salvestab localstorage.
+  document.getElementById(settingKey.split("-")[0]).innerText = timeSelected;
+}*/
 
 document.addEventListener('DOMContentLoaded', init);

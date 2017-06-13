@@ -21,19 +21,21 @@
            },
   "permissions": [
     "activeTab",
-	"tabs",
-	"http://*/*",
-	"https://*/*",
-  "background",
-  "notifications"
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "background",
+    "notifications"
   ],
-  
+
   "content_scripts" : [{
         "matches" : [ "*://*/*"],
         "js" : ["sounds.js","firebase.js","background.js","moment.js"]
 
-    }]
+    }],
 
-
+  "web_accessible_resources": [
+     		"ikoon.png"
+      	]
 
 }

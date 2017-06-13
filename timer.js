@@ -1,9 +1,7 @@
 //Kutsub funktsioonid välja kui lehe laadimisel.
 function init() {
+  addOnClick();
   addMessageListeners();
-  startTimer();
-
-
  }
  //Saadab backgroundi teate, et ta timeri tööle paneks:
  function startTimer(){
@@ -19,12 +17,22 @@ function init() {
  function addMessageListeners(){
    chrome.runtime.onMessage.addListener(
      function(request, sender, sendResponse) {
-       if(request.command === "updateTime") {
-         var time = request.time;
-        document.getElementById('current-time').innerText = time;
-       }
+       switch(request.command) {
+ 			case "updateTime":
+ 				document.getElementById("current-time").innerText = request.time;
+ 				break;
+ 			case "timerEnded":
+ 				console.log("Timer ended.");
+ 				break;
+ 		}
 
    });
+
+ }
+ function addOnClick() {
+   document.getElementById("start").onclick = function() {
+     startTimer();
+   }
  }
 
 
