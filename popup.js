@@ -224,4 +224,4 @@ function timeButtonOnClickHandler(event) {
   document.getElementById(settingKey.split("-")[0]).innerText = timeSelected;
 }*/
 
-document.addEventListener('DOMContentLoaded', init);
+/*document.addEventListener('DOMContentLoaded', init);*/

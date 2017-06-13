@@ -1,8 +1,8 @@
 //Kutsub funktsioonid välja kui lehe laadimisel.
 function init() {
-  addMessageListeners();
-  startTimer();
- }
+	addMessageListeners();
+	startTimer();
+}
  //Saadab backgroundi teate, et ta timeri tööle paneks:
  function startTimer(){
 	 chrome.runtime.sendMessage({
@@ -29,6 +29,7 @@ function init() {
    });
 
  }
+
 
 
  document.addEventListener('DOMContentLoaded', init);

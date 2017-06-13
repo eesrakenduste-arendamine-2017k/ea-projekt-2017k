@@ -69,11 +69,12 @@ function setSounds() {
 /*
   Pomodoro part
 */
+
 var timerStates = [
- 	{"state": "off", "html": "popup.html"},
-  {"state": "pomodoro", "html": "timer.html"},
-  {"state": "short", "html": "timer.html"}];
-   var currentState = 0;
+	{"state": "off", "html": "popup.html"},
+	{"state": "pomodoro", "html": "timer.html"},
+	{"state": "short", "html": "timer.html"}];
+var currentState = 0;
 
 function startTimer(start) {
   changeState();
@@ -116,23 +117,21 @@ function notifyUser() {
     console.log("Notification created. This callback function is required.");
   });
 }
-
 function changeState() {
- 	currentState = (currentState + 1) % 3;
- 	console.log(currentState);
- 	chrome.browserAction.setPopup({
- 		"popup": timerStates[currentState].html
- 	});
- }
+	currentState = (currentState + 1) % 3;
+	console.log(currentState);
+	chrome.browserAction.setPopup({
+		"popup": timerStates[currentState].html
+	});
+}
 
- chrome.browserAction.setPopup({
- 	"popup": timerStates[currentState].html
- });
-
+chrome.browserAction.setPopup({
+	"popup": timerStates[currentState].html
+});
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.command == "startTimer"  && currentState == 0) {
+    if (request.command == "startTimer") {
       var start = moment();
       startTimer(start);
       sendResponse({message: "Timer started."});
