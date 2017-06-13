@@ -1,7 +1,7 @@
 
 			Monster
 			
-Projekti tegi Rait Keenik.
+Projekti tegi Rait Keernik.
 Tegemist on mänguga. Mängija saab kehaosadest kokku panna monsteri. Ning siis võidelda sellega kas arvuti poolt juhuslikult või mõne teise mängija koostatud monsteriga.
 Funktsionaalsus:
 	*Saab teha kasutaja ja sisse logida
