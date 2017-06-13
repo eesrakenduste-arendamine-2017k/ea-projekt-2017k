@@ -6,10 +6,7 @@
   }
 
   function saveToFile($stringToSave){
-    $object = new StdClass();
-    $object->players = $stringToSave;
-    $jsonString = json_encode($object);
-    if(file_put_contents(FILENAME, $jsonString)){
+    if(file_put_contents(FILENAME, $stringToSave)){
       echo ('{"message":"saved successfully"}');
     }
   }

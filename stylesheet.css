@@ -307,3 +307,7 @@ a:link:active, a:visited:active {
   font-size: 1.3em;
   font-weight: bold;
 }
+
+.error {
+  border:2px solid red;
+}

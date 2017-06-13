@@ -14,13 +14,12 @@ body {
   width: 800px;
   margin-top: 100px;
   margin-left: 100px;
-  background-color: #666;
 }
 
 #savedPlayer {
   width: 400px;
   height: 400px;
-  margin-left: 200px;
+  margin-left: 650px;
   margin-top: 90px;
   background-color: #eee;
   border-radius: 5px;
@@ -69,13 +68,11 @@ body {
   width: 800px;
   margin-top: 100px;
   margin-right: 100px;
-  background-color: #666;
   border-radius: 5px;
 }
 
 #hallOfFame {
   height: 490px;
-  background-color: #888;
 }
 
 .interface {
@@ -119,6 +116,8 @@ a:link:active, a:visited:active {
 
 #PvP {
   float: left;
+  margin-left: 350px;
+  margin-top: 180px;
   background-color: #ff9900;
   cursor: pointer;
 }

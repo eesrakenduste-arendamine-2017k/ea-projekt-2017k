@@ -26,7 +26,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="main.css" />
-		<script src="javascript.js" charset="utf-8"></script>
+		<script type="text/javascript">
+	    var user = '<?php echo $user; ?>';
+		</script>
+		<script src="main.js" charset="utf-8"></script>
 		<title>Monster</title>
 	</head>
 
@@ -44,6 +47,8 @@
 				<div class="savedPlayerCreature" id="SPrightLeg"></div>
 			</div>
 
+			<a href="pvp.php"><div class="btn" id="PvP">PvP</div></a>
+
 		</div><!--container-->
 
     <div id="lContainer">
@@ -54,7 +59,6 @@
 
 			<div class="interface">
 				<div id="placeholder"></div>
-				<a href="pvp.php"><div class="btn" id="PvP">PvP</div></a>
 				<a href="monster.php"><div class="btn" id="PvAI">PvAI</div></a>
 			</div>
 
