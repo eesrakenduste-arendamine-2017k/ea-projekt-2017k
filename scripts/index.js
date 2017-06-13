@@ -12,8 +12,8 @@ function Master() {
     this.sleep_tiktok = 0;
     this.sport_tiktok = 0;
 
-    this.spent_sleeping = {start: 0, end: 0};
-    this.spent_sportig = {start: 0, end: 0};
+    this.spent_sleeping = {start: 0, end: 0, time: 0};
+    this.spent_sportig = {start: 0, end: 0, time: 0};
 
     this.coffe_count = [];
     this.junkfood_count = [];
@@ -21,9 +21,9 @@ function Master() {
     this.sweets_count = [];
 
 
-    this.registerServiceWorker();
-    $(window).resize(function() {
-        $('.stat-button').css('height', $(window).height() /6);
+    //this.registerServiceWorker();
+    $(window).resize(function () {
+        $('.stat-button').css('height', ($(window).height() - $('.navbar').height()) / 6);
         $('.stat-button').css('line-height', $('.stat-button').css('height'));
     });
     $(window).trigger('resize');
@@ -82,6 +82,7 @@ Master.prototype = {
         } else {
             this.sleep_on = 0;
             this.spent_sleeping.end = Date.now();
+            this.spent_sleeping.time = this.spent_sleeping.end - this.spent_sleeping.start;
             console.log("Saved sleeping time");
         }
     },
@@ -89,10 +90,11 @@ Master.prototype = {
     add_sporttimer: function () {
         if (this.sport_on === 0) {
             this.sport_on = 1;
-                this.spent_sportig.start = Date.now();
+            this.spent_sportig.start = Date.now();
         } else {
             this.sport_on = 0;
             this.spent_sportig.end = Date.now();
+            this.spent_sportig.time = this.spent_sportig.end - this.spent_sportig.start;
             console.log("Saved sporting time.")
 
         }
@@ -101,17 +103,25 @@ Master.prototype = {
 
     registerServiceWorker: function () {
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('../scripts/serviceWorker.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
+            navigator.serviceWorker.register('../serviceWorker.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful: ', registration);
+
+            }, function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
             });
         }
     },
+
+    addSoundEffects: function () {
+        $(".stat-button").each(function () {
+            $(this).click(function () {
+                var audio = new Audio('audio_file.mp3');
+                audio.play();
+            })
+        })
+    }
 
 
 };
