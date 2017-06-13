@@ -3,10 +3,12 @@
 ## Tähtaeg 
 
 Valitud eksamipäev
+05.13.2017
 
 ## Liikmete arv
 Võib teha üksi või kahekesi (maksimaalselt 3)
 
+Üksi
 **Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
 
 ## Tööjuhend
@@ -37,3 +39,23 @@ Võib teha üksi või kahekesi (maksimaalselt 3)
 
 3. **Funktsionaalsus**
     * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+
+	1. Tegemist on appiga, millega saab arvutada kaloreid ning oma kehamassiindeksi.
+	
+	BMI: Kehakaalu ja pikkuse suhe
+	Kategooria - BMI vahemik
+	Alakaal	16 - 18.9
+	Normaalkaal	19 - 25
+	Ülekaal	25.1 - 30
+	Rasvumine	30.1 - 35
+	
+	Source: http://www.kalkulaator.ee/et/kehamassiindeks
+	
+	Kalori kalkulaator näitab päevas kaotatud kaloreid ning palju peab teatuid toitaineid sööma, et püsida samas kaalus.
+	
+	Kasutatud/laenatud kood, kellele kuuluvad kõik autoriõigused:
+	
+	1. https://www.hscripts.com/scripts/JavaScript/calorie-calculator.php
+	2. https://stackoverflow.com/questions/21698044/basic-bmi-calculator-html-javascript
+	
+	

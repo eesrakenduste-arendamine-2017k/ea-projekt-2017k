@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+    <html>
+       <head>
+    <title>BMI Calculator</title>
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<style>
+
+blue_button {
+	background: none repeat scroll 0 0 #72B962;
+	border-bottom: 3px solid #3277BC;
+	text-shadow: 1px 1px 0 #214D73;
+	border: medium none;
+	border-radius: 0.3em;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-weight: bold;
+	margin: 10px 0;
+	padding: 7px 14px;
+}
+.frms input[type="text"],
+[type="password"],
+[type="file"],
+textarea,
+select {
+	background: none repeat scroll 0 0 #fff;
+	border: 1px solid #ddd;
+	border-radius: 0.35em;
+	height: 35px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	padding: 0 0.5%;
+	width: 99%;
+}
+.resp_code {
+	background: none repeat scroll 0 0 #f8f8f8;
+	border: 1px solid #ddd;
+	border-radius: 0.25em;
+	color: #333;
+	font: 1em/1.3em Tahoma, Geneva, sans-serif;
+	margin: 5px 10px 10px 20%;
+	overflow: auto;
+	padding: 10px 20px;
+	width: 50%;
+}
+@media only screen and (max-width: 650px) {
+	.resp_code {
+		margin: 5px 1px 10px !important;
+		width: auto !important;
+	}
+}
+body {
+	background-color: #9FCFCD;
+}
+
+
+</style>
+
+	
+    <script type="text/javascript">
+	
+
+
+        function calculateBMI() {
+			var height = Number(document.getElementById("height").value);
+			var heightunits = document.getElementById("heightunits").value;
+			var weight = Number(document.getElementById("weight").value);
+			var weightunits = document.getElementById("weightunits").value;
+			if (heightunits=="inches") height/=39.3700787;
+			if (weightunits=="lb") weight/=2.20462;
+			var BMI = Math.round(weight / Math.pow(height, 2) * 10000);
+			document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+			var output = Math.round(BMI * 100) / 100
+			if (output < 18.5) document.getElementById("comment").innerText = "Alakaal";
+			else if (output >= 18.5 && output <= 25) document.getElementById("comment").innerText = "Normaalkaal";
+			else if (output >= 25 && output <= 30) document.getElementById("comment").innerText = "Ülekaal";
+			else if (output > 30) document.getElementById("comment").innerText = "Rasvunud";
+}
+
+
+    </script>
+</head>
+
+<body>
+	<table id='tab' align='center' cellspacing='0' cellpadding='0' style="width:100%;">
+		<tr>
+			<td align=center>
+				<br><b><h1>Kehamassiindeksi kalkulaator</h1></b>
+				<br>
+				<br>
+				<table>
+					<tr>
+						<td style="color: #3D366F; font-size:13px;">
+							<p>Sisesta oma pikkus:
+								<input type="text" id="height" />
+								<select type="multiple" id="heightunits">
+									<option value="metres" selected="selected">sentimeetrit</option>
+									<option value="inches">tolli</option>
+								</select>
+							</p>
+							<p>Sisesta oma kaal:
+								<input type="text" id="weight" />
+								<select type="multiple" id="weightunits">
+									<option value="kg" selected="selected">kilogrammi</option>
+									<option value="lb">naela</option>
+								</select>
+							</p>
+							<input type="submit" class="blue_button" value="Arvuta kehamassiindeks" onclick="calculateBMI();">
+							<h2>Teie kehamassiindeks on: <span id="output">?</span></h2>
+							<h2>Kategooria: <span id="comment"> ?</span> </h2> 
+							<br>
+</body>
+
+</html>
