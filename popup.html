@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <title>Concentrate</title>
+
+    <script type="text/javascript" src="sounds.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  </head>
+  <body class="gradient">
+    <h1>Vali sobivad lood</h1>
+  <center> <form style="width:250px; margin-top:30px;"></center>
+
+       <fieldset>
+           <input type="button" id="btnPlay" value="Play" />
+           <input type="button" id="btnPause" value="Pause" /><br>
+       </fieldset>
+       <fieldset id="checks">
+           <input id="volume" type="range" min="0" max="100" value="50">
+       </fieldset>
+   </form>
+   <br><br>
+   <center>
+   <div id="container">
+      <h1>Taimer</h1><small>Sulle loodud Pomodoro taimer</small>
+        <h2>Pomodoro</h2><small>Vali töötamise pikkus</small>
+        <div class="setting-section">
+            <h2>Pomodoro</h2>
+            <div class="time-buttons-group">
+              <button type="button">15</button>
+              <button type="button">25</button>
+              <button type="button">45</button>
+            </div>
+          </div>
+
+        <h2>Paus</h2><small>Vali pausi pikkus</small>
+        <div class="time-buttons-group">
+           <button type="button">5</button>
+           <button type="button">10</button>
+           <button type="button">15</button>
+         </div>
+
+      <a href="timer.html"><button type="button">Alusta</button></a>
+    </div>
+  </center>
+  </body>
+  </html>
