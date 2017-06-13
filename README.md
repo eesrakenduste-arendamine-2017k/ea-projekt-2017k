@@ -1,39 +1,11 @@
-# Eesrakenduste arendamine 2017k – projekt
 
-## Tähtaeg 
-
-Valitud eksamipäev
-
-## Liikmete arv
-Võib teha üksi või kahekesi (maksimaalselt 3)
-
-**Juhul kui tehakse mitmekesi, peab olema näha GitHub'is, kes ja mida on kirjutanud. Kui ei ole näha, kes midagi kirjutanud on, tööd ei arvesta! Kui ei tea kuidas seda teha, küsi!**
-
-## Tööjuhend
-1. Üks fork'ib endale käesoleva repositooriumi ning annab vajadusele kirjutamisõiguse/ligipääsu
-1. Tee kohe Pull request
-1. Muuda repositooriumi `README.md faili` vastavalt nõutele
-1. Tee valmis korralik veebirakendus
-
-### Nõuded
-
-1. **README.md sisaldab:**
-    * suurelt projekti nime;
-    * kes teeb;
-    * eesmärki (3-4 lauset, mis probleemi rakendus lahendab);
-    * funktsionaalsuse loetelu prioriteedi järjekorras, nt
-        * v0.1 Saab teha kasutaja ja sisselogida
-        * v0.2 Saab lisada ...
-        * ...
-    * andmete liikumise skeem loetava pildina (mis lehed ja mis andmeid ning mis lehel käideldakse);
-
-2. **Veebirakenduse nõuded:**
-    * rakendus töötab nii palju kui saab ka võrguta olekus, st kasutab `ServiceWorker`it;
-    * andmeid talletatakse lisaks kohalikule (nt localStorage) ka serveripool (soovitatavalt andmebaasi või faili) – AJAX + serveripoolel nt PHP, Java, Node;
-    * Mugavalt kasutatav ka mobiilselt seadmelt;
-    * muutujad/tabelid on inglise keeles;
-    * rakendus on piisava funktsionaalsusega ja turvaline – eelnev kokkulepe õppejõuga, mis saab valmis;
-    * kood on jaotatud vajadusel eri failidesse ja kood on kokkupakitud kujul (ingl _minified_);
-
-3. **Funktsionaalsus**
-    * juhul kui algoritmiline keerukus on piisav siis kõiki nõudeid ei ole vaja täita – ainult eelneval kokkuleppel õppjõuga!
+			Monster
+			
+Projekti tegi Rait Keernik.
+Tegemist on mänguga. Mängija saab kehaosadest kokku panna monsteri. Ning siis võidelda sellega kas arvuti poolt juhuslikult või mõne teise mängija koostatud monsteriga.
+Funktsionaalsus:
+	*Saab teha kasutaja ja sisse logida
+	*Saab minna kas PvP poolele või PvAI ehk single player poolele.
+	*PvAI poolel saab teha ajutisi monstereid ning nendega võidelda arvuti poolt juhuslikult koostatud monsteriga.
+	*PvP poolel saab teha monsteri ning selle andmebaasi salvestada.
+	*PvP poolel saab valida kas juhuslikult või otsingu abil ühe vatase ja sellega ühe korra võidelda. Peale võitlust tuleb valida uus vastane või muuta oma monsterit et uuesti võidelda.
