@@ -69,13 +69,14 @@ function setSounds() {
 /*
   Pomodoro part
 */
-/*var timerStates = [
+var timerStates = [
  	{"state": "off", "html": "popup.html"},
   {"state": "pomodoro", "html": "timer.html"},
   {"state": "short", "html": "timer.html"}];
-   var currentState = 0;*/
+   var currentState = 0;
 
 function startTimer(start) {
+  changeState();
   var runningTimer = setInterval(function() {
     var difference = moment().diff(start, 'seconds');
     if (difference > 10) {
@@ -89,6 +90,7 @@ function startTimer(start) {
 function stopTimer(timer) {
   clearInterval(timer);
   notifyUser();
+  changeState();
   chrome.runtime.sendMessage({
     command: "timerEnded"
   });
@@ -115,10 +117,22 @@ function notifyUser() {
   });
 }
 
+function changeState() {
+ 	currentState = (currentState + 1) % 3;
+ 	console.log(currentState);
+ 	chrome.browserAction.setPopup({
+ 		"popup": timerStates[currentState].html
+ 	});
+ }
+
+ chrome.browserAction.setPopup({
+ 	"popup": timerStates[currentState].html
+ });
+
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.command == "startTimer") {
+    if (request.command == "startTimer"  && currentState == 0) {
       var start = moment();
       startTimer(start);
       sendResponse({message: "Timer started."});

@@ -1,7 +1,7 @@
 //Kutsub funktsioonid välja kui lehe laadimisel.
 function init() {
-  addOnClick();
   addMessageListeners();
+  startTimer();
  }
  //Saadab backgroundi teate, et ta timeri tööle paneks:
  function startTimer(){
@@ -28,11 +28,6 @@ function init() {
 
    });
 
- }
- function addOnClick() {
-   document.getElementById("start").onclick = function() {
-     startTimer();
-   }
  }
 
 
