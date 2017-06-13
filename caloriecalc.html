@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Calorie Calculator</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+
+<style>
+.blue_button{
+	background: none repeat scroll 0 0 #72B962;
+	border-bottom: 3px solid #3277BC;
+	text-shadow: 1px 1px 0 #214D73;
+	border: medium none;border-radius: 0.3em;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-weight: bold;margin: 10px 0;
+	padding: 7px 14px;}
+
+.frms input[type="text"],
+ [type="password"],
+ [type="file"],
+ textarea,
+ select {background: none repeat scroll 0 0 #fff;
+ border: 1px solid #ddd;border-radius: 0.35em;height: 35px;margin-bottom: 15px;
+ margin-top: 5px;padding: 0 0.5%;width: 99%;
+}
+.resp_code {
+background: none repeat scroll 0 0 #9FCFCD;
+border: 1px solid #38C0CD;border-radius: 0.25em;
+color: #333;font: 1em/1.3em Tahoma,Geneva,sans-serif;margin: 5px 10px 10px 20%;
+overflow: auto;padding: 10px 20px;width:50%;
+}
+@media only screen and (max-width:650px) {
+.resp_code {margin: 5px 1px 10px !important;width:auto !important;}
+}
+
+body {
+background-color: #9FCFCD;
+}
+</style>
+
+</head>
+
+
+<script type="text/javascript" src="calc.js"></script>
+</head>
+
+<body>
+	<div class='resp_code align=' center ''>
+		<table id='tab' align='center' cellspacing='0' cellpadding='0' style="width:100%;">
+			<tr>
+				<td align=center>
+					<br><b><h2>Palju pead kaloreid tarbima, et püsida terve?</h2></b>
+					<br>
+					<br>
+					<form name="frm" action="" class='frms noborders'>
+						<table>
+							<tr>
+								<td style="color: #3D366F; font-size:13px;">Vanus:</td>
+								<td>
+									<input type="text" name="age" id="age" align="left" size="3" maxlength="2" onkeypress="return cknum(event,age)">
+								</td>
+								<td><font color="#3D366F" size="2">
+ aastat</font>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #3D366F; font-size:13px;">Gender:</td>
+								<td>
+									<input type="radio" name="gen" id="gen" checked><font color="#3D366F" size="0.7">
+ Mees</font>
+									<input type="radio" name="gen" id="gen"><font color="#3D366F" size="0.7">
+ Naine</font>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #3D366F; font-size:13px;">Pikkus:</td>
+								<td>
+									<select style='width:50%;' name="foot" id="foot" onchange="hcon()">
+										<option value="1">1'</option>
+										<option value="2">2'</option>
+										<option value="3">3'</option>
+										<option value="4">4'</option>
+										<option value="5">5'</option>
+										<option value="6">6'</option>
+										<option value="7">7'</option>
+									</select>
+									<select style='width:40%;' name="inch" id="inch" onchange="hcon()">
+										<option value="1">1"</option>
+										<option value="2">2"</option>
+										<option value="3">3"</option>
+										<option value="4">4"</option>
+										<option value="5">5"</option>
+										<option value="6">6"</option>
+										<option value="7">7"</option>
+										<option value="8">8"</option>
+										<option value="9">9"</option>
+										<option value="10">10"</option>
+										<option value="11">11"</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #3D366F; font-size:13px;">Cms :</td>
+								<td>
+									<input type="text" name="cen" id="cen" size="4" onkeyup="con(cen)">
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #3D366F; font-size:13px;">Kaal:</td>
+								<td>
+									<input type="text" name="weight" id="weight" maxlength="3" size="3" onkeyup="isNumberKey(this.id)">
+								</td>
+								<td>
+									<select name="wtype" id="wtype">
+										<option value="kg">Kg</option>
+										<option value="pounds">Naela</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: #3D366F; font-size:13px;">Aktiivsus:</td>
+								<td>
+									<select style='width:250px;' name="loa" id="loa">
+										<option value="1">Istuv elustiil</option>
+										<option value="2">Vähese aktiivsusega elustiil</option>
+										<option value="3">Keskmise aktiivsusega elustiil</option>
+										<option value="4">Suure aktiivsusega elustiil</option>
+										<option value="5">Väga aktiivne elustiil</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td colspan='2' align="center">
+									<input class='blue_button' type="button" value="Arvuta kalorid" onclick="cc()"><span id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;"><a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;"></a></span>
+								</td>
+							</tr>
+						</table>
+					</form>
+					<br>
+					<table align="center" border="0" class="frms noborders">
+						<caption><b>
+Kalorid</b>
+						</caption>
+						<tr>
+							<td align="right" style="color: #3D366F; font-size:13px;">Kaloreid vaja:</td>
+							<td>
+								<input type="text" id="rc" style="font-size:13px;" size="15" readonly>
+							</td>
+							<td>
+								<select name="caltype" id="caltype" onChange="convert()">
+									<option value="g">Grammi</option>
+									<option value="kg">Kilogrammi</option>
+									<option value="pounds">Naela</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<div style="color: #3D366F; font-size:13px;">Teil on vaja võtta nii palju kaloreid, et püsida samas kaalus.</div>
+					<table class="frms noborders">
+						<tr>
+							<td style="color: #3D366F; font-size:13px;">Rasva:</td>
+							<td style="color: #3D366F; font-size:13px;">
+								<input type="text" id="rf" style="font-size:13px;" size="10" readonly>
+							</td>
+							<td><font color="#3D366F" size="2" style='float:right'><label id="l1"></label>
+ päevas</font>
+							</td>
+						</tr>
+						<tr>
+							<td style="color: #3D366F; font-size:13px;">Valku:</td>
+							<td style="color: #3D366F; font-size:13px;">
+								<input type="text" id="rp" style="font-size:13px;" size="10" readonly>
+							</td>
+							<td><font color="#3D366F" size="2" style='float:right'><label id="l2"></label>
+ päevas</font>
+							</td>
+						</tr>
+						<tr>
+							<td style="color: #3D366F; font-size:13px;">Süsivesikuid:</td>
+							<td style="color: #3D366F; font-size:13px;">
+								<input type="text" id="rh" style="font-size:13px;" size="10" readonly>
+							</td>
+							<td><font color="#3D366F" size="2" style='float:right'><label id="l3"></label>
+ päevas</font>
+							</td>
+						</tr>
+						<tr>
+							<td style="color: #3D366F; font-size:13px;">Alkoholi:</td>
+							<td style="color: #3D366F; font-size:13px;">
+								<input type="text" id="ra" style="font-size:13px;" size="10" readonly>
+							</td>
+							<td><font color="#3D366F" size="2" style='float:right'><label id="l4"></label>
+ päevas</font>
+							</td>
+						</tr>
+					</table>
+			</tr>
+			</td>
+		</table>
+	</div>
+</body>
+
+</html>
+
