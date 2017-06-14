@@ -84,3 +84,9 @@ nav {
 #coffee:hover {
     background-color: #0688fa;
 }
+
+canvas{
+    height:30%;
+    width:30%;
+
+}

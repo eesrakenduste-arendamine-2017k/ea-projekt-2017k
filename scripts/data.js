@@ -1,25 +1,25 @@
 function filter(master, range) {
     var filtered = {sweets: [], meals: [], junkfood: [], coffee: []};
-    for(sweet_timsestamp in master.sweets){
-        if(sweet_timsestamp > range.week_begin && sweet_timsestamp < range.week_end){
+    for (sweet_timsestamp in master.sweets) {
+        if (sweet_timsestamp > range.week_begin && sweet_timsestamp < range.week_end) {
             filtered.sweets.append();
         }
     }
 
-    for(meal_timsestamp in master.meals){
-        if(meal_timsestamp > range.week_begin && meal_timsestamp < range.week_end){
+    for (meal_timsestamp in master.meals) {
+        if (meal_timsestamp > range.week_begin && meal_timsestamp < range.week_end) {
             filtered.meals.append();
         }
     }
 
-    for(junkfood_timsestamp in master.junkfood){
-        if(junkfood_timsestamp > range.week_begin && junkfood_timsestamp < range.week_end){
+    for (junkfood_timsestamp in master.junkfood) {
+        if (junkfood_timsestamp > range.week_begin && junkfood_timsestamp < range.week_end) {
             filtered.junkfood.append();
         }
     }
 
-    for(junkfood_timsestamp in master.junkfood){
-        if(junkfood_timsestamp > range.week_begin && junkfood_timsestamp < range.week_end){
+    for (junkfood_timsestamp in master.junkfood) {
+        if (junkfood_timsestamp > range.week_begin && junkfood_timsestamp < range.week_end) {
             filtered.junkfood.append();
         }
     }
@@ -30,9 +30,16 @@ function filter(master, range) {
 function getLastWeekRange() {
     week_begin = new Date(Sugar.Date.create("last monday")).getTime();
     week_end = new Date(Sugar.Date.create("sunday")).getTime();
-
     return {week_begin: week_begin, week_end: week_end}
 }
+
+
+function getThisWeekRange() {
+    week_begin = new Date(Sugar.Date.create('this monday')).getTime();
+    week_end = new Date(Sugar.Date.create("next monday"));
+    return {week_begin: week_begin, week_end: week_end}
+}
+
 
 function makePie(canvas_id, input_data) {
     var ctx = document.getElementById(canvas_id).getContext("2d");
@@ -57,17 +64,28 @@ function makeRadar(canvas_id, input_data) {
     var date_range = getLastWeekRange();
     var ctx = document.getElementById(canvas_id).getContext("2d");
 
+    var data_this_week = filter(input_data, getThisWeekRange());
+    var data_last_week = filter(input_data, getLastWeekRange());
+
+
     var data = {
-        labels: ['Söögid', 'Joomine', 'Kohv', 'Rämpstoits'],
+        labels: ["Majustused", "Söömaajad", "Rämpstoit", "Kohh"],
         datasets: [{
-            data: [20, 10, 4, 2]
+            label: "Praegune nädal",
+            backgroundColor: "rgba(200,0,0,0.2)",
+            data: [data_this_week.sweets.length, data_this_week.meals.length, data_this_week.junkfood.length, data_this_week.coffee.length]
+        }, {
+            label: "Eelmine nädal",
+            backgroundColor: "rgba(0,0,200,0.2)",
+            data: [data_last_week.sweets.length, data_last_week.meals.length, data_last_week.junkfood.length, data_last_week.coffee.length]
         }]
+
     };
 
     var myRadarChart = new Chart(ctx, {
         type: 'radar',
         data: data,
-        options: options
+        options: {}
     });
 
 }
@@ -80,7 +98,7 @@ window.onload = function () {
     var junkfood = JSON.parse(localStorage.getItem("junkfood")).junkfood;
     var coffee = JSON.parse(localStorage.getItem("coffee")).coffee;
 
-    var master = {sweets: sweets, meals: meals, junkfood: junkfood, coffee: coffee}
+    var master = {sweets: sweets, meals: meals, junkfood: junkfood, coffee: coffee};
     makePie('pieChart', master);
     makeRadar('radarChart', master);
 };
