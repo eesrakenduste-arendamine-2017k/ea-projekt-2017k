@@ -10,8 +10,8 @@ function Master() {
     this.sport_on = 0;
 
 
-    this.spent_sleeping = {start: 0, end: 0, time: 0};
-    this.spent_sportig = {start: 0, end: 0, time: 0};
+    this.spent_sleeping = {start: [], end: [], time: [], today: []};
+    this.spent_sporting = {start: [], end: [], time: []};
 
     this.coffee_count = [];
     this.junkfood_count = [];
@@ -21,7 +21,7 @@ function Master() {
 
     this.add_button_functionality();
     this.addSoundEffects();
-    //this.registerServiceWorker();
+
 
     $(window).resize(function () {
         $('.stat-button').css('height', ($(window).height() - $('.navbar').height()) / 6);
@@ -42,8 +42,8 @@ Master.prototype = {
         document.getElementById("sport").addEventListener("click", this.add_sporttimer.bind(this));
 
         setInterval(function () {
-            localStorage.setItem("sport", JSON.stringify({sport: master.spent_sportig}));
-            localStorage.setItem("sleeping", JSON.stringify({sleep: master.spent_sleeping}));
+            localStorage.setItem("sport", JSON.stringify({sport: master.spent_sporting}));
+            localStorage.setItem("sleeping", JSON.stringify(master.spent_sleeping));
             localStorage.setItem("sweets", JSON.stringify({sweets: master.sweets_count}));
             localStorage.setItem("coffee", JSON.stringify({coffee: master.coffee_count}));
             localStorage.setItem("meal", JSON.stringify({meal: master.meal_count}));
@@ -77,25 +77,31 @@ Master.prototype = {
     },
 
     add_sleeptimer: function () {
+        var week_names = ["Pühapäev", "Esmapäev", "Teisipäev", "Kolmapäev", "Neljapäev", "Reede", "Laupäev"];
+        var today =  week_names[new Date().getDay()];
+
+
         if (this.sleep_on === 0) {
             this.sleep_on = 1;
-            this.spent_sleeping.start = Date.now();
+            this.spent_sleeping.start.push(Date.now());
         } else {
             this.sleep_on = 0;
-            this.spent_sleeping.end = Date.now();
-            this.spent_sleeping.time = this.spent_sleeping.end - this.spent_sleeping.start;
+            this.spent_sleeping.end.push(Date.now());
+            this.spent_sleeping.time.push(this.spent_sleeping.end - this.spent_sleeping.start);
+            this.spent_sleeping.today.push(today);
             console.log("Saved sleeping time");
         }
     },
 
     add_sporttimer: function () {
+
         if (this.sport_on === 0) {
             this.sport_on = 1;
-            this.spent_sportig.start = Date.now();
+            this.spent_sporting.start.push(Date.now());
         } else {
             this.sport_on = 0;
-            this.spent_sportig.end = Date.now();
-            this.spent_sportig.time = this.spent_sportig.end - this.spent_sportig.start;
+            this.spent_sporting.end = Date.now();
+            this.spent_sporting.time = this.spent_sporting.end - this.spent_sporting.start;
             console.log("Saved sporting time.")
 
         }
