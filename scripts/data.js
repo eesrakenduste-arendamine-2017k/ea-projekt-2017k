@@ -1,28 +1,30 @@
 function filter(master, range) {
     var filtered = {sweets: [], meals: [], junkfood: [], coffee: []};
-    for (sweet_timsestamp in master.sweets) {
+    master.sweets.forEach(function(sweet_timsestamp){
         if (sweet_timsestamp > range.week_begin && sweet_timsestamp < range.week_end) {
-            filtered.sweets.append();
+            filtered.sweets.push(sweet_timsestamp);
         }
-    }
+    });
 
-    for (meal_timsestamp in master.meals) {
+
+
+    master.meals.forEach(function(meal_timsestamp){
         if (meal_timsestamp > range.week_begin && meal_timsestamp < range.week_end) {
-            filtered.meals.append();
+            filtered.meals.push(meal_timsestamp);
         }
-    }
+    });
 
-    for (junkfood_timsestamp in master.junkfood) {
+    master.junkfood.forEach(function(junkfood_timsestamp){
         if (junkfood_timsestamp > range.week_begin && junkfood_timsestamp < range.week_end) {
-            filtered.junkfood.append();
+            filtered.junkfood.push(junkfood_timsestamp);
         }
-    }
+    });
 
-    for (junkfood_timsestamp in master.junkfood) {
-        if (junkfood_timsestamp > range.week_begin && junkfood_timsestamp < range.week_end) {
-            filtered.junkfood.append();
+    master.coffee.forEach(function(coffee_timsestamp){
+        if (coffee_timsestamp > range.week_begin && coffee_timsestamp < range.week_end) {
+            filtered.coffee.push(coffee_timsestamp);
         }
-    }
+    });
 
     return filtered;
 }
@@ -99,6 +101,8 @@ window.onload = function () {
     var coffee = JSON.parse(localStorage.getItem("coffee")).coffee;
 
     var master = {sweets: sweets, meals: meals, junkfood: junkfood, coffee: coffee};
+    window.master = master;
+
     makePie('pieChart', master);
     makeRadar('radarChart', master);
 };
