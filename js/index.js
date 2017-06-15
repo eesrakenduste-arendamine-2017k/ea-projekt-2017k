@@ -3,6 +3,12 @@
  * MIT Licensed.
  */
 // Inspired by base2 and Prototype
+if(localStorage.getItem("SpaceInvaders") === null || 
+	localStorage.getItem("SpaceInvaders") === ""){
+	var scores = [];
+} else {
+	var scores = JSON.parse(localStorage.getItem("SpaceInvaders"));
+}
 (function(){
   var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
  
@@ -98,7 +104,7 @@ var ALIEN_MIDDLE_ROW = [ { x: 0, y: 137, w: 50, h: 33 }, { x: 0, y: 170, w: 50, 
 var ALIEN_TOP_ROW = [ { x: 0, y: 68, w: 50, h: 32 }, { x: 0, y: 34, w: 50, h: 32 }];
 var ALIEN_X_MARGIN = 40;
 var ALIEN_SQUAD_WIDTH = 11 * ALIEN_X_MARGIN;
-
+var P = 80;
 
 
 // ###################################################################
@@ -180,6 +186,7 @@ var alienYDown = 0;
 var alienCount = 0;
 var wave = 1;
 var hasGameStarted = false;
+var gamePaused = false;
 
 
 
@@ -250,6 +257,7 @@ var Player = SheetSprite.extend({
     this.bullets = [];
     this.bulletDelayAccumulator = 0;
     this.score = 0;
+	this.hits = 0;
   },
   
   reset: function() {
@@ -276,6 +284,13 @@ var Player = SheetSprite.extend({
         this.bulletDelayAccumulator = 0;
       }
     }
+	if (wasKeyPressed(P)){
+		if(!gamePaused){
+		gamePaused = true;
+		} else {
+		gamePaused =false;
+		}
+	}
   },
   
   updateBullets: function(dt) {
@@ -602,7 +617,7 @@ function resolveBulletEnemyCollisions() {
       if (checkRectCollision(bullet.bounds, alien.bounds)) {
         alien.alive = bullet.alive = false;
         particleManager.createExplosion(alien.position.x, alien.position.y, 'white', 70, 5,5,3,.15,50);
-        player.score += 25;
+		player.score += 25;
       }
     }
   }
@@ -612,13 +627,16 @@ function resolveBulletPlayerCollisions() {
   for (var i = 0, len = aliens.length; i < len; i++) {
     var alien = aliens[i];
     if (alien.bullet !== null && checkRectCollision(alien.bullet.bounds, player.bounds)) {
-      if (player.lives === 0) {
+      player.lives--;
+	  if (player.lives === 0) {
+		scores[scores.length] = player.score;
+		localStorage.SpaceInvaders = JSON.stringify(scores);
         hasGameStarted = false;
+		loadScores(); // et peale uuendamist näidata uut skoori
       } else {
        alien.bullet.alive = false;
        particleManager.createExplosion(player.position.x, player.position.y, 'green', 100, 8,8,6,0.001,40);
        player.position.set(CANVAS_WIDTH/2, CANVAS_HEIGHT - 70);
-       player.lives--;
         break;
       }
 
@@ -632,11 +650,16 @@ function resolveCollisions() {
 }
 
 function updateGame(dt) {
-  player.handleInput();
-  prevKeyStates = keyStates.slice();
-  player.update(dt);
-  updateAliens(dt);
-  resolveCollisions();
+	if(!gamePaused){
+	  player.handleInput();
+	  prevKeyStates = keyStates.slice();
+	  player.update(dt);
+	  updateAliens(dt);
+	  resolveCollisions();
+	} else {
+		player.handleInput();
+		prevKeyStates = keyStates.slice();
+}
 }
 
 function drawIntoCanvas(width, height, drawFunc) {
@@ -705,9 +728,10 @@ function animate() {
     hasGameStarted = true;
   }
   
-  if (hasGameStarted) {
-     updateGame(dt / 1000);  
-  }
+ if (hasGameStarted) {
+		updateGame(dt / 1000);  
+	}
+	
 
  
   ctx.fillStyle = 'black';
@@ -756,12 +780,42 @@ function onKeyUp(e) {
   keyStates[e.keyCode] = false;
 }
 
+function pause(){
+	
+}
+// ##################################################################
+// Localstoragest andmete lugemine ja tabelisse lisamine 
+//
+// ##################################################################
+function loadScores(){
+	var table = document.getElementById("toplist").getElementsByTagName("TBODY")[0];
+	var i = 0;
+	table.innerHTML = "";
+	
+	if(scores.length > 0){
+		var top10 = scores.sort(function(a, b) { return a < b ? 1 : -1; }).slice(0, 10);
+		for(i; i < top10.length; i++){
+			var row = table.insertRow(-1);
+			var cell = row.insertCell(-1);		
+			cell.innerHTML = top10[i];
+		}
+	} else {
+		var row = table.insertRow(-1);
+		var cell = row.insertCell(-1);		
+		cell.innerHTML = 0;
+	}
+	
+	
+	
+
+}
 
 // ###################################################################
 // Start game!
 //
 // ###################################################################
 window.onload = function() {
-  init();
-  animate();
+	loadScores(); //et esma avamisel näidata high score
+	init();
+	animate();
 };
