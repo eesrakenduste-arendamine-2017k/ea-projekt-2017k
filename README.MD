@@ -17,6 +17,7 @@
     * v0.4 Saab näha enda skoori, elude arvu kui ka vana kooli arkaadi Credit:00 sõnumit
     * v0.5 Mäng lõppeb, kui kaotad kõik kolm elu.
     * v0.6 Mängu saab mängida ka ilma internetita.
+	* v0.7 Lisatud paus nupp ja top 10 skoori edetabel
 
 ### Andmete liikumise skeem pildina
 
